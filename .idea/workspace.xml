@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="810c41de-78af-43b9-b958-f8a9989cf8b1" name="Default" comment="- update projects">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    <list default="true" id="810c41de-78af-43b9-b958-f8a9989cf8b1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -217,6 +215,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="810c41de-78af-43b9-b958-f8a9989cf8b1" name="Default" comment="" />
@@ -228,6 +229,14 @@
       <workItem from="1499709978313" duration="175000" />
       <workItem from="1499710250183" duration="96000" />
     </task>
+    <task id="LOCAL-00001" summary="- update projects&#10;- add gitignore">
+      <created>1511017497214</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1511017497214</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -263,6 +272,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- update projects&#10;- add gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="- update projects&#10;- add gitignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
