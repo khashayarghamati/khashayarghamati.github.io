@@ -171,8 +171,7 @@
     <!-- Video Embeds -->
     <h3>Demonstration Videos</h3>
     <div class="videos">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/your-video-id" title="YouTube video player" allowfullscreen></iframe>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/another-video-id" title="YouTube video player" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/HI_fXSfgixk" title="ARI humanoid robot imitates human gaze behaviour using reinforcement learning in real-world environments" allowfullscreen></iframe>
     </div>
 
     <!-- Abstract -->
@@ -195,10 +194,17 @@
 
 
     <!-- Download Paper -->
-    <a href="#" download class="download-btn">Download Full Paper</a>
-    <a href="#" download class="download-btn">Code</a>
+    <a href="https://ieeexplore.ieee.org/document/10769867" download class="download-btn">Download Full Paper</a>
+    <a href="#" class="download-btn" onclick="showCodeDialog(event)">Code</a>
   </section>
 </div>
+
+<script>
+  function showCodeDialog(event) {
+    event.preventDefault();
+    alert("To access the source code, please email us at: k.ghamati@herts.ac.uk");
+  }
+</script>
 
 <footer>
   <p>&copy; 2024 Khashayar Ghamati Ghamsari. All rights reserved.</p>
