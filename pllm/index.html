@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khashayar Ghamati</title>
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+
+  <!-- External CSS for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    /* Toolbar Styling */
+    .toolbar {
+      background-color: #0077b6;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: flex-start;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .toolbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.125rem;
+      font-weight: 400;
+      margin-right: 20px;
+      transition: color 0.3s;
+    }
+
+    .toolbar a:hover {
+      color: #94d2bd;
+    }
+
+    header {
+      background-color: #0077b6;
+      padding: 2rem 0;
+      text-align: center;
+      color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 20px;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #0077b6;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    section p {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      text-align: justify;
+      margin-bottom: 2rem;
+    }
+
+    h3 {
+      color: #333;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      font-size: 1.125rem;
+      line-height: 1.6;
+    }
+
+    .figure {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .figure img {
+      max-width: 50%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Download button */
+    a.download-btn {
+      display: inline-block;
+      background-color: #0077b6;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-size: 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      text-align: center;
+      margin-top: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    a.download-btn:hover {
+      background-color: #0096c7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      background-color: #023e8a;
+      color: white;
+      margin-top: 3rem;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+  </style>
+
+  </style>
+</head>
+<body>
+
+<!-- Toolbar with Home Button -->
+<div class="toolbar">
+  <a href="/"><i class="fas fa-home"></i> Home</a>
+</div>
+
+<header>
+  <h1>Towards AI-Powered Applications: The Development of a Personalised LLM for HRI and HCI</h1>
+</header>
+
+<div class="container">
+  <section id="pllm">
+    <h2>About the Paper</h2>
+    <p>
+      This paper presents the development of a <strong>Personalised Large Language Model (PLLM)</strong> for
+      <strong>Human-Robot Interaction (HRI)</strong> and <strong>Human-Computer Interaction (HCI)</strong>. The proposed
+      framework integrates domain-specific data to personalize large language models, improving adaptability and
+      user-centric AI applications.
+    </p>
+
+    <h3>Abstract</h3>
+    <p>
+      This work proposes a <strong>Personalised Large Language Model (PLLM)</strong> agent designed to enhance adaptability
+      in <strong>HRI and HCI applications</strong>. Traditional LLMs struggle with dynamic adaptation to user-specific
+      contexts. We introduce a novel approach to personalisation, integrating the <strong>NeuroSense EEG dataset</strong>
+      to enable real-time emotional state interpretation.
+    </p>
+
+    <div class="figure">
+      <img src="f1.jpg" alt="Figure 1 - Overview of the PLLM framework">
+      <p><strong>Figure 1:</strong> The proposed Comprehensive Guide to Integrating Large Language Models with Streamlit: Developing the Personalised LLM (PLLM) Framework</p>
+    </div>
+
+    <div class="figure">
+      <img src="f2.jpg" alt="Figure 2 - EEG Data Processing for Personalisation">
+      <p><strong>Figure 2:</strong> An Overview of the Integration of the Proposed PLLM Agent with EEG Data.</p>
+    </div>
+
+    <h3>Challenges Addressed</h3>
+    <ul>
+      <li><strong>Lack of Context Awareness in LLMs:</strong> Conventional LLMs struggle to adapt dynamically to evolving environments.</li>
+      <li><strong>Personalisation of AI Models:</strong> The proposed framework enables efficient real-time adaptation of LLMs.</li>
+    </ul>
+
+    <a href="#" download class="download-btn">Download Full Paper</a>
+    <a href="https://github.com/khashayarghamati/PLLM" class="download-btn" >Source Code</a>
+
+  </section>
+</div>
+
+<footer>
+  <p>&copy; 2025 Khashayar Ghamati. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
