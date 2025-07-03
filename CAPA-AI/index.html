@@ -3,13 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Khashayar Ghamati</title>
+
+
+
+  <!-- ...existing head content... -->
+  <meta name="description" content="CAPA-AI: A continual adaptation and novelty detection framework for human-robot interaction, leveraging reinforcement learning, vision-language models, and transfer learning. Presented at Ro-Man 2025.">
+  <meta name="keywords" content="continual learning, continual adaptation, reinforcement learning, vision language model, artificial intelligence, Ro-Man conference, machine learning, novelty detection, transfer learning, HRI, Khashayar Ghamati, robotics, open-world AI, ARI robot">
+
+  <!-- Open Graph for social and richer search results -->
+  <meta property="og:title" content="CAPA-AI: Continual Adaptation & Novelty Detection in Human-Robot Interaction">
+  <meta property="og:description" content="Learn about CAPA-AI, a state-of-the-art AI agent that brings continual learning, novelty detection, and reinforcement learning together for robust open-world robotics. Accepted at Ro-Man 2025.">
+  <meta property="og:image" content="https://ghamati.com/CAPA-AI/capa-ai.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ghamati.com/CAPA-AI/">
+
+  <!-- Twitter Card (optional) -->
+  <meta name="twitter:card" content="CAPA-AI Agentic AI Architecture An RL agent is pre-trained using Isolated Learning, while the Agent Knowledge Base is concurrently established to store task-related data for Novelty Detection. During interaction with the open world, environmental feedback is processed by the Adaptation module to assess novelty. If a novel task exhibits sufficient similarity to previously learned tasks, the agent adapts using Transfer Learning, leveraging its existing knowledge base. Otherwise, feedback is passed to the RL agent to select an appropriate action.">
+  <meta name="twitter:title" content="CAPA-AI: Continual Learning & Adaptation for Robots | Ro-Man 2025">
+  <meta name="twitter:description" content="Discover a breakthrough in continual adaptation and reinforcement learning for robotics, presented at Ro-Man 2025 by Khashayar Ghamati.">
+  <meta name="twitter:image" content="https://ghamati.com/CAPA-AI/capa-ai.png">
+
+  <link rel="canonical" href="https://ghamati.com/CAPA-AI/">
+
+  <title>CAPA-AI: Continual Learning, Novelty Detection, Reinforcement Learning | Ro-Man 2025 | Khashayar Ghamati</title>
+
 
   <!-- Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
 
   <!-- External CSS for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      "headline": "CAPA-AI: Continual Adaptation and Novelty Detection for Reinforcement Learning in HRI",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Khashayar Ghamati",
+          "affiliation": "University of Hertfordshire"
+        }
+      ],
+      "datePublished": "2025-08-25",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Ro-Man Conference"
+      },
+      "about": [
+        "continual learning",
+        "continual adaptation",
+        "reinforcement learning",
+        "vision language model",
+        "artificial intelligence",
+        "machine learning",
+        "robotics"
+      ],
+      "description": "CAPA-AI integrates probabilistic novelty detection, transfer learning, and reinforcement learning for continual adaptation in HRI, leveraging vision-language models for robust open-world artificial intelligence. Presented at Ro-Man 2025."
+    }
+  </script>
 
   <style>
     body {
@@ -96,12 +150,6 @@
       margin: 20px 0;
     }
 
-    .figure img {
-      max-width: 50%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
 
     /* Download button */
     a.download-btn {
@@ -131,6 +179,21 @@
       box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
     }
 
+    .figure img {
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+    }
+    @media (min-width: 768px) {
+      .figure img {
+        max-width: 50%;
+      }
+      .figure-large {
+        max-width: 90% !important;
+      }
+    }
+
+
   </style>
 
   </style>
@@ -147,13 +210,141 @@
 </header>
 
 <div class="container">
+  <section>
+    <h2>About the Paper</h2>
+    <p>
+      Adapting to novel tasks in human-robot interaction (HRI) is crucial for long-term autonomy, yet remains a major challenge for autonomous agents deployed in unpredictable open-world settings. This paper introduces CAPA-AI, a novel framework that integrates probabilistic novelty detection with continual post-deployment adaptation achieved via transfer learning to address this challenge. The framework’s novelty detection component employs conditional probability and the Jaccard Index to identify unfamiliar tasks by quantifying their deviation from the agent’s knowledge base of previously learned tasks. Upon detecting a novel task, the agent utilises transfer learning to repurpose prior knowledge and update its models without retraining from scratch. We detail the design of CAPA-AI, including an isolated learning phase for initial skill acquisition and the construction of a dynamic knowledge base. The complete system was deployed on a social robot in real-world HRI scenarios to evaluate its performance. Experimental results demonstrated that the agent accurately detects novel tasks and adapts to them, achieving adaptation and novelty detection accuracies of 80% and 89%, respectively. These findings underscore the efficacy of the proposed approach and highlight a significant step towards robust open-world deployment of AI agents in HRI, where continuous adaptation and the safe handling of unforeseen tasks are essential.
+    </p>
+    <p style="color: #0077b6;">
+      <i class="fas fa-lightbulb"></i> <b>Did you know?</b> Most deployed AI agents freeze after initial training—they can't tell when the world changes. CAPA-AI can!
+    </p>
+  </section>
 
+  <div class="figure">
+    <img src="capa-ai.png" alt="CAPA-AI continual learning agentic AI architecture for reinforcement learning and HRI" class="figure-large">
+    <p><b>Figure 1:</b> Overview of the CAPA-AI architecture. A reinforcement learning (RL) agent is pre-trained in isolation, while a knowledge base stores task-specific information for novelty detection. When a novel task is detected during real-world operation, the agent leverages transfer learning or its own exploration to adapt, updating both its policy and knowledge base.</p>
+  </div>
+
+  <section>
+    <h2>Continual Learning & Adaptation: Motivation</h2>
+    <p>
+      Autonomous robots operating in dynamic, human-centred environments constantly face unpredictability—no dataset or pre-training can prepare them for everything. Traditional AI systems are prone to <b>catastrophic forgetting</b> if retrained, or simply ignore novel tasks, which risks safety and erodes user trust.
+    </p>
+    <p>
+      <b>CAPA-AI</b> addresses this by equipping the robot with two essential abilities:
+    <ul>
+      <li><b>Novelty detection:</b> Accurately identifies when an observed task or situation has not been encountered before.</li>
+      <li><b>Continual adaptation:</b> Upon detecting novelty, the robot can re-use related prior knowledge (via transfer learning) to adapt, or gather new experience as needed—all without full retraining or human-in-the-loop supervision.</li>
+    </ul>
+    <i class="fas fa-info-circle"></i> This paves the way for true <b>open-world autonomy</b>—robots that can self-improve as the world changes.
+    </p>
+  </section>
+
+  <section>
+    <h2>How the CAPA-AI Architecture Works (Reinforcement Learning & Vision Language Models in CAPA-AI)</h2>
+    <ul>
+      <li><b>Isolated Learning Phase:</b> The RL agent is initially trained on a set of known tasks (e.g., using the RHM dataset). Task-specific experiences and environmental keywords are stored in an Agent Knowledge Base (AKB).</li>
+      <li><b>Novelty Detection Module:</b> During real-world operation, incoming sensor data (video frames) are processed using vision-language models (e.g., LLaVA) and contextual keywords are extracted (e.g., via DeepSeek).</li>
+      <li><b>Probabilistic Novelty Detection:</b> New keywords are compared with the AKB using conditional probability and the Jaccard Index, computing a posterior probability of task similarity. If the similarity is high (>90%), the agent uses its pre-trained model; for partial similarity (60-89%), it adapts via transfer learning. For genuinely novel cases (<60%), exploration is triggered.</li>
+      <li><b>Transfer Learning:</b> The agent updates its RL policy using strategies from similar tasks, rapidly adapting to the new task and updating its AKB.</li>
+    </ul>
+    <p>
+      <i class="fas fa-robot"></i> <b>Innovation:</b> CAPA-AI uniquely combines <b>probabilistic reasoning, memory, transfer learning,</b> and <b>real-time feedback</b> to enable seamless, explainable adaptation in unpredictable settings.
+    </p>
+  </section>
+
+  <div class="figure">
+    <img src="novelty-detection.png" alt="Novelty detection results using probabilistic methods and Jaccard Index in continual learning for reinforcement learning agent in HRI">
+
+    <p><b>Figure 2:</b> Example result of the novelty detection pipeline. Posterior probabilities and the Jaccard Index are used to quantify how closely new observations match known tasks (here, the “Drinking” activity). This enables reliable detection and triggers adaptation only when truly necessary.</p>
+  </div>
+
+  <section>
+    <h2>Step-by-Step Adaptation and Results (Presented at Ro-Man 2025 Conference)</h2>
+    <ul>
+      <li><b>Pre-training:</b> CAPA-AI is pre-trained using the RHM dataset on 14 daily human activities. For each, the agent stores both policy knowledge and a vocabulary of environmental/contextual keywords.</li>
+      <li><b>Simulation Evaluation:</b> The framework is tested on the EatSense and Polar datasets (which contain new, partially overlapping tasks). CAPA-AI detects and adapts to novel activities, transferring knowledge from the most similar tasks.</li>
+      <li><b>Real-World Deployment:</b> CAPA-AI is implemented on the ARI humanoid robot, interacting with users performing both familiar and unfamiliar tasks in real environments.</li>
+    </ul>
+    <div class="figure">
+      <img src="eval-pipeline.png" alt="Evaluation workflow for CAPA-AI agent with simulation and real-world continual adaptation, leveraging reinforcement learning and transfer learning in machine learning">
+
+      <p><b>Figure 3:</b> Evaluation workflow: CAPA-AI is pre-trained, then deployed in both simulated (EatSense/Polar) and real-world HRI scenarios, where it processes sensory data and adapts in real time.</p>
+    </div>
+    <ul>
+      <li><b>Sample Scenario:</b> In one real-world test, the robot observes the action “using tissue”—not seen during training. CAPA-AI’s ND module classifies this as novel but similar to “cleaning,” so transfer learning is triggered. The agent updates its behaviour, improving performance in subsequent encounters.</li>
+      <li><b>Accuracy:</b> CAPA-AI achieves <b>89% novelty detection accuracy</b> and <b>80% adaptation accuracy</b> in real-world tests. The approach is robust to sensor noise and ambiguous activities.</li>
+    </ul>
+  </section>
+
+  <div class="figure">
+    <img src="R1.png" alt="CAPA-AI real-world test: drinking task correctly recognised by continual learning agent using reinforcement learning and vision language models in human-robot interaction">
+
+    <p><b>a)</b> Task: Drinking, CAPA-AI Decision: Drinking</p>
+    <img src="R2.png" alt="CAPA-AI real-world novelty detection: using tissue task identified as novel and mapped to cleaning using transfer learning and contextual adaptation in HRI">
+
+    <p><b>b)</b> Task: Using Tissue, CAPA-AI Decision: Novelty, Similar Task: Cleaning</p>
+    <img src="R3.png" alt="CAPA-AI agent adaptation: laying down task detected as novel but similar to sitting down, demonstrating explainable continual adaptation in real-world human-robot interaction">
+
+    <p><b>c)</b> Task: Laying, CAPA-AI Decision: Novelty, Similar Task: Sitting Down</p>
+    <p>
+      <b>Figure 4:</b> CAPA-AI real-world decisions: (a) “Drinking” correctly identified as familiar; (b) “Using tissue” detected as a novel action and mapped to “cleaning”; (c) “Lying down” treated as novel but similar to “sitting down,” showing CAPA-AI’s fine-grained, explainable adaptation.
+    </p>
+  </div>
+
+  <section>
+    <h2>Why It Matters</h2>
+    <p>
+      <b>CAPA-AI</b> advances the state of the art in robot autonomy and trust by:
+    <ul>
+      <li>Enabling <b>safe, continual adaptation</b> in dynamic environments—no more "frozen" agents!</li>
+      <li>Providing <b>probabilistic, explainable decisions</b> on when to adapt and what to adapt from</li>
+      <li>Reducing risk of catastrophic forgetting or inappropriate generalisation</li>
+      <li>Improving HRI by making robots more reliable, responsive, and aware of their own limitations</li>
+    </ul>
+    <i class="fas fa-hands-helping"></i> <b>Impact:</b> This approach benefits social robotics, assistive technologies, service robots, and any AI deployed “in the wild.”
+    </p>
+  </section>
+
+
+  <section>
+    <h2>Open Science & Collaboration</h2>
+    <p>
+      Interested in collaborating, adapting, or extending CAPA-AI? We support open, reproducible science and welcome new partnerships to push forward robust and adaptive agentic AI.<br>
+      <span style="font-size:1.2em;">
+      <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar" style="margin-right:10px;">
+        <i class="fas fa-graduation-cap"></i> Google Scholar
+      </a>
+      <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID">
+        <i class="fab fa-orcid"></i> ORCID
+      </a>
+    </span>
+    </p>
+  </section>
+
+  <section>
+    <h2>Full Paper & Code</h2>
+    <a href="#" class="download-btn" onclick="showPaperDialog(event)">Download Full Paper</a>
+    <a href="#" class="download-btn" onclick="showCodeDialog(event)">Code</a>
+    <p style="margin-top:1rem;font-size:1rem;color:#0077b6;">
+      <i class="fas fa-info-circle"></i> The paper will be available in the proceedings of Ro-Man 2025 after the conference takes place in August 2025.
+    </p>
+  </section>
 </div>
+
 <script>
   function showCodeDialog(event) {
     event.preventDefault();
     alert("To access the source code, please email us at: k.ghamati@herts.ac.uk");
   }
+
+  function showPaperDialog(event) {
+    event.preventDefault();
+    alert("The paper will be available in the proceedings of Ro-Man 2025 after the conference takes place in August 2025.");
+  }
+
+
+
 </script>
 
 <footer>

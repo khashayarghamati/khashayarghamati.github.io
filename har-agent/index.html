@@ -3,13 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Khashayar Ghamati</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Agentic AI for Human Activity Recognition (HAR) with memory-driven continual learning, context-aware reasoning, and robust human-robot interaction. Presented at ICSR 2025.">
+  <meta name="keywords" content="human activity recognition, HAR, continual learning, memory-driven AI, agentic AI, human-robot interaction, HRI, reinforcement learning, explainable AI, context awareness, ICSR 2025, Khashayar Ghamati, adaptive robotics, vision language model, supervised learning, machine learning, AI conference">
+
+  <!-- Open Graph (for Facebook, LinkedIn, Slack, etc.) -->
+  <meta property="og:title" content="Memory-Driven Agentic AI for Human Activity Recognition | ICSR 2025">
+  <meta property="og:description" content="Discover an agentic AI architecture for robust, explainable human activity recognition (HAR) in HRI—fusing memory, continual learning, and context-aware reasoning. Accepted at ICSR 2025.">
+  <meta property="og:image" content="https://ghamati.com/har-agent/main-arch.PNG">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ghamati.com/har-agent/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Memory-Driven Agentic AI for HAR | ICSR 2025">
+  <meta name="twitter:description" content="ICSR 2025: Continual learning & memory-driven human activity recognition in HRI.">
+  <meta name="twitter:image" content="https://ghamati.com/har-agent/main-arch.PNG">
+
+  <link rel="canonical" href="https://ghamati.com/har-agent/">
+
+  <title>Memory-Driven Agentic AI for Human Activity Recognition (HAR) | ICSR 2025 | Khashayar Ghamati</title>
 
   <!-- Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
 
   <!-- External CSS for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      "headline": "Towards Memory-Driven Agentic AI for Human Activity Recognition",
+      "author": [{
+        "@type": "Person",
+        "name": "Khashayar Ghamati",
+        "affiliation": "University of Hertfordshire"
+      }],
+      "datePublished": "2025-09-05",
+      "publisher": {
+        "@type": "Organization",
+        "name": "ICSR Conference"
+      },
+      "about": [
+        "human activity recognition",
+        "HAR",
+        "continual learning",
+        "memory-driven AI",
+        "agentic AI",
+        "human-robot interaction",
+        "reinforcement learning"
+      ],
+      "description": "This paper introduces an agentic AI framework for robust human activity recognition in HRI, leveraging memory, context-aware reasoning, and continual learning. Accepted for presentation at ICSR 2025."
+    }
+  </script>
+
 
   <style>
     body {
@@ -131,6 +180,12 @@
       box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
     }
 
+    @media (max-width: 767px) {
+      .figure img {
+        max-width: 100%;
+      }
+    }
+
   </style>
 
   </style>
@@ -147,12 +202,148 @@
 </header>
 
 <div class="container">
+  <section>
+    <h2>About the Paper</h2>
+    <p>
+      <strong>Towards Memory-Driven Agentic AI for Human Activity Recognition</strong> introduces a next-generation agentic AI architecture, designed to revolutionise <b>human activity recognition (HAR)</b> in the context of <b>human-robot interaction (HRI)</b>. By unifying advanced sensing, context-aware reasoning, and both short- and long-term memory modules, our approach enables robots to move beyond static pattern matching—helping them dynamically interpret and adapt to human behaviours, even in unpredictable or unseen situations.
+    </p>
+    <p>
+      <b>Agentic AI</b> marks a shift from traditional, rule-based AI by allowing systems to learn continuously from experience. Our work positions agentic AI as a key enabler for flexible and socially-aware robotics, especially for assistive, collaborative, and adaptive real-world applications.
+    </p>
+    <p style="color: #0077b6;">
+      <i class="fas fa-lightbulb"></i> <b>Did you know?</b> Most current AI systems struggle to distinguish between actions that "look" similar (e.g., standing up vs. lifting an object), especially when context or environmental cues are missing.
+    </p>
+  </section>
 
+  <div class="figure">
+    <img src="main-arch.PNG" alt="Memory-driven agentic AI architecture for continual human activity recognition, context-aware reasoning, and human-robot interaction, ICSR 2025">
+    <p><b>Figure 1:</b> Overview of the proposed Agentic AI architecture. Data flows from multi-modal sensors into parallel processing streams: supervised learning (for skeleton-based HAR), environmental context extraction, and memory modules. Short-term memory (STM) captures recent activity transitions, while long-term memory (LTM) encodes experiential knowledge across sessions—enabling true adaptation.</p>
+  </div>
+
+  <section>
+    <h2>Motivation</h2>
+    <p>
+      Human behaviours are diverse, ambiguous, and context-dependent. Traditional HAR approaches are usually "brittle"—relying on predefined models, and easily fooled by changes in viewpoint, overlapping actions, or subtle shifts in context. For example, a person reaching for a cup and simply raising their hand may look similar to a robot, but the intended action is completely different!
+    </p>
+    <p>
+      Our work addresses this by building in <b>short-term memory</b> (for activity transitions) and <b>long-term memory</b> (for accumulated experience), inspired by human cognitive processes. This allows the agent to reason over time and make more robust inferences.
+    </p>
+    <ul>
+      <li><b>Short-term memory (STM):</b> Aggregates information across frames to capture temporal changes.</li>
+      <li><b>Long-term memory (LTM):</b> Stores key experiences and contextual knowledge, allowing the system to generalise across different environments and users.</li>
+    </ul>
+    <p>
+      <b>Why is this important?</b> In real-world settings—such as healthcare, elderly care, or collaborative robotics—robots must understand not just what humans are doing, but <i>why</i>, and respond in contextually appropriate ways. Our architecture is a step towards that goal.
+    </p>
+  </section>
+
+  <section>
+    <h2>How the Architecture Works (Continual Learning and Memory-Driven Reasoning for HAR)</h2>
+    <ul>
+      <li><strong>Sensing Layer:</strong> Acquires multimodal data (e.g., video, skeletons) and preprocesses it for downstream analysis. We benchmarked using challenging real-world datasets: <b>RHM</b> (for training, with robot-centric views) and <b>Toyota Smart Home</b> (for out-of-distribution testing).</li>
+      <li><strong>Deliberative Reasoning:</strong> The heart of the system. It brings together:
+        <ul>
+          <li>Supervised detection (<b>M-LeNet</b> for skeletons) – robust to known activities.</li>
+          <li><b>Perceptor + LLaVA</b>: Extracts high-level semantic descriptions from image frames, incorporating contextual cues using large vision-language models.</li>
+          <li>Memory modules: STM tracks transitions; LTM accumulates "life-long" knowledge of activities and their contexts.</li>
+        </ul>
+      </li>
+      <li><strong>Context Alignment (CA):</strong> This probabilistic module integrates outputs from supervised models and context extractors. By using conditional probabilities and the <b>Jaccard Index</b>, CA refines ambiguous predictions and enables robust recognition, especially for overlapping or ambiguous activities.
+      </li>
+    </ul>
+    <p>
+      <i class="fas fa-info-circle"></i> <b>Technical innovation:</b> Unlike typical HAR, our agent continually aligns its interpretation of activities using both its experience (LTM) and recent context (STM). This hybrid approach substantially improves generalisation and robustness.
+    </p>
+  </section>
+
+  <div class="figure">
+    <img src="a2.png" alt="Context alignment using short-term and long-term memory in agentic AI for human activity recognition, ICSR 2025">
+    <p><b>Figure 2:</b> The context alignment module in action. The agent updates its STM as it observes a sequence of frames, allowing it to refine an ambiguous prediction ("standing up") into a more precise one ("lifting an object") by integrating context and memory.</p>
+  </div>
+
+  <section>
+    <h2>Evaluation on Real-World HRI Datasets</h2>
+    <p>
+      We rigorously evaluated the proposed architecture on two major datasets:
+    <ul>
+      <li><b>RHM:</b> Multi-view robot-centric HAR dataset (used for training and initial validation).</li>
+      <li><b>Toyota Smart Home:</b> Large-scale, real-world dataset with challenging unseen activities (used for testing generalisation).</li>
+    </ul>
+    </p>
+    <ul>
+      <li><b>On unseen data:</b> Combining context and supervised model predictions achieved <b>60% accuracy</b>—a dramatic improvement over context-only (40%) or supervised-only (35%) approaches.</li>
+      <li><b>Generalisation:</b> The agent correctly adapted to unfamiliar activities and new environments, demonstrating robustness beyond the training set.</li>
+      <li><b>Activity transition awareness:</b> STM enabled the agent to detect and track activity changes over time, a key capability for real-world HRI.</li>
+    </ul>
+    <p>
+      <b>Takeaway:</b> The fusion of context, memory, and supervision not only boosts accuracy but also makes the agent <b>explainable</b>—we can trace which contextual cues or past experiences led to a particular decision.
+    </p>
+  </section>
+
+  <div class="figure">
+    <img src="a1.png" alt="Generalisation to unseen human activities by memory-driven agentic AI, HAR, and HRI">
+    <p><b>Figure 3:</b> Generalisation example. Here, the agent revises its initial (incorrect) prediction from "cleaning" to "carrying object" as new context and STM updates become available—demonstrating cross-domain adaptability.</p>
+  </div>
+
+  <section>
+    <h2>Why This Matters</h2>
+    <p>
+      Building <b>trustworthy, context-aware, and adaptive AI agents</b> is essential for the next generation of human-robot collaboration. Our memory-driven agentic AI framework advances the state of the art in several ways:
+    </p>
+    <ul>
+      <li>Improves safety and reliability by reducing misinterpretation of human actions.</li>
+      <li>Enables robots to collaborate with humans more naturally, anticipating needs and responding proactively.</li>
+      <li>Provides a foundation for life-long learning and adaptation in robots deployed in dynamic, open-ended environments.</li>
+    </ul>
+    <p>
+      <i class="fas fa-robot"></i> <b>Impact:</b> From healthcare and assistive living to industrial and service robotics, these advancements bring us closer to robots that understand, learn from, and genuinely help people—adapting to their habits and preferences over time.
+    </p>
+  </section>
+
+  <div class="figure">
+    <img src="b1.png" alt="Successful STM-based inference, human activity recognition with context memory, agentic AI">
+    <p><b>a)</b> Correct prediction: The image generated by ChatGPT from STM descriptions closely matches the actual video sequence, showing successful context capture.</p>
+    <img src="b2.png" alt="Failed STM-based inference, challenges in human activity recognition with agentic AI and memory context">
+    <p><b>b)</b> Incorrect prediction: Vague STM content leads to a poor match and low confidence in activity recognition.</p>
+    <p><b>Figure 4:</b> STM-based inference comparison: these examples show the importance of rich context for accurate and trustworthy agentic AI.</p>
+  </div>
+
+  <section>
+    <h2>Open Science & Collaboration: Code, Data & Contact</h2>
+    <p>
+      We believe in open research. If you are interested in collaborating, adapting our methods, or accessing the code or datasets, please feel free to contact us. Our goal is to accelerate progress towards agentic, explainable AI for real-world robotics.
+      <span style="font-size:1.2em;">
+      <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar" style="margin-right:10px;">
+        <i class="fas fa-graduation-cap"></i> Google Scholar
+      </a>
+      <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID">
+        <i class="fab fa-orcid"></i> ORCID
+      </a>
+    </span>
+    </p>
+  </section>
+
+  <section>
+    <h2>Full Paper & Code</h2>
+    <a href="#" class="download-btn" onclick="showPaperDialog(event)">Download Full Paper</a>
+    <a href="#" class="download-btn" onclick="showCodeDialog(event)">Code</a>
+    <p style="margin-top:1rem;font-size:1rem;color:#0077b6;">
+      <i class="fas fa-info-circle"></i> The paper will be available in the proceedings of ICSR 2025 after the conference takes place in September 2025.
+    </p>
+  </section>
 </div>
+
+
+
 <script>
   function showCodeDialog(event) {
     event.preventDefault();
     alert("To access the source code, please email us at: k.ghamati@herts.ac.uk");
+  }
+
+  function showPaperDialog(event) {
+    event.preventDefault();
+    alert("The paper will be available in the proceedings of ICSR 2025 after the conference takes place in September 2025.");
   }
 </script>
 
