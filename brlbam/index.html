@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- DNS Prefetch and Preconnect for Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  
   <meta name="description" content="Learning to Gaze: Bio-Inspired Attention Adaptation for Social Robots - A reinforcement learning framework with habituation mechanisms enabling real-time adaptation of robotic gaze behaviour. 93% accuracy in social HRI. By Khashayar Ghamati et al.">
   <meta name="keywords" content="social robotics, reinforcement learning, habituation mechanism, gaze behaviour, attention adaptation, bio-inspired AI, multi-objective Q-learning, human-robot interaction, ARI humanoid robot, real-time learning, exploration-exploitation, social cognition">
   <meta name="author" content="Khashayar Ghamati, Maryam Banitalebi Dehkordi, Hamed Rahimi Nohooji, Holger Voos, Farshid Amirabdollahian, Abolfazl Zaraki">
@@ -19,13 +27,73 @@
 
   <title>Learning to Gaze: Bio-Inspired Attention Adaptation for Social Robots | Khashayar Ghamati</title>
 
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      "headline": "Learning to Gaze: Bio-Inspired Attention Adaptation for Social Robots",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Khashayar Ghamati",
+          "affiliation": "University of Hertfordshire"
+        },
+        {
+          "@type": "Person",
+          "name": "Maryam Banitalebi Dehkordi",
+          "affiliation": "University of Hertfordshire"
+        },
+        {
+          "@type": "Person",
+          "name": "Hamed Rahimi Nohooji",
+          "affiliation": "University of Luxembourg"
+        },
+        {
+          "@type": "Person",
+          "name": "Holger Voos",
+          "affiliation": "University of Luxembourg"
+        },
+        {
+          "@type": "Person",
+          "name": "Farshid Amirabdollahian",
+          "affiliation": "University of Hertfordshire"
+        },
+        {
+          "@type": "Person",
+          "name": "Abolfazl Zaraki",
+          "affiliation": "University of Hertfordshire"
+        }
+      ],
+      "datePublished": "2024-12-15",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Under Review"
+      },
+      "about": [
+        "social robotics",
+        "reinforcement learning",
+        "habituation mechanism",
+        "gaze behaviour",
+        "attention adaptation",
+        "bio-inspired AI",
+        "multi-objective learning",
+        "human-robot interaction"
+      ],
+      "description": "A bio-inspired reinforcement learning framework that enables real-time adaptation of robotic gaze behaviour using habituation mechanisms to dynamically regulate exploration-exploitation trade-offs in social environments."
+    }
+  </script>
+
   <!-- Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
   <!-- External CSS for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <style>
-    body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background-color: #f5f7fa; color: #333; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    
+    body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background-color: #f5f7fa; color: #333; line-height: 1.6; }
     .toolbar { background-color: #2e7d32; padding: 1rem; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: flex-start; box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
     .toolbar a { color: white; text-decoration: none; font-size: 1.125rem; font-weight: 400; margin-right: 20px; transition: color 0.3s;}
     .toolbar a:hover { color: #a5d6a7;}
@@ -33,11 +101,11 @@
     header h1 { font-size: 2.5rem; margin: 0; font-weight: 700; line-height: 1.2; }
     .container { max-width: 1200px; margin: 2rem auto; padding: 0 20px;}
     section h2 { font-size: 2rem; color: #2e7d32; text-align: center; margin-bottom: 1.5rem; font-weight: 700;}
-    section p { font-size: 1.125rem; line-height: 1.6; text-align: justify; margin-bottom: 2rem;}
+    section p { font-size: 1.125rem; line-height: 1.7; text-align: justify; margin-bottom: 2rem;}
     h3 { color: #333; font-size: 1.5rem; margin-bottom: 1rem;}
-    ul { font-size: 1.125rem; line-height: 1.6;}
+    ul { font-size: 1.125rem; line-height: 1.7;}
     .figure { text-align: center; margin: 30px 0; }
-    .figure img { max-width: 70%; height: auto; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.15);}
+    .figure img { max-width: 70%; height: auto; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); display: block; margin: 0 auto; }
     .video-container { display: flex; justify-content: center; margin-bottom: 2rem; }
     .video-container iframe { width: 560px; height: 315px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
     a.download-btn { display: inline-block; background-color: #2e7d32; color: white; padding: 0.75rem 1.5rem; text-decoration: none; font-size: 1rem; border-radius: 5px; transition: background-color 0.3s; text-align: center; margin: 10px 10px 10px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
@@ -72,7 +140,8 @@
 <div class="container">
   <div class="authors">
     <h3><i class="fas fa-users"></i> Authors</h3>
-    <p><strong>Khashayar Ghamati</strong><sup>1,*</sup>, <strong>Maryam Banitalebi Dehkordi</strong><sup>1</sup>, <strong>Hamed Rahimi Nohooji</strong><sup>2</sup>, <strong>Holger Voos</strong><sup>2</sup>, <strong>Farshid Amirabdollahian</strong><sup>1</sup>, and <strong>Abolfazl Zaraki</strong><sup>1,*</sup></p>
+<!--    <p><strong>Khashayar Ghamati</strong><sup>1,*</sup>, <strong>Maryam Banitalebi Dehkordi</strong><sup>1</sup>, <strong>Hamed Rahimi Nohooji</strong><sup>2</sup>, <strong>Holger Voos</strong><sup>2</sup>, <strong>Farshid Amirabdollahian</strong><sup>1</sup>, and <strong>Abolfazl Zaraki</strong><sup>1,*</sup></p>-->
+    <p><strong>Khashayar Ghamati</strong><sup>1,*</sup>, et al.</p>
     <p style="font-size: 0.95rem; color: #666;">
       <sup>1</sup>School of Physics, Engineering and Computer Science (SPECS), Robotics Research Group, University of Hertfordshire, AL10 9AB, UK<br>
       <sup>2</sup>Automation Robotics Research Group, Interdisciplinary Centre for Security, Reliability and Trust (SnT), University of Luxembourg, Luxembourg<br>
@@ -99,7 +168,7 @@
   </section>
 
   <div class="figure">
-    <img src="paper_img.jpeg" alt="ARI humanoid robot in triadic social interaction at Robot House, University of Hertfordshire">
+    <img src="paper_img.jpeg" alt="ARI humanoid robot in triadic social interaction at Robot House, University of Hertfordshire" loading="eager" width="700" height="500">
     <p><strong>Figure 1:</strong> A triadic social HRI between ARI humanoid robot and two study humans, demonstrating real-world deployment of the bio-inspired attention adaptation framework at the Robot House, University of Hertfordshire, UK.</p>
   </div>
 
@@ -138,7 +207,7 @@
   </section>
 
   <div class="figure">
-    <img src="rlbam-architecture.png" alt="RLBAM framework architecture showing habituation mechanism and multi-objective learning">
+    <img src="rlbam-architecture.png" alt="RLBAM framework architecture showing habituation mechanism and multi-objective learning" loading="lazy" width="800" height="600">
     <p><strong>Figure 2:</strong> The RLBAM framework architecture demonstrating the integration of habituation mechanisms with multi-objective Q-learning for adaptive robotic attention control.</p>
   </div>
 
@@ -174,7 +243,7 @@
   </section>
 
   <div class="figure">
-    <img src="training-dynamics.png" alt="Training dynamics showing habituation-guided learning progression">
+    <img src="training-dynamics.png" alt="Training dynamics showing habituation-guided learning progression" loading="lazy" width="800" height="600">
     <p><strong>Figure 3:</strong> Training dynamics and behavioural analysis showing habituation-guided exploration, reward progression, and Pareto front evolution across 5,000 episodes.</p>
   </div>
 

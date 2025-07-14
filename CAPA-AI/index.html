@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
-  <!-- ...existing head content... -->
+  
+  <!-- DNS Prefetch and Preconnect for Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <meta name="description" content="CAPA-AI: A continual adaptation and novelty detection framework for human-robot interaction, leveraging reinforcement learning, vision-language models, and transfer learning. Presented at Ro-Man 2025.">
   <meta name="keywords" content="continual learning, continual adaptation, reinforcement learning, vision language model, artificial intelligence, Ro-Man conference, machine learning, novelty detection, transfer learning, HRI, Khashayar Ghamati, robotics, open-world AI, ARI robot">
 
@@ -32,7 +35,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
 
   <!-- External CSS for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
 
   <script type="application/ld+json">
@@ -66,12 +69,17 @@
   </script>
 
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f5f7fa;
       color: #333;
+      line-height: 1.6;
     }
 
     /* Toolbar Styling */
@@ -129,7 +137,7 @@
 
     section p {
       font-size: 1.125rem;
-      line-height: 1.6;
+      line-height: 1.7;
       text-align: justify;
       margin-bottom: 2rem;
     }
@@ -142,7 +150,7 @@
 
     ul {
       font-size: 1.125rem;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     .figure {
@@ -183,6 +191,8 @@
       max-width: 100%;
       width: 100%;
       height: auto;
+      display: block;
+      margin: 0 auto;
     }
     @media (min-width: 768px) {
       .figure img {
@@ -221,7 +231,7 @@
   </section>
 
   <div class="figure">
-    <img src="capa-ai.png" alt="CAPA-AI continual learning agentic AI architecture for reinforcement learning and HRI" class="figure-large">
+    <img src="capa-ai.png" alt="CAPA-AI continual learning agentic AI architecture for reinforcement learning and HRI" class="figure-large" loading="eager" width="800" height="600">
     <p><b>Figure 1:</b> Overview of the CAPA-AI architecture. A reinforcement learning (RL) agent is pre-trained in isolation, while a knowledge base stores task-specific information for novelty detection. When a novel task is detected during real-world operation, the agent leverages transfer learning or its own exploration to adapt, updating both its policy and knowledge base.</p>
   </div>
 
@@ -254,9 +264,8 @@
   </section>
 
   <div class="figure">
-    <img src="novelty-detection.png" alt="Novelty detection results using probabilistic methods and Jaccard Index in continual learning for reinforcement learning agent in HRI">
-
-    <p><b>Figure 2:</b> Example result of the novelty detection pipeline. Posterior probabilities and the Jaccard Index are used to quantify how closely new observations match known tasks (here, the “Drinking” activity). This enables reliable detection and triggers adaptation only when truly necessary.</p>
+    <img src="novelty-detection.png" alt="Novelty detection results using probabilistic methods and Jaccard Index in continual learning for reinforcement learning agent in HRI" loading="lazy" width="700" height="500">
+    <p><b>Figure 2:</b> Example result of the novelty detection pipeline. Posterior probabilities and the Jaccard Index are used to quantify how closely new observations match known tasks (here, the "Drinking" activity). This enables reliable detection and triggers adaptation only when truly necessary.</p>
   </div>
 
   <section>
@@ -267,8 +276,7 @@
       <li><b>Real-World Deployment:</b> CAPA-AI is implemented on the ARI humanoid robot, interacting with users performing both familiar and unfamiliar tasks in real environments.</li>
     </ul>
     <div class="figure">
-      <img src="eval-pipeline.png" alt="Evaluation workflow for CAPA-AI agent with simulation and real-world continual adaptation, leveraging reinforcement learning and transfer learning in machine learning">
-
+      <img src="eval-pipeline.png" alt="Evaluation workflow for CAPA-AI agent with simulation and real-world continual adaptation, leveraging reinforcement learning and transfer learning in machine learning" loading="lazy" width="750" height="550">
       <p><b>Figure 3:</b> Evaluation workflow: CAPA-AI is pre-trained, then deployed in both simulated (EatSense/Polar) and real-world HRI scenarios, where it processes sensory data and adapts in real time.</p>
     </div>
     <ul>
@@ -278,14 +286,11 @@
   </section>
 
   <div class="figure">
-    <img src="R1.png" alt="CAPA-AI real-world test: drinking task correctly recognised by continual learning agent using reinforcement learning and vision language models in human-robot interaction">
-
+    <img src="R1.png" alt="CAPA-AI real-world test: drinking task correctly recognised by continual learning agent using reinforcement learning and vision language models in human-robot interaction" loading="lazy" width="400" height="300">
     <p><b>a)</b> Task: Drinking, CAPA-AI Decision: Drinking</p>
-    <img src="R2.png" alt="CAPA-AI real-world novelty detection: using tissue task identified as novel and mapped to cleaning using transfer learning and contextual adaptation in HRI">
-
+    <img src="R2.png" alt="CAPA-AI real-world novelty detection: using tissue task identified as novel and mapped to cleaning using transfer learning and contextual adaptation in HRI" loading="lazy" width="400" height="300">
     <p><b>b)</b> Task: Using Tissue, CAPA-AI Decision: Novelty, Similar Task: Cleaning</p>
-    <img src="R3.png" alt="CAPA-AI agent adaptation: laying down task detected as novel but similar to sitting down, demonstrating explainable continual adaptation in real-world human-robot interaction">
-
+    <img src="R3.png" alt="CAPA-AI agent adaptation: laying down task detected as novel but similar to sitting down, demonstrating explainable continual adaptation in real-world human-robot interaction" loading="lazy" width="400" height="300">
     <p><b>c)</b> Task: Laying, CAPA-AI Decision: Novelty, Similar Task: Sitting Down</p>
     <p>
       <b>Figure 4:</b> CAPA-AI real-world decisions: (a) “Drinking” correctly identified as familiar; (b) “Using tissue” detected as a novel action and mapped to “cleaning”; (c) “Lying down” treated as novel but similar to “sitting down,” showing CAPA-AI’s fine-grained, explainable adaptation.

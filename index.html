@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Khashayar Ghamati  | PhD Candidate | AI, Robotics, Continual Learning</title>
-	<meta name="description" content="PhD candidate at the University of Hertfordshire focusing on agentic AI, novelty detection, continual learning, and reinforcement learning for robot adaptation in unseen environments. AI engineer, lecturer, and HRI researcher.">
-	<meta name="keywords" content="Khashayar Ghamati, AI researcher, PhD, reinforcement learning, continual learning, robotics, HRI, agentic AI, novelty detection, large language models, University of Hertfordshire, machine learning, AI engineer, adaptive robotics, Khashayar Ghamati ">
+	<meta name="description" content="Khashayar Ghamati - PhD candidate at University of Hertfordshire researching agentic AI, continual learning, novelty detection, and reinforcement learning for adaptive robotics and human-robot interaction.">
+	<meta name="keywords" content="Khashayar Ghamati, AI researcher, PhD computer science, reinforcement learning, continual learning, robotics, human-robot interaction, HRI, agentic AI, novelty detection, large language models, University of Hertfordshire, machine learning, adaptive robotics, social robotics, embodied AI, cognitive AI">
 	<meta name="author" content="Khashayar Ghamati ">
 
 	<!-- Open Graph / Twitter SEO -->
@@ -22,20 +22,36 @@
 	<!-- Canonical -->
 	<link rel="canonical" href="https://ghamati.com/">
 
-	<!-- Google Fonts and Font Awesome -->
+	<!-- Preconnect for faster loading -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+	
+	<!-- Google Fonts and Font Awesome with optimized loading -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
 	<!-- Structured Data -->
 	<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
 			"@type": "Person",
-			"name": "Khashayar Ghamati ",
+			"name": "Khashayar Ghamati",
 			"url": "https://ghamati.com",
 			"email": "khashayarghamati@gmail.com",
-			"affiliation": "University of Hertfordshire",
-			"jobTitle": "PhD Candidate, AI Engineer",
+			"affiliation": {
+				"@type": "Organization",
+				"name": "University of Hertfordshire",
+				"address": {
+					"@type": "PostalAddress",
+					"addressCountry": "GB",
+					"addressRegion": "Hertfordshire"
+				}
+			},
+			"jobTitle": "PhD Candidate in Computer Science",
+			"description": "PhD candidate researching agentic AI, continual learning, and reinforcement learning for adaptive robotics",
+			"knowsAbout": ["Artificial Intelligence", "Robotics", "Machine Learning", "Human-Robot Interaction", "Reinforcement Learning"],
+			"alumniOf": "University of Hertfordshire",
 			"sameAs": [
 				"https://github.com/khashayarghamati",
 				"https://www.linkedin.com/in/khashayarghamati",
@@ -58,13 +74,14 @@
 			--font-main: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 		}
 		html { scroll-behavior: smooth; }
+		*, *::before, *::after { box-sizing: border-box; }
 		body {
 			font-family: var(--font-main);
 			margin: 0;
 			padding: 0;
-			box-sizing: border-box;
 			background: var(--main-bg);
 			color: #333;
+			line-height: 1.6;
 		}
 		.container {
 			max-width: 1100px;
@@ -139,6 +156,28 @@
 			grid-template-columns: 1fr 1fr;
 			gap: 0.5rem 1rem;
 		}
+		/* Enhanced accessibility */
+		@media (prefers-reduced-motion: reduce) {
+			html { scroll-behavior: auto; }
+			* { transition: none !important; animation: none !important; }
+		}
+		/* Focus styles for accessibility */
+		a:focus, nav a:focus {
+			outline: 2px solid var(--main-accent);
+			outline-offset: 2px;
+		}
+		/* Skip link for screen readers */
+		.skip-link {
+			position: absolute;
+			top: -40px;
+			left: 6px;
+			background: var(--main-blue);
+			color: white;
+			padding: 8px;
+			z-index: 1000;
+			transition: top 0.3s;
+		}
+		.skip-link:focus { top: 6px; }
 		@media (max-width: 900px) {
 			.skills-list, .projects-list, .awards-list { grid-template-columns: 1fr;}
 			header h1 { font-size: 2.1rem;}
@@ -150,6 +189,7 @@
 			nav a { font-size: 0.95rem; padding: 0.4rem 0.6rem;}
 			section { padding: 1.3rem 0 1rem 0;}
 			section h2 { font-size: 1.25rem; }
+			nav { gap: 0.2rem; }
 		}
 		footer {
 			background: var(--main-footer);
@@ -174,10 +214,11 @@
 	</script>
 </head>
 <body>
+<a href="#about" class="skip-link">Skip to main content</a>
 
 <header>
-	<img src="images/profile.jpg" alt="Khashayar Ghamati  profile photo">
-	<h1>Khashayar Ghamati </h1>
+	<img src="images/profile.jpg" alt="Khashayar Ghamati - PhD candidate in AI and robotics" loading="eager" width="120" height="120">
+	<h1>Khashayar Ghamati</h1>
 	<h2>PhD Candidate | AI Researcher | Robotics | Continual Learning</h2>
 	<div class="social-icons">
 
@@ -189,16 +230,16 @@
 </header>
 
 <nav>
-	<a href="#about">About</a>
-	<a href="#education">Education</a>
-	<a href="#research">Research</a>
-	<a href="#publications">Publications</a>
-	<a href="#skills">Skills</a>
-	<a href="#projects">Projects</a>
-	<a href="#talks">Teaching</a>
-	<a href="#experience">Experience</a>
-	<a href="#awards">Awards</a>
-	<a href="#contact">Contact</a>
+	<a href="#about" aria-label="About Khashayar Ghamati">About</a>
+	<a href="#education" aria-label="Education background">Education</a>
+	<a href="#research" aria-label="Research interests">Research</a>
+	<a href="#publications" aria-label="Published research papers">Publications</a>
+	<a href="#skills" aria-label="Technical skills">Skills</a>
+	<a href="#projects" aria-label="Research and engineering projects">Projects</a>
+	<a href="#talks" aria-label="Teaching and academic activities">Teaching</a>
+	<a href="#experience" aria-label="Industry experience">Experience</a>
+	<a href="#awards" aria-label="Awards and grants">Awards</a>
+	<a href="#contact" aria-label="Contact information">Contact</a>
 </nav>
 
 <section id="about" class="container">
@@ -318,7 +359,7 @@
 	<h2>Contact</h2>
 	<p>If you're interested in research, collaboration, or just want to connect, please reach out!</p>
 	<p>
-		<img src="images/email.png" alt="Email Address">
+		<img src="images/email.png" alt="Contact email: khashayarghamati@gmail.com" loading="lazy" width="300" height="40">
 	</p>
 	<div class="social-icons">
 		<a href="https://www.linkedin.com/in/khashayarghamati" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -331,7 +372,7 @@
 <footer>
 	<div class="container">
 		<p>&copy; 2024 Khashayar Ghamati. All rights reserved.</p>
-		<p style="font-size:0.93em;">Website content generated with assistance from <a href="https://www.openai.com/chatgpt/" target="_blank" rel="noopener noreferrer" style="color: #e9d8a6;">ChatGPT by OpenAI</a>.</p>
+		<p style="font-size:0.93em;">Website optimized for performance and accessibility.</p>
 	</div>
 </footer>
 

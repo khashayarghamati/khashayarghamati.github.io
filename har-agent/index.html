@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- DNS Prefetch and Preconnect for Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  
   <!-- SEO Meta Tags -->
   <meta name="description" content="Agentic AI for Human Activity Recognition (HAR) with memory-driven continual learning, context-aware reasoning, and robust human-robot interaction. Presented at ICSR 2025.">
   <meta name="keywords" content="human activity recognition, HAR, continual learning, memory-driven AI, agentic AI, human-robot interaction, HRI, reinforcement learning, explainable AI, context awareness, ICSR 2025, Khashayar Ghamati, adaptive robotics, vision language model, supervised learning, machine learning, AI conference">
@@ -28,7 +36,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
 
   <!-- External CSS for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
 
   <script type="application/ld+json">
@@ -61,12 +69,17 @@
 
 
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f5f7fa;
       color: #333;
+      line-height: 1.6;
     }
 
     /* Toolbar Styling */
@@ -124,7 +137,7 @@
 
     section p {
       font-size: 1.125rem;
-      line-height: 1.6;
+      line-height: 1.7;
       text-align: justify;
       margin-bottom: 2rem;
     }
@@ -137,7 +150,7 @@
 
     ul {
       font-size: 1.125rem;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     .figure {
@@ -150,6 +163,8 @@
       height: auto;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: block;
+      margin: 0 auto;
     }
 
     /* Download button */
@@ -216,7 +231,7 @@
   </section>
 
   <div class="figure">
-    <img src="main-arch.PNG" alt="Memory-driven agentic AI architecture for continual human activity recognition, context-aware reasoning, and human-robot interaction, ICSR 2025">
+    <img src="main-arch.PNG" alt="Memory-driven agentic AI architecture for continual human activity recognition, context-aware reasoning, and human-robot interaction, ICSR 2025" loading="eager" width="600" height="450">
     <p><b>Figure 1:</b> Overview of the proposed Agentic AI architecture. Data flows from multi-modal sensors into parallel processing streams: supervised learning (for skeleton-based HAR), environmental context extraction, and memory modules. Short-term memory (STM) captures recent activity transitions, while long-term memory (LTM) encodes experiential knowledge across sessions—enabling true adaptation.</p>
   </div>
 
@@ -257,7 +272,7 @@
   </section>
 
   <div class="figure">
-    <img src="a2.png" alt="Context alignment using short-term and long-term memory in agentic AI for human activity recognition, ICSR 2025">
+    <img src="a2.png" alt="Context alignment using short-term and long-term memory in agentic AI for human activity recognition, ICSR 2025" loading="lazy" width="550" height="400">
     <p><b>Figure 2:</b> The context alignment module in action. The agent updates its STM as it observes a sequence of frames, allowing it to refine an ambiguous prediction ("standing up") into a more precise one ("lifting an object") by integrating context and memory.</p>
   </div>
 
@@ -281,7 +296,7 @@
   </section>
 
   <div class="figure">
-    <img src="a1.png" alt="Generalisation to unseen human activities by memory-driven agentic AI, HAR, and HRI">
+    <img src="a1.png" alt="Generalisation to unseen human activities by memory-driven agentic AI, HAR, and HRI" loading="lazy" width="550" height="400">
     <p><b>Figure 3:</b> Generalisation example. Here, the agent revises its initial (incorrect) prediction from "cleaning" to "carrying object" as new context and STM updates become available—demonstrating cross-domain adaptability.</p>
   </div>
 
@@ -301,9 +316,9 @@
   </section>
 
   <div class="figure">
-    <img src="b1.png" alt="Successful STM-based inference, human activity recognition with context memory, agentic AI">
+    <img src="b1.png" alt="Successful STM-based inference, human activity recognition with context memory, agentic AI" loading="lazy" width="400" height="300">
     <p><b>a)</b> Correct prediction: The image generated by ChatGPT from STM descriptions closely matches the actual video sequence, showing successful context capture.</p>
-    <img src="b2.png" alt="Failed STM-based inference, challenges in human activity recognition with agentic AI and memory context">
+    <img src="b2.png" alt="Failed STM-based inference, challenges in human activity recognition with agentic AI and memory context" loading="lazy" width="400" height="300">
     <p><b>b)</b> Incorrect prediction: Vague STM content leads to a poor match and low confidence in activity recognition.</p>
     <p><b>Figure 4:</b> STM-based inference comparison: these examples show the importance of rich context for accurate and trustworthy agentic AI.</p>
   </div>
