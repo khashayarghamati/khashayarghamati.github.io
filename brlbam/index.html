@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,13 +17,16 @@
 
   <meta property="og:title" content="Learning to Gaze: Bio-Inspired Attention Adaptation for Social Robots">
   <meta property="og:description" content="Bio-inspired reinforcement learning framework enabling real-time adaptation of robotic gaze behaviour based on salient environmental and social cues. Achieves 93% accuracy in aligning with human attention patterns through habituation-guided multi-objective Q-learning.">
-  <meta property="og:image" content="https://ghamati.com/bio-gaze/bio-gaze-framework.jpg">
-  <meta property="og:url" content="https://ghamati.com/bio-gaze/">
+  <meta property="og:image" content="https://ghamati.com/brlbam/paper_img.jpeg">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ghamati.com/brlbam/">
+  <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
+  <meta property="og:locale" content="en_GB">
   <meta property="article:published_time" content="2024-12-15">
   <meta property="article:author" content="Khashayar Ghamati">
   <meta property="article:tag" content="social robotics, reinforcement learning, habituation, attention adaptation, bio-inspired AI">
 
-  <link rel="canonical" href="https://ghamati.com/bio-gaze/">
+  <link rel="canonical" href="https://ghamati.com/brlbam/">
 
   <title>Learning to Gaze: Bio-Inspired Attention Adaptation for Social Robots | Khashayar Ghamati</title>
 
@@ -84,52 +87,463 @@
   </script>
 
   <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
   <!-- External CSS for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <style>
+    :root {
+      /* Warm Colour Palette */
+      --primary-warm: #D2691E;
+      --primary-warm-light: #E6A85C;
+      --primary-warm-dark: #B8860B;
+      --secondary-warm: #CD853F;
+      --accent-warm: #F4A460;
+      --accent-gold: #DAA520;
+      
+      /* Neutral Warm Tones */
+      --bg-warm: #FDF6E3;
+      --bg-card: #FFFFFF;
+      --text-primary: #2F1B14;
+      --text-secondary: #5D4037;
+      --text-muted: #8D6E63;
+      
+      /* Gradients */
+      --gradient-warm: linear-gradient(135deg, var(--primary-warm) 0%, var(--secondary-warm) 100%);
+      --gradient-gold: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-warm) 100%);
+      
+      /* Typography */
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+      
+      /* Shadows */
+      --shadow-soft: 0 4px 20px rgba(210, 105, 30, 0.1);
+      --shadow-medium: 0 8px 30px rgba(210, 105, 30, 0.15);
+      --shadow-strong: 0 12px 40px rgba(210, 105, 30, 0.2);
+    }
+
     *, *::before, *::after {
       box-sizing: border-box;
     }
     
-    body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background-color: #f5f7fa; color: #333; line-height: 1.6; }
-    .toolbar { background-color: #2e7d32; padding: 1rem; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: flex-start; box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
-    .toolbar a { color: white; text-decoration: none; font-size: 1.125rem; font-weight: 400; margin-right: 20px; transition: color 0.3s;}
-    .toolbar a:hover { color: #a5d6a7;}
-    header { background: linear-gradient(135deg, #2e7d32, #4caf50); padding: 2rem 0; text-align: center; color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);}
-    header h1 { font-size: 2.5rem; margin: 0; font-weight: 700; line-height: 1.2; }
-    .container { max-width: 1200px; margin: 2rem auto; padding: 0 20px;}
-    section h2 { font-size: 2rem; color: #2e7d32; text-align: center; margin-bottom: 1.5rem; font-weight: 700;}
-    section p { font-size: 1.125rem; line-height: 1.7; text-align: justify; margin-bottom: 2rem;}
-    h3 { color: #333; font-size: 1.5rem; margin-bottom: 1rem;}
-    ul { font-size: 1.125rem; line-height: 1.7;}
-    .figure { text-align: center; margin: 30px 0; }
-    .figure img { max-width: 70%; height: auto; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); display: block; margin: 0 auto; }
-    .video-container { display: flex; justify-content: center; margin-bottom: 2rem; }
-    .video-container iframe { width: 560px; height: 315px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
-    a.download-btn { display: inline-block; background-color: #2e7d32; color: white; padding: 0.75rem 1.5rem; text-decoration: none; font-size: 1rem; border-radius: 5px; transition: background-color 0.3s; text-align: center; margin: 10px 10px 10px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
-    a.download-btn:hover { background-color: #1b5e20;}
-    .highlight-box { background: linear-gradient(135deg, #e8f5e8, #f1f8f1); border-left: 4px solid #4caf50; padding: 1.5rem; margin: 2rem 0; border-radius: 8px; }
-    .authors { background-color: #ffffff; padding: 1.5rem; border-radius: 10px; margin: 2rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-    .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
-    .method-card { background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-top: 3px solid #4caf50; }
-    footer { text-align: center; padding: 2rem 0; background-color: #1b5e20; color: white; margin-top: 3rem; box-shadow: 0 -2px 10px rgba(0,0,0,0.1);}
+    body {
+      font-family: var(--font-body);
+      margin: 0;
+      padding: 0;
+      background: var(--bg-warm);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* Toolbar Styling */
+    .toolbar {
+      background: var(--gradient-warm);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-medium);
+      backdrop-filter: blur(10px);
+    }
+
+    .toolbar .container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 0;
+      padding: 0 2rem;
+    }
+
+    .toolbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-right: 0.5rem;
+    }
+
+    .toolbar a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header Styling */
+    header {
+      background: var(--gradient-warm);
+      padding: 4rem 0;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,154.7C672,139,768,117,864,117.3C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/></svg>') repeat-x bottom;
+      background-size: 1440px 160px;
+    }
+
+    header h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin: 0;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      line-height: 1.2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      opacity: 0.9;
+      font-weight: 400;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Main Content */
+    main {
+      padding: 4rem 0;
+    }
+
+    /* Section Styling */
+    section {
+      background: var(--bg-card);
+      margin: 3rem 0;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section h2 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      color: var(--primary-warm);
+      text-align: center;
+      margin: 0 0 2rem 0;
+      font-weight: 600;
+      position: relative;
+    }
+
+    section h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-gold);
+      margin: 1rem auto;
+      border-radius: 2px;
+    }
+
+    section h3 {
+      font-family: var(--font-heading);
+      color: var(--text-primary);
+      font-size: 1.8rem;
+      margin: 2rem 0 1rem 0;
+      font-weight: 600;
+    }
+
+    section p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    /* Enhanced Lists */
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      position: relative;
+      padding: 0.8rem 0 0.8rem 2rem;
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--primary-warm);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* Figure Styling */
+    .figure {
+      text-align: center;
+      margin: 3rem 0;
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: var(--shadow-medium);
+      transition: transform 0.3s ease;
+    }
+
+    .figure img:hover {
+      transform: scale(1.02);
+    }
+
+    .figure p {
+      margin-top: 1.5rem;
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Authors Section */
+    .authors {
+      background: linear-gradient(135deg, rgba(210, 105, 30, 0.1) 0%, rgba(218, 165, 32, 0.1) 100%);
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+      text-align: left;
+      border-left: 4px solid var(--primary-warm);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .authors h3 {
+      color: var(--primary-warm);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .authors p {
+      margin: 0.8rem 0;
+      font-weight: 500;
+    }
+
+    /* Highlight Box */
+    .highlight-box {
+      background: linear-gradient(135deg, var(--accent-warm) 0%, var(--accent-gold) 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-medium);
+    }
+
+    .highlight-box .fas {
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+
+    .highlight-box ul {
+      margin: 1rem 0;
+    }
+
+    .highlight-box ul li {
+      color: white;
+    }
+
+    .highlight-box ul li::before {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Method Grid */
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .method-card {
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow-soft);
+      border-top: 4px solid var(--primary-warm);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .method-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .method-card h3 {
+      color: var(--primary-warm);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    /* Download Buttons */
+    .download-btn {
+      display: inline-block;
+      background: var(--gradient-warm);
+      color: white;
+      padding: 1rem 2rem;
+      margin: 0.5rem;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .download-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .download-btn:hover::before {
+      left: 100%;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--gradient-warm);
+      color: white;
+      text-align: center;
+      padding: 3rem 0;
+      margin-top: 4rem;
+    }
+
+    /* Social Links */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .social-links a {
+      color: var(--primary-warm);
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+
+    /* Responsive Design */
     @media (max-width: 768px) {
-      header h1 { font-size: 2rem; }
-      .figure img { max-width: 100%; }
-      section p { font-size: 1rem; }
-      .video-container iframe { width: 100%; height: 215px; }
-      .method-grid { grid-template-columns: 1fr; }
+      .container {
+        padding: 0 1rem;
+      }
+      
+      section {
+        padding: 2rem 1.5rem;
+        margin: 2rem 0;
+      }
+      
+      header {
+        padding: 2rem 0;
+      }
+      
+      section h2 {
+        font-size: 2rem;
+      }
+      
+      .figure {
+        padding: 1rem;
+      }
+      
+      .method-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .download-btn {
+        display: block;
+        margin: 1rem auto;
+        max-width: 280px;
+      }
+      
+      .toolbar {
+        padding: 0.5rem 0;
+      }
+      
+      .toolbar a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+        margin-right: 0.3rem;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      animation: fadeInUp 0.6s ease-out;
     }
   </style>
 </head>
 <body>
 <div class="toolbar">
-  <a href="/"><i class="fas fa-home"></i> Home</a>
-  <a href="#abstract"><i class="fas fa-file-alt"></i> Abstract</a>
-  <a href="#methodology"><i class="fas fa-cogs"></i> Method</a>
-  <a href="#results"><i class="fas fa-chart-line"></i> Results</a>
+  <div class="container">
+    <a href="/"><i class="fas fa-home"></i> Home</a>
+    <a href="#abstract"><i class="fas fa-file-alt"></i> Abstract</a>
+    <a href="#methodology"><i class="fas fa-cogs"></i> Method</a>
+    <a href="#results"><i class="fas fa-chart-line"></i> Results</a>
+  </div>
 </div>
 
 <header>
@@ -137,6 +551,7 @@
   <p style="font-size: 1.2rem; margin-top: 1rem; opacity: 0.9;">A reinforcement learning framework with habituation mechanisms for real-time robotic attention adaptation </p>
 </header>
 
+<main>
 <div class="container">
   <div class="authors">
     <h3><i class="fas fa-users"></i> Authors</h3>
@@ -269,25 +684,36 @@
 
   <section id="access">
     <h2>Paper Access & Resources</h2>
-    <a href="#" class="download-btn" onclick="showPaperDialog(event)">Download Full Paper</a>
-    <a href="#" class="download-btn" onclick="showCodeDialog(event)">Source Code & Data</a>
-    <a href="#" class="download-btn" onclick="showVideoDialog(event)">Supplementary Materials</a>
+    <div style="text-align: center; padding: 2rem 0;">
+      <a href="#" class="download-btn" onclick="showPaperDialog(event)">
+        <i class="fas fa-download"></i> Download Full Paper
+      </a>
+      <a href="#" class="download-btn" onclick="showCodeDialog(event)">
+        <i class="fas fa-code"></i> Source Code & Data
+      </a>
+      <a href="#" class="download-btn" onclick="showVideoDialog(event)">
+        <i class="fas fa-video"></i> Supplementary Materials
+      </a>
+    </div>
 
-    <p style="margin-top:1.5rem;font-size:1rem;color:#2e7d32;">
-      <i class="fas fa-info-circle"></i> <strong>Publication Status:</strong> Under Review<br>
-      <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i> Google Scholar</a> |
-      <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" title="ORCID"><i class="fab fa-orcid"></i> ORCID</a> |
-      <a href="https://github.com/kghamati" target="_blank" title="GitHub"><i class="fab fa-github"></i> GitHub</a>
+    <div class="social-links">
+      <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar">
+        <i class="fas fa-graduation-cap"></i>
+      </a>
+      <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID">
+        <i class="fab fa-orcid"></i>
+      </a>
+      <a href="https://github.com/kghamati" target="_blank" rel="noopener" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+
+    <p style="margin-top:2rem;font-size:1rem;color:var(--text-muted);text-align:center;">
+      <i class="fas fa-info-circle"></i> <strong>Publication Status:</strong> Under Review
     </p>
-
-<!--    <div class="highlight-box" style="margin-top: 2rem;">-->
-<!--      <p><i class="fas fa-quote-left"></i> <strong>Citation:</strong></p>-->
-<!--      <p style="font-family: monospace; background: #f9f9f9; padding: 1rem; border-radius: 5px; font-size: 0.9rem;">-->
-<!--        Ghamati, K., Banitalebi Dehkordi, M., Rahimi Nohooji, H., Voos, H., Amirabdollahian, F., & Zaraki, A. (2024). Learning to Gaze: Bio-Inspired Attention Adaptation for Social Robots. <em>Under Review</em>.-->
-<!--      </p>-->
-<!--    </div>-->
   </section>
 </div>
+</main>
 
 <script>
   function showPaperDialog(event) {
@@ -307,8 +733,10 @@
 </script>
 
 <footer>
-  <p>&copy; 2025 Khashayar Ghamati. All rights reserved.</p>
-  <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">University of Hertfordshire & University of Luxembourg</p>
+  <div class="container">
+    <p>&copy; 2025 Khashayar Ghamati. All rights reserved.</p>
+    <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">University of Hertfordshire & University of Luxembourg</p>
+  </div>
 </footer>
 </body>
 </html>

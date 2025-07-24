@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,8 +17,11 @@
 
   <meta property="og:title" content="ARI Humanoid: Human-Like Gaze via Reinforcement Learning | Humanoids 2024">
   <meta property="og:description" content="Published at Humanoids 2024: Robust sim-to-real attention learning on ARI humanoid robot using PPO, domain randomisation, and zero-shot transfer. Socially aware gaze in dynamic HRI. Authors: Khashayar Ghamati, Abolfazl Zaraki, Farshid Amirabdollahian.">
-  <meta property="og:image" content="https://ghamati.com/rlbam/ari-gaze-figure.jpg">
+  <meta property="og:image" content="https://ghamati.com/rlbam/ari-gaze-figure.png">
+  <meta property="og:type" content="article">
   <meta property="og:url" content="https://ghamati.com/rlbam/">
+  <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
+  <meta property="og:locale" content="en_GB">
   <meta property="article:published_time" content="2024-11-22">
   <meta property="article:author" content="Khashayar Ghamati">
   <meta property="article:tag" content="reinforcement learning, ARI robot, human-robot interaction, sim-to-real, Humanoids 2024">
@@ -68,55 +71,416 @@
   </script>
 
   <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
   <!-- External CSS for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <style>
+    :root {
+      /* Warm Colour Palette */
+      --primary-warm: #D2691E;
+      --primary-warm-light: #E6A85C;
+      --primary-warm-dark: #B8860B;
+      --secondary-warm: #CD853F;
+      --accent-warm: #F4A460;
+      --accent-gold: #DAA520;
+      
+      /* Neutral Warm Tones */
+      --bg-warm: #FDF6E3;
+      --bg-card: #FFFFFF;
+      --text-primary: #2F1B14;
+      --text-secondary: #5D4037;
+      --text-muted: #8D6E63;
+      
+      /* Gradients */
+      --gradient-warm: linear-gradient(135deg, var(--primary-warm) 0%, var(--secondary-warm) 100%);
+      --gradient-gold: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-warm) 100%);
+      
+      /* Typography */
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+      
+      /* Shadows */
+      --shadow-soft: 0 4px 20px rgba(210, 105, 30, 0.1);
+      --shadow-medium: 0 8px 30px rgba(210, 105, 30, 0.15);
+      --shadow-strong: 0 12px 40px rgba(210, 105, 30, 0.2);
+    }
+
     *, *::before, *::after {
       box-sizing: border-box;
     }
     
-    body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background-color: #f5f7fa; color: #333; line-height: 1.6; }
-    .toolbar { background-color: #0077b6; padding: 1rem; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: flex-start; box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
-    .toolbar a { color: white; text-decoration: none; font-size: 1.125rem; font-weight: 400; margin-right: 20px; transition: color 0.3s;}
-    .toolbar a:hover { color: #94d2bd;}
-    header { background-color: #0077b6; padding: 2rem 0; text-align: center; color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);}
-    header h1 { font-size: 2.5rem; margin: 0; font-weight: 700; }
-    .container { max-width: 1200px; margin: 2rem auto; padding: 0 20px;}
-    section h2 { font-size: 2rem; color: #0077b6; text-align: center; margin-bottom: 1.5rem; font-weight: 700;}
-    section p { font-size: 1.125rem; line-height: 1.7; text-align: justify; margin-bottom: 2rem;}
-    h3 { color: #333; font-size: 1.5rem; margin-bottom: 1rem;}
-    ul { font-size: 1.125rem; line-height: 1.7;}
-    .figure { text-align: center; margin: 20px 0; }
-    .figure img { max-width: 50%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: block; margin: 0 auto; }
-    .video-container { display: flex; justify-content: center; margin-bottom: 2rem; }
-    .video-container iframe { width: 560px; height: 315px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
-    a.download-btn { display: inline-block; background-color: #0077b6; color: white; padding: 0.75rem 1.5rem; text-decoration: none; font-size: 1rem; border-radius: 5px; transition: background-color 0.3s; text-align: center; margin-top: 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
-    a.download-btn:hover { background-color: #0096c7;}
-    footer { text-align: center; padding: 2rem 0; background-color: #023e8a; color: white; margin-top: 3rem; box-shadow: 0 -2px 10px rgba(0,0,0,0.1);}
-    @media (max-width: 768px) { header h1 { font-size: 2rem; } .figure img { max-width: 100%; } section p { font-size: 1rem; }
-      .video-container iframe { width: 100%; height: 215px; } }
+    body {
+      font-family: var(--font-body);
+      margin: 0;
+      padding: 0;
+      background: var(--bg-warm);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* Toolbar Styling */
+    .toolbar {
+      background: var(--gradient-warm);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-medium);
+      backdrop-filter: blur(10px);
+    }
+
+    .toolbar .container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 0;
+      padding: 0 2rem;
+    }
+
+    .toolbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .toolbar a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header Styling */
+    header {
+      background: var(--gradient-warm);
+      padding: 4rem 0;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,154.7C672,139,768,117,864,117.3C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/></svg>') repeat-x bottom;
+      background-size: 1440px 160px;
+    }
+
+    header h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin: 0;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      line-height: 1.2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Main Content */
+    main {
+      padding: 4rem 0;
+    }
+
+    /* Section Styling */
+    section {
+      background: var(--bg-card);
+      margin: 3rem 0;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section h2 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      color: var(--primary-warm);
+      text-align: center;
+      margin: 0 0 2rem 0;
+      font-weight: 600;
+      position: relative;
+    }
+
+    section h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-gold);
+      margin: 1rem auto;
+      border-radius: 2px;
+    }
+
+    section h3 {
+      font-family: var(--font-heading);
+      color: var(--text-primary);
+      font-size: 1.8rem;
+      margin: 2rem 0 1rem 0;
+      font-weight: 600;
+    }
+
+    section p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    /* Enhanced Lists */
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      position: relative;
+      padding: 0.8rem 0 0.8rem 2rem;
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--primary-warm);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* Figure Styling */
+    .figure {
+      text-align: center;
+      margin: 3rem 0;
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: var(--shadow-medium);
+      transition: transform 0.3s ease;
+    }
+
+    .figure img:hover {
+      transform: scale(1.02);
+    }
+
+    .figure p {
+      margin-top: 1.5rem;
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Video Container */
+    .video-container {
+      display: flex;
+      justify-content: center;
+      margin: 3rem 0;
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .video-container iframe {
+      width: 560px;
+      height: 315px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-medium);
+    }
+
+    /* Highlight Box */
+    .highlight {
+      background: linear-gradient(135deg, var(--accent-warm) 0%, var(--accent-gold) 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-medium);
+    }
+
+    .highlight .fas {
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+
+    /* Download Buttons */
+    .download-section {
+      text-align: center;
+      padding: 3rem 0;
+    }
+
+    .download-btn {
+      display: inline-block;
+      background: var(--gradient-warm);
+      color: white;
+      padding: 1rem 2rem;
+      margin: 0.5rem;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .download-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .download-btn:hover::before {
+      left: 100%;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--gradient-warm);
+      color: white;
+      text-align: center;
+      padding: 3rem 0;
+      margin-top: 4rem;
+    }
+
+    /* Social Links */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .social-links a {
+      color: var(--primary-warm);
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+      
+      section {
+        padding: 2rem 1.5rem;
+        margin: 2rem 0;
+      }
+      
+      header {
+        padding: 2rem 0;
+      }
+      
+      section h2 {
+        font-size: 2rem;
+      }
+      
+      .figure {
+        padding: 1rem;
+      }
+      
+      .video-container iframe {
+        width: 100%;
+        height: 215px;
+      }
+      
+      .download-btn {
+        display: block;
+        margin: 1rem auto;
+        max-width: 280px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      animation: fadeInUp 0.6s ease-out;
+    }
   </style>
 </head>
 <body>
 <div class="toolbar">
-  <a href="/"><i class="fas fa-home"></i> Home</a>
+  <div class="container">
+    <a href="/"><i class="fas fa-home"></i> Home</a>
+  </div>
 </div>
 
 <header>
   <h1>ARI Humanoid Robot Learns Human-Like Gaze with RL: Robust Attention, Sim-to-Real & Zero-Shot Transfer</h1>
 </header>
 
+<main>
 <div class="container">
   <section id="about">
     <h2>About the Paper</h2>
     <p>
       <b>Presented at IEEE-RAS Humanoids 2024</b>, this work demonstrates how the ARI humanoid robot acquires robust, human-like social gaze behaviour using <b>deep reinforcement learning</b> (RL), <b>domain randomisation</b>, and <b>zero-shot sim-to-real transfer</b>. We trained an attention model using <b>Proximal Policy Optimisation (PPO)</b> in simulation—then directly deployed it on ARI for real-world <b>human-robot interaction (HRI)</b> scenarios, achieving natural saliency-driven gaze and reliable adaptation to new people and activities. The approach tackles a core challenge in social robotics: robust transfer of RL policies from simulation to reality, enabling <b>real-time, context-sensitive attention</b> in complex, dynamic environments.
     </p>
-    <p style="color: #0077b6;">
+    
+    <div class="highlight">
       <i class="fas fa-lightbulb"></i> <b>Highlight:</b> This is among the first works to combine <b>PPO, domain randomisation, and ZST</b> for real-world social attention learning on a commercial humanoid robot.
-    </p>
+    </div>
   </section>
 
   <div class="figure">
@@ -180,9 +544,10 @@
         <b>Proof-of-Concept:</b> The robot performed error-free saliency target selection in multi-person HRI, as validated by comparison with ideal action tables and ground-truth annotations.
       </li>
     </ul>
-    <p>
+    
+    <div class="highlight">
       <i class="fas fa-robot"></i> <b>Impact:</b> This research marks a step change in how reinforcement learning and sim-to-real transfer can unlock robust, adaptive, and explainable social intelligence for commercial humanoid robots in the wild.
-    </p>
+    </div>
   </section>
 
   <section id="challenges">
@@ -196,15 +561,30 @@
 
   <section id="open">
     <h2>Open Science, Paper, and Code</h2>
-    <a href="https://ieeexplore.ieee.org/document/10769867" class="download-btn" target="_blank">Download Full Paper (IEEE Xplore)</a>
-    <a href="#" class="download-btn" onclick="showCodeDialog(event)">Code</a>
-    <p style="margin-top:1rem;font-size:1rem;color:#0077b6;">
-      <i class="fas fa-info-circle"></i> Published at <b>IEEE-RAS Humanoids 2024</b>.<br>
-      <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i> Google Scholar</a> |
-      <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" title="ORCID"><i class="fab fa-orcid"></i> ORCID</a>
+    <div class="download-section">
+      <a href="https://ieeexplore.ieee.org/document/10769867" class="download-btn" target="_blank">
+        <i class="fas fa-download"></i> Download Full Paper (IEEE Xplore)
+      </a>
+      <a href="#" class="download-btn" onclick="showCodeDialog(event)">
+        <i class="fas fa-code"></i> Access Code
+      </a>
+    </div>
+    
+    <div class="social-links">
+      <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar">
+        <i class="fas fa-graduation-cap"></i>
+      </a>
+      <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID">
+        <i class="fab fa-orcid"></i>
+      </a>
+    </div>
+    
+    <p style="margin-top:2rem;font-size:1rem;color:var(--text-muted);text-align:center;">
+      <i class="fas fa-info-circle"></i> Published at <b>IEEE-RAS Humanoids 2024</b>.
     </p>
   </section>
 </div>
+</main>
 
 <script>
   function showCodeDialog(event) {
@@ -214,7 +594,10 @@
 </script>
 
 <footer>
-  <p>&copy; 2024 Khashayar Ghamati, Abolfazl Zaraki, Farshid Amirabdollahian. All rights reserved.</p>
+  <div class="container">
+    <p>&copy; 2024 Khashayar Ghamati, Abolfazl Zaraki, Farshid Amirabdollahian. All rights reserved.</p>
+    <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">Advancing social robotics through reinforcement learning</p>
+  </div>
 </footer>
 </body>
 </html>

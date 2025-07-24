@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,15 +12,17 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Agentic AI for Human Activity Recognition (HAR) with memory-driven continual learning, context-aware reasoning, and robust human-robot interaction. Presented at ICSR 2025.">
-  <meta name="keywords" content="human activity recognition, HAR, continual learning, memory-driven AI, agentic AI, human-robot interaction, HRI, reinforcement learning, explainable AI, context awareness, ICSR 2025, Khashayar Ghamati, adaptive robotics, vision language model, supervised learning, machine learning, AI conference">
+  <meta name="description" content="Agentic AI for Human Activity Recognition (HAR) with memory-driven continual learning, context-aware reasoning, and robust human-robot interaction. Utilising neuromorphic approaches for adaptive robotics. Presented at ICSR 2025.">
+  <meta name="keywords" content="human activity recognition, HAR, continual learning, memory-driven AI, agentic AI, human-robot interaction, HRI, reinforcement learning, explainable AI, context awareness, ICSR 2025, Khashayar Ghamati, adaptive robotics, vision language model, supervised learning, machine learning, AI conference, neuromorphic computing, cognitive architectures">
 
   <!-- Open Graph (for Facebook, LinkedIn, Slack, etc.) -->
   <meta property="og:title" content="Memory-Driven Agentic AI for Human Activity Recognition | ICSR 2025">
   <meta property="og:description" content="Discover an agentic AI architecture for robust, explainable human activity recognition (HAR) in HRI—fusing memory, continual learning, and context-aware reasoning. Accepted at ICSR 2025.">
   <meta property="og:image" content="https://ghamati.com/har-agent/main-arch.PNG">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
   <meta property="og:url" content="https://ghamati.com/har-agent/">
+  <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
+  <meta property="og:locale" content="en_GB">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -33,7 +35,7 @@
   <title>Memory-Driven Agentic AI for Human Activity Recognition (HAR) | ICSR 2025 | Khashayar Ghamati</title>
 
   <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
 
   <!-- External CSS for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -69,153 +71,380 @@
 
 
   <style>
+    :root {
+      /* Warm Colour Palette */
+      --primary-warm: #D2691E;
+      --primary-warm-light: #E6A85C;
+      --primary-warm-dark: #B8860B;
+      --secondary-warm: #CD853F;
+      --accent-warm: #F4A460;
+      --accent-gold: #DAA520;
+      
+      /* Neutral Warm Tones */
+      --bg-warm: #FDF6E3;
+      --bg-card: #FFFFFF;
+      --text-primary: #2F1B14;
+      --text-secondary: #5D4037;
+      --text-muted: #8D6E63;
+      
+      /* Gradients */
+      --gradient-warm: linear-gradient(135deg, var(--primary-warm) 0%, var(--secondary-warm) 100%);
+      --gradient-gold: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-warm) 100%);
+      
+      /* Typography */
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+      
+      /* Shadows */
+      --shadow-soft: 0 4px 20px rgba(210, 105, 30, 0.1);
+      --shadow-medium: 0 8px 30px rgba(210, 105, 30, 0.15);
+      --shadow-strong: 0 12px 40px rgba(210, 105, 30, 0.2);
+    }
+
     *, *::before, *::after {
       box-sizing: border-box;
     }
     
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: var(--font-body);
       margin: 0;
       padding: 0;
-      background-color: #f5f7fa;
-      color: #333;
-      line-height: 1.6;
+      background: var(--bg-warm);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 16px;
     }
 
     /* Toolbar Styling */
     .toolbar {
-      background-color: #0077b6;
-      padding: 1rem;
+      background: var(--gradient-warm);
+      padding: 1rem 0;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: var(--shadow-medium);
+      backdrop-filter: blur(10px);
+    }
+
+    .toolbar .container {
       display: flex;
       justify-content: flex-start;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      align-items: center;
+      margin: 0;
+      padding: 0 2rem;
     }
 
     .toolbar a {
       color: white;
       text-decoration: none;
-      font-size: 1.125rem;
-      font-weight: 400;
-      margin-right: 20px;
-      transition: color 0.3s;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .toolbar a:hover {
-      color: #94d2bd;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
+    /* Header Styling */
     header {
-      background-color: #0077b6;
-      padding: 2rem 0;
+      background: var(--gradient-warm);
+      padding: 4rem 0;
       text-align: center;
       color: white;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,154.7C672,139,768,117,864,117.3C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/></svg>') repeat-x bottom;
+      background-size: 1440px 160px;
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.5rem);
       margin: 0;
       font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      line-height: 1.2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
 
+    /* Container */
     .container {
       max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 20px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Main Content */
+    main {
+      padding: 4rem 0;
+    }
+
+    /* Section Styling */
+    section {
+      background: var(--bg-card);
+      margin: 3rem 0;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
     }
 
     section h2 {
-      font-size: 2rem;
-      color: #0077b6;
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      color: var(--primary-warm);
       text-align: center;
-      margin-bottom: 1.5rem;
-      font-weight: 700;
+      margin: 0 0 2rem 0;
+      font-weight: 600;
+      position: relative;
+    }
+
+    section h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-gold);
+      margin: 1rem auto;
+      border-radius: 2px;
+    }
+
+    section h3 {
+      font-family: var(--font-heading);
+      color: var(--text-primary);
+      font-size: 1.8rem;
+      margin: 2rem 0 1rem 0;
+      font-weight: 600;
     }
 
     section p {
-      font-size: 1.125rem;
-      line-height: 1.7;
-      text-align: justify;
-      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      text-align: left;
     }
 
-    h3 {
-      color: #333;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
+    /* Enhanced Lists */
     ul {
-      font-size: 1.125rem;
-      line-height: 1.7;
+      list-style: none;
+      padding: 0;
     }
 
+    ul li {
+      position: relative;
+      padding: 0.8rem 0 0.8rem 2rem;
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--primary-warm);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* Figure Styling */
     .figure {
       text-align: center;
-      margin: 20px 0;
+      margin: 3rem 0;
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow-soft);
     }
 
     .figure img {
-      max-width: 50%;
+      max-width: 100%;
       height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      display: block;
-      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: var(--shadow-medium);
+      transition: transform 0.3s ease;
     }
 
-    /* Download button */
-    a.download-btn {
+    .figure img:hover {
+      transform: scale(1.02);
+    }
+
+    .figure p {
+      margin-top: 1.5rem;
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Highlight Box */
+    .highlight {
+      background: linear-gradient(135deg, var(--accent-warm) 0%, var(--accent-gold) 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-medium);
+    }
+
+    .highlight .fas {
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+
+    /* Download Buttons */
+    .download-section {
+      text-align: center;
+      padding: 3rem 0;
+    }
+
+    .download-btn {
       display: inline-block;
-      background-color: #0077b6;
+      background: var(--gradient-warm);
       color: white;
-      padding: 0.75rem 1.5rem;
+      padding: 1rem 2rem;
+      margin: 0.5rem;
       text-decoration: none;
-      font-size: 1rem;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-      text-align: center;
-      margin-top: 2rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      font-size: 1.1rem;
+      font-weight: 500;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
     }
 
-    a.download-btn:hover {
-      background-color: #0096c7;
+    .download-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
     }
 
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .download-btn:hover::before {
+      left: 100%;
+    }
+
+    /* Footer */
     footer {
-      text-align: center;
-      padding: 2rem 0;
-      background-color: #023e8a;
+      background: var(--gradient-warm);
       color: white;
-      margin-top: 3rem;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 3rem 0;
+      margin-top: 4rem;
     }
 
-    @media (max-width: 767px) {
-      .figure img {
-        max-width: 100%;
+    /* Social Links */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .social-links a {
+      color: var(--primary-warm);
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+      
+      section {
+        padding: 2rem 1.5rem;
+        margin: 2rem 0;
+      }
+      
+      header {
+        padding: 2rem 0;
+      }
+      
+      section h2 {
+        font-size: 2rem;
+      }
+      
+      .figure {
+        padding: 1rem;
+      }
+      
+      .download-btn {
+        display: block;
+        margin: 1rem auto;
+        max-width: 280px;
       }
     }
 
-  </style>
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
+    section {
+      animation: fadeInUp 0.6s ease-out;
+    }
   </style>
 </head>
 <body>
 
 <!-- Toolbar with Home Button -->
 <div class="toolbar">
-  <a href="/"><i class="fas fa-home"></i> Home</a>
+  <div class="container">
+    <a href="/"><i class="fas fa-home"></i> Home</a>
+  </div>
 </div>
 
 <header>
   <h1>Towards Memory-Driven Agentic AI for Human Activity Recognition</h1>
 </header>
 
+<main>
 <div class="container">
   <section>
     <h2>About the Paper</h2>
@@ -225,9 +454,10 @@
     <p>
       <b>Agentic AI</b> marks a shift from traditional, rule-based AI by allowing systems to learn continuously from experience. Our work positions agentic AI as a key enabler for flexible and socially-aware robotics, especially for assistive, collaborative, and adaptive real-world applications.
     </p>
-    <p style="color: #0077b6;">
+    
+    <div class="highlight">
       <i class="fas fa-lightbulb"></i> <b>Did you know?</b> Most current AI systems struggle to distinguish between actions that "look" similar (e.g., standing up vs. lifting an object), especially when context or environmental cues are missing.
-    </p>
+    </div>
   </section>
 
   <div class="figure">
@@ -243,13 +473,16 @@
     <p>
       Our work addresses this by building in <b>short-term memory</b> (for activity transitions) and <b>long-term memory</b> (for accumulated experience), inspired by human cognitive processes. This allows the agent to reason over time and make more robust inferences.
     </p>
+    
+    <h3>Memory Architecture Components</h3>
     <ul>
-      <li><b>Short-term memory (STM):</b> Aggregates information across frames to capture temporal changes.</li>
+      <li><b>Short-term memory (STM):</b> Aggregates information across frames to capture temporal changes and activity transitions.</li>
       <li><b>Long-term memory (LTM):</b> Stores key experiences and contextual knowledge, allowing the system to generalise across different environments and users.</li>
     </ul>
-    <p>
-      <b>Why is this important?</b> In real-world settings—such as healthcare, elderly care, or collaborative robotics—robots must understand not just what humans are doing, but <i>why</i>, and respond in contextually appropriate ways. Our architecture is a step towards that goal.
-    </p>
+    
+    <div class="highlight">
+      <i class="fas fa-info-circle"></i> <b>Why is this important?</b> In real-world settings—such as healthcare, elderly care, or collaborative robotics—robots must understand not just what humans are doing, but <i>why</i>, and respond in contextually appropriate ways. Our architecture is a step towards that goal.
+    </div>
   </section>
 
   <section>
@@ -266,9 +499,10 @@
       <li><strong>Context Alignment (CA):</strong> This probabilistic module integrates outputs from supervised models and context extractors. By using conditional probabilities and the <b>Jaccard Index</b>, CA refines ambiguous predictions and enables robust recognition, especially for overlapping or ambiguous activities.
       </li>
     </ul>
-    <p>
-      <i class="fas fa-info-circle"></i> <b>Technical innovation:</b> Unlike typical HAR, our agent continually aligns its interpretation of activities using both its experience (LTM) and recent context (STM). This hybrid approach substantially improves generalisation and robustness.
-    </p>
+    
+    <div class="highlight">
+      <i class="fas fa-cogs"></i> <b>Technical innovation:</b> Unlike typical HAR, our agent continually aligns its interpretation of activities using both its experience (LTM) and recent context (STM). This hybrid approach substantially improves generalisation and robustness.
+    </div>
   </section>
 
   <div class="figure">
@@ -290,9 +524,10 @@
       <li><b>Generalisation:</b> The agent correctly adapted to unfamiliar activities and new environments, demonstrating robustness beyond the training set.</li>
       <li><b>Activity transition awareness:</b> STM enabled the agent to detect and track activity changes over time, a key capability for real-world HRI.</li>
     </ul>
-    <p>
-      <b>Takeaway:</b> The fusion of context, memory, and supervision not only boosts accuracy but also makes the agent <b>explainable</b>—we can trace which contextual cues or past experiences led to a particular decision.
-    </p>
+    
+    <div class="highlight">
+      <i class="fas fa-chart-line"></i> <b>Takeaway:</b> The fusion of context, memory, and supervision not only boosts accuracy but also makes the agent <b>explainable</b>—we can trace which contextual cues or past experiences led to a particular decision.
+    </div>
   </section>
 
   <div class="figure">
@@ -310,9 +545,10 @@
       <li>Enables robots to collaborate with humans more naturally, anticipating needs and responding proactively.</li>
       <li>Provides a foundation for life-long learning and adaptation in robots deployed in dynamic, open-ended environments.</li>
     </ul>
-    <p>
+    
+    <div class="highlight">
       <i class="fas fa-robot"></i> <b>Impact:</b> From healthcare and assistive living to industrial and service robotics, these advancements bring us closer to robots that understand, learn from, and genuinely help people—adapting to their habits and preferences over time.
-    </p>
+    </div>
   </section>
 
   <div class="figure">
@@ -324,29 +560,37 @@
   </div>
 
   <section>
-    <h2>Open Science & Collaboration: Code, Data & Contact</h2>
+    <h2>Open Science & Collaboration</h2>
     <p>
       We believe in open research. If you are interested in collaborating, adapting our methods, or accessing the code or datasets, please feel free to contact us. Our goal is to accelerate progress towards agentic, explainable AI for real-world robotics.
-      <span style="font-size:1.2em;">
-      <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar" style="margin-right:10px;">
-        <i class="fas fa-graduation-cap"></i> Google Scholar
+    </p>
+    
+    <div class="social-links">
+      <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar">
+        <i class="fas fa-graduation-cap"></i>
       </a>
       <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID">
-        <i class="fab fa-orcid"></i> ORCID
+        <i class="fab fa-orcid"></i>
       </a>
-    </span>
-    </p>
+    </div>
   </section>
 
   <section>
     <h2>Full Paper & Code</h2>
-    <a href="#" class="download-btn" onclick="showPaperDialog(event)">Download Full Paper</a>
-    <a href="#" class="download-btn" onclick="showCodeDialog(event)">Code</a>
-    <p style="margin-top:1rem;font-size:1rem;color:#0077b6;">
+    <div class="download-section">
+      <a href="#" class="download-btn" onclick="showPaperDialog(event)">
+        <i class="fas fa-download"></i> Download Full Paper
+      </a>
+      <a href="#" class="download-btn" onclick="showCodeDialog(event)">
+        <i class="fas fa-code"></i> Access Code
+      </a>
+    </div>
+    <p style="margin-top:2rem;font-size:1rem;color:var(--text-muted);text-align:center;">
       <i class="fas fa-info-circle"></i> The paper will be available in the proceedings of ICSR 2025 after the conference takes place in September 2025.
     </p>
   </section>
 </div>
+</main>
 
 
 
@@ -363,7 +607,10 @@
 </script>
 
 <footer>
-  <p>&copy; 2025 Khashayar Ghamati. All rights reserved.</p>
+  <div class="container">
+    <p>&copy; 2025 Khashayar Ghamati. All rights reserved.</p>
+    <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">Advancing agentic AI for human-centred robotics</p>
+  </div>
 </footer>
 
 </body>
