@@ -185,6 +185,8 @@
 			bottom: 0;
 			background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,154.7C672,139,768,117,864,117.3C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/></svg>') repeat-x bottom;
 			background-size: 1440px 160px;
+			z-index: 1;
+			pointer-events: none;
 		}
 
 		header img {
@@ -196,6 +198,8 @@
 			margin-bottom: 1.5rem;
 			box-shadow: var(--shadow-medium);
 			transition: transform 0.3s ease;
+			position: relative;
+			z-index: 2;
 		}
 
 		header img:hover {
@@ -209,6 +213,8 @@
 			font-weight: 700;
 			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 			color: white;
+			position: relative;
+			z-index: 2;
 		}
 
 		header h2 {
@@ -217,6 +223,8 @@
 			margin: 0 0 1.5rem 0;
 			opacity: 0.95;
 			color: white;
+			position: relative;
+			z-index: 2;
 		}
 
 		.social-icons {
@@ -225,6 +233,8 @@
 			align-items: center;
 			gap: 1rem;
 			margin-top: 2rem;
+			position: relative;
+			z-index: 10;
 		}
 
 		.social-icons a {
@@ -235,6 +245,11 @@
 			padding: 0.5rem;
 			border-radius: 50%;
 			background: rgba(255, 255, 255, 0.1);
+			display: inline-block;
+			position: relative;
+			z-index: 10;
+			cursor: pointer;
+			pointer-events: auto;
 		}
 
 		.social-icons a:hover {
@@ -522,10 +537,10 @@
 	<h1>Khashayar Ghamati</h1>
 	<h2>PhD Candidate | AI Researcher | Robotics | Continual Learning</h2>
 	<div class="social-icons">
-		<a href="https://www.linkedin.com/in/khashayarghamati" target="_blank" title="LinkedIn" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-		<a href="https://github.com/khashayarghamati" target="_blank" title="GitHub" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
-		<a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" title="Google Scholar" aria-label="Google Scholar Profile"><i class="fas fa-graduation-cap"></i></a>
-		<a href="https://orcid.org/0009-0002-6416-3127" target="_blank" title="ORCID" aria-label="ORCID Profile"><i class="fab fa-orcid"></i></a>
+		<a href="https://www.linkedin.com/in/khashayarghamati" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+		<a href="https://github.com/khashayarghamati" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+		<a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar Profile"><i class="fas fa-graduation-cap"></i></a>
+		<a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID" aria-label="ORCID Profile"><i class="fab fa-orcid"></i></a>
 	</div>
 </header>
 
@@ -700,10 +715,10 @@
 		<p><strong>Based in:</strong> Hertfordshire, United Kingdom</p>
 		<p><strong>Available for:</strong> Research collaborations, consulting, speaking engagements, and academic partnerships</p>
 		<div class="social-icons">
-			<a href="https://www.linkedin.com/in/khashayarghamati" target="_blank" title="LinkedIn" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-			<a href="https://github.com/khashayarghamati" target="_blank" title="GitHub" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
-			<a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" title="Google Scholar" aria-label="Google Scholar Profile"><i class="fas fa-graduation-cap"></i></a>
-			<a href="https://orcid.org/0009-0002-6416-3127" target="_blank" title="ORCID" aria-label="ORCID Profile"><i class="fab fa-orcid"></i></a>
+			<a href="https://www.linkedin.com/in/khashayarghamati" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+			<a href="https://github.com/khashayarghamati" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+			<a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar Profile"><i class="fas fa-graduation-cap"></i></a>
+			<a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID" aria-label="ORCID Profile"><i class="fab fa-orcid"></i></a>
 		</div>
 	</section>
 </main>
