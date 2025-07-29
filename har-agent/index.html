@@ -69,6 +69,14 @@
     }
   </script>
 
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV1K905FF2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HV1K905FF2');
+  </script>
 
   <style>
     :root {
@@ -297,6 +305,10 @@
       color: var(--text-muted);
       font-size: 0.95rem;
       line-height: 1.6;
+    }
+
+    .figure-large img {
+      max-width: 85%;
     }
 
     /* Highlight Box */

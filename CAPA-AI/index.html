@@ -336,7 +336,7 @@
     }
 
     .figure-large img {
-      max-width: 90%;
+      max-width: 85%;
     }
 
     /* Highlight Box */
@@ -452,6 +452,111 @@
         margin: 1rem auto;
         max-width: 280px;
       }
+    }
+
+    /* Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+      background-color: var(--bg-card);
+      margin: 15% auto;
+      padding: 2rem;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: var(--shadow-strong);
+      position: relative;
+      animation: modalSlideIn 0.3s ease-out;
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--accent-warm);
+    }
+
+    .modal-header h3 {
+      margin: 0;
+      color: var(--primary-warm);
+      font-family: var(--font-heading);
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: color 0.3s ease;
+    }
+
+    .modal-close:hover {
+      color: var(--primary-warm);
+    }
+
+    .modal-body {
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+
+    .modal-btn {
+      padding: 0.5rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .modal-btn-primary {
+      background: var(--gradient-warm);
+      color: white;
+    }
+
+    .modal-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .modal-btn-secondary {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 2px solid var(--text-muted);
+    }
+
+    .modal-btn-secondary:hover {
+      background: var(--text-muted);
+      color: white;
     }
 
     /* Animations */
@@ -607,22 +712,94 @@
       </a>
     </div>
     <p style="margin-top:2rem;font-size:1rem;color:var(--text-muted);text-align:center;">
-      <i class="fas fa-info-circle"></i> The paper will be available in the proceedings of IEEE RO-MAN 2025 after the conference takes place in August 2025.
+      <i class="fas fa-info-circle"></i> Research outputs will be available following conference presentation and publication.
     </p>
   </section>
 </div>
 </main>
 
-<script>
-  function showCodeDialog(event) {
-    event.preventDefault();
-    alert("To access the source code, please email us at: k.ghamati@herts.ac.uk");
-  }
+<!-- Modal Dialogs -->
+<div id="paperModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3><i class="fas fa-file-alt"></i> Full Paper Access</h3>
+      <button class="modal-close" onclick="closeModal('paperModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>This paper will be available in the proceedings of <strong>IEEE RO-MAN 2025</strong> after the conference takes place in August 2025.</p>
+      <p>For early access or collaboration inquiries, please contact:</p>
+      <p><strong><i class="fas fa-envelope"></i> k.ghamati@herts.ac.uk</strong></p>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-btn modal-btn-secondary" onclick="closeModal('paperModal')">Close</button>
+      <button class="modal-btn modal-btn-primary" onclick="copyEmail()">Copy Email</button>
+    </div>
+  </div>
+</div>
 
+<div id="codeModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3><i class="fas fa-code"></i> Source Code Access</h3>
+      <button class="modal-close" onclick="closeModal('codeModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>To access the source code, datasets, and experimental materials for CAPA-AI, please contact our research team:</p>
+      <p><strong><i class="fas fa-envelope"></i> k.ghamati@herts.ac.uk</strong></p>
+      <p><i class="fas fa-info-circle"></i> We're committed to open science and collaborative research!</p>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-btn modal-btn-secondary" onclick="closeModal('codeModal')">Close</button>
+      <button class="modal-btn modal-btn-primary" onclick="copyEmail()">Copy Email</button>
+    </div>
+  </div>
+</div>
+
+<script>
   function showPaperDialog(event) {
     event.preventDefault();
-    alert("The paper will be available in the proceedings of IEEE RO-MAN 2025 after the conference takes place in August 2025.");
+    document.getElementById('paperModal').style.display = 'block';
   }
+
+  function showCodeDialog(event) {
+    event.preventDefault();
+    document.getElementById('codeModal').style.display = 'block';
+  }
+
+  function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+  }
+
+  function copyEmail() {
+    navigator.clipboard.writeText('k.ghamati@herts.ac.uk').then(function() {
+      // Create a temporary success message
+      const btn = event.target;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      btn.style.background = '#28a745';
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '';
+      }, 2000);
+    });
+  }
+
+  // Close modal when clicking outside
+  window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+      event.target.style.display = 'none';
+    }
+  }
+
+  // Close modal with Escape key
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        modal.style.display = 'none';
+      });
+    }
+  });
 </script>
 
 <footer>
