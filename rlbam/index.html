@@ -77,33 +77,46 @@
 
   <style>
     :root {
-      /* Warm Colour Palette */
-      --primary-warm: #D2691E;
-      --primary-warm-light: #E6A85C;
-      --primary-warm-dark: #B8860B;
-      --secondary-warm: #CD853F;
-      --accent-warm: #F4A460;
-      --accent-gold: #DAA520;
+      /* Modern Professional Palette */
+      --primary-blue: #0f172a;
+      --primary-blue-light: #1e293b;
+      --secondary-blue: #3b82f6;
+      --accent-emerald: #10b981;
+      --accent-purple: #8b5cf6;
+      --accent-orange: #f59e0b;
       
-      /* Neutral Warm Tones */
-      --bg-warm: #FDF6E3;
-      --bg-card: #FFFFFF;
-      --text-primary: #2F1B14;
-      --text-secondary: #5D4037;
-      --text-muted: #8D6E63;
+      /* Modern Neutrals */
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-accent: #f1f5f9;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --border-light: #e2e8f0;
+      --border-medium: #cbd5e1;
       
-      /* Gradients */
-      --gradient-warm: linear-gradient(135deg, var(--primary-warm) 0%, var(--secondary-warm) 100%);
-      --gradient-gold: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-warm) 100%);
+      /* Modern Gradients */
+      --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+      --gradient-accent: linear-gradient(135deg, var(--secondary-blue) 0%, var(--accent-emerald) 100%);
+      --gradient-hero: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--accent-emerald) 100%);
       
       /* Typography */
       --font-heading: 'Playfair Display', serif;
       --font-body: 'Inter', sans-serif;
       
-      /* Shadows */
-      --shadow-soft: 0 4px 20px rgba(210, 105, 30, 0.1);
-      --shadow-medium: 0 8px 30px rgba(210, 105, 30, 0.15);
-      --shadow-strong: 0 12px 40px rgba(210, 105, 30, 0.2);
+      /* Modern Shadows */
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      
+      /* Spacing System */
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --space-2xl: 4rem;
     }
 
     *, *::before, *::after {
@@ -114,7 +127,7 @@
       font-family: var(--font-body);
       margin: 0;
       padding: 0;
-      background: var(--bg-warm);
+      background: var(--bg-secondary);
       color: var(--text-primary);
       line-height: 1.7;
       font-size: 16px;
@@ -122,12 +135,12 @@
 
     /* Toolbar Styling */
     .toolbar {
-      background: var(--gradient-warm);
+      background: var(--gradient-primary);
       padding: 1rem 0;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: var(--shadow-medium);
+      box-shadow: var(--shadow-md);
       backdrop-filter: blur(10px);
     }
 
@@ -160,7 +173,7 @@
 
     /* Header Styling */
     header {
-      background: var(--gradient-warm);
+      background: var(--gradient-primary);
       padding: 4rem 0;
       text-align: center;
       color: white;
@@ -205,11 +218,11 @@
 
     /* Section Styling */
     section {
-      background: var(--bg-card);
+      background: var(--bg-primary);
       margin: 3rem 0;
       padding: 3rem;
       border-radius: 20px;
-      box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow-sm);
       position: relative;
       overflow: hidden;
     }
@@ -217,7 +230,7 @@
     section h2 {
       font-family: var(--font-heading);
       font-size: 2.5rem;
-      color: var(--primary-warm);
+      color: var(--primary-blue);
       text-align: center;
       margin: 0 0 2rem 0;
       font-weight: 600;
@@ -229,7 +242,7 @@
       display: block;
       width: 80px;
       height: 4px;
-      background: var(--gradient-gold);
+      background: var(--gradient-accent);
       margin: 1rem auto;
       border-radius: 2px;
     }
@@ -269,7 +282,7 @@
       content: '→';
       position: absolute;
       left: 0;
-      color: var(--primary-warm);
+      color: var(--primary-blue);
       font-weight: bold;
       font-size: 1.2rem;
     }
@@ -278,17 +291,17 @@
     .figure {
       text-align: center;
       margin: 3rem 0;
-      background: var(--bg-card);
+      background: var(--bg-primary);
       padding: 2rem;
       border-radius: 15px;
-      box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow-sm);
     }
 
     .figure img {
       max-width: 100%;
       height: auto;
       border-radius: 12px;
-      box-shadow: var(--shadow-medium);
+      box-shadow: var(--shadow-md);
       transition: transform 0.3s ease;
     }
 
@@ -313,27 +326,27 @@
       display: flex;
       justify-content: center;
       margin: 3rem 0;
-      background: var(--bg-card);
+      background: var(--bg-primary);
       padding: 2rem;
       border-radius: 15px;
-      box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow-sm);
     }
 
     .video-container iframe {
       width: 560px;
       height: 315px;
       border-radius: 12px;
-      box-shadow: var(--shadow-medium);
+      box-shadow: var(--shadow-md);
     }
 
     /* Highlight Box */
     .highlight {
-      background: linear-gradient(135deg, var(--accent-warm) 0%, var(--accent-gold) 100%);
+      background: var(--gradient-accent);
       color: white;
       padding: 2rem;
       border-radius: 15px;
       margin: 2rem 0;
-      box-shadow: var(--shadow-medium);
+      box-shadow: var(--shadow-md);
     }
 
     .highlight .fas {
@@ -349,7 +362,7 @@
 
     .download-btn {
       display: inline-block;
-      background: var(--gradient-warm);
+      background: var(--gradient-primary);
       color: white;
       padding: 1rem 2rem;
       margin: 0.5rem;
@@ -358,7 +371,7 @@
       font-weight: 500;
       border-radius: 50px;
       transition: all 0.3s ease;
-      box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow-sm);
       position: relative;
       overflow: hidden;
     }
@@ -376,7 +389,7 @@
 
     .download-btn:hover {
       transform: translateY(-3px);
-      box-shadow: var(--shadow-strong);
+      box-shadow: var(--shadow-lg);
     }
 
     .download-btn:hover::before {
@@ -385,7 +398,7 @@
 
     /* Footer */
     footer {
-      background: var(--gradient-warm);
+      background: var(--gradient-primary);
       color: white;
       text-align: center;
       padding: 3rem 0;
@@ -401,13 +414,13 @@
     }
 
     .social-links a {
-      color: var(--primary-warm);
+      color: var(--primary-blue);
       font-size: 1.5rem;
       transition: all 0.3s ease;
     }
 
     .social-links a:hover {
-      color: var(--accent-gold);
+      color: var(--accent-emerald);
       transform: translateY(-2px);
     }
 
