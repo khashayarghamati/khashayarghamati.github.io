@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- DNS Prefetch and Preconnect for Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Enhanced SEO Meta Tags -->
+  <meta name="description" content="SS03: Continual Learning and Generative AI in Social Robotics - ICSR 2026 Special Session. Organised by Dr Abolfazl Zaraki and Khashayar Ghamati, University of Hertfordshire.">
+  <meta name="keywords" content="ICSR 2026, continual learning, generative AI, social robotics, lifelong learning, catastrophic forgetting, LLMs, VLMs, multimodal AI, post-training, adaptive robots, HRI, human-robot interaction">
+  <meta name="author" content="Dr Abolfazl Zaraki, Khashayar Ghamati">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="SS03: Continual Learning and Generative AI in Social Robotics — ICSR 2026">
+  <meta property="og:description" content="Special session on continual and generative learning for next-generation social robots. Organised by Dr Abolfazl Zaraki and Khashayar Ghamati at University of Hertfordshire.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ghamati.com/icsr-2026/">
+  <meta property="og:site_name" content="ICSR 2026 Special Session">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SS03: Continual Learning and Generative AI in Social Robotics — ICSR 2026">
+  <meta name="twitter:description" content="Special session at ICSR 2026 on continual and generative learning for adaptive social robots.">
+  <meta name="twitter:creator" content="@khashayarghamati">
+
+  <link rel="canonical" href="https://ghamati.com/icsr-2026/">
+
+  <title>SS03: Continual Learning and Generative AI in Social Robotics — ICSR 2026 Special Session</title>
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
+
+  <!-- External CSS for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Enhanced Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "SS03: Continual Learning and Generative AI in Social Robotics",
+      "description": "Special session focusing on the convergence of Continual Learning and Generative AI as the foundation for next-generation social robots capable of adaptive, creative, and context-aware behaviour.",
+      "startDate": "2026-07-01",
+      "endDate": "2026-07-04",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "University of London",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "London",
+          "addressCountry": "UK"
+        }
+      },
+      "organizer": [
+        {
+          "@type": "Person",
+          "name": "Dr Abolfazl Zaraki",
+          "affiliation": {
+            "@type": "Organization",
+            "name": "University of Hertfordshire"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Khashayar Ghamati",
+          "affiliation": {
+            "@type": "Organization",
+            "name": "University of Hertfordshire"
+          },
+          "url": "https://ghamati.com",
+          "sameAs": [
+            "https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en",
+            "https://orcid.org/0009-0002-6416-3127"
+          ]
+        }
+      ],
+      "superEvent": {
+        "@type": "Event",
+        "name": "18th International Conference on Social Robotics (ICSR 2026 + ART)",
+        "url": "https://icsr2026.uk/"
+      },
+      "url": "https://ghamati.com/icsr-2026/",
+      "inLanguage": "en",
+      "about": [
+        "continual learning",
+        "generative AI",
+        "social robotics",
+        "lifelong learning",
+        "catastrophic forgetting",
+        "multimodal AI",
+        "post-training",
+        "adaptive robots"
+      ],
+      "keywords": "continual learning, generative AI, social robotics, ICSR 2026, lifelong learning, LLMs, VLMs"
+    }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV1K905FF2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HV1K905FF2');
+  </script>
+
+  <style>
+    :root {
+      /* Modern Professional Palette */
+      --primary-blue: #0f172a;
+      --primary-blue-light: #1e293b;
+      --secondary-blue: #3b82f6;
+      --accent-emerald: #10b981;
+      --accent-purple: #8b5cf6;
+      --accent-orange: #f59e0b;
+
+      /* Modern Neutrals */
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-accent: #f1f5f9;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --border-light: #e2e8f0;
+      --border-medium: #cbd5e1;
+
+      /* Modern Gradients */
+      --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+      --gradient-accent: linear-gradient(135deg, var(--secondary-blue) 0%, var(--accent-emerald) 100%);
+      --gradient-hero: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--accent-emerald) 100%);
+
+      /* Typography */
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+
+      /* Modern Shadows */
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+      /* Spacing System */
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --space-2xl: 4rem;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      margin: 0;
+      padding: 0;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* Toolbar Styling */
+    .toolbar {
+      background: var(--gradient-primary);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(10px);
+    }
+
+    .toolbar .container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 0;
+      padding: 0 2rem;
+    }
+
+    .toolbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .toolbar a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header Styling */
+    header {
+      background: var(--gradient-hero);
+      padding: 4rem 0;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,154.7C672,139,768,117,864,117.3C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/></svg>') repeat-x bottom;
+      background-size: 1440px 160px;
+    }
+
+    header h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin: 0;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      line-height: 1.2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    header h2 {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: 400;
+      margin: 1rem 0 0 0;
+      opacity: 0.95;
+      color: white;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Main Content */
+    main {
+      padding: 4rem 0;
+    }
+
+    /* Section Styling */
+    section {
+      background: var(--bg-primary);
+      margin: 3rem 0;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    section:hover {
+      box-shadow: var(--shadow-xl);
+      transform: translateY(-2px);
+    }
+
+    section h2 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      color: var(--primary-blue);
+      text-align: center;
+      margin: 0 0 2rem 0;
+      font-weight: 600;
+      position: relative;
+    }
+
+    section h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-accent);
+      margin: 1rem auto;
+      border-radius: 2px;
+    }
+
+    section h3 {
+      font-family: var(--font-heading);
+      color: var(--text-primary);
+      font-size: 1.8rem;
+      margin: 2rem 0 1rem 0;
+      font-weight: 600;
+    }
+
+    section p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    /* Enhanced Lists */
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      position: relative;
+      padding: 0.8rem 0 0.8rem 2rem;
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--secondary-blue);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    ul li strong {
+      color: var(--primary-blue);
+      font-weight: 600;
+    }
+
+    /* Deadline Box */
+    .deadline-box {
+      background: var(--gradient-accent);
+      color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .deadline-box h3 {
+      color: white;
+      margin: 0 0 0.5rem 0;
+      font-size: 1.8rem;
+    }
+
+    .deadline-box p {
+      color: rgba(255, 255, 255, 0.95);
+      margin: 0.5rem 0;
+    }
+
+    /* Topic Grid */
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .topic-card {
+      background: var(--bg-accent);
+      padding: 2rem;
+      border-radius: 15px;
+      border-left: 4px solid var(--secondary-blue);
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .topic-card:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-md);
+      border-left-color: var(--accent-emerald);
+    }
+
+    .topic-card h3 {
+      margin: 0 0 1rem 0;
+      font-size: 1.5rem;
+    }
+
+    .topic-card p {
+      margin: 0;
+    }
+
+    /* Organizer Section */
+    .organizer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .organizer-card {
+      background: var(--bg-accent);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .organizer-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .organizer-card h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.4rem;
+    }
+
+    .organizer-card p {
+      margin: 0.3rem 0;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .organizer-card a {
+      color: var(--secondary-blue);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .organizer-card a:hover {
+      color: var(--accent-emerald);
+    }
+
+    /* FAQ Section */
+    .faq-item {
+      background: var(--bg-accent);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin: 1rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-item h4 {
+      color: var(--primary-blue);
+      margin: 0 0 0.5rem 0;
+      font-size: 1.3rem;
+    }
+
+    .faq-item p {
+      margin: 0;
+    }
+
+    /* Project Links */
+    .project-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .project-link {
+      background: var(--bg-accent);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .project-link:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .project-link a {
+      color: var(--secondary-blue);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    .project-link a:hover {
+      color: var(--accent-emerald);
+    }
+
+    .project-link p {
+      margin: 0.5rem 0 0 0;
+      font-size: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--gradient-primary);
+      color: white;
+      text-align: center;
+      padding: 3rem 0;
+      margin-top: 4rem;
+    }
+
+    footer p {
+      margin: 0.5rem 0;
+      opacity: 0.9;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      section {
+        padding: 2rem 1.5rem;
+        margin: 2rem 0;
+      }
+
+      header {
+        padding: 2rem 0;
+      }
+
+      section h2 {
+        font-size: 2rem;
+      }
+
+      .topic-grid, .organizer-grid, .project-links {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      animation: fadeInUp 0.6s ease-out;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Toolbar with Home Button -->
+<div class="toolbar">
+  <div class="container">
+    <a href="/"><i class="fas fa-home"></i> Home</a>
+  </div>
+</div>
+
+<header>
+  <div style="margin-bottom: 2rem;">
+    <img src="https://icsr2026.uk/wp-content/uploads/2025/09/cropped-ICSR-ART-Logo-1.gif"
+         alt="ICSR 2026 + ART Conference Logo"
+         style="max-width: 200px; height: auto; margin: 0 auto; display: block; background: white; padding: 1rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);"
+         loading="eager">
+  </div>
+  <h1>SS03: Continual Learning and Generative AI in Social Robotics</h1>
+  <h2>ICSR 2026 Special Session</h2>
+  <p style="margin-top: 1.5rem; font-size: 1.1rem; opacity: 0.95;">
+    <i class="fas fa-calendar-alt"></i> July 1-4, 2026 &nbsp;|&nbsp;
+    <i class="fas fa-map-marker-alt"></i> University of London, London, UK
+  </p>
+</header>
+
+<main>
+<div class="container">
+  <section>
+    <h2>Session Overview</h2>
+    <p>
+      Social robots are becoming integral to everyday life — in homes, care settings, schools, public spaces — yet the static models that power them often fail to adapt beyond controlled environments. To thrive in long-term, open-ended deployment, robots must be <strong>continual learners</strong> and <strong>generative thinkers</strong>.
+    </p>
+    <p>
+      This special session investigates how <strong>Continual Learning</strong> and <strong>Generative AI</strong> can jointly provide the foundation for social robots that learn, generalise, and create over time. Robots should be able to continuously assimilate new experiences without forgetting, while also generating contextually appropriate behaviours, dialogue, and adaptations. Together, these paradigms chart a path toward robots that grow with their users, refine their skills post-deployment, and engage in meaningful, human-like interaction.
+    </p>
+    <p>
+      We invite contributions spanning <strong>theory, architecture, and demonstration</strong> — including reinforcement and meta-learning, memory systems, multimodal post-training (e.g. LLMs and VLMs), and embodied generative frameworks — all aimed at socially intelligent, self-improving, and ethically aware robotic agents.
+    </p>
+  </section>
+
+  <section>
+    <h2>Key Themes</h2>
+    <ul>
+      <li><strong>Continual and Lifelong Learning in Social Robotics</strong></li>
+      <li><strong>Generative AI for Behavioural, Cognitive, and Affective Modelling</strong></li>
+      <li><strong>Post-Training and Online Adaptation for Robotic Intelligence</strong></li>
+      <li><strong>Memory, Retention, and Knowledge Consolidation in Continual Systems</strong></li>
+      <li><strong>Multi-Modal Generative Perception (Vision, Language, and Action)</strong></li>
+      <li><strong>Human-in-the-Loop and Co-Adaptive Learning</strong></li>
+      <li><strong>Evaluation, Safety, and Ethics of Continually Evolving Robots</strong></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>List of Topics</h2>
+    <ul>
+      <li>Continual Reinforcement Learning and Catastrophic Forgetting Mitigation</li>
+      <li>Generative Behaviour and Dialogue Synthesis for Social Robots</li>
+      <li>Post-Training Adaptation of Multimodal AI Models (LLMs, VLMs, etc.)</li>
+      <li>Memory-Based Architectures for Lifelong Learning</li>
+      <li>Sim2Real and Domain Adaptation in Generative Agents</li>
+      <li>Human Feedback, Interactive Teaching, and Shared Autonomy</li>
+      <li>Evaluation Metrics, Datasets, and Benchmarks for Continual Generative Systems</li>
+      <li>Embodied and Cognitive Models for Adaptive Social Intelligence</li>
+      <li>Ethical, Societal, and Policy Implications of Continual Generative AI in Robotics</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Vision</h2>
+    <p>
+      We envision robots that continue to grow and adapt alongside humans — fine-tuning their behaviour, perception, and interaction style over weeks, months, and years. The combination of continual learning and generative AI enables this vision: robots that reason, create, and evolve.
+    </p>
+    <p>
+      These systems hold promise in domains such as <strong>assistive care, education, public engagement, and collaborative work</strong>, where long-term adaptability and trust are essential.
+    </p>
+  </section>
+
+  <section>
+    <h2>Related Research by the Organisers & References</h2>
+    <div class="project-links">
+      <div class="project-link">
+        <a href="https://ghamati.com/CAPA-AI/" target="_blank"><strong>CAPA-AI:</strong> Experience-Guided Adaptation through Short-Term Memory</a>
+        <p>Architecture integrating memory to guide adaptation in interactive robot systems.</p>
+      </div>
+      <div class="project-link">
+        <a href="https://ghamati.com/har-agent/" target="_blank"><strong>HAR-Agent:</strong> Contextual Human Activity Recognition for Adaptive Interaction</a>
+        <p>Adaptive pipeline leveraging behaviour context to condition robot responses.</p>
+      </div>
+      <div class="project-link">
+        <a href="https://ghamati.com/rlbam/" target="_blank"><strong>RLBAM:</strong> Reinforcement-Learning Bio-Inspired Attention Mechanism</a>
+        <p>Adaptive attention mechanisms in social robots for gaze control and focus behaviour.</p>
+      </div>
+      <div class="project-link">
+        <a href="https://link.springer.com/chapter/10.1007/978-3-031-01581-6_4" target="_blank" rel="noopener"><strong>Towards Lifelong Learning in Robotics</strong> (Springer chapter)</a>
+        <p>A recent survey and synthesis of continual learning approaches in robotic systems, highlighting challenges, benchmarks, and architectures.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Invitation</h2>
+    <p>
+      We welcome submissions from across <strong>robotics, AI, HRI, cognitive systems, and applied domains</strong> — especially those exploring how robots can retain knowledge, adapt over time, and generate creative responses.
+    </p>
+    <p>
+      Whether via algorithms, systems, or user studies, your contribution can push forward the frontier of socially intelligent, evolving robots.
+    </p>
+  </section>
+
+  <section>
+    <h2>Important Dates</h2>
+    <div class="deadline-box">
+      <h3><i class="fas fa-calendar-alt"></i> Submission Deadline: TBA</h3>
+      <p>Notification: TBA</p>
+      <p>Camera-ready: TBA</p>
+      <p style="margin-top: 1rem; font-size: 0.95rem;">Dates will be announced soon. Check back for updates.</p>
+    </div>
+    <p style="text-align: center; margin-top: 2rem; font-size: 1.1rem;">
+      <strong>Conference:</strong> July 1-4, 2026<br>
+      <strong>Location:</strong> University of London, London, UK
+    </p>
+    <p style="text-align: center; margin-top: 1rem;">
+      <a href="https://icsr2026.uk/" target="_blank" rel="noopener" style="color: var(--secondary-blue); text-decoration: none; font-weight: 600; border-bottom: 2px solid var(--secondary-blue); transition: all 0.3s ease;">
+        <i class="fas fa-external-link-alt"></i> Visit ICSR 2026 Conference Website
+      </a>
+    </p>
+  </section>
+
+  <section>
+    <h2>Organisers</h2>
+    <div class="organizer-grid">
+      <div class="organizer-card">
+        <h3>Dr Abolfazl Zaraki</h3>
+        <p>Senior Lecturer in Robotics</p>
+        <p>University of Hertfordshire, UK</p>
+        <p style="margin-top: 1rem;">
+          <a href="mailto:a.zaraki@herts.ac.uk"><i class="fas fa-envelope"></i> a.zaraki@herts.ac.uk</a>
+        </p>
+      </div>
+      <div class="organizer-card">
+        <h3>Khashayar Ghamati</h3>
+        <p>PhD Candidate in AI & Robotics</p>
+        <p>Robotics Research Group</p>
+        <p>University of Hertfordshire, UK</p>
+        <p style="margin-top: 1rem;">
+          <a href="mailto:k.ghamati@herts.ac.uk"><i class="fas fa-envelope"></i> k.ghamati@herts.ac.uk</a>
+        </p>
+        <p>
+          <a href="https://ghamati.com" target="_blank"><i class="fas fa-globe"></i> ghamati.com</a>
+        </p>
+        <p>
+          <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 ICSR Special Session on Continual Learning & Generative AI in Social Robotics</p>
+    <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">
+      Part of the 18th International Conference on Social Robotics (ICSR 2026 + ART)<br>
+      July 1-4, 2026 | University of London, UK
+    </p>
+    <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">
+      Organised by Dr Abolfazl Zaraki and Khashayar Ghamati | University of Hertfordshire
+    </p>
+    <p style="margin-top: 1.5rem;">
+      <a href="https://icsr2026.uk/" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.9); text-decoration: none; transition: all 0.3s ease;">
+        <i class="fas fa-external-link-alt"></i> ICSR 2026 Main Conference
+      </a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
