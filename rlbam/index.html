@@ -506,22 +506,78 @@
   </div>
 
     <section id="exp">
-    <h2>Video Explanation</h2>
+    <h2>ARI Robot Gaze Learning Explained: RL Training & Sim-to-Real Transfer</h2>
+    <p>
+      This video explains how the ARI humanoid robot learns human-like gaze behaviour through deep reinforcement learning. Watch how we use Proximal Policy Optimisation (PPO), domain randomisation, and zero-shot sim-to-real transfer to train robust social attention models that generalise from simulation to real-world human-robot interaction without additional training.
+    </p>
     <!-- YouTube Video Embed -->
     <div class="video-container">
-
-        <iframe src="https://www.youtube.com/embed/KswWRoeFIj4" title="ARI Humanoid Robot Learns Human-Like Gaze with RL:Robust Attention, Sim-to-Real & Zero-Shot Transfer" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/KswWRoeFIj4"
+                title="ARI Humanoid Robot Learns Human-Like Gaze with RL: Robust Attention, Sim-to-Real & Zero-Shot Transfer"
+                allowfullscreen
+                loading="lazy"></iframe>
     </div>
     </section>
 
+    <!-- VideoObject Schema for Explanation Video -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "ARI Humanoid Robot Learns Human-Like Gaze with RL: Robust Attention, Sim-to-Real & Zero-Shot Transfer",
+      "description": "Detailed explanation of how the ARI humanoid robot learns human-like gaze behaviour using deep reinforcement learning, PPO training, domain randomisation, and zero-shot sim-to-real transfer for social human-robot interaction. Published at IEEE Humanoids 2024.",
+      "thumbnailUrl": "https://img.youtube.com/vi/KswWRoeFIj4/maxresdefault.jpg",
+      "uploadDate": "2024-11-22",
+      "duration": "PT8M",
+      "contentUrl": "https://www.youtube.com/watch?v=KswWRoeFIj4",
+      "embedUrl": "https://www.youtube.com/embed/KswWRoeFIj4",
+      "publisher": {
+        "@type": "Person",
+        "name": "Khashayar Ghamati",
+        "url": "https://ghamati.com"
+      },
+      "keywords": "ARI robot, reinforcement learning, gaze behaviour, PPO, sim-to-real transfer, humanoid robot, social robotics, attention model, human-robot interaction, IEEE Humanoids",
+      "inLanguage": "en",
+      "isFamilyFriendly": true
+    }
+    </script>
+
     <section id="demo-video">
-        <h2>Demo</h2>
+        <h2>Live Demo: ARI Robot Performing Human-Like Gaze in Real-World HRI</h2>
+        <p>
+          Watch the ARI humanoid robot in action, demonstrating learned gaze behaviour in real-world human-robot interaction scenarios. The robot dynamically allocates attention between multiple participants based on social cues, proximity, and activities—all driven by the reinforcement learning policy trained in simulation and transferred without additional training.
+        </p>
   <!-- YouTube Video Embed -->
   <div class="video-container">
-
-    <iframe src="https://www.youtube.com/embed/HI_fXSfgixk" title="ARI humanoid robot imitates human gaze behaviour using reinforcement learning in real-world environments" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/HI_fXSfgixk"
+            title="ARI humanoid robot imitates human gaze behaviour using reinforcement learning in real-world environments"
+            allowfullscreen
+            loading="lazy"></iframe>
   </div>
     </section>
+
+    <!-- VideoObject Schema for Demo Video -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "ARI Humanoid Robot Imitates Human Gaze Behaviour Using Reinforcement Learning in Real-World Environments",
+      "description": "Live demonstration of the ARI humanoid robot performing human-like social gaze behaviour in real-world human-robot interaction. The robot dynamically allocates attention between participants using learned RL policy from simulation, showcasing successful zero-shot sim-to-real transfer.",
+      "thumbnailUrl": "https://img.youtube.com/vi/HI_fXSfgixk/maxresdefault.jpg",
+      "uploadDate": "2024-11-22",
+      "duration": "PT3M",
+      "contentUrl": "https://www.youtube.com/watch?v=HI_fXSfgixk",
+      "embedUrl": "https://www.youtube.com/embed/HI_fXSfgixk",
+      "publisher": {
+        "@type": "Person",
+        "name": "Khashayar Ghamati",
+        "url": "https://ghamati.com"
+      },
+      "keywords": "ARI robot demo, gaze behaviour, humanoid robot, reinforcement learning, real-world HRI, social attention, robotic gaze, sim-to-real, IEEE Humanoids",
+      "inLanguage": "en",
+      "isFamilyFriendly": true
+    }
+    </script>
 
   <section id="context">
     <h2>Why Social Gaze Matters in Human-Robot Interaction</h2>
