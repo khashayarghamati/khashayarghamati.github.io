@@ -1,29 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- DNS Prefetch and Preconnect for Performance -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  
-  <!-- Enhanced SEO Meta Tags -->
-  <meta name="description" content="Which AI Sees Like Us? Investigating cognitive plausibility of language and vision models via eye-tracking in human-robot interaction. Comprehensive study comparing LLMs and VLMs with human visual attention patterns. Published in MDPI Sensors 2025.">
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Which AI Sees Like Us? Cognitive plausibility of vision and language models via eye-tracking in human-robot interaction. Published in MDPI Sensors 2025.">
   <meta name="keywords" content="cognitive plausibility, human attention modeling, LLMs, VLMs, human-robot interaction, human-computer interaction, eye-tracking, visual attention, saliency detection, Khashayar Ghamati, LLaVA, DeepSeek, Qwen, LLaMA, Gemma, short-term memory, AI cognition, vision-language models, MDPI Sensors 2025, cognitive AI, neural attention, gaze tracking, social robotics">
   <meta name="author" content="Khashayar Ghamati, Maryam Banitalebi Dehkordi, Abolfazl Zaraki">
   <meta name="robots" content="index, follow">
 
-  <!-- Open Graph for social and richer search results -->
-  <meta property="og:title" content="Which AI Sees Like Us? Cognitive Plausibility in Vision Models | MDPI Sensors 2025">
-  <meta property="og:description" content="Groundbreaking eye-tracking study comparing AI models with human visual attention patterns in HRI. Reveals how well LLMs and VLMs replicate human-like cognitive processes.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Which AI Sees Like Us? Cognitive Plausibility in Vision Models">
+  <meta property="og:description" content="Eye-tracking study comparing AI models with human visual attention patterns in HRI. Reveals how well LLMs and VLMs replicate human-like cognitive processes.">
   <meta property="og:image" content="https://ghamati.com/seelikeus/LLM_comprasion.png">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://ghamati.com/seelikeus/">
   <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
+  <meta property="og:locale" content="en_GB">
   <meta property="article:author" content="Khashayar Ghamati">
   <meta property="article:published_time" content="2025-07-29">
   <meta property="article:section" content="Artificial Intelligence">
@@ -34,22 +35,25 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Which AI Sees Like Us? Cognitive Plausibility in Vision Models | MDPI Sensors 2025">
-  <meta name="twitter:description" content="Eye-tracking study comparing LLMs and VLMs with human visual attention patterns in HRI scenarios, revealing cognitive alignment insights.">
+  <meta name="twitter:title" content="Which AI Sees Like Us? Vision Model Cognition | Sensors 2025">
+  <meta name="twitter:description" content="Eye-tracking study comparing LLMs and VLMs with human visual attention patterns in HRI scenarios.">
   <meta name="twitter:image" content="https://ghamati.com/seelikeus/LLM_comprasion.png">
   <meta name="twitter:creator" content="@khashayarghamati">
 
   <link rel="canonical" href="https://ghamati.com/seelikeus/">
 
-  <title>Which AI Sees Like Us? Investigating Cognitive Plausibility of Vision Models | MDPI Sensors 2025</title>
+  <title>Which AI Sees Like Us? Cognitive Plausibility of Vision Models | Sensors 2025</title>
+
+  <!-- Shared MD3 Design System -->
+  <link rel="stylesheet" href="/css/material-design.css">
 
   <!-- Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
 
-  <!-- External CSS for Icons -->
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-  <!-- Enhanced Structured Data -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -122,464 +126,80 @@
     gtag('js', new Date());
     gtag('config', 'G-HV1K905FF2');
   </script>
-
-  <style>
-    :root {
-      /* Modern Professional Palette */
-      --primary-blue: #0f172a;
-      --primary-blue-light: #1e293b;
-      --secondary-blue: #3b82f6;
-      --accent-emerald: #10b981;
-      --accent-purple: #8b5cf6;
-      --accent-orange: #f59e0b;
-      
-      /* Modern Neutrals */
-      --bg-primary: #ffffff;
-      --bg-secondary: #f8fafc;
-      --bg-accent: #f1f5f9;
-      --text-primary: #0f172a;
-      --text-secondary: #475569;
-      --text-muted: #64748b;
-      --border-light: #e2e8f0;
-      --border-medium: #cbd5e1;
-      
-      /* Modern Gradients */
-      --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
-      --gradient-accent: linear-gradient(135deg, var(--secondary-blue) 0%, var(--accent-emerald) 100%);
-      --gradient-hero: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--accent-emerald) 100%);
-      
-      /* Typography */
-      --font-heading: 'Playfair Display', serif;
-      --font-body: 'Inter', sans-serif;
-      
-      /* Modern Shadows */
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      
-      /* Spacing System */
-      --space-xs: 0.5rem;
-      --space-sm: 1rem;
-      --space-md: 1.5rem;
-      --space-lg: 2rem;
-      --space-xl: 3rem;
-      --space-2xl: 4rem;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: var(--font-body);
-      margin: 0;
-      padding: 0;
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-      line-height: 1.7;
-      font-size: 16px;
-    }
-
-    /* Toolbar Styling */
-    .toolbar {
-      background: var(--gradient-primary);
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: var(--shadow-md);
-      backdrop-filter: blur(10px);
-    }
-
-    .toolbar .container {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      margin: 0;
-      padding: 0 2rem;
-    }
-
-    .toolbar a {
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .toolbar a:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Header Styling */
-    header {
-      background: var(--gradient-primary);
-      padding: 4rem 0;
-      text-align: center;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,154.7C672,139,768,117,864,117.3C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/></svg>') repeat-x bottom;
-      background-size: 1440px 160px;
-    }
-
-    header h1 {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      margin: 0;
-      font-weight: 700;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-      line-height: 1.2;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* Container */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* Main Content */
-    main {
-      padding: 4rem 0;
-    }
-
-    /* Section Styling */
-    section {
-      background: var(--bg-primary);
-      margin: 3rem 0;
-      padding: 3rem;
-      border-radius: 20px;
-      box-shadow: var(--shadow-sm);
-      position: relative;
-      overflow: hidden;
-    }
-
-    section h2 {
-      font-family: var(--font-heading);
-      font-size: 2.5rem;
-      color: var(--primary-blue);
-      text-align: center;
-      margin: 0 0 2rem 0;
-      font-weight: 600;
-      position: relative;
-    }
-
-    section h2::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 4px;
-      background: var(--gradient-accent);
-      margin: 1rem auto;
-      border-radius: 2px;
-    }
-
-    section h3 {
-      font-family: var(--font-heading);
-      color: var(--text-primary);
-      font-size: 1.8rem;
-      margin: 2rem 0 1rem 0;
-      font-weight: 600;
-    }
-
-    section p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-      text-align: left;
-    }
-
-    /* Enhanced Lists */
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    ul li {
-      position: relative;
-      padding: 0.8rem 0 0.8rem 2rem;
-      margin: 0.5rem 0;
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: var(--text-secondary);
-    }
-
-    ul li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--primary-blue);
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    /* Figure Styling */
-    .figure {
-      text-align: center;
-      margin: 3rem 0;
-      background: var(--bg-primary);
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .figure img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: var(--shadow-md);
-      transition: transform 0.3s ease;
-    }
-
-    .figure img:hover {
-      transform: scale(1.02);
-    }
-
-    .figure p {
-      margin-top: 1.5rem;
-      font-style: italic;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .figure-large img {
-      max-width: 85%;
-    }
-
-    /* Authors Section */
-    .authors {
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
-      padding: 1.5rem;
-      border-radius: 12px;
-      margin: 2rem 0;
-      text-align: center;
-      border-left: 4px solid var(--primary-blue);
-    }
-
-    .authors p {
-      margin: 0.5rem 0;
-      font-weight: 500;
-    }
-
-    /* Highlight Box */
-    .highlight {
-      background: var(--gradient-accent);
-      color: white;
-      padding: 2rem;
-      border-radius: 15px;
-      margin: 2rem 0;
-      box-shadow: var(--shadow-md);
-    }
-
-    .highlight .fas {
-      font-size: 1.2rem;
-      margin-right: 0.5rem;
-    }
-
-    /* Highlight Box Variants */
-    .highlight-box {
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
-      border-left: 4px solid var(--primary-blue);
-      padding: 2rem;
-      margin: 2rem 0;
-      border-radius: 12px;
-    }
-
-    .highlight-box h3 {
-      color: var(--primary-blue);
-      margin-top: 0;
-    }
-
-    /* Download Buttons */
-    .download-section {
-      text-align: center;
-      padding: 3rem 0;
-    }
-
-    .download-btn {
-      display: inline-block;
-      background: var(--gradient-primary);
-      color: white;
-      padding: 1rem 2rem;
-      margin: 0.5rem;
-      text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: 500;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow-sm);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .download-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.5s;
-    }
-
-    .download-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .download-btn:hover::before {
-      left: 100%;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--gradient-primary);
-      color: white;
-      text-align: center;
-      padding: 3rem 0;
-      margin-top: 4rem;
-    }
-
-    /* Social Links */
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-
-    .social-links a {
-      color: var(--primary-blue);
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .social-links a:hover {
-      color: var(--accent-emerald);
-      transform: translateY(-2px);
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 1rem;
-      }
-      
-      section {
-        padding: 2rem 1.5rem;
-        margin: 2rem 0;
-      }
-      
-      header {
-        padding: 2rem 0;
-      }
-      
-      section h2 {
-        font-size: 2rem;
-      }
-      
-      .figure {
-        padding: 1rem;
-      }
-      
-      .download-btn {
-        display: block;
-        margin: 1rem auto;
-        max-width: 280px;
-      }
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    section {
-      animation: fadeInUp 0.6s ease-out;
-    }
-  </style>
 </head>
 <body>
 
-<!-- Toolbar with Home Button -->
-<div class="toolbar">
-  <div class="container">
-    <a href="/"><i class="fas fa-home"></i> Home</a>
-  </div>
-</div>
+<a href="#abstract" class="md-skip-link">Skip to content</a>
 
-<header>
-  <h1>Which AI Sees Like Us? Investigating Cognitive Plausibility of Vision Models</h1>
+<!-- Top App Bar -->
+<nav class="md-top-app-bar" id="topBar">
+  <span class="md-top-app-bar__title">SeelikeUs</span>
+  <div class="md-top-app-bar__nav">
+    <a href="/"><i class="fas fa-home"></i> Home</a>
+    <a href="#abstract"><i class="fas fa-file-alt"></i> Abstract</a>
+    <a href="#methodology"><i class="fas fa-microscope"></i> Methodology</a>
+    <a href="#results"><i class="fas fa-chart-bar"></i> Results</a>
+    <a href="#access"><i class="fas fa-download"></i> Paper</a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="md-hero">
+  <h1 class="md-display-medium">Which AI Sees Like Us? Investigating Cognitive Plausibility of Vision Models</h1>
+  <p class="md-hero__subtitle">MDPI Sensors 2025, Vol. 25, Issue 15 &bull; Ghamati, Dehkordi &amp; Zaraki &bull; University of Hertfordshire</p>
+  <div class="md-hero__actions">
+    <span class="md-publication-status md-publication-status--published"><i class="fas fa-check-circle"></i> Published</span>
+  </div>
 </header>
 
-<main>
-<div class="container">
-  <section>
-    <h2>About the Study</h2>
-    <div class="authors">
-      <p><strong>Authors:</strong> Khashayar Ghamati, Maryam Banitalebi Dehkordi, Abolfazl Zaraki</p>
-      <p><strong>Affiliation:</strong> University of Hertfordshire, UK</p>
-      <p><strong>Status:</strong> Published in MDPI Sensors 2025, Volume 25, Issue 15, Article 4687</p>
-      <p><strong>DOI:</strong> <a href="https://doi.org/10.3390/s25154687" target="_blank" style="color: var(--primary-warm);">10.3390/s25154687</a></p>
+<main class="md-container md-sp-32">
+
+  <!-- About / Abstract -->
+  <section class="md-section" id="abstract">
+    <h2 class="md-headline-large md-mb-24">About the Study</h2>
+
+    <div class="md-author-card md-mb-24">
+      <div class="md-author-card__info">
+        <div class="md-author-card__name">Khashayar Ghamati, Maryam Banitalebi Dehkordi, Abolfazl Zaraki</div>
+        <div class="md-author-card__affiliation">University of Hertfordshire, UK</div>
+        <div class="md-author-card__affiliation">Published in MDPI Sensors 2025, Volume 25, Issue 15, Article 4687</div>
+        <div class="md-author-card__links">
+          <a href="https://doi.org/10.3390/s25154687" target="_blank" rel="noopener" title="DOI"><i class="fas fa-link"></i></a>
+          <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+          <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID"><i class="fab fa-orcid"></i></a>
+        </div>
+      </div>
     </div>
-    
-    <p>
-      As large language models (LLMs) and vision–language models (VLMs) become increasingly used in robotics, a crucial question arises: <b>to what extent do these models replicate human-like cognitive processes, particularly within socially interactive contexts?</b> This study addresses this gap by using human visual attention as a behavioural proxy for cognition in naturalistic human-robot interaction (HRI) scenarios.
+
+    <p class="md-body-large">
+      As large language models (LLMs) and vision-language models (VLMs) become increasingly used in robotics, a crucial question arises: <b>to what extent do these models replicate human-like cognitive processes, particularly within socially interactive contexts?</b> This study addresses this gap by using human visual attention as a behavioural proxy for cognition in naturalistic human-robot interaction (HRI) scenarios.
     </p>
-    
-    <p>
-      Eye-tracking data were collected from participants engaging in social human–human interactions, providing frame-level gaze fixations as human attentional ground truth. We prompted a state-of-the-art VLM (LLaVA) to generate scene descriptions, which were processed by four LLMs (DeepSeek-R1-Distill-Qwen-7B, Qwen1.5-7B-Chat, LLaMA-3.1-8b-instruct, and Gemma-7b-it) to infer saliency points. Each model was evaluated in both stateless and memory-augmented (short-term memory, STM) modes.
+
+    <p class="md-body-large">
+      Eye-tracking data were collected from participants engaging in social human-human interactions, providing frame-level gaze fixations as human attentional ground truth. We prompted a state-of-the-art VLM (LLaVA) to generate scene descriptions, which were processed by four LLMs (DeepSeek-R1-Distill-Qwen-7B, Qwen1.5-7B-Chat, LLaMA-3.1-8b-instruct, and Gemma-7b-it) to infer saliency points. Each model was evaluated in both stateless and memory-augmented (short-term memory, STM) modes.
     </p>
-    
-    <div class="highlight">
-      <i class="fas fa-lightbulb"></i> <b>Key Finding:</b> Whilst stateless LLaVA most closely replicates human gaze patterns, short-term memory (STM) confers measurable benefits only for DeepSeek, whose lexical anchoring mirrors human rehearsal mechanisms. Other models exhibited degraded performance with memory due to prompt interference or limited contextual integration.
+
+    <div class="md-highlight-box">
+      <p class="md-highlight-box__title"><i class="fas fa-lightbulb"></i> Key Finding</p>
+      <p>Whilst stateless LLaVA most closely replicates human gaze patterns, short-term memory (STM) confers measurable benefits only for DeepSeek, whose lexical anchoring mirrors human rehearsal mechanisms. Other models exhibited degraded performance with memory due to prompt interference or limited contextual integration.</p>
     </div>
   </section>
 
-  <div class="figure">
+  <!-- Figure 1 -->
+  <figure class="md-figure">
     <img src="LLM_comprasion.png" alt="Evaluation pipeline comparing vision-language models and large language models with human eye-tracking data in cognitive plausibility study" class="figure-large" loading="eager" width="1000" height="700">
-    <p><b>Figure 1:</b> Overview of the evaluation pipeline. The vision-language model processes each video frame to generate textual descriptions, which are passed to four large language models. The system operates in two modes: stateless (frame-by-frame) and memory-augmented (STM), where concatenated frame descriptions are provided. Human eye-tracking data serves as ground truth for evaluating cognitive alignment.</p>
-  </div>
+    <figcaption><strong>Figure 1:</strong> Overview of the evaluation pipeline. The vision-language model processes each video frame to generate textual descriptions, which are passed to four large language models. The system operates in two modes: stateless (frame-by-frame) and memory-augmented (STM), where concatenated frame descriptions are provided. Human eye-tracking data serves as ground truth for evaluating cognitive alignment.</figcaption>
+  </figure>
 
-  <section>
-    <h2>Research Motivation: Why Cognitive Plausibility Matters</h2>
-    <p>
+  <!-- Research Motivation -->
+  <section class="md-section">
+    <h2 class="md-headline-large md-mb-24">Research Motivation: Why Cognitive Plausibility Matters</h2>
+    <p class="md-body-large">
       The integration of AI models into robotic systems raises fundamental questions about cognitive alignment. While these models demonstrate impressive performance on benchmarks, their ability to replicate the underlying computational processes characteristic of human cognition remains largely unexplored. This is particularly crucial in human-robot interaction, where socially appropriate responses depend on understanding and mimicking human attentional patterns.
     </p>
-    
-    <div class="highlight-box">
-      <h3>Core Research Questions</h3>
+
+    <div class="md-highlight-box md-mt-24">
+      <p class="md-highlight-box__title">Core Research Questions</p>
       <ul>
         <li><b>Cognitive Plausibility:</b> Do AI models achieve human-like outcomes through mechanisms that align with human cognitive architecture?</li>
         <li><b>Visual Attention Modeling:</b> Can current AI models predict where humans naturally direct their attention in social scenarios?</li>
@@ -587,112 +207,176 @@
         <li><b>Model Comparison:</b> Which AI architectures most closely replicate human visual attention patterns?</li>
       </ul>
     </div>
-    
-    <div class="highlight">
-      <i class="fas fa-brain"></i> <b>Scientific Impact:</b> This work establishes the first systematic framework for evaluating cognitive plausibility in AI vision systems, with implications for developing truly human-aligned robotic intelligence.
+
+    <div class="md-highlight-box md-mt-24">
+      <p class="md-highlight-box__title"><i class="fas fa-brain"></i> Scientific Impact</p>
+      <p>This work establishes the first systematic framework for evaluating cognitive plausibility in AI vision systems, with implications for developing truly human-aligned robotic intelligence.</p>
     </div>
   </section>
 
-  <section>
-    <h2>Methodology: Eye-Tracking Meets AI Vision</h2>
-    <p>
+  <!-- Methodology -->
+  <section class="md-section" id="methodology">
+    <h2 class="md-headline-large md-mb-24">Methodology: Eye-Tracking Meets AI Vision</h2>
+    <p class="md-body-large">
       Our evaluation framework combines empirical human behaviour data with computational model assessment. We collected eye-tracking data from 11 participants observing a naturalistic human-robot interaction scenario, providing frame-level gaze fixations as ground truth for human visual attention patterns.
     </p>
-    
-    <h3>Experimental Design</h3>
-    <ul>
-      <li><b>Human Study:</b> 11 participants from Technical University of Munich (9 male, 2 female, mean age 27.3 years) viewed a 7-minute 20-second video of dyadic conversation using DIKABLIS eye-tracking system</li>
-      <li><b>Data Processing:</b> Gaze recordings annotated frame-by-frame in ELAN, marking fixations on Person A (left), Person B (right), or Environment regions</li>
-      <li><b>AI Pipeline:</b> LLaVA-1.5-7b processed video frames for scene descriptions, which were fed to four 7-8B parameter LLMs for saliency inference</li>
-      <li><b>Memory Implementation:</b> STM-5 configuration with 5-frame sliding window for LLMs; LLaVA tested with both bounded and unlimited memory accumulation</li>
-      <li><b>Evaluation Metrics:</b> TF-IDF cosine similarity between AI predictions and human gaze patterns, with rigorous statistical validation using non-parametric approaches</li>
-    </ul>
-    
-    <div class="highlight">
-      <i class="fas fa-microscope"></i> <b>Methodological Innovation:</b> This study introduces the first systematic approach to evaluating AI cognitive plausibility using naturalistic eye-tracking data, establishing new benchmarks for human-AI cognitive alignment research.
+
+    <h3 class="md-title-large md-mb-16">Experimental Design</h3>
+    <div class="md-method-grid">
+      <div class="md-method-card">
+        <div class="md-method-card__icon"><i class="fas fa-users"></i></div>
+        <div class="md-method-card__title">Human Study</div>
+        <div class="md-method-card__body">11 participants from Technical University of Munich (9 male, 2 female, mean age 27.3 years) viewed a 7-minute 20-second video of dyadic conversation using DIKABLIS eye-tracking system.</div>
+      </div>
+      <div class="md-method-card">
+        <div class="md-method-card__icon"><i class="fas fa-database"></i></div>
+        <div class="md-method-card__title">Data Processing</div>
+        <div class="md-method-card__body">Gaze recordings annotated frame-by-frame in ELAN, marking fixations on Person A (left), Person B (right), or Environment regions.</div>
+      </div>
+      <div class="md-method-card">
+        <div class="md-method-card__icon"><i class="fas fa-robot"></i></div>
+        <div class="md-method-card__title">AI Pipeline</div>
+        <div class="md-method-card__body">LLaVA-1.5-7b processed video frames for scene descriptions, which were fed to four 7-8B parameter LLMs for saliency inference.</div>
+      </div>
+      <div class="md-method-card">
+        <div class="md-method-card__icon"><i class="fas fa-memory"></i></div>
+        <div class="md-method-card__title">Memory Implementation</div>
+        <div class="md-method-card__body">STM-5 configuration with 5-frame sliding window for LLMs; LLaVA tested with both bounded and unlimited memory accumulation.</div>
+      </div>
+      <div class="md-method-card">
+        <div class="md-method-card__icon"><i class="fas fa-chart-bar"></i></div>
+        <div class="md-method-card__title">Evaluation Metrics</div>
+        <div class="md-method-card__body">TF-IDF cosine similarity between AI predictions and human gaze patterns, with rigorous statistical validation using non-parametric approaches.</div>
+      </div>
+    </div>
+
+    <div class="md-highlight-box md-mt-24">
+      <p class="md-highlight-box__title"><i class="fas fa-microscope"></i> Methodological Innovation</p>
+      <p>This study introduces the first systematic approach to evaluating AI cognitive plausibility using naturalistic eye-tracking data, establishing new benchmarks for human-AI cognitive alignment research.</p>
     </div>
   </section>
 
-  <section>
-    <h2>Key Findings: Cognitive Alignment Across AI Models</h2>
-    <p>
+  <!-- Key Findings -->
+  <section class="md-section" id="results">
+    <h2 class="md-headline-large md-mb-24">Key Findings: Cognitive Alignment Across AI Models</h2>
+    <p class="md-body-large">
       Our comprehensive evaluation revealed significant differences in how well various AI models align with human visual attention patterns. The results provide important insights for selecting appropriate models for human-robot interaction applications and highlight the complexity of achieving true cognitive plausibility.
     </p>
-    
-    <h3>Primary Results</h3>
+
+    <h3 class="md-title-large md-mb-16">Primary Results</h3>
+
+    <div class="md-stat-row md-mb-24">
+      <div class="md-stat-badge">
+        <div class="md-stat-badge__value">0.311</div>
+        <div class="md-stat-badge__label">LLaVA Cosine Sim.</div>
+      </div>
+      <div class="md-stat-badge">
+        <div class="md-stat-badge__value">r = 0.55</div>
+        <div class="md-stat-badge__label">DeepSeek STM Effect</div>
+      </div>
+      <div class="md-stat-badge">
+        <div class="md-stat-badge__value">r = 0.70</div>
+        <div class="md-stat-badge__label">Memory Overload</div>
+      </div>
+      <div class="md-stat-badge">
+        <div class="md-stat-badge__value">~40%</div>
+        <div class="md-stat-badge__label">Qwen Mandarin Output</div>
+      </div>
+    </div>
+
     <ul>
-      <li><b>LLaVA (Stateless):</b> Achieved the highest cognitive alignment with human gaze patterns (mean cosine similarity = 0.311), demonstrating superior immediate visual–linguistic integration</li>
-      <li><b>DeepSeek with STM:</b> Only model to significantly benefit from bounded memory integration (0.038 → 0.057, r = 0.55), using lexical anchoring mechanisms that mirror human rehearsal processes</li>
-      <li><b>Memory Interference:</b> LLaVA's performance degraded with unlimited context accumulation (0.311 → 0.121, r = 0.70), demonstrating cognitively plausible capacity limitations</li>
+      <li><b>LLaVA (Stateless):</b> Achieved the highest cognitive alignment with human gaze patterns (mean cosine similarity = 0.311), demonstrating superior immediate visual-linguistic integration</li>
+      <li><b>DeepSeek with STM:</b> Only model to significantly benefit from bounded memory integration (0.038 to 0.057, r = 0.55), using lexical anchoring mechanisms that mirror human rehearsal processes</li>
+      <li><b>Memory Interference:</b> LLaVA's performance degraded with unlimited context accumulation (0.311 to 0.121, r = 0.70), demonstrating cognitively plausible capacity limitations</li>
       <li><b>Cross-lingual Processing:</b> Qwen produced ~40% Mandarin outputs despite English prompting, revealing sophisticated multilingual cognitive processing capabilities</li>
       <li><b>Architectural Constraints:</b> Gemma and LLaMA showed systematic degradation with temporal context, indicating fundamental capacity limitations</li>
     </ul>
 
-    <div class="highlight-box">
-      <h3>Statistical Validation</h3>
-      <p>
-        Comprehensive statistical analysis using non-parametric approaches (Friedman test: χ²(9) = 215.8, p < 0.001) confirms significant cognitive alignment differences across model–regime conditions. Effect sizes quantify practical significance: LLaVA's immediate attention superiority (r = 0.63), memory overload effects (r = 0.70), and DeepSeek's memory benefits (r = 0.55) all demonstrate large, meaningful differences in <b>cognitive processing strategies</b>.
-      </p>
+    <div class="md-highlight-box md-mt-24">
+      <p class="md-highlight-box__title">Statistical Validation</p>
+      <p>Comprehensive statistical analysis using non-parametric approaches (Friedman test: chi-squared(9) = 215.8, p &lt; 0.001) confirms significant cognitive alignment differences across model-regime conditions. Effect sizes quantify practical significance: LLaVA's immediate attention superiority (r = 0.63), memory overload effects (r = 0.70), and DeepSeek's memory benefits (r = 0.55) all demonstrate large, meaningful differences in <b>cognitive processing strategies</b>.</p>
     </div>
-    
-    <div class="highlight">
-      <i class="fas fa-chart-line"></i> <b>Research Impact:</b> This work introduces a novel, empirically grounded framework for assessing cognitive plausibility in generative models and underscores the role of short-term memory in shaping human-like visual attention in robotic systems.
+
+    <div class="md-highlight-box md-mt-24">
+      <p class="md-highlight-box__title"><i class="fas fa-chart-line"></i> Research Impact</p>
+      <p>This work introduces a novel, empirically grounded framework for assessing cognitive plausibility in generative models and underscores the role of short-term memory in shaping human-like visual attention in robotic systems.</p>
     </div>
   </section>
 
-  <section>
-    <h2>Technical Innovation: Memory-Augmented Attention Modeling</h2>
-    <p>
+  <!-- Technical Innovation -->
+  <section class="md-section">
+    <h2 class="md-headline-large md-mb-24">Technical Innovation: Memory-Augmented Attention Modeling</h2>
+    <p class="md-body-large">
       Our study introduces a novel framework for assessing cognitive plausibility that goes beyond simple performance matching. By incorporating short-term memory mechanisms and comparing stateless versus memory-augmented conditions, we provide insights into the temporal dynamics of AI attention modeling and their relationship to human cognitive processes.
     </p>
-    
-    <h3>Cognitively-Informed Memory Architecture</h3>
+
+    <h3 class="md-title-large md-mb-16">Cognitively-Informed Memory Architecture</h3>
     <ul>
       <li><b>Bounded Context Window:</b> 5-frame sliding window maintains bounded memory buffer reflecting capacity limitations observed in human working memory [Cowan, 2001]</li>
       <li><b>Selective Information Processing:</b> DeepSeek demonstrated strategic lexical recycling, reusing relevant phrases across temporal windows in 25 of final 30 frames</li>
-      <li><b>Capacity Limitations:</b> LLaVA showed systematic performance degradation beyond 43 frames, following predictable exponential decay patterns (R² = 0.89)</li>
+      <li><b>Capacity Limitations:</b> LLaVA showed systematic performance degradation beyond 43 frames, following predictable exponential decay patterns (R-squared = 0.89)</li>
       <li><b>Interference Patterns:</b> Memory overload produced predictable interference effects quantifiable through performance metrics, aligning with computational principles of bounded processing systems</li>
     </ul>
-    
-    <div class="highlight">
-      <i class="fas fa-cogs"></i> <b>Technical Achievement:</b> This work establishes the first systematic methodology for evaluating memory effects in AI cognitive plausibility, opening new avenues for neurologically-inspired AI development.
+
+    <div class="md-highlight-box md-mt-24">
+      <p class="md-highlight-box__title"><i class="fas fa-cogs"></i> Technical Achievement</p>
+      <p>This work establishes the first systematic methodology for evaluating memory effects in AI cognitive plausibility, opening new avenues for neurologically-inspired AI development.</p>
     </div>
   </section>
 
-  <section>
-    <h2>Implications for Human-Robot Interaction</h2>
-    <p>
+  <!-- Implications -->
+  <section class="md-section">
+    <h2 class="md-headline-large md-mb-24">Implications for Human-Robot Interaction</h2>
+    <p class="md-body-large">
       The findings have significant implications for developing socially intelligent robotic systems. Understanding which AI models most closely replicate human attention patterns enables better selection of computational frameworks for HRI applications, potentially improving robot social awareness and interaction quality.
     </p>
-    
-    <h3>Practical Applications</h3>
-    <ul>
-      <li><b>Hybrid AI Systems:</b> Results suggest optimal human–robot interaction may require combining LLaVA's immediate attention capabilities with DeepSeek's temporal integration strengths</li>
-      <li><b>Memory-Constrained Deployment:</b> Bounded memory windows of 40–50 contextual elements represent optimal balance between temporal coherence and cognitive interference</li>
-      <li><b>Adaptive Processing:</b> Context-dependent performance patterns enable meta-cognitive systems that assess environmental conditions and select appropriate processing strategies dynamically</li>
-      <li><b>Cognitive Capacity Management:</b> LLaVA's capacity threshold at frame 43 provides practical guidance for implementing cognitively plausible memory constraints</li>
-    </ul>
-    
-    <div class="highlight">
-      <i class="fas fa-robot"></i> <b>Future Impact:</b> This research enables the development of cognitively-aligned robotic systems that can understand and predict human attention, leading to more intuitive and effective human-robot collaboration.
+
+    <h3 class="md-title-large md-mb-16">Practical Applications</h3>
+    <div class="md-method-grid">
+      <div class="md-method-card">
+        <div class="md-method-card__icon"><i class="fas fa-project-diagram"></i></div>
+        <div class="md-method-card__title">Hybrid AI Systems</div>
+        <div class="md-method-card__body">Results suggest optimal HRI may require combining LLaVA's immediate attention capabilities with DeepSeek's temporal integration strengths.</div>
+      </div>
+      <div class="md-method-card">
+        <div class="md-method-card__icon"><i class="fas fa-memory"></i></div>
+        <div class="md-method-card__title">Memory-Constrained Deployment</div>
+        <div class="md-method-card__body">Bounded memory windows of 40-50 contextual elements represent optimal balance between temporal coherence and cognitive interference.</div>
+      </div>
+      <div class="md-method-card">
+        <div class="md-method-card__icon"><i class="fas fa-sliders-h"></i></div>
+        <div class="md-method-card__title">Adaptive Processing</div>
+        <div class="md-method-card__body">Context-dependent performance patterns enable meta-cognitive systems that assess environmental conditions and select appropriate processing strategies dynamically.</div>
+      </div>
+      <div class="md-method-card">
+        <div class="md-method-card__icon"><i class="fas fa-tachometer-alt"></i></div>
+        <div class="md-method-card__title">Cognitive Capacity Management</div>
+        <div class="md-method-card__body">LLaVA's capacity threshold at frame 43 provides practical guidance for implementing cognitively plausible memory constraints.</div>
+      </div>
+    </div>
+
+    <div class="md-highlight-box md-mt-24">
+      <p class="md-highlight-box__title"><i class="fas fa-robot"></i> Future Impact</p>
+      <p>This research enables the development of cognitively-aligned robotic systems that can understand and predict human attention, leading to more intuitive and effective human-robot collaboration.</p>
     </div>
   </section>
 
-  <section>
-    <h2>Limitations and Future Directions</h2>
-    <p>
+  <!-- Limitations -->
+  <section class="md-section">
+    <h2 class="md-headline-large md-mb-24">Limitations and Future Directions</h2>
+    <p class="md-body-large">
       While this study establishes a foundational framework for cognitive plausibility assessment, several limitations and future directions merit consideration. The controlled experimental setting, while enabling rigorous comparison, limits immediate generalizability to diverse HRI contexts.
     </p>
-    
-    <h3>Study Limitations</h3>
+
+    <h3 class="md-title-large md-mb-16">Study Limitations</h3>
     <ul>
       <li><b>Controlled Scope:</b> Single-video dyadic scenario enables rigorous methodological validation but limits immediate generalizability to diverse HRI contexts</li>
       <li><b>Sample Size:</b> 11-participant study aligns with established eye-tracking research practices but represents modest sample for broad population claims</li>
       <li><b>Memory Implementation:</b> Asymmetric memory implementations (STM-5 for LLMs vs. unlimited for LLaVA) necessitated by computational constraints limit direct comparability</li>
       <li><b>Cross-lingual Evaluation:</b> TF-IDF framework systematically disadvantages multilingual models like Qwen, highlighting need for language-agnostic evaluation approaches</li>
     </ul>
-    
-    <h3>Future Research Directions</h3>
+
+    <h3 class="md-title-large md-mb-16">Future Research Directions</h3>
     <ul>
       <li><b>Scale-Up Studies:</b> Diverse interaction contexts, larger participant samples, and varied demographic populations to establish broader framework applicability</li>
       <li><b>Sophisticated Memory Mechanisms:</b> Implementation of capacity-limited, selective, and temporally sensitive memory systems that better approximate human cognitive architecture</li>
@@ -701,13 +385,13 @@
     </ul>
   </section>
 
-  <section>
-    <h2>Open Science & Collaboration</h2>
-    <p>
+  <!-- Open Science -->
+  <section class="md-section">
+    <h2 class="md-headline-large md-mb-24">Open Science &amp; Collaboration</h2>
+    <p class="md-body-large">
       We support open, reproducible research and welcome collaborations to advance understanding of cognitive plausibility in AI systems. This work provides a foundation for developing more human-aligned AI agents for robotics and interactive systems.
     </p>
-    
-    <div class="social-links">
+    <div class="md-social-links" style="justify-content:center;">
       <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar">
         <i class="fas fa-graduation-cap"></i>
       </a>
@@ -720,36 +404,44 @@
     </div>
   </section>
 
-  <section>
-    <h2>Full Paper & Resources</h2>
-    <div class="download-section">
-      <a href="https://doi.org/10.3390/s25154687" target="_blank" class="download-btn">
+  <!-- Download / Access -->
+  <section class="md-section" id="access">
+    <h2 class="md-headline-large md-mb-24">Full Paper &amp; Resources</h2>
+    <div style="text-align:center;padding:24px 0;">
+      <a href="https://doi.org/10.3390/s25154687" target="_blank" rel="noopener" class="md-btn-filled" style="margin:8px;">
         <i class="fas fa-download"></i> Download Full Paper (Open Access)
       </a>
-      <a href="#" class="download-btn" onclick="showCodeDialog(event)">
-        <i class="fas fa-code"></i> Access Code & Implementation
+      <a href="#" class="md-btn-outlined" onclick="showCodeDialog(event)" style="margin:8px;">
+        <i class="fas fa-code"></i> Access Code &amp; Implementation
       </a>
     </div>
-    <p style="margin-top:2rem;font-size:1rem;color:var(--text-muted);text-align:center;">
+    <p class="md-body-small" style="text-align:center;color:var(--md-on-surface-variant);margin-top:16px;">
       <i class="fas fa-info-circle"></i> This research contributes to the growing field of cognitive AI and human-robot interaction, establishing new methodologies for evaluating AI-human cognitive alignment.
     </p>
   </section>
-</div>
+
 </main>
 
 <script>
-
   function showCodeDialog(event) {
     event.preventDefault();
     alert("Source code and implementation details are available in the published paper. For datasets and collaboration inquiries, please contact: k.ghamati@herts.ac.uk\n\nImplementation URL: https://ghamati.com/seelikeus/");
   }
+
+  // Top app bar scroll shadow
+  window.addEventListener('scroll', function() {
+    var bar = document.getElementById('topBar');
+    if (window.scrollY > 4) {
+      bar.classList.add('md-scrolled');
+    } else {
+      bar.classList.remove('md-scrolled');
+    }
+  });
 </script>
 
-<footer>
-  <div class="container">
-    <p>&copy; 2025 Khashayar Ghamati. All rights reserved.</p>
-    <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">Advancing cognitive AI for human-centered robotics</p>
-  </div>
+<footer style="background-color:var(--md-inverse-surface);color:var(--md-inverse-on-surface);text-align:center;padding:48px 24px;">
+  <p>&copy; 2025 Khashayar Ghamati. All rights reserved.</p>
+  <p class="md-body-small" style="opacity:0.8;margin-top:8px;">Advancing cognitive AI for human-centered robotics</p>
 </footer>
 
 </body>

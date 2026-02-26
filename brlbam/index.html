@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- DNS Prefetch and Preconnect for Performance -->
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  
-  <meta name="description" content="Bio-inspired RL framework for robotic gaze control. 95.1% real-world accuracy across 448 trials. 54-experiment ablation study. Published in IEEE TCDS.">
-  <meta name="keywords" content="social robotics, reinforcement learning, habituation mechanism, gaze behaviour, attention adaptation, bio-inspired AI, Deep Q-Learning, human-robot interaction, ARI humanoid robot, real-time learning, exploration-exploitation, social cognition, IEEE TCDS, sim-to-real transfer, ablation study, cognitive robotics">
-  <meta name="author" content="Khashayar Ghamati, Maryam Banitalebi Dehkordi, Hamed Rahimi Nohooji, Holger Voos, Farshid Amirabdollahian, Abolfazl Zaraki">
-  <meta name="robots" content="index, follow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
 
-  <meta property="og:title" content="Learning to Gaze: Bio-Inspired Attention Adaptation Strategy for Social Robots | IEEE TCDS">
-  <meta property="og:description" content="Bio-inspired RL framework for robotic gaze control with habituation mechanisms. 54-experiment ablation across DQL, VQL, MOL. 95.1% accuracy on ARI robot across 448 trials. IEEE TCDS.">
-  <meta property="og:image" content="https://ghamati.com/brlbam/paper_img.jpeg">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://ghamati.com/brlbam/">
-  <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
-  <meta property="og:locale" content="en_GB">
-  <meta property="article:published_time" content="2025-01-01">
-  <meta property="article:author" content="Khashayar Ghamati">
-  <meta property="article:section" content="Artificial Intelligence">
-  <meta property="article:tag" content="social robotics">
-  <meta property="article:tag" content="reinforcement learning">
-  <meta property="article:tag" content="habituation">
-  <meta property="article:tag" content="bio-inspired AI">
-  <meta property="article:tag" content="cognitive robotics">
+    <!-- DNS Prefetch and Preconnect for Performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Learning to Gaze: Bio-Inspired Attention Adaptation Strategy for Social Robots | IEEE TCDS">
-  <meta name="twitter:description" content="Bio-inspired RL framework achieving 95.1% real-world accuracy for robotic gaze control. 54-experiment ablation reveals habituation enhances DQL but degrades multi-objective learning.">
-  <meta name="twitter:image" content="https://ghamati.com/brlbam/paper_img.jpeg">
-  <meta name="twitter:creator" content="@khashayarghamati">
+    <!-- SEO Meta Tags -->
+    <title>Bio-Inspired Attention for Social Robots | IEEE TCDS</title>
+    <meta name="description" content="Bio-inspired RL framework for robotic gaze control achieving 95.1% accuracy across 448 trials. 54-experiment ablation study. IEEE TCDS.">
+    <meta name="keywords" content="social robotics, reinforcement learning, habituation mechanism, gaze behaviour, attention adaptation, bio-inspired AI, Deep Q-Learning, human-robot interaction, ARI humanoid robot, real-time learning, exploration-exploitation, social cognition, IEEE TCDS, sim-to-real transfer, ablation study, cognitive robotics">
+    <meta name="author" content="Khashayar Ghamati, Maryam Banitalebi Dehkordi, Hamed Rahimi Nohooji, Holger Voos, Farshid Amirabdollahian, Abolfazl Zaraki">
 
-  <link rel="canonical" href="https://ghamati.com/brlbam/">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Bio-Inspired Attention for Social Robots | IEEE TCDS">
+    <meta property="og:description" content="Bio-inspired RL framework for robotic gaze control with habituation. 54-experiment ablation across DQL, VQL, MOL. 95.1% accuracy on ARI robot. IEEE TCDS.">
+    <meta property="og:image" content="https://ghamati.com/brlbam/paper_img.jpeg">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ghamati.com/brlbam/">
+    <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
+    <meta property="og:locale" content="en_GB">
+    <meta property="article:published_time" content="2025-01-01">
+    <meta property="article:author" content="Khashayar Ghamati">
+    <meta property="article:section" content="Artificial Intelligence">
+    <meta property="article:tag" content="social robotics">
+    <meta property="article:tag" content="reinforcement learning">
+    <meta property="article:tag" content="habituation">
+    <meta property="article:tag" content="bio-inspired AI">
+    <meta property="article:tag" content="cognitive robotics">
 
-  <title>Learning to Gaze: Bio-Inspired Attention for Social Robots | IEEE TCDS</title>
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bio-Inspired Attention for Social Robots | IEEE TCDS">
+    <meta name="twitter:description" content="Bio-inspired RL framework achieving 95.1% real-world accuracy for robotic gaze control. 54-experiment ablation. IEEE TCDS.">
+    <meta name="twitter:image" content="https://ghamati.com/brlbam/paper_img.jpeg">
+    <meta name="twitter:creator" content="@khashayarghamati">
 
-  <script type="application/ld+json">
+    <link rel="canonical" href="https://ghamati.com/brlbam/">
+
+    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ScholarlyArticle",
@@ -52,56 +53,18 @@
         {
           "@type": "Person",
           "name": "Khashayar Ghamati",
-          "affiliation": {
-            "@type": "Organization",
-            "name": "University of Hertfordshire"
-          },
+          "affiliation": { "@type": "Organization", "name": "University of Hertfordshire" },
           "url": "https://ghamati.com",
           "sameAs": [
             "https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en",
             "https://orcid.org/0009-0002-6416-3127"
           ]
         },
-        {
-          "@type": "Person",
-          "name": "Maryam Banitalebi Dehkordi",
-          "affiliation": {
-            "@type": "Organization",
-            "name": "University of Hertfordshire"
-          }
-        },
-        {
-          "@type": "Person",
-          "name": "Hamed Rahimi Nohooji",
-          "affiliation": {
-            "@type": "Organization",
-            "name": "University of Luxembourg"
-          }
-        },
-        {
-          "@type": "Person",
-          "name": "Holger Voos",
-          "affiliation": {
-            "@type": "Organization",
-            "name": "University of Luxembourg"
-          }
-        },
-        {
-          "@type": "Person",
-          "name": "Farshid Amirabdollahian",
-          "affiliation": {
-            "@type": "Organization",
-            "name": "University of Hertfordshire"
-          }
-        },
-        {
-          "@type": "Person",
-          "name": "Abolfazl Zaraki",
-          "affiliation": {
-            "@type": "Organization",
-            "name": "University of Hertfordshire"
-          }
-        }
+        { "@type": "Person", "name": "Maryam Banitalebi Dehkordi", "affiliation": { "@type": "Organization", "name": "University of Hertfordshire" } },
+        { "@type": "Person", "name": "Hamed Rahimi Nohooji", "affiliation": { "@type": "Organization", "name": "University of Luxembourg" } },
+        { "@type": "Person", "name": "Holger Voos", "affiliation": { "@type": "Organization", "name": "University of Luxembourg" } },
+        { "@type": "Person", "name": "Farshid Amirabdollahian", "affiliation": { "@type": "Organization", "name": "University of Hertfordshire" } },
+        { "@type": "Person", "name": "Abolfazl Zaraki", "affiliation": { "@type": "Organization", "name": "University of Hertfordshire" } }
       ],
       "datePublished": "2025-01-01",
       "url": "https://ghamati.com/brlbam/",
@@ -112,1346 +75,729 @@
         "name": "IEEE Transactions on Cognitive and Developmental Systems",
         "url": "https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=7274989"
       },
-      "about": [
-        "social robotics",
-        "reinforcement learning",
-        "habituation mechanism",
-        "gaze behaviour",
-        "attention adaptation",
-        "bio-inspired AI",
-        "Deep Q-Learning",
-        "human-robot interaction",
-        "cognitive robotics",
-        "sim-to-real transfer"
-      ],
+      "about": ["social robotics", "reinforcement learning", "habituation mechanism", "gaze behaviour", "attention adaptation", "bio-inspired AI", "Deep Q-Learning", "human-robot interaction", "cognitive robotics", "sim-to-real transfer"],
       "description": "A bio-inspired reinforcement learning framework for robotic gaze control incorporating a habituation mechanism. Through a 54-experiment ablation study across DQL, VQL, and MOL, we reveal that habituation enhances DQL performance but causes systematic degradation in multi-objective learning. Real-world deployment on the ARI humanoid robot achieves 95.1% accuracy across 448 trials.",
       "keywords": "social robotics, reinforcement learning, habituation, gaze behaviour, attention adaptation, bio-inspired AI, Deep Q-Learning, ARI robot",
       "isAccessibleForFree": false,
       "creativeWorkStatus": "Published"
     }
-  </script>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV1K905FF2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-HV1K905FF2');
-  </script>
-
-  <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
-  <!-- External CSS for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-
-  <style>
-    :root {
-      /* Modern Professional Palette */
-      --primary-blue: #0f172a;
-      --primary-blue-light: #1e293b;
-      --secondary-blue: #3b82f6;
-      --accent-emerald: #10b981;
-      --accent-purple: #8b5cf6;
-      --accent-orange: #f59e0b;
-      
-      /* Modern Neutrals */
-      --bg-primary: #ffffff;
-      --bg-secondary: #f8fafc;
-      --bg-accent: #f1f5f9;
-      --text-primary: #0f172a;
-      --text-secondary: #475569;
-      --text-muted: #64748b;
-      --border-light: #e2e8f0;
-      --border-medium: #cbd5e1;
-      
-      /* Modern Gradients */
-      --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
-      --gradient-accent: linear-gradient(135deg, var(--secondary-blue) 0%, var(--accent-emerald) 100%);
-      --gradient-hero: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--accent-emerald) 100%);
-      
-      /* Typography */
-      --font-heading: 'Playfair Display', serif;
-      --font-body: 'Inter', sans-serif;
-      
-      /* Modern Shadows */
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      
-      /* Spacing System */
-      --space-xs: 0.5rem;
-      --space-sm: 1rem;
-      --space-md: 1.5rem;
-      --space-lg: 2rem;
-      --space-xl: 3rem;
-      --space-2xl: 4rem;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: var(--font-body);
-      margin: 0;
-      padding: 0;
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-      line-height: 1.7;
-      font-size: 16px;
-    }
-
-    /* Toolbar Styling */
-    .toolbar {
-      background: var(--gradient-primary);
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: var(--shadow-md);
-      backdrop-filter: blur(10px);
-    }
-
-    .toolbar .container {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      margin: 0;
-      padding: 0 2rem;
-    }
-
-    .toolbar a {
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-right: 0.5rem;
-    }
-
-    .toolbar a:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Header Styling */
-    header {
-      background: var(--gradient-primary);
-      padding: 4rem 0;
-      text-align: center;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,154.7C672,139,768,117,864,117.3C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/></svg>') repeat-x bottom;
-      background-size: 1440px 160px;
-    }
-
-    header h1 {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      margin: 0;
-      font-weight: 700;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-      line-height: 1.2;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      opacity: 0.9;
-      font-weight: 400;
-    }
-
-    /* Container */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* Main Content */
-    main {
-      padding: 4rem 0;
-    }
-
-    /* Section Styling */
-    section {
-      background: var(--bg-primary);
-      margin: 3rem 0;
-      padding: 3rem;
-      border-radius: 20px;
-      box-shadow: var(--shadow-sm);
-      position: relative;
-      overflow: hidden;
-    }
-
-    section h2 {
-      font-family: var(--font-heading);
-      font-size: 2.5rem;
-      color: var(--primary-blue);
-      text-align: center;
-      margin: 0 0 2rem 0;
-      font-weight: 600;
-      position: relative;
-    }
-
-    section h2::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 4px;
-      background: var(--gradient-accent);
-      margin: 1rem auto;
-      border-radius: 2px;
-    }
-
-    section h3 {
-      font-family: var(--font-heading);
-      color: var(--text-primary);
-      font-size: 1.8rem;
-      margin: 2rem 0 1rem 0;
-      font-weight: 600;
-    }
-
-    section p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-      text-align: left;
-    }
-
-    /* Enhanced Lists */
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    ul li {
-      position: relative;
-      padding: 0.8rem 0 0.8rem 2rem;
-      margin: 0.5rem 0;
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: var(--text-secondary);
-    }
-
-    ul li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--primary-blue);
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    /* Figure Styling */
-    .figure {
-      text-align: center;
-      margin: 3rem 0;
-      background: var(--bg-primary);
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .figure img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: var(--shadow-md);
-      transition: transform 0.3s ease;
-    }
-
-    .figure img:hover {
-      transform: scale(1.02);
-    }
-
-    .figure p {
-      margin-top: 1.5rem;
-      font-style: italic;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .figure-large img {
-      max-width: 85%;
-    }
-
-    /* Authors Section */
-    .authors {
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
-      padding: 2rem;
-      border-radius: 15px;
-      margin: 2rem 0;
-      text-align: left;
-      border-left: 4px solid var(--secondary-blue);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .authors h3 {
-      color: var(--primary-blue);
-      margin-top: 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .authors p {
-      margin: 0.8rem 0;
-      font-weight: 500;
-    }
-
-    /* Highlight Box */
-    .highlight-box {
-      background: var(--gradient-accent);
-      color: white;
-      padding: 2rem;
-      border-radius: 15px;
-      margin: 2rem 0;
-      box-shadow: var(--shadow-md);
-    }
-
-    .highlight-box .fas {
-      font-size: 1.2rem;
-      margin-right: 0.5rem;
-    }
-
-    .highlight-box ul {
-      margin: 1rem 0;
-    }
-
-    .highlight-box ul li {
-      color: white;
-    }
-
-    .highlight-box ul li::before {
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    /* Method Grid */
-    .method-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-
-    .method-card {
-      background: var(--bg-primary);
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: var(--shadow-sm);
-      border-top: 4px solid var(--secondary-blue);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .method-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .method-card h3 {
-      color: var(--primary-blue);
-      margin-top: 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 1.3rem;
-    }
-
-    /* Download Buttons */
-    .download-btn {
-      display: inline-block;
-      background: var(--gradient-primary);
-      color: white;
-      padding: 1rem 2rem;
-      margin: 0.5rem;
-      text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: 500;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow-sm);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .download-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.5s;
-    }
-
-    .download-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .download-btn:hover::before {
-      left: 100%;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--gradient-primary);
-      color: white;
-      text-align: center;
-      padding: 3rem 0;
-      margin-top: 4rem;
-    }
-
-    /* Social Links */
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-
-    .social-links a {
-      color: var(--primary-blue);
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .social-links a:hover {
-      color: var(--accent-emerald);
-      transform: translateY(-2px);
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 1rem;
-      }
-      
-      section {
-        padding: 2rem 1.5rem;
-        margin: 2rem 0;
-      }
-      
-      header {
-        padding: 2rem 0;
-      }
-      
-      section h2 {
-        font-size: 2rem;
-      }
-      
-      .figure {
-        padding: 1rem;
-      }
-      
-      .method-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .download-btn {
-        display: block;
-        margin: 1rem auto;
-        max-width: 280px;
-      }
-      
-      .toolbar {
-        padding: 0.5rem 0;
-      }
-      
-      .toolbar a {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
-        margin-right: 0.3rem;
-      }
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    section {
-      animation: fadeInUp 0.6s ease-out;
-    }
-
-    /* Data Tables */
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0;
-      font-size: 0.95rem;
-      background: var(--bg-primary);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .data-table thead {
-      background: var(--gradient-primary);
-      color: white;
-    }
-
-    .data-table th {
-      padding: 1rem 0.8rem;
-      text-align: center;
-      font-weight: 600;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .data-table td {
-      padding: 0.8rem;
-      text-align: center;
-      border-bottom: 1px solid var(--border-light);
-      color: var(--text-secondary);
-    }
-
-    .data-table tbody tr:hover {
-      background: var(--bg-accent);
-    }
-
-    .data-table .highlight-row {
-      background: rgba(16, 185, 129, 0.08);
-      font-weight: 600;
-    }
-
-    .data-table .highlight-row td {
-      color: var(--text-primary);
-    }
-
-    .data-table .best-val {
-      color: var(--accent-emerald);
-      font-weight: 700;
-    }
-
-    .data-table .worst-val {
-      color: #ef4444;
-      font-weight: 600;
-    }
-
-    .data-table caption {
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      font-style: italic;
-      caption-side: bottom;
-    }
-
-    /* Algorithm Box */
-    .algorithm-box {
-      background: var(--bg-accent);
-      border: 1px solid var(--border-light);
-      border-radius: 12px;
-      padding: 1.5rem 2rem;
-      margin: 1.5rem 0;
-      font-family: 'Courier New', monospace;
-      font-size: 0.9rem;
-      line-height: 1.8;
-      overflow-x: auto;
-    }
-
-    .algorithm-box .algo-title {
-      font-family: var(--font-body);
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--primary-blue);
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .algorithm-box .algo-keyword {
-      color: var(--secondary-blue);
-      font-weight: 700;
-    }
-
-    .algorithm-box .algo-comment {
-      color: var(--text-muted);
-      font-style: italic;
-    }
-
-    /* Info Grid */
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.2rem;
-      margin: 1.5rem 0;
-    }
-
-    .info-card {
-      background: var(--bg-accent);
-      padding: 1.2rem;
-      border-radius: 10px;
-      border-left: 3px solid var(--secondary-blue);
-      transition: transform 0.2s ease;
-    }
-
-    .info-card:hover {
-      transform: translateY(-2px);
-    }
-
-    .info-card .info-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--text-muted);
-      margin-bottom: 0.3rem;
-    }
-
-    .info-card .info-value {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    /* Stat Badge */
-    .stat-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 1.5rem 0;
-      justify-content: center;
-    }
-
-    .stat-badge {
-      background: var(--bg-primary);
-      border: 1px solid var(--border-light);
-      border-radius: 12px;
-      padding: 1.2rem 1.5rem;
-      text-align: center;
-      min-width: 140px;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .stat-badge:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .stat-badge .stat-number {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary-blue);
-      display: block;
-    }
-
-    .stat-badge .stat-label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 0.3rem;
-      display: block;
-    }
-
-    .stat-badge.accent .stat-number {
-      color: var(--accent-emerald);
-    }
-
-    /* Subsection divider */
-    .subsection-divider {
-      border: none;
-      height: 1px;
-      background: var(--gradient-accent);
-      margin: 2.5rem 0;
-      opacity: 0.3;
-    }
-
-    @media (max-width: 768px) {
-      .data-table {
-        font-size: 0.8rem;
-      }
-      .data-table th, .data-table td {
-        padding: 0.5rem 0.4rem;
-      }
-      .info-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .stat-row {
-        gap: 0.5rem;
-      }
-      .stat-badge {
-        min-width: 100px;
-        padding: 0.8rem 1rem;
-      }
-      .stat-badge .stat-number {
-        font-size: 1.4rem;
-      }
-      .algorithm-box {
-        padding: 1rem;
-        font-size: 0.8rem;
-      }
-    }
-  </style>
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV1K905FF2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HV1K905FF2');
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
+    <!-- Material Design 3 Shared CSS -->
+    <link rel="stylesheet" href="/css/material-design.css">
+    <!-- External CSS for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <style>
+        .md-highlight-box .fas { margin-right: 0.5rem; }
+        .md-data-table .best-val { color: #1b5e20; font-weight: 700; }
+        .md-data-table .worst-val { color: var(--md-error); font-weight: 600; }
+        .md-data-table .md-table-highlight-row { background-color: rgba(26, 95, 180, 0.06); font-weight: 600; }
+        .md-data-table caption { padding: 12px 16px; font-size: 0.8125rem; color: var(--md-on-surface-variant); font-style: italic; caption-side: bottom; }
+        .md-data-table th, .md-data-table td { text-align: center; }
+        .md-stat-badge--accent .md-stat-badge__value { color: #1b5e20; }
+        .md-algorithm-box .algo-keyword { color: var(--md-primary); font-weight: 700; }
+        .md-algorithm-box .algo-comment { color: var(--md-on-surface-variant); font-style: italic; }
+        .md-algorithm-box .algo-title { font-family: var(--md-font-title); font-weight: 600; font-size: 1rem; color: var(--md-on-surface); margin-bottom: 12px; display: block; }
+        .md-algorithm-box code { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 0.875rem; line-height: 1.8; }
+        .md-author-card__affiliations { font-size: 0.875rem; color: var(--md-on-surface-variant); margin-top: 4px; line-height: 1.5; }
+        @media (max-width: 599px) {
+            .md-data-table th, .md-data-table td { padding: 8px 6px; font-size: 0.75rem; }
+            .md-stat-badge { min-width: 100px; padding: 12px 16px; }
+            .md-stat-badge__value { font-size: 1.5rem !important; }
+        }
+    </style>
 </head>
 <body>
-<div class="toolbar">
-  <div class="container">
-    <a href="/"><i class="fas fa-home"></i> Home</a>
-    <a href="#abstract"><i class="fas fa-file-alt"></i> Abstract</a>
-    <a href="#methodology"><i class="fas fa-cogs"></i> Method</a>
-    <a href="#architecture"><i class="fas fa-microchip"></i> Architecture</a>
-    <a href="#results"><i class="fas fa-chart-line"></i> Results</a>
-    <a href="#real-world"><i class="fas fa-robot"></i> Deployment</a>
-    <a href="#impact"><i class="fas fa-globe"></i> Impact</a>
-  </div>
-</div>
 
-<header>
-  <h1>Learning to Gaze: Bio-Inspired Attention Adaptation Strategy for Social Robots</h1>
-  <p style="font-size: 1.2rem; margin-top: 1rem; opacity: 0.9;">Published in IEEE Transactions on Cognitive and Developmental Systems (TCDS)</p>
+<a href="#main-content" class="md-skip-link">Skip to main content</a>
+
+<!-- Top App Bar -->
+<nav class="md-top-app-bar" id="top-bar">
+    <div class="md-top-app-bar__nav">
+        <a href="/"><i class="fas fa-home"></i> Home</a>
+        <a href="#abstract"><i class="fas fa-file-alt"></i> Abstract</a>
+        <a href="#methodology"><i class="fas fa-cogs"></i> Method</a>
+        <a href="#architecture"><i class="fas fa-microchip"></i> Architecture</a>
+        <a href="#results"><i class="fas fa-chart-line"></i> Results</a>
+        <a href="#real-world"><i class="fas fa-robot"></i> Deployment</a>
+        <a href="#impact"><i class="fas fa-globe"></i> Impact</a>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="md-hero">
+    <h1 class="md-hero__title">Learning to Gaze: Bio-Inspired Attention Adaptation Strategy for Social Robots</h1>
+    <p class="md-hero__subtitle">Published in IEEE Transactions on Cognitive and Developmental Systems (TCDS)</p>
 </header>
 
-<main>
-<div class="container">
-  <div class="authors">
-    <h3><i class="fas fa-users"></i> Authors</h3>
-    <p><strong>Khashayar Ghamati</strong><sup>1,*</sup>, <strong>Maryam Banitalebi Dehkordi</strong><sup>1</sup>, <strong>Hamed Rahimi Nohooji</strong><sup>2</sup>, <strong>Holger Voos</strong><sup>2</sup>, <strong>Farshid Amirabdollahian</strong><sup>1</sup>, and <strong>Abolfazl Zaraki</strong><sup>1,*</sup></p>
-<!--    <p><strong>Khashayar Ghamati</strong><sup>1,*</sup>, et al.</p>-->
-    <p style="font-size: 0.95rem; color: #666;">
-      <sup>1</sup>School of Physics, Engineering and Computer Science (SPECS), Robotics Research Group, University of Hertfordshire, AL10 9AB, UK<br>
-      <sup>2</sup>Automation Robotics Research Group, Interdisciplinary Centre for Security, Reliability and Trust (SnT), University of Luxembourg, Luxembourg<br>
-    </p>
-  </div>
+<main id="main-content">
+<div class="md-container">
 
-  <section id="abstract">
-    <h2>Abstract</h2>
-    <div class="highlight-box">
-      <p>
-        <i class="fas fa-lightbulb" style="color: #4caf50;"></i> <strong>Key Innovation:</strong> This study presents a bio-inspired reinforcement learning framework for robotic gaze control that incorporates a <strong>habituation mechanism</strong> to regulate the exploration-exploitation trade-off, mirroring how biological attention systems filter redundant stimuli whilst remaining responsive to novel events.
-      </p>
-    </div>
-    <p>
-      Adaptive attention allocation in dynamic social environments remains a fundamental challenge for autonomous robots, requiring the integration of perceptual saliency, social context, and real-time decision-making. We present a bio-inspired reinforcement learning framework for robotic gaze control that incorporates a habituation mechanism to regulate the exploration-exploitation trade-off, mirroring how biological attention systems filter redundant stimuli whilst remaining responsive to novel events.
-    </p>
-    <p>
-      Through a comprehensive ablation study comparing <strong>Deep Q-Learning (DQL)</strong>, <strong>Vanilla Q-Learning (VQL)</strong>, and <strong>Multi-Objective Q-Learning (MOL)</strong>, we uncover a critical insight: habituation significantly enhances DQL performance, improving response efficiency and policy stability, yet causes systematic degradation in MOL due to fundamental incompatibilities between fixed-threshold resets and the extended episodes required for multi-objective optimisation.
-    </p>
-    <p>
-      This differential effect reveals that bio-inspired mechanisms cannot be applied universally across learning architectures but must be carefully matched to algorithmic characteristics. Real-world deployment on the ARI humanoid robot validates the framework's practical applicability, achieving <strong>95.1% accuracy</strong> (95% CI: [92.7%, 96.7%]) across <strong>448 trials</strong> with well-calibrated confidence metrics that reliably distinguish correct from incorrect predictions.
-    </p>
-  </section>
-
-  <section id="context">
-    <h2>Research Context & Motivation</h2>
-    <p>
-      Social robotics is expanding rapidly across assistive care, education, and entertainment, demanding robots with bio-inspired, human-like characteristics. Among these, the ability to direct and regulate <strong>attention</strong> stands as a fundamental challenge. Real-time attention allocation in multiparty scenarios requires identifying and prioritising salient stimuli in dynamic, ambiguous environments — essential for effective human-robot interaction.
-    </p>
-    <p>
-      Current approaches suffer from fundamental constraints that limit real-world deployment. Performance degrades beyond 2-3 participants as computational complexity grows exponentially, systems demonstrate poor temporal modelling, and reliance on deterministic handcrafted mappings constrains adaptability to novel scenarios. This gap stems from the underdeveloped translation of biological attention mechanisms to robotics.
-    </p>
-    <p>
-      Among missing mechanisms, <strong>habituation</strong> — fundamental to biological learning and attention regulation — is particularly promising yet severely underutilised. Current implementations employ simplistic exponential decay, failing to capture stimulus specificity, spontaneous recovery, and dishabituation responses. A critical question emerges: <em>under what conditions do bio-inspired mechanisms enhance learning, and when might they interfere with algorithmic requirements?</em>
-    </p>
-    <div class="stat-row">
-      <div class="stat-badge">
-        <span class="stat-number">76.9%</span>
-        <span class="stat-label">RASA (dyadic only)</span>
-      </div>
-      <div class="stat-badge">
-        <span class="stat-number">94.2%</span>
-        <span class="stat-label">Rule-Based Controller</span>
-      </div>
-      <div class="stat-badge">
-        <span class="stat-number">12.5%</span>
-        <span class="stat-label">Random Policy (1/8)</span>
-      </div>
-      <div class="stat-badge accent">
-        <span class="stat-number">95.1%</span>
-        <span class="stat-label">RLBAM (this work)</span>
-      </div>
-    </div>
-  </section>
-
-  <div class="figure">
-    <img src="paper_img.jpeg" alt="ARI humanoid robot in triadic social interaction at Robot House, University of Hertfordshire" loading="eager" width="700" height="500">
-    <p><strong>Figure 1:</strong> A triadic social HRI between ARI humanoid robot and two study humans, demonstrating real-world deployment of the bio-inspired attention adaptation framework at the Robot House, University of Hertfordshire, UK.</p>
-  </div>
-
-  <section id="methodology">
-    <h2>Methodology: Bio-Inspired Attention Framework</h2>
-
-    <div class="method-grid">
-      <div class="method-card">
-        <h3><i class="fas fa-brain"></i> Habituation Mechanism</h3>
-        <p>Implements stimulus specificity, spontaneous recovery, and dishabituation responses within the RL exploration-exploitation framework. When the agent becomes stuck (exceeding a step threshold), dishabituation temporarily restores full exploration; spontaneous recovery prevents erasing prior learning progress after a reset.</p>
-      </div>
-
-      <div class="method-card">
-        <h3><i class="fas fa-bullseye"></i> 54-Experiment Ablation</h3>
-        <p>Comprehensive 3 x 2 factorial design: three RL methods (DQL, VQL, MOL) x two exploration modes (standard epsilon decay vs. habituation) x 9 independent runs per configuration, yielding over 55,000 test episodes.</p>
-      </div>
-
-      <div class="method-card">
-        <h3><i class="fas fa-eye"></i> Elicited Attention Reward</h3>
-        <p>Reward function grounded in empirical human eye-tracking data using the Elicited Attention model. Integrates social features (Gaze Control Scores) with proxemic zones (personal, social, public) for ecologically valid learned behaviours.</p>
-      </div>
-
-      <div class="method-card">
-        <h3><i class="fas fa-users"></i> Real-Time Social Adaptation</h3>
-        <p>Discrete 8-action gaze control (6 people + environment + objects) with real-time inference at 30 Hz on ARI's onboard computer. Processes social cues, gestures, and proximity for human-like attention allocation in multiparty scenarios.</p>
-      </div>
+    <!-- Authors -->
+    <div class="md-author-card md-mt-32">
+        <div class="md-author-card__info">
+            <div class="md-author-card__name"><i class="fas fa-users"></i> Authors</div>
+            <p class="md-body-large" style="margin-top:8px;"><strong>Khashayar Ghamati</strong><sup>1,*</sup>, <strong>Maryam Banitalebi Dehkordi</strong><sup>1</sup>, <strong>Hamed Rahimi Nohooji</strong><sup>2</sup>, <strong>Holger Voos</strong><sup>2</sup>, <strong>Farshid Amirabdollahian</strong><sup>1</sup>, and <strong>Abolfazl Zaraki</strong><sup>1,*</sup></p>
+            <p class="md-author-card__affiliations">
+                <sup>1</sup>School of Physics, Engineering and Computer Science (SPECS), Robotics Research Group, University of Hertfordshire, AL10 9AB, UK<br>
+                <sup>2</sup>Automation Robotics Research Group, Interdisciplinary Centre for Security, Reliability and Trust (SnT), University of Luxembourg, Luxembourg
+            </p>
+        </div>
     </div>
 
-    <h3>Algorithm 1: Bio-Inspired Habituation Mechanism</h3>
-    <div class="algorithm-box">
-      <span class="algo-title">Bio-Inspired Habituation Mechanism</span>
-      <span class="algo-keyword">Initialise:</span> ε ← 1.0, ε<sub>prev</sub> ← 1.0, τ ← 10<br>
-      <span class="algo-keyword">Parameters:</span> decay δ = 0.995, minimum ε<sub>min</sub> = 0.01<br>
-      <span class="algo-keyword">for</span> each episode e = 1, 2, … <span class="algo-keyword">do</span><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;steps ← 0, reset_occurred ← False<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<span class="algo-keyword">while</span> not terminal state <span class="algo-keyword">do</span><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select action via ε-greedy policy<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Execute action, observe reward and next state<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;steps ← steps + 1<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="algo-keyword">if</span> steps > τ <span class="algo-keyword">and</span> not goal_reached <span class="algo-keyword">then</span><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ε<sub>prev</sub> ← ε; ε ← 1.0 <span class="algo-comment">&nbsp;{Dishabituation}</span><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reset_occurred ← True<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="algo-keyword">end if</span><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<span class="algo-keyword">end while</span><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<span class="algo-keyword">if</span> goal_reached <span class="algo-keyword">and</span> reset_occurred <span class="algo-keyword">then</span><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ε ← ε<sub>prev</sub> <span class="algo-comment">&nbsp;{Spontaneous recovery}</span><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<span class="algo-keyword">else</span><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ε ← max(ε<sub>min</sub>, ε × δ) <span class="algo-comment">&nbsp;{Normal decay}</span><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<span class="algo-keyword">end if</span><br>
-      <span class="algo-keyword">end for</span>
-    </div>
-    <p>
-      The mechanism operates through three key biological properties: <strong>Habituation</strong> corresponds to the standard exponential decay of the exploration rate (ε(t) = max(ε<sub>min</sub>, ε × δ)). <strong>Dishabituation</strong> occurs when the agent becomes stuck (exceeding τ steps without reaching the goal state), temporarily restoring full exploration. <strong>Spontaneous recovery</strong> occurs after successful goal achievement following a dishabituation reset, restoring the previous ε value to prevent erasing prior learning progress.
-    </p>
+    <!-- Abstract -->
+    <section class="md-section md-card-elevated md-mt-32" id="abstract">
+        <h2 class="md-headline-large">Abstract</h2>
+        <div class="md-highlight-box">
+            <p>
+                <i class="fas fa-lightbulb"></i> <strong>Key Innovation:</strong> This study presents a bio-inspired reinforcement learning framework for robotic gaze control that incorporates a <strong>habituation mechanism</strong> to regulate the exploration-exploitation trade-off, mirroring how biological attention systems filter redundant stimuli whilst remaining responsive to novel events.
+            </p>
+        </div>
+        <p class="md-body-large">
+            Adaptive attention allocation in dynamic social environments remains a fundamental challenge for autonomous robots, requiring the integration of perceptual saliency, social context, and real-time decision-making. We present a bio-inspired reinforcement learning framework for robotic gaze control that incorporates a habituation mechanism to regulate the exploration-exploitation trade-off, mirroring how biological attention systems filter redundant stimuli whilst remaining responsive to novel events.
+        </p>
+        <p class="md-body-large">
+            Through a comprehensive ablation study comparing <strong>Deep Q-Learning (DQL)</strong>, <strong>Vanilla Q-Learning (VQL)</strong>, and <strong>Multi-Objective Q-Learning (MOL)</strong>, we uncover a critical insight: habituation significantly enhances DQL performance, improving response efficiency and policy stability, yet causes systematic degradation in MOL due to fundamental incompatibilities between fixed-threshold resets and the extended episodes required for multi-objective optimisation.
+        </p>
+        <p class="md-body-large">
+            This differential effect reveals that bio-inspired mechanisms cannot be applied universally across learning architectures but must be carefully matched to algorithmic characteristics. Real-world deployment on the ARI humanoid robot validates the framework's practical applicability, achieving <strong>95.1% accuracy</strong> (95% CI: [92.7%, 96.7%]) across <strong>448 trials</strong> with well-calibrated confidence metrics that reliably distinguish correct from incorrect predictions.
+        </p>
+    </section>
 
-    <h3>Reward Structure: Elicited Attention Model</h3>
-    <p>
-      The reward function is grounded in empirical human eye-tracking data from a study with <strong>11 participants</strong> at the Technical University of Munich, who viewed a 7-minute dyadic conversation video recorded with synchronised HD and Kinect RGB-D cameras. The Elicited Attention (EA) formula integrates social features, proxemics, orientation, and attention memory:
-    </p>
-    <p style="text-align: center; font-size: 1.15rem; font-weight: 500; color: var(--text-primary); margin: 1.5rem 0;">
-      EA<sub>s,j</sub>(t) = F<sub>s,j</sub> + P(d) + O(θ) + EAM<sub>s,j</sub>
-    </p>
-    <p>The total reward is simplified to r<sub>t</sub>(s, a) = F<sub>s,j</sub> + P(d), combining social features with proximity. The high discount factor (γ = 0.988) ensures the agent plans over ~83 steps into the future, capturing temporal dynamics of social attention.</p>
+    <!-- Research Context -->
+    <section class="md-section md-card-elevated" id="context">
+        <h2 class="md-headline-large">Research Context & Motivation</h2>
+        <p class="md-body-large">
+            Social robotics is expanding rapidly across assistive care, education, and entertainment, demanding robots with bio-inspired, human-like characteristics. Among these, the ability to direct and regulate <strong>attention</strong> stands as a fundamental challenge. Real-time attention allocation in multiparty scenarios requires identifying and prioritising salient stimuli in dynamic, ambiguous environments — essential for effective human-robot interaction.
+        </p>
+        <p class="md-body-large">
+            Current approaches suffer from fundamental constraints that limit real-world deployment. Performance degrades beyond 2-3 participants as computational complexity grows exponentially, systems demonstrate poor temporal modelling, and reliance on deterministic handcrafted mappings constrains adaptability to novel scenarios. This gap stems from the underdeveloped translation of biological attention mechanisms to robotics.
+        </p>
+        <p class="md-body-large">
+            Among missing mechanisms, <strong>habituation</strong> — fundamental to biological learning and attention regulation — is particularly promising yet severely underutilised. Current implementations employ simplistic exponential decay, failing to capture stimulus specificity, spontaneous recovery, and dishabituation responses. A critical question emerges: <em>under what conditions do bio-inspired mechanisms enhance learning, and when might they interfere with algorithmic requirements?</em>
+        </p>
+        <div class="md-stat-row md-mt-24">
+            <div class="md-stat-badge">
+                <span class="md-stat-badge__value">76.9%</span>
+                <span class="md-stat-badge__label">RASA (dyadic only)</span>
+            </div>
+            <div class="md-stat-badge">
+                <span class="md-stat-badge__value">94.2%</span>
+                <span class="md-stat-badge__label">Rule-Based Controller</span>
+            </div>
+            <div class="md-stat-badge">
+                <span class="md-stat-badge__value">12.5%</span>
+                <span class="md-stat-badge__label">Random Policy (1/8)</span>
+            </div>
+            <div class="md-stat-badge md-stat-badge--accent">
+                <span class="md-stat-badge__value">95.1%</span>
+                <span class="md-stat-badge__label">RLBAM (this work)</span>
+            </div>
+        </div>
+    </section>
 
-    <h4 style="font-family: var(--font-heading); color: var(--text-primary); font-size: 1.3rem; margin: 1.5rem 0 1rem;">Gaze Control Scores (Social Feature Priorities)</h4>
-    <table class="data-table">
-      <thead>
-        <tr><th>Priority</th><th>Social Cue</th><th>Gaze Control Score</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>1</td><td>Entering</td><td class="best-val">100</td></tr>
-        <tr><td>2</td><td>Speaking</td><td class="best-val">100</td></tr>
-        <tr><td>3</td><td>Hand motion / Gesture</td><td>65</td></tr>
-        <tr><td>4</td><td>Leaving</td><td>55</td></tr>
-        <tr><td>5</td><td>Facial expression</td><td>45</td></tr>
-      </tbody>
-      <caption>Social cue priorities from the Elicited Attention model, defining F<sub>s,j</sub> in the reward function.</caption>
-    </table>
-
-    <h4 style="font-family: var(--font-heading); color: var(--text-primary); font-size: 1.3rem; margin: 1.5rem 0 1rem;">Proxemic Zone Weights</h4>
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="info-label">Personal Space</div>
-        <div class="info-value">P(d) = 1000</div>
-      </div>
-      <div class="info-card">
-        <div class="info-label">Social Space</div>
-        <div class="info-value">P(d) = 100</div>
-      </div>
-      <div class="info-card">
-        <div class="info-label">Public Space</div>
-        <div class="info-value">P(d) = 10</div>
-      </div>
+    <!-- Figure 1 -->
+    <div class="md-figure md-mt-32">
+        <img src="paper_img.jpeg" alt="ARI humanoid robot in triadic social interaction at Robot House, University of Hertfordshire" loading="eager" width="700" height="500">
+        <p class="md-figure__caption"><strong>Figure 1:</strong> A triadic social HRI between ARI humanoid robot and two study humans, demonstrating real-world deployment of the bio-inspired attention adaptation framework at the Robot House, University of Hertfordshire, UK.</p>
     </div>
 
-    <h3>Six Key Contributions</h3>
-    <ul>
-      <li><strong>Bio-inspired habituation mechanism:</strong> Implements stimulus specificity, spontaneous recovery, and dishabituation — addressing the critical gap in bio-inspired attention mechanisms that rely on simplistic exponential decay</li>
-      <li><strong>Comprehensive ablation study:</strong> 54 independent experiments with rigorous statistical analysis (paired t-tests, one-way ANOVA, Cohen's d) revealing the differential impact of habituation across learning architectures</li>
-      <li><strong>Systematic baseline comparisons:</strong> Results contextualised against a rule-based controller (94.2% success), standard epsilon-greedy exploration, and random policy baseline (12.5%)</li>
-      <li><strong>Empirically-grounded reward structure:</strong> Derived from human eye-tracking data using the Elicited Attention model, ensuring ecological validity in learned policies</li>
-      <li><strong>Real-time performance:</strong> 30 Hz inference on ARI's onboard computer, with training completing in approximately 45 minutes per 10,000-episode run</li>
-      <li><strong>Real-world deployment:</strong> 95.1% accuracy (95% CI: [92.7%, 96.7%]) across 448 trials with 3 experimenters, with per-class F1-scores of 0.63-0.78 for human-directed attention</li>
-    </ul>
-  </section>
+    <!-- Methodology -->
+    <section class="md-section md-card-elevated" id="methodology">
+        <h2 class="md-headline-large">Methodology: Bio-Inspired Attention Framework</h2>
 
-  <div class="figure">
-    <img src="rlbam-architecture.png" alt="RLBAM framework architecture showing habituation mechanism and multi-objective learning" loading="lazy" width="800" height="600">
-    <p><strong>Figure 2:</strong> The RLBAM framework architecture demonstrating the integration of habituation mechanisms with multi-objective Q-learning for adaptive robotic attention control.</p>
-  </div>
+        <div class="md-method-grid">
+            <div class="md-method-card">
+                <div class="md-method-card__title"><i class="fas fa-brain"></i> Habituation Mechanism</div>
+                <p class="md-method-card__body">Implements stimulus specificity, spontaneous recovery, and dishabituation responses within the RL exploration-exploitation framework. When the agent becomes stuck (exceeding a step threshold), dishabituation temporarily restores full exploration; spontaneous recovery prevents erasing prior learning progress after a reset.</p>
+            </div>
+            <div class="md-method-card">
+                <div class="md-method-card__title"><i class="fas fa-bullseye"></i> 54-Experiment Ablation</div>
+                <p class="md-method-card__body">Comprehensive 3 x 2 factorial design: three RL methods (DQL, VQL, MOL) x two exploration modes (standard epsilon decay vs. habituation) x 9 independent runs per configuration, yielding over 55,000 test episodes.</p>
+            </div>
+            <div class="md-method-card">
+                <div class="md-method-card__title"><i class="fas fa-eye"></i> Elicited Attention Reward</div>
+                <p class="md-method-card__body">Reward function grounded in empirical human eye-tracking data using the Elicited Attention model. Integrates social features (Gaze Control Scores) with proxemic zones (personal, social, public) for ecologically valid learned behaviours.</p>
+            </div>
+            <div class="md-method-card">
+                <div class="md-method-card__title"><i class="fas fa-users"></i> Real-Time Social Adaptation</div>
+                <p class="md-method-card__body">Discrete 8-action gaze control (6 people + environment + objects) with real-time inference at 30 Hz on ARI's onboard computer. Processes social cues, gestures, and proximity for human-like attention allocation in multiparty scenarios.</p>
+            </div>
+        </div>
 
-  <section id="architecture">
-    <h2>System Architecture & Training</h2>
+        <h3 class="md-headline-medium md-mt-32">Algorithm 1: Bio-Inspired Habituation Mechanism</h3>
+        <div class="md-algorithm-box">
+            <span class="algo-title">Bio-Inspired Habituation Mechanism</span>
+            <code>
+<span class="algo-keyword">Initialise:</span> &#949; &#8592; 1.0, &#949;<sub>prev</sub> &#8592; 1.0, &#964; &#8592; 10
+<span class="algo-keyword">Parameters:</span> decay &#948; = 0.995, minimum &#949;<sub>min</sub> = 0.01
+<span class="algo-keyword">for</span> each episode e = 1, 2, &#8230; <span class="algo-keyword">do</span>
+    steps &#8592; 0, reset_occurred &#8592; False
+    <span class="algo-keyword">while</span> not terminal state <span class="algo-keyword">do</span>
+        Select action via &#949;-greedy policy
+        Execute action, observe reward and next state
+        steps &#8592; steps + 1
+        <span class="algo-keyword">if</span> steps > &#964; <span class="algo-keyword">and</span> not goal_reached <span class="algo-keyword">then</span>
+            &#949;<sub>prev</sub> &#8592; &#949;; &#949; &#8592; 1.0 <span class="algo-comment"> {Dishabituation}</span>
+            reset_occurred &#8592; True
+        <span class="algo-keyword">end if</span>
+    <span class="algo-keyword">end while</span>
+    <span class="algo-keyword">if</span> goal_reached <span class="algo-keyword">and</span> reset_occurred <span class="algo-keyword">then</span>
+        &#949; &#8592; &#949;<sub>prev</sub> <span class="algo-comment"> {Spontaneous recovery}</span>
+    <span class="algo-keyword">else</span>
+        &#949; &#8592; max(&#949;<sub>min</sub>, &#949; &#215; &#948;) <span class="algo-comment"> {Normal decay}</span>
+    <span class="algo-keyword">end if</span>
+<span class="algo-keyword">end for</span>
+            </code>
+        </div>
+        <p class="md-body-large">
+            The mechanism operates through three key biological properties: <strong>Habituation</strong> corresponds to the standard exponential decay of the exploration rate. <strong>Dishabituation</strong> occurs when the agent becomes stuck (exceeding &#964; steps without reaching the goal state), temporarily restoring full exploration. <strong>Spontaneous recovery</strong> occurs after successful goal achievement following a dishabituation reset, restoring the previous &#949; value to prevent erasing prior learning progress.
+        </p>
 
-    <h3>Three RL Architectures Compared</h3>
-    <div class="method-grid">
-      <div class="method-card">
-        <h3><i class="fas fa-network-wired"></i> Deep Q-Learning (DQL)</h3>
-        <p>Neural network function approximator with two hidden layers (<strong>128</strong> and <strong>64</strong> units), ReLU activations, and <strong>experience replay</strong> for decorrelating sequential samples. A target network stabilises training. Naturally suited to the discrete 8-action gaze decision space with value enumeration and interpretable Q-value confidence metrics.</p>
-      </div>
-      <div class="method-card">
-        <h3><i class="fas fa-table"></i> Vanilla Q-Learning (VQL)</h3>
-        <p>Tabular Q-table with discrete state representation and learning rate α = 0.1. Provides a non-parametric baseline — its tabular structure produces near-uniform softmax distributions regardless of policy quality, yielding low confidence scores (0.22-0.23) but perfect success rates.</p>
-      </div>
-      <div class="method-card">
-        <h3><i class="fas fa-layer-group"></i> Multi-Objective QL (MOL)</h3>
-        <p>Vector Q-table maintaining separate Q-values for <strong>six objectives</strong>: task success, proximity to target, gaze direction alignment, social appropriateness, movement smoothness, and energy efficiency. Naturally requires longer episodes, creating fundamental incompatibility with the fixed habituation threshold (τ = 10).</p>
-      </div>
+        <hr class="md-divider-full md-mt-32 md-mb-32">
+
+        <h3 class="md-headline-medium">Reward Structure: Elicited Attention Model</h3>
+        <p class="md-body-large">
+            The reward function is grounded in empirical human eye-tracking data from a study with <strong>11 participants</strong> at the Technical University of Munich, who viewed a 7-minute dyadic conversation video recorded with synchronised HD and Kinect RGB-D cameras. The Elicited Attention (EA) formula integrates social features, proxemics, orientation, and attention memory:
+        </p>
+        <p class="md-body-large" style="text-align:center; font-weight:500;">
+            EA<sub>s,j</sub>(t) = F<sub>s,j</sub> + P(d) + O(&#952;) + EAM<sub>s,j</sub>
+        </p>
+        <p class="md-body-large">The total reward is simplified to r<sub>t</sub>(s, a) = F<sub>s,j</sub> + P(d), combining social features with proximity. The high discount factor (&#947; = 0.988) ensures the agent plans over ~83 steps into the future, capturing temporal dynamics of social attention.</p>
+
+        <h4 class="md-headline-small md-mt-24">Gaze Control Scores (Social Feature Priorities)</h4>
+        <div class="md-table-wrapper">
+            <table class="md-data-table">
+                <thead>
+                    <tr><th>Priority</th><th>Social Cue</th><th>Gaze Control Score</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Entering</td><td class="best-val">100</td></tr>
+                    <tr><td>2</td><td>Speaking</td><td class="best-val">100</td></tr>
+                    <tr><td>3</td><td>Hand motion / Gesture</td><td>65</td></tr>
+                    <tr><td>4</td><td>Leaving</td><td>55</td></tr>
+                    <tr><td>5</td><td>Facial expression</td><td>45</td></tr>
+                </tbody>
+                <caption>Social cue priorities from the Elicited Attention model, defining F<sub>s,j</sub> in the reward function.</caption>
+            </table>
+        </div>
+
+        <h4 class="md-headline-small md-mt-24">Proxemic Zone Weights</h4>
+        <div class="md-info-grid">
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Personal Space</div>
+                <div class="md-info-grid__value">P(d) = 1000</div>
+            </div>
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Social Space</div>
+                <div class="md-info-grid__value">P(d) = 100</div>
+            </div>
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Public Space</div>
+                <div class="md-info-grid__value">P(d) = 10</div>
+            </div>
+        </div>
+
+        <h3 class="md-headline-medium md-mt-32">Six Key Contributions</h3>
+        <ul>
+            <li class="md-body-large"><strong>Bio-inspired habituation mechanism:</strong> Implements stimulus specificity, spontaneous recovery, and dishabituation — addressing the critical gap in bio-inspired attention mechanisms that rely on simplistic exponential decay</li>
+            <li class="md-body-large"><strong>Comprehensive ablation study:</strong> 54 independent experiments with rigorous statistical analysis (paired t-tests, one-way ANOVA, Cohen's d) revealing the differential impact of habituation across learning architectures</li>
+            <li class="md-body-large"><strong>Systematic baseline comparisons:</strong> Results contextualised against a rule-based controller (94.2% success), standard epsilon-greedy exploration, and random policy baseline (12.5%)</li>
+            <li class="md-body-large"><strong>Empirically-grounded reward structure:</strong> Derived from human eye-tracking data using the Elicited Attention model, ensuring ecological validity in learned policies</li>
+            <li class="md-body-large"><strong>Real-time performance:</strong> 30 Hz inference on ARI's onboard computer, with training completing in approximately 45 minutes per 10,000-episode run</li>
+            <li class="md-body-large"><strong>Real-world deployment:</strong> 95.1% accuracy (95% CI: [92.7%, 96.7%]) across 448 trials with 3 experimenters, with per-class F1-scores of 0.63-0.78 for human-directed attention</li>
+        </ul>
+    </section>
+
+    <!-- Figure 2 -->
+    <div class="md-figure">
+        <img src="rlbam-architecture.png" alt="RLBAM framework architecture showing habituation mechanism and multi-objective learning" loading="lazy" width="800" height="600">
+        <p class="md-figure__caption"><strong>Figure 2:</strong> The RLBAM framework architecture demonstrating the integration of habituation mechanisms with multi-objective Q-learning for adaptive robotic attention control.</p>
     </div>
 
-    <h3>State & Action Spaces</h3>
-    <p>
-      Each state <strong>s ∈ ℝ<sup>n</sup></strong> encodes person activities, proximity measurements, and count derived from Kinect-based sensing. The environment comprises interactive states (one or more people present) and non-interactive states (no individuals or no active engagement). The action space comprises <strong>8 discrete gaze control options</strong>:
-    </p>
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="info-label">Actions 1–6</div>
-        <div class="info-value">Gaze at Person 1–6</div>
-      </div>
-      <div class="info-card">
-        <div class="info-label">Action 7</div>
-        <div class="info-value">Gaze at Object</div>
-      </div>
-      <div class="info-card">
-        <div class="info-label">Action 8</div>
-        <div class="info-value">Gaze at Environment</div>
-      </div>
-      <div class="info-card">
-        <div class="info-label">Random Baseline</div>
-        <div class="info-value">12.5% (1/8 chance)</div>
-      </div>
+    <!-- Architecture -->
+    <section class="md-section md-card-elevated" id="architecture">
+        <h2 class="md-headline-large">System Architecture & Training</h2>
+
+        <h3 class="md-headline-medium">Three RL Architectures Compared</h3>
+        <div class="md-method-grid">
+            <div class="md-method-card">
+                <div class="md-method-card__title"><i class="fas fa-network-wired"></i> Deep Q-Learning (DQL)</div>
+                <p class="md-method-card__body">Neural network function approximator with two hidden layers (<strong>128</strong> and <strong>64</strong> units), ReLU activations, and <strong>experience replay</strong> for decorrelating sequential samples. A target network stabilises training. Naturally suited to the discrete 8-action gaze decision space with value enumeration and interpretable Q-value confidence metrics.</p>
+            </div>
+            <div class="md-method-card">
+                <div class="md-method-card__title"><i class="fas fa-table"></i> Vanilla Q-Learning (VQL)</div>
+                <p class="md-method-card__body">Tabular Q-table with discrete state representation and learning rate &#945; = 0.1. Provides a non-parametric baseline — its tabular structure produces near-uniform softmax distributions regardless of policy quality, yielding low confidence scores (0.22-0.23) but perfect success rates.</p>
+            </div>
+            <div class="md-method-card">
+                <div class="md-method-card__title"><i class="fas fa-layer-group"></i> Multi-Objective QL (MOL)</div>
+                <p class="md-method-card__body">Vector Q-table maintaining separate Q-values for <strong>six objectives</strong>: task success, proximity to target, gaze direction alignment, social appropriateness, movement smoothness, and energy efficiency. Naturally requires longer episodes, creating fundamental incompatibility with the fixed habituation threshold (&#964; = 10).</p>
+            </div>
+        </div>
+
+        <h3 class="md-headline-medium md-mt-32">State & Action Spaces</h3>
+        <p class="md-body-large">
+            Each state <strong>s &#8712; &#8477;<sup>n</sup></strong> encodes person activities, proximity measurements, and count derived from Kinect-based sensing. The environment comprises interactive states (one or more people present) and non-interactive states (no individuals or no active engagement). The action space comprises <strong>8 discrete gaze control options</strong>:
+        </p>
+        <div class="md-info-grid">
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Actions 1-6</div>
+                <div class="md-info-grid__value">Gaze at Person 1-6</div>
+            </div>
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Action 7</div>
+                <div class="md-info-grid__value">Gaze at Object</div>
+            </div>
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Action 8</div>
+                <div class="md-info-grid__value">Gaze at Environment</div>
+            </div>
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Random Baseline</div>
+                <div class="md-info-grid__value">12.5% (1/8 chance)</div>
+            </div>
+        </div>
+
+        <h3 class="md-headline-medium md-mt-32">Hyperparameters & Training Configuration</h3>
+        <div class="md-info-grid">
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Learning Rate (&#945;)</div>
+                <div class="md-info-grid__value">0.0016</div>
+            </div>
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Discount Factor (&#947;)</div>
+                <div class="md-info-grid__value">0.988</div>
+            </div>
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Decay Rate (&#948;)</div>
+                <div class="md-info-grid__value">0.995</div>
+            </div>
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Min Epsilon (&#949;<sub>min</sub>)</div>
+                <div class="md-info-grid__value">0.01</div>
+            </div>
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Step Threshold (&#964;)</div>
+                <div class="md-info-grid__value">10 steps</div>
+            </div>
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Training Episodes</div>
+                <div class="md-info-grid__value">10,000 per run</div>
+            </div>
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Test States</div>
+                <div class="md-info-grid__value">51 x 20 iterations</div>
+            </div>
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Planning Horizon</div>
+                <div class="md-info-grid__value">~83 steps</div>
+            </div>
+        </div>
+
+        <h3 class="md-headline-medium md-mt-32">Simulation Environment</h3>
+        <p class="md-body-large">
+            Training was conducted in <strong>NVIDIA IsaacSim</strong>, constructing environments featuring humans and a social robot receptionist with scenarios including person entry, interaction activities (hand-waving, speech), and multiparty conversations. Each 10,000-episode training run completes in approximately <strong>45 minutes</strong> on a standard workstation, with a memory footprint below 2 GB. Real-time inference operates at <strong>30 Hz</strong> on the ARI robot's onboard computer.
+        </p>
+
+        <h3 class="md-headline-medium md-mt-32">Six Evaluation Metrics</h3>
+        <div class="md-method-grid">
+            <div class="md-method-card">
+                <div class="md-method-card__title"><i class="fas fa-check-circle"></i> Success Rate</div>
+                <p class="md-method-card__body">Proportion of test episodes where the agent successfully directs gaze to the appropriate target.</p>
+            </div>
+            <div class="md-method-card">
+                <div class="md-method-card__title"><i class="fas fa-tachometer-alt"></i> Avg Steps to Goal</div>
+                <p class="md-method-card__body">Response efficiency — directly relevant to real-time HRI where delays disrupt interaction flow.</p>
+            </div>
+            <div class="md-method-card">
+                <div class="md-method-card__title"><i class="fas fa-signal"></i> Softmax Confidence</div>
+                <p class="md-method-card__body">Probability mass assigned to the selected action, reflecting decisiveness of the learned policy.</p>
+            </div>
+            <div class="md-method-card">
+                <div class="md-method-card__title"><i class="fas fa-balance-scale"></i> Q-Margin</div>
+                <p class="md-method-card__body">Gap between best and second-best Q-values — confidence metric independent of the softmax function.</p>
+            </div>
+            <div class="md-method-card">
+                <div class="md-method-card__title"><i class="fas fa-exchange-alt"></i> Transfer Score</div>
+                <p class="md-method-card__body">Composite: success (40%) + efficiency (30%) + confidence (20%) + normalised reward (10%).</p>
+            </div>
+            <div class="md-method-card">
+                <div class="md-method-card__title"><i class="fas fa-redo"></i> Reset Frequency</div>
+                <p class="md-method-card__body">How often habituation triggers dishabituation — reveals compatibility between mechanism and algorithm.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="md-section md-card-elevated" id="results">
+        <h2 class="md-headline-large">Results & Experimental Validation</h2>
+
+        <div class="md-highlight-box">
+            <p><i class="fas fa-trophy"></i> <strong>Performance Highlights:</strong></p>
+            <ul>
+                <li><strong>DQL+HAB achieves 100% success rate</strong> across 9,180 test episodes with the highest transfer score (0.963 +/- 0.010)</li>
+                <li><strong>95.1% real-world accuracy</strong> (95% CI: [92.7%, 96.7%]) across 448 trials with 3 experimenters on the ARI humanoid robot</li>
+                <li><strong>Critical finding:</strong> Habituation enhances DQL but causes systematic degradation in MOL (97.8% success, 164x more resets) — bio-inspired mechanisms are architecture-dependent</li>
+                <li><strong>Well-calibrated confidence:</strong> Spearman correlation between confidence and correctness of 0.42 (p < 0.001) enables principled online error detection</li>
+            </ul>
+        </div>
+
+        <h3 class="md-headline-medium md-mt-32">Ablation Study: Simulation Results (54 Experiments)</h3>
+        <p class="md-body-large">
+            The experimental design follows a 3 x 2 factorial structure: three RL methods (DQL, VQL, MOL), two exploration modes (standard epsilon decay EPS vs. habituation HAB), and 9 independent runs per configuration. Each run comprises 10,000 training episodes followed by evaluation on 51 test states with 20 iterations each, yielding over <strong>55,000 test episodes</strong> across all conditions.
+        </p>
+
+        <h4 class="md-headline-small md-mt-24">Table II: Complete Ablation Results (mean +/- SD across 9 runs)</h4>
+        <div class="md-table-wrapper">
+            <table class="md-data-table">
+                <thead>
+                    <tr><th>Method</th><th>Mode</th><th>Success Rate</th><th>Avg Steps</th><th>Confidence</th><th>Q-Margin</th><th>Transfer Score</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="md-table-highlight-row">
+                        <td>DQL</td><td>HAB</td><td class="best-val">1.000 +/- 0.000</td><td class="best-val">2.08 +/- 0.56</td><td class="best-val">0.878 +/- 0.043</td><td>5.00 +/- 1.70</td><td class="best-val">0.963 +/- 0.010</td>
+                    </tr>
+                    <tr>
+                        <td>DQL</td><td>EPS</td><td>1.000 +/- 0.000</td><td>2.31 +/- 0.73</td><td>0.848 +/- 0.096</td><td>4.89 +/- 2.23</td><td>0.956 +/- 0.021</td>
+                    </tr>
+                    <tr>
+                        <td>VQL</td><td>EPS</td><td>1.000 +/- 0.000</td><td>3.70 +/- 0.23</td><td>0.227 +/- 0.056</td><td>0.29 +/- 0.65</td><td>0.748 +/- 0.018</td>
+                    </tr>
+                    <tr>
+                        <td>VQL</td><td>HAB</td><td>1.000 +/- 0.000</td><td>3.72 +/- 0.10</td><td>0.224 +/- 0.025</td><td>0.25 +/- 0.31</td><td>0.747 +/- 0.008</td>
+                    </tr>
+                    <tr>
+                        <td>MOL</td><td>EPS</td><td>0.999 +/- 0.001</td><td>7.84 +/- 1.52</td><td>0.200 +/- 0.000</td><td>0.001 +/- 0.001</td><td>0.717 +/- 0.005</td>
+                    </tr>
+                    <tr>
+                        <td>MOL</td><td>HAB</td><td class="worst-val">0.978 +/- 0.013</td><td class="worst-val">16.14 +/- 5.02</td><td>0.200 +/- 0.000</td><td>0.000 +/- 0.000</td><td class="worst-val">0.684 +/- 0.020</td>
+                    </tr>
+                </tbody>
+                <caption>Bold green = best per metric. Red = worst per metric. DQL-HAB achieves the optimal configuration across all metrics.</caption>
+            </table>
+        </div>
+
+        <h4 class="md-headline-small md-mt-32">Key Findings</h4>
+        <ul>
+            <li class="md-body-large"><strong>DQL dominance:</strong> Both DQL configurations achieved perfect 100% success rates. DQL-HAB shows the best overall transfer score (0.963), highest confidence (0.878), and lowest variance in average steps. DQL assigns 85-88% probability to its chosen action, producing confident, purposeful gaze shifts within <strong>70-80 ms</strong> (2 steps x 33 ms) — well within the 200-300 ms window of natural human gaze shifts</li>
+            <li class="md-body-large"><strong>VQL robustness:</strong> Also achieved 100% success rate; habituation has essentially zero effect on VQL performance (negligible Cohen's d values &lt; 0.2), consistent with its tabular structure that doesn't benefit from adaptive exploration bursts</li>
+            <li class="md-body-large"><strong>MOL degradation:</strong> Habituation causes catastrophic interference in MOL — success drops from 99.9% to 97.8% (paired t-test: t = 4.89, p = 0.001, Cohen's d = 2.28), with average steps more than doubling from 7.84 to 16.14. At 30 Hz, MOL-HAB's 16.14 steps translate to <strong>>500 ms</strong> — perceptibly unnatural in social interaction</li>
+            <li class="md-body-large"><strong>Root cause:</strong> MOL averages 7,368 habituation resets per run (164x more than DQL's 44.9), because the fixed step threshold (&#964; = 10) misinterprets the legitimately longer episodes required for multi-objective optimisation as stuck states. In 73.7% of MOL-HAB training episodes, habituation is triggered — preventing stable exploitation</li>
+        </ul>
+
+        <hr class="md-divider-full md-mt-32 md-mb-32">
+
+        <h4 class="md-headline-small">Habituation Reset Statistics</h4>
+        <p class="md-body-large">Reset frequency reveals fundamental compatibility between the habituation mechanism and the learning architecture:</p>
+        <div class="md-table-wrapper">
+            <table class="md-data-table">
+                <thead>
+                    <tr><th>Method</th><th>Resets / Run</th><th>Reset Ratio (vs DQL)</th><th>Interpretation</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="md-table-highlight-row"><td>DQL</td><td>44.9 +/- 9.8</td><td>1.0x</td><td class="best-val">Efficient</td></tr>
+                    <tr><td>VQL</td><td>93.3 +/- 7.3</td><td>2.1x</td><td style="color:var(--md-tertiary); font-weight:600;">Acceptable</td></tr>
+                    <tr><td>MOL</td><td class="worst-val">7,368.2 +/- 28.6</td><td class="worst-val">164x</td><td class="worst-val">Pathological</td></tr>
+                </tbody>
+                <caption>DQL's reset pattern represents efficient learning; MOL's 164x ratio represents a fundamental mismatch between mechanism and algorithm.</caption>
+            </table>
+        </div>
+
+        <h4 class="md-headline-small md-mt-32">Statistical Analysis (HAB vs. EPS within each method)</h4>
+        <div class="md-table-wrapper">
+            <table class="md-data-table">
+                <thead>
+                    <tr><th>Method</th><th>Metric</th><th>t-statistic</th><th>p-value</th><th>Cohen's d</th><th>Effect Size</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>DQL</td><td>Avg Steps</td><td>0.59</td><td>0.573</td><td>0.35</td><td>Small</td></tr>
+                    <tr><td>DQL</td><td>Confidence</td><td>-0.74</td><td>0.482</td><td>0.40</td><td>Small</td></tr>
+                    <tr><td>DQL</td><td>Transfer Score</td><td>-0.62</td><td>0.551</td><td>0.37</td><td>Small</td></tr>
+                    <tr><td>VQL</td><td>Avg Steps</td><td>-0.21</td><td>0.836</td><td>0.10</td><td>Negligible</td></tr>
+                    <tr><td>VQL</td><td>Confidence</td><td>0.15</td><td>0.882</td><td>0.07</td><td>Negligible</td></tr>
+                    <tr><td>VQL</td><td>Transfer Score</td><td>0.21</td><td>0.840</td><td>0.09</td><td>Negligible</td></tr>
+                    <tr class="md-table-highlight-row"><td>MOL</td><td>Success Rate</td><td>4.89</td><td class="worst-val">0.001**</td><td class="worst-val">2.28</td><td class="worst-val">Large</td></tr>
+                    <tr class="md-table-highlight-row"><td>MOL</td><td>Avg Steps</td><td>-5.40</td><td class="worst-val">&lt;0.001**</td><td class="worst-val">2.24</td><td class="worst-val">Large</td></tr>
+                    <tr class="md-table-highlight-row"><td>MOL</td><td>Transfer Score</td><td>3.56</td><td class="worst-val">0.007**</td><td class="worst-val">1.67</td><td class="worst-val">Large</td></tr>
+                </tbody>
+                <caption>**p &lt; 0.05 indicates statistical significance. Only MOL shows significant differences, all with large effect sizes (d >= 0.8) confirming systematic degradation.</caption>
+            </table>
+        </div>
+
+        <h4 class="md-headline-small md-mt-32">Cross-Method ANOVA (DQL vs. VQL vs. MOL)</h4>
+        <p class="md-body-large">All metrics show highly significant method effects, confirming that architecture choice matters enormously for attention control performance:</p>
+        <div class="md-table-wrapper">
+            <table class="md-data-table">
+                <thead>
+                    <tr><th>Metric</th><th>EPS F-stat</th><th>EPS p-value</th><th>HAB F-stat</th><th>HAB p-value</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Success Rate</td><td>4.00</td><td>0.032*</td><td>25.07</td><td>&lt;0.001***</td></tr>
+                    <tr><td>Avg Steps</td><td>77.23</td><td>&lt;0.001***</td><td>62.61</td><td>&lt;0.001***</td></tr>
+                    <tr class="md-table-highlight-row"><td>Confidence</td><td>292.33</td><td>&lt;0.001***</td><td class="best-val">1580.88</td><td>&lt;0.001***</td></tr>
+                    <tr><td>Q-Margin</td><td>34.12</td><td>&lt;0.001***</td><td>98.47</td><td>&lt;0.001***</td></tr>
+                    <tr><td>Transfer Score</td><td>189.56</td><td>&lt;0.001***</td><td>277.34</td><td>&lt;0.001***</td></tr>
+                </tbody>
+                <caption>*p &lt; 0.05, ***p &lt; 0.001. The dramatically higher F-statistic for confidence under HAB (1580.88 vs 292.33) suggests habituation further amplifies architectural differences between neural and tabular value functions.</caption>
+            </table>
+        </div>
+
+        <h4 class="md-headline-small md-mt-32">Transfer Score Rankings (with 95% Confidence Intervals)</h4>
+        <div class="md-stat-row md-mt-16">
+            <div class="md-stat-badge md-stat-badge--accent">
+                <span class="md-stat-badge__value">#1</span>
+                <span class="md-stat-badge__label">DQL-HAB: 0.963</span>
+            </div>
+            <div class="md-stat-badge">
+                <span class="md-stat-badge__value">#2</span>
+                <span class="md-stat-badge__label">DQL-EPS: 0.956</span>
+            </div>
+            <div class="md-stat-badge">
+                <span class="md-stat-badge__value">#3</span>
+                <span class="md-stat-badge__label">VQL-EPS: 0.748</span>
+            </div>
+            <div class="md-stat-badge">
+                <span class="md-stat-badge__value">#4</span>
+                <span class="md-stat-badge__label">VQL-HAB: 0.747</span>
+            </div>
+            <div class="md-stat-badge">
+                <span class="md-stat-badge__value">#5</span>
+                <span class="md-stat-badge__label">MOL-EPS: 0.717</span>
+            </div>
+            <div class="md-stat-badge">
+                <span class="md-stat-badge__value" style="color:var(--md-error);">#6</span>
+                <span class="md-stat-badge__label">MOL-HAB: 0.684</span>
+            </div>
+        </div>
+        <p class="md-body-medium md-mt-16" style="text-align:center; color:var(--md-on-surface-variant);">Non-overlapping confidence intervals between DQL configurations and all other methods provide statistical confirmation (>95% confidence) that DQL+HAB will outperform any non-DQL configuration in future deployments.</p>
+
+        <hr class="md-divider-full md-mt-32 md-mb-32">
+
+        <h3 class="md-headline-medium" id="real-world">Real-World Deployment (448 Trials)</h3>
+        <p class="md-body-large">
+            The trained DQL-HAB model was deployed on the ARI humanoid robot at the <strong>Robot House, University of Hertfordshire</strong>, transitioning from the controlled precision of simulation to the messy complexity of physical embodiment. The experiment involved <strong>3 experimenters</strong>, all affiliated with the university, engaged in structured social interactions through 448 distinct trials across four state categories.
+        </p>
+
+        <h4 class="md-headline-small md-mt-24">Accuracy by Scenario Category</h4>
+        <div class="md-table-wrapper">
+            <table class="md-data-table">
+                <thead>
+                    <tr><th>Category</th><th>Trials</th><th>Accuracy</th><th>95% CI</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="md-table-highlight-row"><td>Two experimenters</td><td>157 (35%)</td><td class="best-val">98.1%</td><td>[94.5%, 99.3%]</td></tr>
+                    <tr><td>Three experimenters</td><td>112 (25%)</td><td>96.4%</td><td>[91.2%, 98.6%]</td></tr>
+                    <tr><td>Single experimenter</td><td>112 (25%)</td><td>93.8%</td><td>[87.7%, 96.9%]</td></tr>
+                    <tr><td>Low saliency</td><td>67 (15%)</td><td>88.1%</td><td>[78.2%, 93.8%]</td></tr>
+                    <tr class="md-table-highlight-row"><td><strong>Overall</strong></td><td><strong>448</strong></td><td class="best-val"><strong>95.1%</strong></td><td><strong>[92.7%, 96.7%]</strong></td></tr>
+                </tbody>
+                <caption>Multi-experimenter scenarios outperform single-experimenter because clearly differentiated engagement scores enable decisive DQL predictions (mean softmax: 0.782 for two-experimenter states).</caption>
+            </table>
+        </div>
+
+        <h4 class="md-headline-small md-mt-32">Per-Class Performance Metrics</h4>
+        <div class="md-table-wrapper">
+            <table class="md-data-table">
+                <thead>
+                    <tr><th>Action Class</th><th>Precision</th><th>Recall</th><th>F1-Score</th><th>Support</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="md-table-highlight-row"><td>Gaze_At_Experimenter_2</td><td>0.667</td><td class="best-val">0.952</td><td class="best-val">0.784</td><td>105</td></tr>
+                    <tr><td>Gaze_At_Experimenter_1</td><td class="best-val">0.724</td><td>0.728</td><td>0.726</td><td>169</td></tr>
+                    <tr><td>Gaze_At_Experimenter_3</td><td>0.609</td><td>0.654</td><td>0.631</td><td>107</td></tr>
+                    <tr><td>Gaze_At_Environment</td><td>0.400</td><td>0.030</td><td>0.056</td><td>67</td></tr>
+                    <tr><td>Gaze_At_Object</td><td>0.000</td><td>0.000</td><td>0.000</td><td>0</td></tr>
+                    <tr class="md-table-highlight-row"><td><strong>Macro Average</strong></td><td><strong>0.600</strong></td><td><strong>0.591</strong></td><td><strong>0.549</strong></td><td><strong>448</strong></td></tr>
+                </tbody>
+                <caption>F1-scores of 0.63-0.78 for human-directed gaze reflect strong social attention capability. Low environmental gaze F1 (0.056) stems from the agent's bias toward human targets.</caption>
+            </table>
+        </div>
+
+        <h4 class="md-headline-small md-mt-32">Confidence Calibration & Error Detection</h4>
+        <div class="md-info-grid">
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Correct Predictions</div>
+                <div class="md-info-grid__value">Confidence: 0.752 +/- 0.221</div>
+            </div>
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Incorrect Predictions</div>
+                <div class="md-info-grid__value">Confidence: 0.562 +/- 0.318</div>
+            </div>
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Separation Test</div>
+                <div class="md-info-grid__value">t = 3.21, p = 0.002</div>
+            </div>
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Spearman Correlation</div>
+                <div class="md-info-grid__value">&#961; = 0.42, p &lt; 0.001</div>
+            </div>
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Q-Margin (Correct)</div>
+                <div class="md-info-grid__value">2.906</div>
+            </div>
+            <div class="md-info-grid__item">
+                <div class="md-info-grid__label">Q-Margin (Incorrect)</div>
+                <div class="md-info-grid__value">0.867 (3.35x gap)</div>
+            </div>
+        </div>
+        <p class="md-body-large md-mt-16">
+            The strong correlation between confidence and correctness suggests well-calibrated uncertainty estimates that could enable adaptive behaviours: the robot could request clarification when confidence drops below 0.60, or flag predictions with Q-margins below 1.5 for human oversight.
+        </p>
+
+        <h4 class="md-headline-small md-mt-32">Observed Real-World Behaviours</h4>
+        <p class="md-body-large">The experimental protocol progressed through increasingly complex scenarios. Across this progression, RLBAM demonstrated several key capabilities:</p>
+        <ul>
+            <li class="md-body-large"><strong>Immediate gaze redirection:</strong> Upon person entry, the robot redirected gaze within an average of <strong>2.3 steps</strong>, consistent with simulation performance</li>
+            <li class="md-body-large"><strong>Appropriate disengagement:</strong> When humans adopted passive stances (attending to objects rather than the robot), the agent appropriately shifted attention</li>
+            <li class="md-body-large"><strong>Seamless departure recovery:</strong> Following person departure, the agent redirected to the next most salient stimulus rather than fixating on empty space</li>
+            <li class="md-body-large"><strong>Dynamic priority adjustment:</strong> In multiparty scenarios, smooth tracking of gesturing persons and rapid attention switching between simultaneously present individuals confirmed sim-to-real generalisation without catch-up saccades or fixation loss</li>
+        </ul>
+
+        <h4 class="md-headline-small md-mt-32">Sim-to-Real Gap Decomposition</h4>
+        <p class="md-body-large">The 4.9 percentage point performance gap (100% simulation to 95.1% real-world) can be decomposed into identifiable sources:</p>
+        <div class="md-stat-row md-mt-16">
+            <div class="md-stat-badge">
+                <span class="md-stat-badge__value">2.5pp</span>
+                <span class="md-stat-badge__label">Sensor noise (Kinect)</span>
+            </div>
+            <div class="md-stat-badge">
+                <span class="md-stat-badge__value">1.5pp</span>
+                <span class="md-stat-badge__label">Distribution shift</span>
+            </div>
+            <div class="md-stat-badge">
+                <span class="md-stat-badge__value">0.9pp</span>
+                <span class="md-stat-badge__label">Policy limitations</span>
+            </div>
+        </div>
+        <p class="md-body-medium md-mt-16" style="text-align:center; color:var(--md-on-surface-variant);">
+            Critically, performance does not increase with scenario complexity — three-experimenter states (96.4%) match or exceed single-experimenter (93.8%), indicating <strong>robust policy generalisation</strong> rather than memorisation.
+        </p>
+    </section>
+
+    <!-- Figure 3 -->
+    <div class="md-figure">
+        <img src="training-dynamics.png" alt="Training dynamics showing habituation-guided learning progression" loading="lazy" width="800" height="600">
+        <p class="md-figure__caption"><strong>Figure 3:</strong> Training dynamics and behavioural analysis showing habituation-guided exploration, reward progression, and convergence patterns across 10,000 episodes per run (54 independent experiments).</p>
     </div>
 
-    <h3>Hyperparameters & Training Configuration</h3>
-    <div class="info-grid">
-      <div class="info-card" style="border-left-color: var(--accent-emerald);">
-        <div class="info-label">Learning Rate (α)</div>
-        <div class="info-value">0.0016</div>
-      </div>
-      <div class="info-card" style="border-left-color: var(--accent-emerald);">
-        <div class="info-label">Discount Factor (γ)</div>
-        <div class="info-value">0.988</div>
-      </div>
-      <div class="info-card" style="border-left-color: var(--accent-emerald);">
-        <div class="info-label">Decay Rate (δ)</div>
-        <div class="info-value">0.995</div>
-      </div>
-      <div class="info-card" style="border-left-color: var(--accent-emerald);">
-        <div class="info-label">Min Epsilon (ε<sub>min</sub>)</div>
-        <div class="info-value">0.01</div>
-      </div>
-      <div class="info-card" style="border-left-color: var(--accent-purple);">
-        <div class="info-label">Step Threshold (τ)</div>
-        <div class="info-value">10 steps</div>
-      </div>
-      <div class="info-card" style="border-left-color: var(--accent-purple);">
-        <div class="info-label">Training Episodes</div>
-        <div class="info-value">10,000 per run</div>
-      </div>
-      <div class="info-card" style="border-left-color: var(--accent-purple);">
-        <div class="info-label">Test States</div>
-        <div class="info-value">51 × 20 iterations</div>
-      </div>
-      <div class="info-card" style="border-left-color: var(--accent-purple);">
-        <div class="info-label">Planning Horizon</div>
-        <div class="info-value">~83 steps</div>
-      </div>
-    </div>
+    <!-- Impact -->
+    <section class="md-section md-card-elevated" id="impact">
+        <h2 class="md-headline-large">Impact & Future Directions</h2>
+        <p class="md-body-large">
+            This work provides the first systematic evidence that bio-inspired habituation mechanisms are <strong>architecture-dependent</strong> rather than universally beneficial — a finding with broad implications for the intersection of cognitive science and reinforcement learning. By rigorously demonstrating that the same biological principle can enhance, leave unchanged, or degrade performance depending on the underlying learning architecture, this research challenges the common assumption that bio-inspired mechanisms are generically advantageous.
+        </p>
 
-    <h3>Simulation Environment</h3>
-    <p>
-      Training was conducted in <strong>NVIDIA IsaacSim</strong>, constructing environments featuring humans and a social robot receptionist with scenarios including person entry, interaction activities (hand-waving, speech), and multiparty conversations. Each 10,000-episode training run completes in approximately <strong>45 minutes</strong> on a standard workstation, with a memory footprint below 2 GB. Real-time inference operates at <strong>30 Hz</strong> on the ARI robot's onboard computer.
-    </p>
+        <h3 class="md-headline-medium md-mt-32">Broader Implications</h3>
+        <ul>
+            <li class="md-body-large"><strong>Social Robotics:</strong> Delivers a deployable, real-time (30 Hz) gaze control system achieving 95.1% accuracy in unstructured multiparty environments, advancing natural human-robot interaction in care, education, and entertainment domains</li>
+            <li class="md-body-large"><strong>Cognitive Science:</strong> Provides computational validation of biological habituation phenomena (stimulus specificity, spontaneous recovery, dishabituation) while revealing that not all learning systems benefit equally — mirroring observations in biological neural circuits</li>
+            <li class="md-body-large"><strong>Reinforcement Learning:</strong> Offers a principled methodology for integrating bio-inspired exploration mechanisms with RL, including diagnostic tools (reset frequency analysis, step-count distributions) to predict compatibility before deployment</li>
+            <li class="md-body-large"><strong>Sim-to-Real Transfer:</strong> Demonstrates that policies trained with bio-inspired exploration exhibit robust transfer (only 4.9% accuracy drop), with a decomposition framework attributing the gap to sensor noise (2.5%), distribution shift (1.5%), and policy limitations (0.9%)</li>
+        </ul>
 
-    <h3>Six Evaluation Metrics</h3>
-    <div class="method-grid">
-      <div class="method-card">
-        <h3 style="font-size: 1.1rem;"><i class="fas fa-check-circle"></i> Success Rate</h3>
-        <p style="font-size: 0.95rem;">Proportion of test episodes where the agent successfully directs gaze to the appropriate target.</p>
-      </div>
-      <div class="method-card">
-        <h3 style="font-size: 1.1rem;"><i class="fas fa-tachometer-alt"></i> Avg Steps to Goal</h3>
-        <p style="font-size: 0.95rem;">Response efficiency — directly relevant to real-time HRI where delays disrupt interaction flow.</p>
-      </div>
-      <div class="method-card">
-        <h3 style="font-size: 1.1rem;"><i class="fas fa-signal"></i> Softmax Confidence</h3>
-        <p style="font-size: 0.95rem;">Probability mass assigned to the selected action, reflecting decisiveness of the learned policy.</p>
-      </div>
-      <div class="method-card">
-        <h3 style="font-size: 1.1rem;"><i class="fas fa-balance-scale"></i> Q-Margin</h3>
-        <p style="font-size: 0.95rem;">Gap between best and second-best Q-values — confidence metric independent of the softmax function.</p>
-      </div>
-      <div class="method-card">
-        <h3 style="font-size: 1.1rem;"><i class="fas fa-exchange-alt"></i> Transfer Score</h3>
-        <p style="font-size: 0.95rem;">Composite: success (40%) + efficiency (30%) + confidence (20%) + normalised reward (10%).</p>
-      </div>
-      <div class="method-card">
-        <h3 style="font-size: 1.1rem;"><i class="fas fa-redo"></i> Reset Frequency</h3>
-        <p style="font-size: 0.95rem;">How often habituation triggers dishabituation — reveals compatibility between mechanism and algorithm.</p>
-      </div>
-    </div>
-  </section>
+        <h3 class="md-headline-medium md-mt-32">Comparison with Prior Work</h3>
+        <p class="md-body-large">RLBAM advances over the current landscape of learning-based gaze systems:</p>
+        <ul>
+            <li class="md-body-large"><strong>vs. RASA (76.9% dyadic accuracy):</strong> RLBAM achieves 95.1% in more challenging multiparty scenarios, demonstrating the advantage of RL over rule-assisted approaches</li>
+            <li class="md-body-large"><strong>vs. Multi-party systems (97% effectiveness):</strong> These systems mask critical limitations in scalability, temporal modelling, and adaptability; RLBAM achieves comparable accuracy with genuine online adaptation capability</li>
+            <li class="md-body-large"><strong>vs. Rule-Based Controller (94.2% success):</strong> RLBAM's learned policy (95.1%) exceeds the deterministic baseline whilst handling ambiguous scenarios requiring temporal reasoning and adaptation to novel situations</li>
+            <li class="md-body-large"><strong>vs. Policy gradient / Actor-critic methods:</strong> These require large amounts of training data with limited transferability across social contexts; RLBAM trains in ~45 minutes and transfers robustly from simulation</li>
+            <li class="md-body-large"><strong>vs. Transformer-based attention prediction:</strong> Whilst achieving high accuracy on fixation patterns, these supervised approaches lack the adaptive online learning capability essential for personalised HRI</li>
+        </ul>
 
-  <section id="results">
-    <h2>Results & Experimental Validation</h2>
+        <h3 class="md-headline-medium md-mt-32">Limitations</h3>
+        <ul>
+            <li class="md-body-large"><strong>Scalability:</strong> The current system supports up to 6 simultaneous persons, constrained by Kinect sensor detection capacity. DQL's neural network handles state space growth more gracefully than tabular methods, but scenarios exceeding 6 participants would require architectural extensions such as hierarchical attention or graph-based state representations</li>
+            <li class="md-body-large"><strong>Social context:</strong> The reward function encodes Western-centric gaze norms where direct eye contact and proximity signal engagement. However, gaze norms vary significantly across cultures — in some East Asian cultures, sustained direct gaze may be perceived as confrontational; in certain Middle Eastern cultures, gender-differentiated gaze patterns are socially expected. Adapting to diverse cultural contexts would require culture-specific reward function parameterisation</li>
+            <li class="md-body-large"><strong>Generalisation beyond triadic interaction:</strong> Whilst real-world validation involved up to 3 experimenters, the architecture accommodates up to 6 persons. Validation with larger groups, unstructured environments, and naturalistic (non-scripted) interactions remains essential future work</li>
+            <li class="md-body-large"><strong>Fixed habituation threshold:</strong> The fixed &#964; = 10 steps works well for single-objective learning but becomes pathological for multi-objective methods. Only changing the threshold to 30-50 steps or making it adaptive could potentially salvage the approach for MOL</li>
+        </ul>
 
-    <div class="highlight-box">
-      <p><i class="fas fa-trophy" style="color: #4caf50;"></i> <strong>Performance Highlights:</strong></p>
-      <ul>
-        <li><strong>DQL+HAB achieves 100% success rate</strong> across 9,180 test episodes with the highest transfer score (0.963 ± 0.010)</li>
-        <li><strong>95.1% real-world accuracy</strong> (95% CI: [92.7%, 96.7%]) across 448 trials with 3 experimenters on the ARI humanoid robot</li>
-        <li><strong>Critical finding:</strong> Habituation enhances DQL but causes systematic degradation in MOL (97.8% success, 164x more resets) — bio-inspired mechanisms are architecture-dependent</li>
-        <li><strong>Well-calibrated confidence:</strong> Spearman correlation between confidence and correctness of 0.42 (p < 0.001) enables principled online error detection</li>
-      </ul>
-    </div>
+        <h3 class="md-headline-medium md-mt-32">Future Research Directions</h3>
+        <ul>
+            <li class="md-body-large"><strong>Adaptive threshold selection:</strong> Adjusting &#964; based on task complexity, with thresholds of 30-50 steps being more appropriate for multi-objective scenarios</li>
+            <li class="md-body-large"><strong>Continual policy adaptation:</strong> Through lifelong learning or meta-reinforcement learning, enabling the system to personalise attention strategies for individual users over extended deployments</li>
+            <li class="md-body-large"><strong>Semantic scene parsing integration:</strong> Adding affective state recognition to enrich the state representation beyond activity and proximity features</li>
+            <li class="md-body-large"><strong>Cross-cultural reward functions:</strong> Potentially learned through observation of culturally situated interactions</li>
+            <li class="md-body-large"><strong>Large-scale longitudinal studies:</strong> Open-world environments to assess both generalisability and social acceptability of the robot's gaze behaviours across diverse demographic groups</li>
+        </ul>
+    </section>
 
-    <h3>Ablation Study: Simulation Results (54 Experiments)</h3>
-    <p>
-      The experimental design follows a 3 × 2 factorial structure: three RL methods (DQL, VQL, MOL), two exploration modes (standard epsilon decay EPS vs. habituation HAB), and 9 independent runs per configuration. Each run comprises 10,000 training episodes followed by evaluation on 51 test states with 20 iterations each, yielding over <strong>55,000 test episodes</strong> across all conditions.
-    </p>
+    <!-- Access -->
+    <section class="md-section md-card-elevated" id="access">
+        <h2 class="md-headline-large">Paper Access & Resources</h2>
+        <div style="text-align:center; padding:24px 0;">
+            <a href="#" class="md-btn-filled" onclick="showPaperDialog(event)">
+                <i class="fas fa-file-alt"></i> View on IEEE Xplore
+            </a>
+            <a href="#" class="md-btn-outlined" onclick="showCodeDialog(event)">
+                <i class="fas fa-code"></i> Source Code & Data
+            </a>
+            <a href="#" class="md-btn-outlined" onclick="showVideoDialog(event)">
+                <i class="fas fa-video"></i> Supplementary Materials
+            </a>
+        </div>
 
-    <h4 style="font-family: var(--font-heading); color: var(--text-primary); font-size: 1.3rem; margin: 1.5rem 0 1rem;">Table II: Complete Ablation Results (mean ± SD across 9 runs)</h4>
-    <table class="data-table">
-      <thead>
-        <tr><th>Method</th><th>Mode</th><th>Success Rate</th><th>Avg Steps</th><th>Confidence</th><th>Q-Margin</th><th>Transfer Score</th></tr>
-      </thead>
-      <tbody>
-        <tr class="highlight-row">
-          <td>DQL</td><td>HAB</td><td class="best-val">1.000 ± 0.000</td><td class="best-val">2.08 ± 0.56</td><td class="best-val">0.878 ± 0.043</td><td>5.00 ± 1.70</td><td class="best-val">0.963 ± 0.010</td>
-        </tr>
-        <tr>
-          <td>DQL</td><td>EPS</td><td>1.000 ± 0.000</td><td>2.31 ± 0.73</td><td>0.848 ± 0.096</td><td>4.89 ± 2.23</td><td>0.956 ± 0.021</td>
-        </tr>
-        <tr>
-          <td>VQL</td><td>EPS</td><td>1.000 ± 0.000</td><td>3.70 ± 0.23</td><td>0.227 ± 0.056</td><td>0.29 ± 0.65</td><td>0.748 ± 0.018</td>
-        </tr>
-        <tr>
-          <td>VQL</td><td>HAB</td><td>1.000 ± 0.000</td><td>3.72 ± 0.10</td><td>0.224 ± 0.025</td><td>0.25 ± 0.31</td><td>0.747 ± 0.008</td>
-        </tr>
-        <tr>
-          <td>MOL</td><td>EPS</td><td>0.999 ± 0.001</td><td>7.84 ± 1.52</td><td>0.200 ± 0.000</td><td>0.001 ± 0.001</td><td>0.717 ± 0.005</td>
-        </tr>
-        <tr>
-          <td>MOL</td><td>HAB</td><td class="worst-val">0.978 ± 0.013</td><td class="worst-val">16.14 ± 5.02</td><td>0.200 ± 0.000</td><td>0.000 ± 0.000</td><td class="worst-val">0.684 ± 0.020</td>
-        </tr>
-      </tbody>
-      <caption>Bold green = best per metric. Red = worst per metric. DQL-HAB achieves the optimal configuration across all metrics.</caption>
-    </table>
+        <div class="md-social-links" style="justify-content:center;">
+            <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar">
+                <i class="fas fa-graduation-cap"></i>
+            </a>
+            <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID">
+                <i class="fab fa-orcid"></i>
+            </a>
+            <a href="https://github.com/kghamati" target="_blank" rel="noopener" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
 
-    <h4 style="font-family: var(--font-heading); color: var(--text-primary); font-size: 1.3rem; margin: 2rem 0 1rem;">Key Findings</h4>
-    <ul>
-      <li><strong>DQL dominance:</strong> Both DQL configurations achieved perfect 100% success rates. DQL-HAB shows the best overall transfer score (0.963), highest confidence (0.878), and lowest variance in average steps (σ = 0.56 vs 0.73). DQL assigns 85-88% probability to its chosen action, producing confident, purposeful gaze shifts within <strong>70-80 ms</strong> (2 steps × 33 ms) — well within the 200-300 ms window of natural human gaze shifts</li>
-      <li><strong>VQL robustness:</strong> Also achieved 100% success rate; habituation has essentially zero effect on VQL performance (negligible Cohen's d values &lt; 0.2), consistent with its tabular structure that doesn't benefit from adaptive exploration bursts</li>
-      <li><strong>MOL degradation:</strong> Habituation causes catastrophic interference in MOL — success drops from 99.9% to 97.8% (paired t-test: t = 4.89, p = 0.001, Cohen's d = 2.28), with average steps more than doubling from 7.84 to 16.14. At 30 Hz, MOL-HAB's 16.14 steps translate to <strong>>500 ms</strong> — perceptibly unnatural in social interaction</li>
-      <li><strong>Root cause:</strong> MOL averages 7,368 habituation resets per run (164× more than DQL's 44.9), because the fixed step threshold (τ = 10) misinterprets the legitimately longer episodes required for multi-objective optimisation as stuck states. In 73.7% of MOL-HAB training episodes, habituation is triggered — preventing stable exploitation</li>
-    </ul>
-
-    <h4 style="font-family: var(--font-heading); color: var(--text-primary); font-size: 1.3rem; margin: 2rem 0 1rem;">Habituation Reset Statistics</h4>
-    <p>Reset frequency reveals fundamental compatibility between the habituation mechanism and the learning architecture:</p>
-    <table class="data-table">
-      <thead>
-        <tr><th>Method</th><th>Resets / Run</th><th>Reset Ratio (vs DQL)</th><th>Interpretation</th></tr>
-      </thead>
-      <tbody>
-        <tr class="highlight-row"><td>DQL</td><td>44.9 ± 9.8</td><td>1.0×</td><td style="color: var(--accent-emerald); font-weight: 600;">Efficient</td></tr>
-        <tr><td>VQL</td><td>93.3 ± 7.3</td><td>2.1×</td><td style="color: var(--accent-orange); font-weight: 600;">Acceptable</td></tr>
-        <tr><td>MOL</td><td class="worst-val">7,368.2 ± 28.6</td><td class="worst-val">164×</td><td style="color: #ef4444; font-weight: 600;">Pathological</td></tr>
-      </tbody>
-      <caption>DQL's reset pattern represents efficient learning; MOL's 164× ratio represents a fundamental mismatch between mechanism and algorithm.</caption>
-    </table>
-
-    <h4 style="font-family: var(--font-heading); color: var(--text-primary); font-size: 1.3rem; margin: 2rem 0 1rem;">Statistical Analysis (HAB vs. EPS within each method)</h4>
-    <table class="data-table">
-      <thead>
-        <tr><th>Method</th><th>Metric</th><th>t-statistic</th><th>p-value</th><th>Cohen's d</th><th>Effect Size</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>DQL</td><td>Avg Steps</td><td>0.59</td><td>0.573</td><td>0.35</td><td>Small</td></tr>
-        <tr><td>DQL</td><td>Confidence</td><td>−0.74</td><td>0.482</td><td>0.40</td><td>Small</td></tr>
-        <tr><td>DQL</td><td>Transfer Score</td><td>−0.62</td><td>0.551</td><td>0.37</td><td>Small</td></tr>
-        <tr><td>VQL</td><td>Avg Steps</td><td>−0.21</td><td>0.836</td><td>0.10</td><td>Negligible</td></tr>
-        <tr><td>VQL</td><td>Confidence</td><td>0.15</td><td>0.882</td><td>0.07</td><td>Negligible</td></tr>
-        <tr><td>VQL</td><td>Transfer Score</td><td>0.21</td><td>0.840</td><td>0.09</td><td>Negligible</td></tr>
-        <tr class="highlight-row"><td>MOL</td><td>Success Rate</td><td>4.89</td><td class="worst-val">0.001**</td><td class="worst-val">2.28</td><td style="color: #ef4444; font-weight: 600;">Large</td></tr>
-        <tr class="highlight-row"><td>MOL</td><td>Avg Steps</td><td>−5.40</td><td class="worst-val">&lt;0.001**</td><td class="worst-val">2.24</td><td style="color: #ef4444; font-weight: 600;">Large</td></tr>
-        <tr class="highlight-row"><td>MOL</td><td>Transfer Score</td><td>3.56</td><td class="worst-val">0.007**</td><td class="worst-val">1.67</td><td style="color: #ef4444; font-weight: 600;">Large</td></tr>
-      </tbody>
-      <caption>**p &lt; 0.05 indicates statistical significance. Only MOL shows significant differences, all with large effect sizes (d ≥ 0.8) confirming systematic degradation.</caption>
-    </table>
-
-    <h4 style="font-family: var(--font-heading); color: var(--text-primary); font-size: 1.3rem; margin: 2rem 0 1rem;">Cross-Method ANOVA (DQL vs. VQL vs. MOL)</h4>
-    <p>All metrics show highly significant method effects, confirming that architecture choice matters enormously for attention control performance:</p>
-    <table class="data-table">
-      <thead>
-        <tr><th>Metric</th><th>EPS F-stat</th><th>EPS p-value</th><th>HAB F-stat</th><th>HAB p-value</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Success Rate</td><td>4.00</td><td>0.032*</td><td>25.07</td><td>&lt;0.001***</td></tr>
-        <tr><td>Avg Steps</td><td>77.23</td><td>&lt;0.001***</td><td>62.61</td><td>&lt;0.001***</td></tr>
-        <tr class="highlight-row"><td>Confidence</td><td>292.33</td><td>&lt;0.001***</td><td class="best-val">1580.88</td><td>&lt;0.001***</td></tr>
-        <tr><td>Q-Margin</td><td>34.12</td><td>&lt;0.001***</td><td>98.47</td><td>&lt;0.001***</td></tr>
-        <tr><td>Transfer Score</td><td>189.56</td><td>&lt;0.001***</td><td>277.34</td><td>&lt;0.001***</td></tr>
-      </tbody>
-      <caption>*p &lt; 0.05, ***p &lt; 0.001. The dramatically higher F-statistic for confidence under HAB (1580.88 vs 292.33) suggests habituation further amplifies architectural differences between neural and tabular value functions.</caption>
-    </table>
-
-    <h4 style="font-family: var(--font-heading); color: var(--text-primary); font-size: 1.3rem; margin: 2rem 0 1rem;">Transfer Score Rankings (with 95% Confidence Intervals)</h4>
-    <div class="stat-row">
-      <div class="stat-badge accent">
-        <span class="stat-number">#1</span>
-        <span class="stat-label">DQL-HAB: 0.963</span>
-      </div>
-      <div class="stat-badge">
-        <span class="stat-number">#2</span>
-        <span class="stat-label">DQL-EPS: 0.956</span>
-      </div>
-      <div class="stat-badge">
-        <span class="stat-number">#3</span>
-        <span class="stat-label">VQL-EPS: 0.748</span>
-      </div>
-      <div class="stat-badge">
-        <span class="stat-number">#4</span>
-        <span class="stat-label">VQL-HAB: 0.747</span>
-      </div>
-      <div class="stat-badge">
-        <span class="stat-number">#5</span>
-        <span class="stat-label">MOL-EPS: 0.717</span>
-      </div>
-      <div class="stat-badge">
-        <span class="stat-number" style="color: #ef4444;">#6</span>
-        <span class="stat-label">MOL-HAB: 0.684</span>
-      </div>
-    </div>
-    <p style="text-align: center; font-size: 0.95rem; color: var(--text-muted);">Non-overlapping confidence intervals between DQL configurations and all other methods provide statistical confirmation (>95% confidence) that DQL+HAB will outperform any non-DQL configuration in future deployments.</p>
-
-    <hr class="subsection-divider">
-
-    <h3 id="real-world">Real-World Deployment (448 Trials)</h3>
-    <p>
-      The trained DQL-HAB model was deployed on the ARI humanoid robot at the <strong>Robot House, University of Hertfordshire</strong>, transitioning from the controlled precision of simulation to the messy complexity of physical embodiment. The experiment involved <strong>3 experimenters</strong>, all affiliated with the university, engaged in structured social interactions through 448 distinct trials across four state categories.
-    </p>
-
-    <h4 style="font-family: var(--font-heading); color: var(--text-primary); font-size: 1.3rem; margin: 1.5rem 0 1rem;">Accuracy by Scenario Category</h4>
-    <table class="data-table">
-      <thead>
-        <tr><th>Category</th><th>Trials</th><th>Accuracy</th><th>95% CI</th></tr>
-      </thead>
-      <tbody>
-        <tr class="highlight-row"><td>Two experimenters</td><td>157 (35%)</td><td class="best-val">98.1%</td><td>[94.5%, 99.3%]</td></tr>
-        <tr><td>Three experimenters</td><td>112 (25%)</td><td>96.4%</td><td>[91.2%, 98.6%]</td></tr>
-        <tr><td>Single experimenter</td><td>112 (25%)</td><td>93.8%</td><td>[87.7%, 96.9%]</td></tr>
-        <tr><td>Low saliency</td><td>67 (15%)</td><td>88.1%</td><td>[78.2%, 93.8%]</td></tr>
-        <tr class="highlight-row"><td><strong>Overall</strong></td><td><strong>448</strong></td><td class="best-val"><strong>95.1%</strong></td><td><strong>[92.7%, 96.7%]</strong></td></tr>
-      </tbody>
-      <caption>Multi-experimenter scenarios outperform single-experimenter because clearly differentiated engagement scores enable decisive DQL predictions (mean softmax: 0.782 for two-experimenter states).</caption>
-    </table>
-
-    <h4 style="font-family: var(--font-heading); color: var(--text-primary); font-size: 1.3rem; margin: 2rem 0 1rem;">Per-Class Performance Metrics</h4>
-    <table class="data-table">
-      <thead>
-        <tr><th>Action Class</th><th>Precision</th><th>Recall</th><th>F1-Score</th><th>Support</th></tr>
-      </thead>
-      <tbody>
-        <tr class="highlight-row"><td>Gaze_At_Experimenter_2</td><td>0.667</td><td class="best-val">0.952</td><td class="best-val">0.784</td><td>105</td></tr>
-        <tr><td>Gaze_At_Experimenter_1</td><td class="best-val">0.724</td><td>0.728</td><td>0.726</td><td>169</td></tr>
-        <tr><td>Gaze_At_Experimenter_3</td><td>0.609</td><td>0.654</td><td>0.631</td><td>107</td></tr>
-        <tr><td>Gaze_At_Environment</td><td>0.400</td><td>0.030</td><td>0.056</td><td>67</td></tr>
-        <tr><td>Gaze_At_Object</td><td>0.000</td><td>0.000</td><td>0.000</td><td>0</td></tr>
-        <tr class="highlight-row"><td><strong>Macro Average</strong></td><td><strong>0.600</strong></td><td><strong>0.591</strong></td><td><strong>0.549</strong></td><td><strong>448</strong></td></tr>
-      </tbody>
-      <caption>F1-scores of 0.63-0.78 for human-directed gaze reflect strong social attention capability. Low environmental gaze F1 (0.056) stems from the agent's bias toward human targets — problematic for scene understanding but aligned with social robotics priorities.</caption>
-    </table>
-
-    <h4 style="font-family: var(--font-heading); color: var(--text-primary); font-size: 1.3rem; margin: 2rem 0 1rem;">Confidence Calibration & Error Detection</h4>
-    <div class="info-grid">
-      <div class="info-card" style="border-left-color: var(--accent-emerald);">
-        <div class="info-label">Correct Predictions</div>
-        <div class="info-value">Confidence: 0.752 ± 0.221</div>
-      </div>
-      <div class="info-card" style="border-left-color: #ef4444;">
-        <div class="info-label">Incorrect Predictions</div>
-        <div class="info-value">Confidence: 0.562 ± 0.318</div>
-      </div>
-      <div class="info-card" style="border-left-color: var(--secondary-blue);">
-        <div class="info-label">Separation Test</div>
-        <div class="info-value">t = 3.21, p = 0.002</div>
-      </div>
-      <div class="info-card" style="border-left-color: var(--secondary-blue);">
-        <div class="info-label">Spearman Correlation</div>
-        <div class="info-value">ρ = 0.42, p &lt; 0.001</div>
-      </div>
-      <div class="info-card" style="border-left-color: var(--accent-orange);">
-        <div class="info-label">Q-Margin (Correct)</div>
-        <div class="info-value">2.906</div>
-      </div>
-      <div class="info-card" style="border-left-color: var(--accent-orange);">
-        <div class="info-label">Q-Margin (Incorrect)</div>
-        <div class="info-value">0.867 (3.35× gap)</div>
-      </div>
-    </div>
-    <p>
-      The strong correlation between confidence and correctness suggests well-calibrated uncertainty estimates that could enable adaptive behaviours: the robot could request clarification when confidence drops below 0.60, or flag predictions with Q-margins below 1.5 for human oversight.
-    </p>
-
-    <h4 style="font-family: var(--font-heading); color: var(--text-primary); font-size: 1.3rem; margin: 2rem 0 1rem;">Observed Real-World Behaviours</h4>
-    <p>The experimental protocol progressed through increasingly complex scenarios. Across this progression, RLBAM demonstrated several key capabilities:</p>
-    <ul>
-      <li><strong>Immediate gaze redirection:</strong> Upon person entry, the robot redirected gaze within an average of <strong>2.3 steps</strong>, consistent with simulation performance</li>
-      <li><strong>Appropriate disengagement:</strong> When humans adopted passive stances (attending to objects rather than the robot), the agent appropriately shifted attention</li>
-      <li><strong>Seamless departure recovery:</strong> Following person departure, the agent redirected to the next most salient stimulus rather than fixating on empty space</li>
-      <li><strong>Dynamic priority adjustment:</strong> In multiparty scenarios, smooth tracking of gesturing persons and rapid attention switching between simultaneously present individuals confirmed sim-to-real generalisation without catch-up saccades or fixation loss</li>
-    </ul>
-
-    <h4 style="font-family: var(--font-heading); color: var(--text-primary); font-size: 1.3rem; margin: 2rem 0 1rem;">Sim-to-Real Gap Decomposition</h4>
-    <p>The 4.9 percentage point performance gap (100% simulation → 95.1% real-world) can be decomposed into identifiable sources:</p>
-    <div class="stat-row">
-      <div class="stat-badge">
-        <span class="stat-number">2.5pp</span>
-        <span class="stat-label">Sensor noise (Kinect tracking failures)</span>
-      </div>
-      <div class="stat-badge">
-        <span class="stat-number">1.5pp</span>
-        <span class="stat-label">Environmental distribution shift</span>
-      </div>
-      <div class="stat-badge">
-        <span class="stat-number">0.9pp</span>
-        <span class="stat-label">Genuine policy limitations</span>
-      </div>
-    </div>
-    <p style="text-align: center; font-size: 0.95rem; color: var(--text-muted);">
-      Critically, performance does not increase with scenario complexity — three-experimenter states (96.4%) match or exceed single-experimenter (93.8%), indicating <strong>robust policy generalisation</strong> rather than memorisation.
-    </p>
-  </section>
-
-  <div class="figure">
-    <img src="training-dynamics.png" alt="Training dynamics showing habituation-guided learning progression" loading="lazy" width="800" height="600">
-    <p><strong>Figure 3:</strong> Training dynamics and behavioural analysis showing habituation-guided exploration, reward progression, and convergence patterns across 10,000 episodes per run (54 independent experiments).</p>
-  </div>
-
-  <section id="impact">
-    <h2>Impact & Future Directions</h2>
-    <p>
-      This work provides the first systematic evidence that bio-inspired habituation mechanisms are <strong>architecture-dependent</strong> rather than universally beneficial — a finding with broad implications for the intersection of cognitive science and reinforcement learning. By rigorously demonstrating that the same biological principle can enhance, leave unchanged, or degrade performance depending on the underlying learning architecture, this research challenges the common assumption that bio-inspired mechanisms are generically advantageous.
-    </p>
-
-    <h3>Broader Implications</h3>
-    <ul>
-      <li><strong>Social Robotics:</strong> Delivers a deployable, real-time (30 Hz) gaze control system achieving 95.1% accuracy in unstructured multiparty environments, advancing natural human-robot interaction in care, education, and entertainment domains</li>
-      <li><strong>Cognitive Science:</strong> Provides computational validation of biological habituation phenomena (stimulus specificity, spontaneous recovery, dishabituation) while revealing that not all learning systems benefit equally — mirroring observations in biological neural circuits</li>
-      <li><strong>Reinforcement Learning:</strong> Offers a principled methodology for integrating bio-inspired exploration mechanisms with RL, including diagnostic tools (reset frequency analysis, step-count distributions) to predict compatibility before deployment</li>
-      <li><strong>Sim-to-Real Transfer:</strong> Demonstrates that policies trained with bio-inspired exploration exhibit robust transfer (only 4.9% accuracy drop), with a decomposition framework attributing the gap to sensor noise (2.5%), distribution shift (1.5%), and policy limitations (0.9%)</li>
-    </ul>
-
-    <h3>Comparison with Prior Work</h3>
-    <p>RLBAM advances over the current landscape of learning-based gaze systems:</p>
-    <ul>
-      <li><strong>vs. RASA (76.9% dyadic accuracy):</strong> RLBAM achieves 95.1% in more challenging multiparty scenarios, demonstrating the advantage of RL over rule-assisted approaches</li>
-      <li><strong>vs. Multi-party systems (97% effectiveness):</strong> These systems mask critical limitations in scalability, temporal modelling, and adaptability; RLBAM achieves comparable accuracy with genuine online adaptation capability</li>
-      <li><strong>vs. Rule-Based Controller (94.2% success):</strong> RLBAM's learned policy (95.1%) exceeds the deterministic baseline whilst handling ambiguous scenarios requiring temporal reasoning and adaptation to novel situations</li>
-      <li><strong>vs. Policy gradient / Actor-critic methods:</strong> These require large amounts of training data with limited transferability across social contexts; RLBAM trains in ~45 minutes and transfers robustly from simulation</li>
-      <li><strong>vs. Transformer-based attention prediction:</strong> Whilst achieving high accuracy on fixation patterns, these supervised approaches lack the adaptive online learning capability essential for personalised HRI</li>
-    </ul>
-
-    <h3>Limitations</h3>
-    <ul>
-      <li><strong>Scalability:</strong> The current system supports up to 6 simultaneous persons, constrained by Kinect sensor detection capacity. DQL's neural network handles state space growth more gracefully than tabular methods, but scenarios exceeding 6 participants would require architectural extensions such as hierarchical attention or graph-based state representations</li>
-      <li><strong>Social context:</strong> The reward function encodes Western-centric gaze norms where direct eye contact and proximity signal engagement. However, gaze norms vary significantly across cultures — in some East Asian cultures, sustained direct gaze may be perceived as confrontational; in certain Middle Eastern cultures, gender-differentiated gaze patterns are socially expected. Adapting to diverse cultural contexts would require culture-specific reward function parameterisation</li>
-      <li><strong>Generalisation beyond triadic interaction:</strong> Whilst real-world validation involved up to 3 experimenters, the architecture accommodates up to 6 persons. Validation with larger groups, unstructured environments, and naturalistic (non-scripted) interactions remains essential future work</li>
-      <li><strong>Fixed habituation threshold:</strong> The fixed τ = 10 steps works well for single-objective learning but becomes pathological for multi-objective methods. Only changing the threshold to 30-50 steps or making it adaptive could potentially salvage the approach for MOL</li>
-    </ul>
-
-    <h3>Future Research Directions</h3>
-    <ul>
-      <li><strong>Adaptive threshold selection:</strong> Adjusting τ based on task complexity, with thresholds of 30-50 steps being more appropriate for multi-objective scenarios</li>
-      <li><strong>Continual policy adaptation:</strong> Through lifelong learning or meta-reinforcement learning, enabling the system to personalise attention strategies for individual users over extended deployments</li>
-      <li><strong>Semantic scene parsing integration:</strong> Adding affective state recognition to enrich the state representation beyond activity and proximity features</li>
-      <li><strong>Cross-cultural reward functions:</strong> Potentially learned through observation of culturally situated interactions</li>
-      <li><strong>Large-scale longitudinal studies:</strong> Open-world environments to assess both generalisability and social acceptability of the robot's gaze behaviours across diverse demographic groups</li>
-    </ul>
-  </section>
-
-  <section id="access">
-    <h2>Paper Access & Resources</h2>
-    <div style="text-align: center; padding: 2rem 0;">
-      <a href="#" class="download-btn" onclick="showPaperDialog(event)">
-        <i class="fas fa-file-alt"></i> View on IEEE Xplore
-      </a>
-      <a href="#" class="download-btn" onclick="showCodeDialog(event)">
-        <i class="fas fa-code"></i> Source Code & Data
-      </a>
-      <a href="#" class="download-btn" onclick="showVideoDialog(event)">
-        <i class="fas fa-video"></i> Supplementary Materials
-      </a>
-    </div>
-
-    <div class="social-links">
-      <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar">
-        <i class="fas fa-graduation-cap"></i>
-      </a>
-      <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID">
-        <i class="fab fa-orcid"></i>
-      </a>
-      <a href="https://github.com/kghamati" target="_blank" rel="noopener" title="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-
-    <p style="margin-top:2rem;font-size:1rem;color:var(--text-muted);text-align:center;">
-      <i class="fas fa-check-circle" style="color: var(--accent-emerald);"></i> <strong>Publication Status:</strong> Accepted — IEEE Transactions on Cognitive and Developmental Systems (TCDS)
-    </p>
-  </section>
+        <p class="md-body-medium" style="margin-top:24px; text-align:center; color:var(--md-on-surface-variant);">
+            <span class="md-publication-status md-publication-status--accepted"><i class="fas fa-check-circle"></i> Accepted</span>
+            <strong style="margin-left:8px;">IEEE Transactions on Cognitive and Developmental Systems (TCDS)</strong>
+        </p>
+    </section>
 </div>
 </main>
 
 <script>
-  function showPaperDialog(event) {
-    event.preventDefault();
-    alert("The paper has been accepted by IEEE Transactions on Cognitive and Developmental Systems (TCDS). The IEEE Xplore link will be updated here once available. For early access, please contact: k.ghamati@herts.ac.uk");
-  }
+    function showPaperDialog(event) {
+        event.preventDefault();
+        alert("The paper has been accepted by IEEE Transactions on Cognitive and Developmental Systems (TCDS). The IEEE Xplore link will be updated here once available. For early access, please contact: k.ghamati@herts.ac.uk");
+    }
 
-  function showCodeDialog(event) {
-    event.preventDefault();
-    alert("Source code and data will be released upon publication. For early access inquiries: k.ghamati@herts.ac.uk");
-  }
+    function showCodeDialog(event) {
+        event.preventDefault();
+        alert("Source code and data will be released upon publication. For early access inquiries: k.ghamati@herts.ac.uk");
+    }
 
-  function showVideoDialog(event) {
-    event.preventDefault();
-    alert("Supplementary materials will be available upon publication. Contact authors: k.ghamati@herts.ac.uk");
-  }
+    function showVideoDialog(event) {
+        event.preventDefault();
+        alert("Supplementary materials will be available upon publication. Contact authors: k.ghamati@herts.ac.uk");
+    }
+
+    // Top app bar scroll elevation
+    window.addEventListener('scroll', function() {
+        document.getElementById('top-bar').classList.toggle('md-scrolled', window.scrollY > 0);
+    });
 </script>
 
-<footer>
-  <div class="container">
-    <p>&copy; 2025 Khashayar Ghamati. All rights reserved.</p>
-    <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">University of Hertfordshire & University of Luxembourg</p>
-  </div>
+<footer style="background-color:var(--md-inverse-surface); color:var(--md-inverse-on-surface); text-align:center; padding:48px 24px;">
+    <div class="md-container">
+        <p class="md-body-large">&copy; 2025 Khashayar Ghamati. All rights reserved.</p>
+        <p class="md-body-medium" style="opacity:0.8; margin-top:8px;">University of Hertfordshire & University of Luxembourg</p>
+    </div>
 </footer>
+
 </body>
 </html>

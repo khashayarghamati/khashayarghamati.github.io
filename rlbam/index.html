@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- DNS Prefetch and Preconnect for Performance -->
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  
-  <meta name="description" content="ARI humanoid robot learns human-like gaze behaviour with reinforcement learning: robust attention modelling, domain randomisation, and zero-shot sim-to-real transfer for social HRI. Published at Humanoids 2024 by Khashayar Ghamati et al.">
-  <meta name="keywords" content="humanoid robot, ARI, reinforcement learning, gaze behaviour, attention modelling, sim-to-real transfer, domain randomisation, zero-shot transfer, PPO, human-robot interaction, HRI, social robotics, deep RL, generalisation, real-world robotics, University of Hertfordshire, Khashayar Ghamati, Humanoids 2024, social gaze, robot attention, saliency, ROS, Kinect, RL transfer learning, PPO tuning">
-  <meta name="author" content="Khashayar Ghamati, Abolfazl Zaraki, Farshid Amirabdollahian">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
 
-  <meta property="og:title" content="ARI Humanoid: Human-Like Gaze via Reinforcement Learning | Humanoids 2024">
-  <meta property="og:description" content="Published at Humanoids 2024: Robust sim-to-real attention learning on ARI humanoid robot using PPO, domain randomisation, and zero-shot transfer. Socially aware gaze in dynamic HRI. Authors: Khashayar Ghamati, Abolfazl Zaraki, Farshid Amirabdollahian.">
-  <meta property="og:image" content="https://ghamati.com/rlbam/ari-gaze-figure.png">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://ghamati.com/rlbam/">
-  <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
-  <meta property="og:locale" content="en_GB">
-  <meta property="article:published_time" content="2024-11-22">
-  <meta property="article:author" content="Khashayar Ghamati">
-  <meta property="article:tag" content="reinforcement learning, ARI robot, human-robot interaction, sim-to-real, Humanoids 2024">
+    <!-- DNS Prefetch and Preconnect for Performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
-  <link rel="canonical" href="https://ghamati.com/rlbam/">
+    <!-- SEO Meta Tags -->
+    <title>ARI Humanoid: RL-Based Gaze Behaviour | Humanoids 2024</title>
+    <meta name="description" content="ARI humanoid robot learns human-like gaze via reinforcement learning with robust sim-to-real transfer. Published at IEEE Humanoids 2024.">
+    <meta name="keywords" content="humanoid robot, ARI, reinforcement learning, gaze behaviour, attention modelling, sim-to-real transfer, domain randomisation, zero-shot transfer, PPO, human-robot interaction, HRI, social robotics, deep RL, generalisation, real-world robotics, University of Hertfordshire, Khashayar Ghamati, Humanoids 2024, social gaze, robot attention, saliency, ROS, Kinect, RL transfer learning, PPO tuning">
+    <meta name="author" content="Khashayar Ghamati, Abolfazl Zaraki, Farshid Amirabdollahian">
 
-  <title>ARI Humanoid: Human-Like Gaze Behaviour with RL | Humanoids 2024 | Khashayar Ghamati</title>
+    <!-- Open Graph -->
+    <meta property="og:title" content="ARI Humanoid: RL-Based Gaze Behaviour | Humanoids 2024">
+    <meta property="og:description" content="Robust sim-to-real attention learning on ARI humanoid robot using PPO, domain randomisation, and zero-shot transfer. Published at Humanoids 2024.">
+    <meta property="og:image" content="https://ghamati.com/rlbam/ari-gaze-figure.png">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ghamati.com/rlbam/">
+    <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
+    <meta property="og:locale" content="en_GB">
+    <meta property="article:published_time" content="2024-11-22">
+    <meta property="article:author" content="Khashayar Ghamati">
+    <meta property="article:tag" content="reinforcement learning, ARI robot, human-robot interaction, sim-to-real, Humanoids 2024">
 
-  <script type="application/ld+json">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ARI Humanoid: RL-Based Gaze Behaviour | Humanoids 2024">
+    <meta name="twitter:description" content="Robust sim-to-real attention learning on ARI humanoid using PPO and zero-shot transfer. Humanoids 2024.">
+    <meta name="twitter:image" content="https://ghamati.com/rlbam/ari-gaze-figure.png">
+
+    <link rel="canonical" href="https://ghamati.com/rlbam/">
+
+    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ScholarlyArticle",
@@ -42,13 +50,13 @@
           "affiliation": "University of Hertfordshire"
         },
         {
-          "@type": "Person", 
+          "@type": "Person",
           "name": "Abolfazl Zaraki",
           "affiliation": "University of Hertfordshire"
         },
         {
           "@type": "Person",
-          "name": "Farshid Amirabdollahian", 
+          "name": "Farshid Amirabdollahian",
           "affiliation": "University of Hertfordshire"
         }
       ],
@@ -68,456 +76,7 @@
       ],
       "description": "This work demonstrates how the ARI humanoid robot acquires robust, human-like social gaze behaviour using deep reinforcement learning, domain randomisation, and zero-shot sim-to-real transfer for real-world HRI scenarios."
     }
-  </script>
-
-  <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
-  <!-- External CSS for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-
-  <style>
-    :root {
-      /* Modern Professional Palette */
-      --primary-blue: #0f172a;
-      --primary-blue-light: #1e293b;
-      --secondary-blue: #3b82f6;
-      --accent-emerald: #10b981;
-      --accent-purple: #8b5cf6;
-      --accent-orange: #f59e0b;
-      
-      /* Modern Neutrals */
-      --bg-primary: #ffffff;
-      --bg-secondary: #f8fafc;
-      --bg-accent: #f1f5f9;
-      --text-primary: #0f172a;
-      --text-secondary: #475569;
-      --text-muted: #64748b;
-      --border-light: #e2e8f0;
-      --border-medium: #cbd5e1;
-      
-      /* Modern Gradients */
-      --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
-      --gradient-accent: linear-gradient(135deg, var(--secondary-blue) 0%, var(--accent-emerald) 100%);
-      --gradient-hero: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--accent-emerald) 100%);
-      
-      /* Typography */
-      --font-heading: 'Playfair Display', serif;
-      --font-body: 'Inter', sans-serif;
-      
-      /* Modern Shadows */
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      
-      /* Spacing System */
-      --space-xs: 0.5rem;
-      --space-sm: 1rem;
-      --space-md: 1.5rem;
-      --space-lg: 2rem;
-      --space-xl: 3rem;
-      --space-2xl: 4rem;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: var(--font-body);
-      margin: 0;
-      padding: 0;
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-      line-height: 1.7;
-      font-size: 16px;
-    }
-
-    /* Toolbar Styling */
-    .toolbar {
-      background: var(--gradient-primary);
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: var(--shadow-md);
-      backdrop-filter: blur(10px);
-    }
-
-    .toolbar .container {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      margin: 0;
-      padding: 0 2rem;
-    }
-
-    .toolbar a {
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .toolbar a:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Header Styling */
-    header {
-      background: var(--gradient-primary);
-      padding: 4rem 0;
-      text-align: center;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,154.7C672,139,768,117,864,117.3C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/></svg>') repeat-x bottom;
-      background-size: 1440px 160px;
-    }
-
-    header h1 {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      margin: 0;
-      font-weight: 700;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-      line-height: 1.2;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* Container */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* Main Content */
-    main {
-      padding: 4rem 0;
-    }
-
-    /* Section Styling */
-    section {
-      background: var(--bg-primary);
-      margin: 3rem 0;
-      padding: 3rem;
-      border-radius: 20px;
-      box-shadow: var(--shadow-sm);
-      position: relative;
-      overflow: hidden;
-    }
-
-    section h2 {
-      font-family: var(--font-heading);
-      font-size: 2.5rem;
-      color: var(--primary-blue);
-      text-align: center;
-      margin: 0 0 2rem 0;
-      font-weight: 600;
-      position: relative;
-    }
-
-    section h2::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 4px;
-      background: var(--gradient-accent);
-      margin: 1rem auto;
-      border-radius: 2px;
-    }
-
-    section h3 {
-      font-family: var(--font-heading);
-      color: var(--text-primary);
-      font-size: 1.8rem;
-      margin: 2rem 0 1rem 0;
-      font-weight: 600;
-    }
-
-    section p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
-      text-align: left;
-    }
-
-    /* Enhanced Lists */
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    ul li {
-      position: relative;
-      padding: 0.8rem 0 0.8rem 2rem;
-      margin: 0.5rem 0;
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: var(--text-secondary);
-    }
-
-    ul li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--primary-blue);
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    /* Figure Styling */
-    .figure {
-      text-align: center;
-      margin: 3rem 0;
-      background: var(--bg-primary);
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .figure img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: var(--shadow-md);
-      transition: transform 0.3s ease;
-    }
-
-    .figure img:hover {
-      transform: scale(1.02);
-    }
-
-    .figure p {
-      margin-top: 1.5rem;
-      font-style: italic;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .figure-large img {
-      max-width: 85%;
-    }
-
-    /* Video Container */
-    .video-container {
-      display: flex;
-      justify-content: center;
-      margin: 3rem 0;
-      background: var(--bg-primary);
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .video-container iframe {
-      width: 560px;
-      height: 315px;
-      border-radius: 12px;
-      box-shadow: var(--shadow-md);
-    }
-
-    /* Highlight Box */
-    .highlight {
-      background: var(--gradient-accent);
-      color: white;
-      padding: 2rem;
-      border-radius: 15px;
-      margin: 2rem 0;
-      box-shadow: var(--shadow-md);
-    }
-
-    .highlight .fas {
-      font-size: 1.2rem;
-      margin-right: 0.5rem;
-    }
-
-    /* Download Buttons */
-    .download-section {
-      text-align: center;
-      padding: 3rem 0;
-    }
-
-    .download-btn {
-      display: inline-block;
-      background: var(--gradient-primary);
-      color: white;
-      padding: 1rem 2rem;
-      margin: 0.5rem;
-      text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: 500;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow-sm);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .download-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.5s;
-    }
-
-    .download-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .download-btn:hover::before {
-      left: 100%;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--gradient-primary);
-      color: white;
-      text-align: center;
-      padding: 3rem 0;
-      margin-top: 4rem;
-    }
-
-    /* Social Links */
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-
-    .social-links a {
-      color: var(--primary-blue);
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .social-links a:hover {
-      color: var(--accent-emerald);
-      transform: translateY(-2px);
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 1rem;
-      }
-      
-      section {
-        padding: 2rem 1.5rem;
-        margin: 2rem 0;
-      }
-      
-      header {
-        padding: 2rem 0;
-      }
-      
-      section h2 {
-        font-size: 2rem;
-      }
-      
-      .figure {
-        padding: 1rem;
-      }
-      
-      .video-container iframe {
-        width: 100%;
-        height: 215px;
-      }
-      
-      .download-btn {
-        display: block;
-        margin: 1rem auto;
-        max-width: 280px;
-      }
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    section {
-      animation: fadeInUp 0.6s ease-out;
-    }
-  </style>
-</head>
-<body>
-<div class="toolbar">
-  <div class="container">
-    <a href="/"><i class="fas fa-home"></i> Home</a>
-  </div>
-</div>
-
-<header>
-  <h1>ARI Humanoid Robot Learns Human-Like Gaze with RL: Robust Attention, Sim-to-Real & Zero-Shot Transfer</h1>
-</header>
-
-<main>
-<div class="container">
-  <section id="about">
-    <h2>About the Paper</h2>
-    <p>
-      <b>Presented at IEEE-RAS Humanoids 2024</b>, this work demonstrates how the ARI humanoid robot acquires robust, human-like social gaze behaviour using <b>deep reinforcement learning</b> (RL), <b>domain randomisation</b>, and <b>zero-shot sim-to-real transfer</b>. We trained an attention model using <b>Proximal Policy Optimisation (PPO)</b> in simulation—then directly deployed it on ARI for real-world <b>human-robot interaction (HRI)</b> scenarios, achieving natural saliency-driven gaze and reliable adaptation to new people and activities. The approach tackles a core challenge in social robotics: robust transfer of RL policies from simulation to reality, enabling <b>real-time, context-sensitive attention</b> in complex, dynamic environments.
-    </p>
-    
-    <div class="highlight">
-      <i class="fas fa-lightbulb"></i> <b>Highlight:</b> This is among the first works to combine <b>PPO, domain randomisation, and ZST</b> for real-world social attention learning on a commercial humanoid robot.
-    </div>
-  </section>
-
-  <div class="figure">
-    <img src="ari-gaze-figure.png" alt="ARI gaze behaviour RL: sim-to-real transfer and attention learning in social HRI (Humanoids 2024)" loading="eager" width="600" height="450">
-    <p><b>Figure 1:</b> Workflow and example of the ARI robot dynamically allocating gaze between participants based on activity, proximity, and social cues, driven by RL policy trained in simulation.</p>
-  </div>
-
-    <section id="exp">
-    <h2>ARI Robot Gaze Learning Explained: RL Training & Sim-to-Real Transfer</h2>
-    <p>
-      This video explains how the ARI humanoid robot learns human-like gaze behaviour through deep reinforcement learning. Watch how we use Proximal Policy Optimisation (PPO), domain randomisation, and zero-shot sim-to-real transfer to train robust social attention models that generalise from simulation to real-world human-robot interaction without additional training.
-    </p>
-    <!-- YouTube Video Embed -->
-    <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/KswWRoeFIj4"
-                title="ARI Humanoid Robot Learns Human-Like Gaze with RL: Robust Attention, Sim-to-Real & Zero-Shot Transfer"
-                allowfullscreen
-                loading="lazy"></iframe>
-    </div>
-    </section>
+    </script>
 
     <!-- VideoObject Schema for Explanation Video -->
     <script type="application/ld+json">
@@ -542,20 +101,6 @@
     }
     </script>
 
-    <section id="demo-video">
-        <h2>Live Demo: ARI Robot Performing Human-Like Gaze in Real-World HRI</h2>
-        <p>
-          Watch the ARI humanoid robot in action, demonstrating learned gaze behaviour in real-world human-robot interaction scenarios. The robot dynamically allocates attention between multiple participants based on social cues, proximity, and activities—all driven by the reinforcement learning policy trained in simulation and transferred without additional training.
-        </p>
-  <!-- YouTube Video Embed -->
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/HI_fXSfgixk"
-            title="ARI humanoid robot imitates human gaze behaviour using reinforcement learning in real-world environments"
-            allowfullscreen
-            loading="lazy"></iframe>
-  </div>
-    </section>
-
     <!-- VideoObject Schema for Demo Video -->
     <script type="application/ld+json">
     {
@@ -579,111 +124,208 @@
     }
     </script>
 
-  <section id="context">
-    <h2>Why Social Gaze Matters in Human-Robot Interaction</h2>
-    <p>
-      Gaze behaviour is a core channel for nonverbal communication and social presence in HRI. For a robot to be accepted as a social peer, it must identify salient participants and respond to dynamic social cues—just as humans do. Traditional hand-crafted gaze rules fail in unstructured or multi-party environments. Our RL-based model enables ARI to learn these nuanced behaviours directly from simulated experience, generalising to new people, positions, and activities in the real world.
-    </p>
-  </section>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV1K905FF2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HV1K905FF2');
+    </script>
 
-  <section id="method">
-    <h2>Methodology: Attention Model, PPO, and Sim-to-Real Transfer</h2>
-    <ul>
-      <li>
-        <b>Randomisation & Generalisation:</b> We use domain randomisation to generate diverse training states: up to six people, random combinations of activities (speaking, entering, gestures, etc.), and proximity (intimate, social, public). This builds a robust policy that handles real-world variability.
-      </li>
-      <li>
-        <b>Reward Function:</b> Our reward is based on an elicited attention (EA) score, adapted from human social attention research. The RL agent receives maximal reward for gazing at the participant performing the highest-priority, socially salient activity in closest proximity.
-      </li>
-      <li>
-        <b>Training & Architecture:</b> PPO is trained in Gym and RayRL environments. The agent observes participant activities and distances; actions are gaze directions (at environment, objects, or participants 1-6). Hyperparameters are carefully tuned (entropy coefficient, gamma, learning rate) for fast convergence and robust exploration.
-      </li>
-      <li>
-        <b>Sim-to-Real Pipeline:</b> After convergence, the RL policy is integrated with ARI’s ROS-based control system. Kinect V2 provides participant tracking; decisions are sent via ZeroMQ to the robot for real-time gaze control.
-      </li>
-      <li>
-        <b>Zero-Shot Transfer:</b> No additional training or adaptation is required after simulation—the agent generalises directly to the real world using robust, diversified policy learning.
-      </li>
-    </ul>
-  </section>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
+    <!-- Material Design 3 Shared CSS -->
+    <link rel="stylesheet" href="/css/material-design.css">
+    <!-- External CSS for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-  <div class="figure">
-    <img src="ari-gaze-demo.jpg" alt="Sim-to-real RL deployment: ARI attention targets and gaze allocation in live HRI" loading="lazy" width="700" height="500">
-    <p><b>Figure 2:</b> Example from real-world trials. ARI dynamically allocates attention between environment, participant 1, and participant 2 in live triadic HRI, mirroring human-like saliency and prioritisation. RL agent selects gaze targets based on real-time EA scoring.</p>
-  </div>
+    <style>
+        .md-highlight-box .fas { margin-right: 0.5rem; }
+    </style>
+</head>
+<body>
 
-  <section id="results">
-    <h2>Results & Evaluation (Humanoids 2024)</h2>
-    <ul>
-      <li>
-        <b>Attention Allocation:</b> In real HRI, ARI correctly prioritised and gazed at the most socially salient participant (e.g., entering, speaking, hand gestures) in 94% of trials, and mimicked human-like low-level scanning when no one was present.
-      </li>
-      <li>
-        <b>Robustness & Generalisation:</b> The model generalised to previously unseen combinations of activities, proximity, and participants, overcoming the sim-to-real gap without post-deployment retraining.
-      </li>
-      <li>
-        <b>Sample Data:</b> During one scenario, ARI looked at participant 1 (high-priority activities) in 78.6% of frames, at participant 2 (lower priority) 15.9%, and at the environment when no participants were present—fully consistent with the designed EA reward and human reference data.
-      </li>
-      <li>
-        <b>Quantitative Plots:</b> Mean episode reward steadily increased and stabilised after ~60k simulation episodes, showing effective and stable learning.</li>
-      <li>
-        <b>Proof-of-Concept:</b> The robot performed error-free saliency target selection in multi-person HRI, as validated by comparison with ideal action tables and ground-truth annotations.
-      </li>
-    </ul>
-    
-    <div class="highlight">
-      <i class="fas fa-robot"></i> <b>Impact:</b> This research marks a step change in how reinforcement learning and sim-to-real transfer can unlock robust, adaptive, and explainable social intelligence for commercial humanoid robots in the wild.
+<a href="#main-content" class="md-skip-link">Skip to main content</a>
+
+<!-- Top App Bar -->
+<nav class="md-top-app-bar" id="top-bar">
+    <div class="md-top-app-bar__nav">
+        <a href="/"><i class="fas fa-home"></i> Home</a>
+        <a href="#about"><i class="fas fa-file-alt"></i> About</a>
+        <a href="#exp"><i class="fas fa-video"></i> Videos</a>
+        <a href="#method"><i class="fas fa-cogs"></i> Method</a>
+        <a href="#results"><i class="fas fa-chart-line"></i> Results</a>
+        <a href="#open"><i class="fas fa-download"></i> Paper</a>
     </div>
-  </section>
+</nav>
 
-  <section id="challenges">
-    <h2>Challenges & Future Directions</h2>
-    <ul>
-      <li>Sensor noise and real-world perception limits remain a bottleneck—domain randomisation helps but cannot eliminate all artefacts.</li>
-      <li>Hyperparameter tuning (entropy, learning rate, PPO clip, gamma) is essential for robust and fast convergence; future work will integrate model-based RL and sensor fusion for even greater fidelity and adaptability.</li>
-      <li>Extending this approach to multi-robot and crowded HRI, as well as integrating memory and dialogue, is a promising next step.</li>
-    </ul>
-  </section>
+<!-- Hero Section -->
+<header class="md-hero">
+    <h1 class="md-hero__title">ARI Humanoid Robot Learns Human-Like Gaze with RL: Robust Attention, Sim-to-Real & Zero-Shot Transfer</h1>
+</header>
 
-  <section id="open">
-    <h2>Open Science, Paper, and Code</h2>
-    <div class="download-section">
-      <a href="https://ieeexplore.ieee.org/document/10769867" class="download-btn" target="_blank">
-        <i class="fas fa-download"></i> Download Full Paper (IEEE Xplore)
-      </a>
-      <a href="#" class="download-btn" onclick="showCodeDialog(event)">
-        <i class="fas fa-code"></i> Access Code
-      </a>
+<main id="main-content">
+<div class="md-container">
+
+    <section class="md-section md-card-elevated md-mt-32" id="about">
+        <h2 class="md-headline-large">About the Paper</h2>
+        <p class="md-body-large">
+            <b>Presented at IEEE-RAS Humanoids 2024</b>, this work demonstrates how the ARI humanoid robot acquires robust, human-like social gaze behaviour using <b>deep reinforcement learning</b> (RL), <b>domain randomisation</b>, and <b>zero-shot sim-to-real transfer</b>. We trained an attention model using <b>Proximal Policy Optimisation (PPO)</b> in simulation — then directly deployed it on ARI for real-world <b>human-robot interaction (HRI)</b> scenarios, achieving natural saliency-driven gaze and reliable adaptation to new people and activities. The approach tackles a core challenge in social robotics: robust transfer of RL policies from simulation to reality, enabling <b>real-time, context-sensitive attention</b> in complex, dynamic environments.
+        </p>
+
+        <div class="md-highlight-box">
+            <i class="fas fa-lightbulb"></i> <b>Highlight:</b> This is among the first works to combine <b>PPO, domain randomisation, and ZST</b> for real-world social attention learning on a commercial humanoid robot.
+        </div>
+    </section>
+
+    <div class="md-figure md-mt-32">
+        <img src="ari-gaze-figure.png" alt="ARI gaze behaviour RL: sim-to-real transfer and attention learning in social HRI (Humanoids 2024)" loading="eager" width="600" height="450">
+        <p class="md-figure__caption"><b>Figure 1:</b> Workflow and example of the ARI robot dynamically allocating gaze between participants based on activity, proximity, and social cues, driven by RL policy trained in simulation.</p>
     </div>
-    
-    <div class="social-links">
-      <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar">
-        <i class="fas fa-graduation-cap"></i>
-      </a>
-      <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID">
-        <i class="fab fa-orcid"></i>
-      </a>
+
+    <section class="md-section md-card-elevated" id="exp">
+        <h2 class="md-headline-large">ARI Robot Gaze Learning Explained</h2>
+        <p class="md-body-large">
+            This video explains how the ARI humanoid robot learns human-like gaze behaviour through deep reinforcement learning. Watch how we use Proximal Policy Optimisation (PPO), domain randomisation, and zero-shot sim-to-real transfer to train robust social attention models that generalise from simulation to real-world human-robot interaction without additional training.
+        </p>
+        <div class="md-card-outlined md-mt-24" style="text-align:center; padding:24px;">
+            <iframe src="https://www.youtube.com/embed/KswWRoeFIj4"
+                    title="ARI Humanoid Robot Learns Human-Like Gaze with RL: Robust Attention, Sim-to-Real & Zero-Shot Transfer"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy"
+                    style="width:100%; max-width:560px; height:315px; border:none; border-radius:var(--md-shape-md);"></iframe>
+        </div>
+    </section>
+
+    <section class="md-section md-card-elevated" id="demo-video">
+        <h2 class="md-headline-large">Live Demo: ARI Robot in Real-World HRI</h2>
+        <p class="md-body-large">
+            Watch the ARI humanoid robot in action, demonstrating learned gaze behaviour in real-world human-robot interaction scenarios. The robot dynamically allocates attention between multiple participants based on social cues, proximity, and activities — all driven by the reinforcement learning policy trained in simulation and transferred without additional training.
+        </p>
+        <div class="md-card-outlined md-mt-24" style="text-align:center; padding:24px;">
+            <iframe src="https://www.youtube.com/embed/HI_fXSfgixk"
+                    title="ARI humanoid robot imitates human gaze behaviour using reinforcement learning in real-world environments"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy"
+                    style="width:100%; max-width:560px; height:315px; border:none; border-radius:var(--md-shape-md);"></iframe>
+        </div>
+    </section>
+
+    <section class="md-section md-card-elevated" id="context">
+        <h2 class="md-headline-large">Why Social Gaze Matters in HRI</h2>
+        <p class="md-body-large">
+            Gaze behaviour is a core channel for nonverbal communication and social presence in HRI. For a robot to be accepted as a social peer, it must identify salient participants and respond to dynamic social cues — just as humans do. Traditional hand-crafted gaze rules fail in unstructured or multi-party environments. Our RL-based model enables ARI to learn these nuanced behaviours directly from simulated experience, generalising to new people, positions, and activities in the real world.
+        </p>
+    </section>
+
+    <section class="md-section md-card-elevated" id="method">
+        <h2 class="md-headline-large">Methodology</h2>
+        <ul>
+            <li class="md-body-large">
+                <b>Randomisation & Generalisation:</b> We use domain randomisation to generate diverse training states: up to six people, random combinations of activities (speaking, entering, gestures, etc.), and proximity (intimate, social, public). This builds a robust policy that handles real-world variability.
+            </li>
+            <li class="md-body-large">
+                <b>Reward Function:</b> Our reward is based on an elicited attention (EA) score, adapted from human social attention research. The RL agent receives maximal reward for gazing at the participant performing the highest-priority, socially salient activity in closest proximity.
+            </li>
+            <li class="md-body-large">
+                <b>Training & Architecture:</b> PPO is trained in Gym and RayRL environments. The agent observes participant activities and distances; actions are gaze directions (at environment, objects, or participants 1-6). Hyperparameters are carefully tuned (entropy coefficient, gamma, learning rate) for fast convergence and robust exploration.
+            </li>
+            <li class="md-body-large">
+                <b>Sim-to-Real Pipeline:</b> After convergence, the RL policy is integrated with ARI's ROS-based control system. Kinect V2 provides participant tracking; decisions are sent via ZeroMQ to the robot for real-time gaze control.
+            </li>
+            <li class="md-body-large">
+                <b>Zero-Shot Transfer:</b> No additional training or adaptation is required after simulation — the agent generalises directly to the real world using robust, diversified policy learning.
+            </li>
+        </ul>
+    </section>
+
+    <div class="md-figure">
+        <img src="ari-gaze-demo.jpg" alt="Sim-to-real RL deployment: ARI attention targets and gaze allocation in live HRI" loading="lazy" width="700" height="500">
+        <p class="md-figure__caption"><b>Figure 2:</b> Example from real-world trials. ARI dynamically allocates attention between environment, participant 1, and participant 2 in live triadic HRI, mirroring human-like saliency and prioritisation. RL agent selects gaze targets based on real-time EA scoring.</p>
     </div>
-    
-    <p style="margin-top:2rem;font-size:1rem;color:var(--text-muted);text-align:center;">
-      <i class="fas fa-info-circle"></i> Published at <b>IEEE-RAS Humanoids 2024</b>.
-    </p>
-  </section>
+
+    <section class="md-section md-card-elevated" id="results">
+        <h2 class="md-headline-large">Results & Evaluation</h2>
+        <ul>
+            <li class="md-body-large">
+                <b>Attention Allocation:</b> In real HRI, ARI correctly prioritised and gazed at the most socially salient participant (e.g., entering, speaking, hand gestures) in 94% of trials, and mimicked human-like low-level scanning when no one was present.
+            </li>
+            <li class="md-body-large">
+                <b>Robustness & Generalisation:</b> The model generalised to previously unseen combinations of activities, proximity, and participants, overcoming the sim-to-real gap without post-deployment retraining.
+            </li>
+            <li class="md-body-large">
+                <b>Sample Data:</b> During one scenario, ARI looked at participant 1 (high-priority activities) in 78.6% of frames, at participant 2 (lower priority) 15.9%, and at the environment when no participants were present — fully consistent with the designed EA reward and human reference data.
+            </li>
+            <li class="md-body-large">
+                <b>Quantitative Plots:</b> Mean episode reward steadily increased and stabilised after ~60k simulation episodes, showing effective and stable learning.
+            </li>
+            <li class="md-body-large">
+                <b>Proof-of-Concept:</b> The robot performed error-free saliency target selection in multi-person HRI, as validated by comparison with ideal action tables and ground-truth annotations.
+            </li>
+        </ul>
+
+        <div class="md-highlight-box">
+            <i class="fas fa-robot"></i> <b>Impact:</b> This research marks a step change in how reinforcement learning and sim-to-real transfer can unlock robust, adaptive, and explainable social intelligence for commercial humanoid robots in the wild.
+        </div>
+    </section>
+
+    <section class="md-section md-card-elevated" id="challenges">
+        <h2 class="md-headline-large">Challenges & Future Directions</h2>
+        <ul>
+            <li class="md-body-large">Sensor noise and real-world perception limits remain a bottleneck — domain randomisation helps but cannot eliminate all artefacts.</li>
+            <li class="md-body-large">Hyperparameter tuning (entropy, learning rate, PPO clip, gamma) is essential for robust and fast convergence; future work will integrate model-based RL and sensor fusion for even greater fidelity and adaptability.</li>
+            <li class="md-body-large">Extending this approach to multi-robot and crowded HRI, as well as integrating memory and dialogue, is a promising next step.</li>
+        </ul>
+    </section>
+
+    <section class="md-section md-card-elevated" id="open">
+        <h2 class="md-headline-large">Open Science, Paper, and Code</h2>
+        <div style="text-align:center; padding:24px 0;">
+            <a href="https://ieeexplore.ieee.org/document/10769867" class="md-btn-filled" target="_blank" rel="noopener">
+                <i class="fas fa-download"></i> Download Full Paper (IEEE Xplore)
+            </a>
+            <a href="#" class="md-btn-outlined" onclick="showCodeDialog(event)">
+                <i class="fas fa-code"></i> Access Code
+            </a>
+        </div>
+
+        <div class="md-social-links" style="justify-content:center;">
+            <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar">
+                <i class="fas fa-graduation-cap"></i>
+            </a>
+            <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID">
+                <i class="fab fa-orcid"></i>
+            </a>
+        </div>
+
+        <p class="md-body-medium" style="margin-top:24px; text-align:center; color:var(--md-on-surface-variant);">
+            <i class="fas fa-info-circle"></i> Published at <b>IEEE-RAS Humanoids 2024</b>.
+        </p>
+    </section>
 </div>
 </main>
 
 <script>
-  function showCodeDialog(event) {
-    event.preventDefault();
-    alert("To access the source code, please email us at: k.ghamati@herts.ac.uk");
-  }
+    function showCodeDialog(event) {
+        event.preventDefault();
+        alert("To access the source code, please email us at: k.ghamati@herts.ac.uk");
+    }
+
+    // Top app bar scroll elevation
+    window.addEventListener('scroll', function() {
+        document.getElementById('top-bar').classList.toggle('md-scrolled', window.scrollY > 0);
+    });
 </script>
 
-<footer>
-  <div class="container">
-    <p>&copy; 2024 Khashayar Ghamati, Abolfazl Zaraki, Farshid Amirabdollahian. All rights reserved.</p>
-    <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">Advancing social robotics through reinforcement learning</p>
-  </div>
+<footer style="background-color:var(--md-inverse-surface); color:var(--md-inverse-on-surface); text-align:center; padding:48px 24px;">
+    <div class="md-container">
+        <p class="md-body-large">&copy; 2024 Khashayar Ghamati, Abolfazl Zaraki, Farshid Amirabdollahian. All rights reserved.</p>
+        <p class="md-body-medium" style="opacity:0.8; margin-top:8px;">Advancing social robotics through reinforcement learning</p>
+    </div>
 </footer>
+
 </body>
 </html>

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
 
     <!-- DNS Prefetch and Preconnect for Performance -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -12,12 +13,13 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Agentic AI for Human Activity Recognition (HAR) with memory-driven continual learning, context-aware reasoning, and robust human-robot interaction. Utilising neuromorphic approaches for adaptive robotics. Presented at ICSR 2025.">
+    <title>Memory-Driven Agentic AI for HAR | ICSR 2025</title>
+    <meta name="description" content="Agentic AI for human activity recognition with memory-driven continual learning and context-aware reasoning for human-robot interaction. ICSR 2025.">
     <meta name="keywords" content="human activity recognition, HAR, continual learning, memory-driven AI, agentic AI, human-robot interaction, HRI, reinforcement learning, explainable AI, context awareness, ICSR 2025, Khashayar Ghamati, adaptive robotics, vision language model, supervised learning, machine learning, AI conference, neuromorphic computing, cognitive architectures">
 
-    <!-- Open Graph (for Facebook, LinkedIn, Slack, etc.) -->
-    <meta property="og:title" content="Memory-Driven Agentic AI for Human Activity Recognition | ICSR 2025">
-    <meta property="og:description" content="Discover an agentic AI architecture for robust, explainable human activity recognition (HAR) in HRI—fusing memory, continual learning, and context-aware reasoning. Accepted at ICSR 2025.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Memory-Driven Agentic AI for HAR | ICSR 2025">
+    <meta property="og:description" content="Agentic AI architecture for robust, explainable human activity recognition in HRI — fusing memory, continual learning, and context-aware reasoning. ICSR 2025.">
     <meta property="og:image" content="https://ghamati.com/har-agent/main-arch.PNG">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://ghamati.com/har-agent/">
@@ -32,14 +34,12 @@
 
     <link rel="canonical" href="https://ghamati.com/har-agent/">
 
-    <title>Memory-Driven Agentic AI for Human Activity Recognition (HAR) | ICSR 2025 | Khashayar Ghamati</title>
-
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
-
+    <!-- Material Design 3 Shared CSS -->
+    <link rel="stylesheet" href="/css/material-design.css">
     <!-- External CSS for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-
 
     <script type="application/ld+json">
         {
@@ -79,551 +79,155 @@
     </script>
 
     <style>
-        :root {
-            /* Modern Professional Palette */
-            --primary-blue: #0f172a;
-            --primary-blue-light: #1e293b;
-            --secondary-blue: #3b82f6;
-            --accent-emerald: #10b981;
-            --accent-purple: #8b5cf6;
-            --accent-orange: #f59e0b;
-
-            /* Modern Neutrals */
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --bg-accent: #f1f5f9;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --text-muted: #64748b;
-            --border-light: #e2e8f0;
-            --border-medium: #cbd5e1;
-
-            /* Modern Gradients */
-            --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
-            --gradient-accent: linear-gradient(135deg, var(--secondary-blue) 0%, var(--accent-emerald) 100%);
-            --gradient-hero: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--accent-emerald) 100%);
-
-            /* Typography */
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Inter', sans-serif;
-
-            /* Modern Shadows */
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-
-            /* Spacing System */
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 1.5rem;
-            --space-lg: 2rem;
-            --space-xl: 3rem;
-            --space-2xl: 4rem;
-        }
-
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-body);
-            margin: 0;
-            padding: 0;
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            line-height: 1.7;
-            font-size: 16px;
-        }
-
-        /* Toolbar Styling */
-        .toolbar {
-            background: var(--gradient-primary);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow-md);
-            backdrop-filter: blur(10px);
-        }
-
-        .toolbar .container {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            margin: 0;
-            padding: 0 2rem;
-        }
-
-        .toolbar a {
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .toolbar a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Header Styling */
-        header {
-            background: var(--gradient-primary);
-            padding: 4rem 0;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,170.7C384,181,480,171,576,154.7C672,139,768,117,864,117.3C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/></svg>') repeat-x bottom;
-            background-size: 1440px 160px;
-        }
-
-        header h1 {
-            font-family: var(--font-heading);
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin: 0;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            line-height: 1.2;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Main Content */
-        main {
-            padding: 4rem 0;
-        }
-
-        /* Section Styling */
-        section {
-            background: var(--bg-primary);
-            margin: 3rem 0;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-sm);
-            position: relative;
-            overflow: hidden;
-        }
-
-        section h2 {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            color: var(--primary-blue);
-            text-align: center;
-            margin: 0 0 2rem 0;
-            font-weight: 600;
-            position: relative;
-        }
-
-        section h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--gradient-accent);
-            margin: 1rem auto;
-            border-radius: 2px;
-        }
-
-        section h3 {
-            font-family: var(--font-heading);
-            color: var(--text-primary);
-            font-size: 1.8rem;
-            margin: 2rem 0 1rem 0;
-            font-weight: 600;
-        }
-
-        section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-
-        /* Enhanced Lists */
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        ul li {
-            position: relative;
-            padding: 0.8rem 0 0.8rem 2rem;
-            margin: 0.5rem 0;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--text-secondary);
-        }
-
-        ul li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--primary-blue);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        /* Figure Styling */
-        .figure {
-            text-align: center;
-            margin: 3rem 0;
-            background: var(--bg-primary);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .figure img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: var(--shadow-md);
-            transition: transform 0.3s ease;
-        }
-
-        .figure img:hover {
-            transform: scale(1.02);
-        }
-
-        .figure p {
-            margin-top: 1.5rem;
-            font-style: italic;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .figure-large img {
-            max-width: 85%;
-        }
-
-        .video-container {
-            display: flex;
-            justify-content: center;
-            margin: 3rem 0;
-            background: var(--bg-primary);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .video-container iframe {
-            width: 560px;
-            height: 315px;
-            border-radius: 12px;
-            box-shadow: var(--shadow-md);
-        }
-
-        /* Highlight Box */
-        .highlight {
-            background: var(--gradient-accent);
-            color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            box-shadow: var(--shadow-md);
-        }
-
-        .highlight .fas {
-            font-size: 1.2rem;
-            margin-right: 0.5rem;
-        }
-
-        /* Download Buttons */
-        .download-section {
-            text-align: center;
-            padding: 3rem 0;
-        }
-
-        .download-btn {
-            display: inline-block;
-            background: var(--gradient-primary);
-            color: white;
-            padding: 1rem 2rem;
-            margin: 0.5rem;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-sm);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .download-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .download-btn:hover::before {
-            left: 100%;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--gradient-primary);
-            color: white;
-            text-align: center;
-            padding: 3rem 0;
-            margin-top: 4rem;
-        }
-
-        /* Social Links */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .social-links a {
-            color: var(--primary-blue);
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--accent-emerald);
-            transform: translateY(-2px);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
-            }
-
-            section {
-                padding: 2rem 1.5rem;
-                margin: 2rem 0;
-            }
-
-            header {
-                padding: 2rem 0;
-            }
-
-            section h2 {
-                font-size: 2rem;
-            }
-
-            .figure {
-                padding: 1rem;
-            }
-
-            .video-container iframe {
-                width: 100%;
-                height: 215px;
-            }
-
-
-            .download-btn {
-                display: block;
-                margin: 1rem auto;
-                max-width: 280px;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        section {
-            animation: fadeInUp 0.6s ease-out;
-        }
+        .md-highlight-box .fas { margin-right: 0.5rem; }
+        .md-figure--multi img { margin-bottom: 1rem; }
+        .md-figure--multi img:last-of-type { margin-bottom: 0; }
     </style>
 </head>
 <body>
 
-<!-- Toolbar with Home Button -->
-<div class="toolbar">
-    <div class="container">
+<a href="#main-content" class="md-skip-link">Skip to main content</a>
+
+<!-- Top App Bar -->
+<nav class="md-top-app-bar" id="top-bar">
+    <div class="md-top-app-bar__nav">
         <a href="/"><i class="fas fa-home"></i> Home</a>
     </div>
-</div>
+</nav>
 
-<header>
-    <h1>Towards Memory-Driven Agentic AI for Human Activity Recognition</h1>
+<!-- Hero Section -->
+<header class="md-hero">
+    <h1 class="md-hero__title">Towards Memory-Driven Agentic AI for Human Activity Recognition</h1>
 </header>
 
-<main>
-    <div class="container">
-        <section>
-            <h2>About the Paper</h2>
-            <p>
-                <strong>Towards Memory-Driven Agentic AI for Human Activity Recognition</strong> introduces a next-generation agentic AI architecture, designed to revolutionise <b>human activity recognition (HAR)</b> in the context of <b>human-robot interaction (HRI)</b>. By unifying advanced sensing, context-aware reasoning, and both short- and long-term memory modules, our approach enables robots to move beyond static pattern matching—helping them dynamically interpret and adapt to human behaviours, even in unpredictable or unseen situations.
+<main id="main-content">
+    <div class="md-container">
+        <section class="md-section md-card-elevated md-mt-32">
+            <h2 class="md-headline-large">About the Paper</h2>
+            <p class="md-body-large">
+                <strong>Towards Memory-Driven Agentic AI for Human Activity Recognition</strong> introduces a next-generation agentic AI architecture, designed to revolutionise <b>human activity recognition (HAR)</b> in the context of <b>human-robot interaction (HRI)</b>. By unifying advanced sensing, context-aware reasoning, and both short- and long-term memory modules, our approach enables robots to move beyond static pattern matching — helping them dynamically interpret and adapt to human behaviours, even in unpredictable or unseen situations.
             </p>
-            <p>
+            <p class="md-body-large">
                 <b>Agentic AI</b> marks a shift from traditional, rule-based AI by allowing systems to learn continuously from experience. Our work positions agentic AI as a key enabler for flexible and socially-aware robotics, especially for assistive, collaborative, and adaptive real-world applications.
             </p>
 
-            <div class="highlight">
+            <div class="md-highlight-box">
                 <i class="fas fa-lightbulb"></i> <b>Did you know?</b> Most current AI systems struggle to distinguish between actions that "look" similar (e.g., standing up vs. lifting an object), especially when context or environmental cues are missing.
             </div>
         </section>
 
-        <div class="figure">
+        <div class="md-figure md-mt-32">
             <img src="main-arch.PNG" alt="Memory-driven agentic AI architecture for continual human activity recognition, context-aware reasoning, and human-robot interaction, ICSR 2025" loading="eager" width="600" height="450">
-            <p><b>Figure 1:</b> Overview of the proposed Agentic AI architecture. Data flows from multi-modal sensors into parallel processing streams: supervised learning (for skeleton-based HAR), environmental context extraction, and memory modules. Short-term memory (STM) captures recent activity transitions, while long-term memory (LTM) encodes experiential knowledge across sessions—enabling true adaptation.</p>
+            <p class="md-figure__caption"><b>Figure 1:</b> Overview of the proposed Agentic AI architecture. Data flows from multi-modal sensors into parallel processing streams: supervised learning (for skeleton-based HAR), environmental context extraction, and memory modules. Short-term memory (STM) captures recent activity transitions, while long-term memory (LTM) encodes experiential knowledge across sessions — enabling true adaptation.</p>
         </div>
 
-        <section>
-            <h2>Motivation</h2>
-            <p>
-                Human behaviours are diverse, ambiguous, and context-dependent. Traditional HAR approaches are usually "brittle"—relying on predefined models, and easily fooled by changes in viewpoint, overlapping actions, or subtle shifts in context. For example, a person reaching for a cup and simply raising their hand may look similar to a robot, but the intended action is completely different!
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">Motivation</h2>
+            <p class="md-body-large">
+                Human behaviours are diverse, ambiguous, and context-dependent. Traditional HAR approaches are usually "brittle" — relying on predefined models, and easily fooled by changes in viewpoint, overlapping actions, or subtle shifts in context. For example, a person reaching for a cup and simply raising their hand may look similar to a robot, but the intended action is completely different!
             </p>
-            <p>
+            <p class="md-body-large">
                 Our work addresses this by building in <b>short-term memory</b> (for activity transitions) and <b>long-term memory</b> (for accumulated experience), inspired by human cognitive processes. This allows the agent to reason over time and make more robust inferences.
             </p>
 
-            <h3>Memory Architecture Components</h3>
+            <h3 class="md-headline-medium">Memory Architecture Components</h3>
             <ul>
-                <li><b>Short-term memory (STM):</b> Aggregates information across frames to capture temporal changes and activity transitions.</li>
-                <li><b>Long-term memory (LTM):</b> Stores key experiences and contextual knowledge, allowing the system to generalise across different environments and users.</li>
+                <li class="md-body-large"><b>Short-term memory (STM):</b> Aggregates information across frames to capture temporal changes and activity transitions.</li>
+                <li class="md-body-large"><b>Long-term memory (LTM):</b> Stores key experiences and contextual knowledge, allowing the system to generalise across different environments and users.</li>
             </ul>
 
-            <div class="highlight">
-                <i class="fas fa-info-circle"></i> <b>Why is this important?</b> In real-world settings—such as healthcare, elderly care, or collaborative robotics—robots must understand not just what humans are doing, but <i>why</i>, and respond in contextually appropriate ways. Our architecture is a step towards that goal.
+            <div class="md-highlight-box">
+                <i class="fas fa-info-circle"></i> <b>Why is this important?</b> In real-world settings — such as healthcare, elderly care, or collaborative robotics — robots must understand not just what humans are doing, but <i>why</i>, and respond in contextually appropriate ways. Our architecture is a step towards that goal.
             </div>
         </section>
 
-        <section>
-            <h2>How the Architecture Works (Continual Learning and Memory-Driven Reasoning for HAR)</h2>
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">How the Architecture Works</h2>
             <ul>
-                <li><strong>Sensing Layer:</strong> Acquires multimodal data (e.g., video, skeletons) and preprocesses it for downstream analysis. We benchmarked using challenging real-world datasets: <b>RHM</b> (for training, with robot-centric views) and <b>Toyota Smart Home</b> (for out-of-distribution testing).</li>
-                <li><strong>Deliberative Reasoning:</strong> The heart of the system. It brings together:
+                <li class="md-body-large"><strong>Sensing Layer:</strong> Acquires multimodal data (e.g., video, skeletons) and preprocesses it for downstream analysis. We benchmarked using challenging real-world datasets: <b>RHM</b> (for training, with robot-centric views) and <b>Toyota Smart Home</b> (for out-of-distribution testing).</li>
+                <li class="md-body-large"><strong>Deliberative Reasoning:</strong> The heart of the system. It brings together:
                     <ul>
-                        <li>Supervised detection (<b>M-LeNet</b> for skeletons) – robust to known activities.</li>
+                        <li>Supervised detection (<b>M-LeNet</b> for skeletons) — robust to known activities.</li>
                         <li><b>Perceptor + LLaVA</b>: Extracts high-level semantic descriptions from image frames, incorporating contextual cues using large vision-language models.</li>
                         <li>Memory modules: STM tracks transitions; LTM accumulates "life-long" knowledge of activities and their contexts.</li>
                     </ul>
                 </li>
-                <li><strong>Context Alignment (CA):</strong> This probabilistic module integrates outputs from supervised models and context extractors. By using conditional probabilities and the <b>Jaccard Index</b>, CA refines ambiguous predictions and enables robust recognition, especially for overlapping or ambiguous activities.
-                </li>
+                <li class="md-body-large"><strong>Context Alignment (CA):</strong> This probabilistic module integrates outputs from supervised models and context extractors. By using conditional probabilities and the <b>Jaccard Index</b>, CA refines ambiguous predictions and enables robust recognition, especially for overlapping or ambiguous activities.</li>
             </ul>
 
-            <div class="highlight">
+            <div class="md-highlight-box">
                 <i class="fas fa-cogs"></i> <b>Technical innovation:</b> Unlike typical HAR, our agent continually aligns its interpretation of activities using both its experience (LTM) and recent context (STM). This hybrid approach substantially improves generalisation and robustness.
             </div>
         </section>
 
-        <section id="exp">
-            <h2>Video Explanation</h2>
-            <!-- YouTube Video Embed -->
-            <div class="video-container">
-
-                <iframe src="https://www.youtube.com/embed/pB8x4oMSqqY" title="Towards Memory-Driven Agentic AI for Human Activity Recognition
-" allowfullscreen></iframe>
+        <section class="md-section md-card-elevated" id="exp">
+            <h2 class="md-headline-large">Video Explanation</h2>
+            <div class="md-card-outlined md-mt-24" style="text-align:center; padding:24px;">
+                <iframe src="https://www.youtube.com/embed/pB8x4oMSqqY" title="Towards Memory-Driven Agentic AI for Human Activity Recognition" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="width:100%; max-width:560px; height:315px; border:none; border-radius:var(--md-shape-md);"></iframe>
             </div>
         </section>
 
-        <div class="figure">
+        <div class="md-figure">
             <img src="a2.png" alt="Context alignment using short-term and long-term memory in agentic AI for human activity recognition, ICSR 2025" loading="lazy" width="550" height="400">
-            <p><b>Figure 2:</b> The context alignment module in action. The agent updates its STM as it observes a sequence of frames, allowing it to refine an ambiguous prediction ("standing up") into a more precise one ("lifting an object") by integrating context and memory.</p>
+            <p class="md-figure__caption"><b>Figure 2:</b> The context alignment module in action. The agent updates its STM as it observes a sequence of frames, allowing it to refine an ambiguous prediction ("standing up") into a more precise one ("lifting an object") by integrating context and memory.</p>
         </div>
 
-        <section>
-            <h2>Evaluation on Real-World HRI Datasets</h2>
-            <p>
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">Evaluation on Real-World HRI Datasets</h2>
+            <p class="md-body-large">
                 We rigorously evaluated the proposed architecture on two major datasets:
-            <ul>
-                <li><b>RHM:</b> Multi-view robot-centric HAR dataset (used for training and initial validation).</li>
-                <li><b>Toyota Smart Home:</b> Large-scale, real-world dataset with challenging unseen activities (used for testing generalisation).</li>
-            </ul>
             </p>
             <ul>
-                <li><b>On unseen data:</b> Combining context and supervised model predictions achieved <b>60% accuracy</b>—a dramatic improvement over context-only (40%) or supervised-only (35%) approaches.</li>
-                <li><b>Generalisation:</b> The agent correctly adapted to unfamiliar activities and new environments, demonstrating robustness beyond the training set.</li>
-                <li><b>Activity transition awareness:</b> STM enabled the agent to detect and track activity changes over time, a key capability for real-world HRI.</li>
+                <li class="md-body-large"><b>RHM:</b> Multi-view robot-centric HAR dataset (used for training and initial validation).</li>
+                <li class="md-body-large"><b>Toyota Smart Home:</b> Large-scale, real-world dataset with challenging unseen activities (used for testing generalisation).</li>
+            </ul>
+            <ul>
+                <li class="md-body-large"><b>On unseen data:</b> Combining context and supervised model predictions achieved <b>60% accuracy</b> — a dramatic improvement over context-only (40%) or supervised-only (35%) approaches.</li>
+                <li class="md-body-large"><b>Generalisation:</b> The agent correctly adapted to unfamiliar activities and new environments, demonstrating robustness beyond the training set.</li>
+                <li class="md-body-large"><b>Activity transition awareness:</b> STM enabled the agent to detect and track activity changes over time, a key capability for real-world HRI.</li>
             </ul>
 
-            <div class="highlight">
-                <i class="fas fa-chart-line"></i> <b>Takeaway:</b> The fusion of context, memory, and supervision not only boosts accuracy but also makes the agent <b>explainable</b>—we can trace which contextual cues or past experiences led to a particular decision.
+            <div class="md-highlight-box">
+                <i class="fas fa-chart-line"></i> <b>Takeaway:</b> The fusion of context, memory, and supervision not only boosts accuracy but also makes the agent <b>explainable</b> — we can trace which contextual cues or past experiences led to a particular decision.
             </div>
         </section>
 
-        <div class="figure">
+        <div class="md-figure">
             <img src="a1.png" alt="Generalisation to unseen human activities by memory-driven agentic AI, HAR, and HRI" loading="lazy" width="550" height="400">
-            <p><b>Figure 3:</b> Generalisation example. Here, the agent revises its initial (incorrect) prediction from "cleaning" to "carrying object" as new context and STM updates become available—demonstrating cross-domain adaptability.</p>
+            <p class="md-figure__caption"><b>Figure 3:</b> Generalisation example. Here, the agent revises its initial (incorrect) prediction from "cleaning" to "carrying object" as new context and STM updates become available — demonstrating cross-domain adaptability.</p>
         </div>
 
-        <section>
-            <h2>Why This Matters</h2>
-            <p>
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">Why This Matters</h2>
+            <p class="md-body-large">
                 Building <b>trustworthy, context-aware, and adaptive AI agents</b> is essential for the next generation of human-robot collaboration. Our memory-driven agentic AI framework advances the state of the art in several ways:
             </p>
             <ul>
-                <li>Improves safety and reliability by reducing misinterpretation of human actions.</li>
-                <li>Enables robots to collaborate with humans more naturally, anticipating needs and responding proactively.</li>
-                <li>Provides a foundation for life-long learning and adaptation in robots deployed in dynamic, open-ended environments.</li>
+                <li class="md-body-large">Improves safety and reliability by reducing misinterpretation of human actions.</li>
+                <li class="md-body-large">Enables robots to collaborate with humans more naturally, anticipating needs and responding proactively.</li>
+                <li class="md-body-large">Provides a foundation for life-long learning and adaptation in robots deployed in dynamic, open-ended environments.</li>
             </ul>
 
-            <div class="highlight">
-                <i class="fas fa-robot"></i> <b>Impact:</b> From healthcare and assistive living to industrial and service robotics, these advancements bring us closer to robots that understand, learn from, and genuinely help people—adapting to their habits and preferences over time.
+            <div class="md-highlight-box">
+                <i class="fas fa-robot"></i> <b>Impact:</b> From healthcare and assistive living to industrial and service robotics, these advancements bring us closer to robots that understand, learn from, and genuinely help people — adapting to their habits and preferences over time.
             </div>
         </section>
 
-        <div class="figure">
+        <div class="md-figure md-figure--multi">
             <img src="b1.png" alt="Successful STM-based inference, human activity recognition with context memory, agentic AI" loading="lazy" width="400" height="300">
-            <p><b>a)</b> Correct prediction: The image generated by ChatGPT from STM descriptions closely matches the actual video sequence, showing successful context capture.</p>
+            <p class="md-figure__caption"><b>a)</b> Correct prediction: The image generated by ChatGPT from STM descriptions closely matches the actual video sequence, showing successful context capture.</p>
             <img src="b2.png" alt="Failed STM-based inference, challenges in human activity recognition with agentic AI and memory context" loading="lazy" width="400" height="300">
-            <p><b>b)</b> Incorrect prediction: Vague STM content leads to a poor match and low confidence in activity recognition.</p>
-            <p><b>Figure 4:</b> STM-based inference comparison: these examples show the importance of rich context for accurate and trustworthy agentic AI.</p>
+            <p class="md-figure__caption"><b>b)</b> Incorrect prediction: Vague STM content leads to a poor match and low confidence in activity recognition.</p>
+            <p class="md-figure__caption"><b>Figure 4:</b> STM-based inference comparison: these examples show the importance of rich context for accurate and trustworthy agentic AI.</p>
         </div>
 
-        <section>
-            <h2>Open Science & Collaboration</h2>
-            <p>
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">Open Science & Collaboration</h2>
+            <p class="md-body-large">
                 We believe in open research. If you are interested in collaborating, adapting our methods, or accessing the code or datasets, please feel free to contact us. Our goal is to accelerate progress towards agentic, explainable AI for real-world robotics.
             </p>
 
-            <div class="social-links">
+            <div class="md-social-links" style="justify-content:center;">
                 <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar">
                     <i class="fas fa-graduation-cap"></i>
                 </a>
@@ -633,24 +237,22 @@
             </div>
         </section>
 
-        <section>
-            <h2>Full Paper & Code</h2>
-            <div class="download-section">
-                <a href="#" class="download-btn" onclick="showPaperDialog(event)">
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">Full Paper & Code</h2>
+            <div style="text-align:center; padding:24px 0;">
+                <a href="#" class="md-btn-filled" onclick="showPaperDialog(event)">
                     <i class="fas fa-download"></i> Download Full Paper
                 </a>
-                <a href="#" class="download-btn" onclick="showCodeDialog(event)">
+                <a href="#" class="md-btn-outlined" onclick="showCodeDialog(event)">
                     <i class="fas fa-code"></i> Access Code
                 </a>
             </div>
-            <p style="margin-top:2rem;font-size:1rem;color:var(--text-muted);text-align:center;">
+            <p class="md-body-medium" style="text-align:center; color:var(--md-on-surface-variant);">
                 <i class="fas fa-info-circle"></i> The paper will be available in the proceedings of ICSR 2025 after the conference takes place in September 2025.
             </p>
         </section>
     </div>
 </main>
-
-
 
 <script>
     function showCodeDialog(event) {
@@ -662,12 +264,17 @@
         event.preventDefault();
         alert("The paper will be available in the proceedings of ICSR 2025 after the conference takes place in September 2025.");
     }
+
+    // Top app bar scroll elevation
+    window.addEventListener('scroll', function() {
+        document.getElementById('top-bar').classList.toggle('md-scrolled', window.scrollY > 0);
+    });
 </script>
 
-<footer>
-    <div class="container">
-        <p>&copy; 2025 Khashayar Ghamati. All rights reserved.</p>
-        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">Advancing agentic AI for human-centred robotics</p>
+<footer style="background-color:var(--md-inverse-surface); color:var(--md-inverse-on-surface); text-align:center; padding:48px 24px;">
+    <div class="md-container">
+        <p class="md-body-large">&copy; 2025 Khashayar Ghamati. All rights reserved.</p>
+        <p class="md-body-medium" style="opacity:0.8; margin-top:8px;">Advancing agentic AI for human-centred robotics</p>
     </div>
 </footer>
 
