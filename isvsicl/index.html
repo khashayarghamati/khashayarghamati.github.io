@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+
+  <!-- DNS Prefetch and Preconnect for Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- SEO Meta Tags -->
+  <title>IS vs ICL: A Unified Bayesian Framework for Adaptive Robotic Intelligence</title>
+  <meta name="description" content="Inferred-Structure vs In-Context Learning: A unified Bayesian framework comparing MAML and pre-trained transformers for adaptive robotic intelligence using Niryo Ned3 Pro. K. Ghamati & A. Zaraki.">
+  <meta name="keywords" content="inferred-structure learning, in-context learning, MAML, meta-learning, Bayesian framework, adaptive robotics, robotic intelligence, Niryo Ned3 Pro, collaborative robot, proprioceptive learning, task adaptation, structural shifts, contextual shifts, transformer, Khashayar Ghamati, Abolfazl Zaraki, University of Hertfordshire, reinforcement learning, machine learning, HRI">
+  <meta name="author" content="Khashayar Ghamati">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="IS vs ICL: A Unified Bayesian Framework for Adaptive Robotic Intelligence">
+  <meta property="og:description" content="Comparing Inferred-Structure (MAML) and In-Context Learning (transformer) for adaptive robotics. IS outperforms ICL under structural shifts (d=0.587, p=1.42e-6) on real Niryo Ned3 Pro data.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ghamati.com/isvsicl/">
+  <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
+  <meta property="og:locale" content="en_GB">
+  <meta property="article:author" content="Khashayar Ghamati">
+  <meta property="article:section" content="Artificial Intelligence">
+  <meta property="article:tag" content="meta-learning">
+  <meta property="article:tag" content="adaptive robotics">
+  <meta property="article:tag" content="Bayesian framework">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="IS vs ICL: Bayesian Framework for Adaptive Robotic Intelligence">
+  <meta name="twitter:description" content="Unified Bayesian framework comparing Inferred-Structure (MAML) and In-Context Learning (transformer) for adaptive robotics. Validated on Niryo Ned3 Pro robot.">
+  <meta name="twitter:creator" content="@khashayarghamati">
+
+  <link rel="canonical" href="https://ghamati.com/isvsicl/">
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
+  <!-- Material Design 3 Shared CSS -->
+  <link rel="stylesheet" href="/css/material-design.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      "headline": "Inferred-Structure and In-Context Learning: A Unified Bayesian Framework for Adaptive Robotic Intelligence",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Khashayar Ghamati",
+          "affiliation": {
+            "@type": "Organization",
+            "name": "University of Hertfordshire"
+          },
+          "url": "https://ghamati.com",
+          "sameAs": [
+            "https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en",
+            "https://orcid.org/0009-0002-6416-3127"
+          ]
+        },
+        {
+          "@type": "Person",
+          "name": "Abolfazl Zaraki",
+          "affiliation": {
+            "@type": "Organization",
+            "name": "University of Hertfordshire"
+          }
+        }
+      ],
+      "datePublished": "2026",
+      "url": "https://ghamati.com/isvsicl/",
+      "inLanguage": "en",
+      "about": [
+        "inferred-structure learning",
+        "in-context learning",
+        "meta-learning",
+        "MAML",
+        "Bayesian framework",
+        "adaptive robotics",
+        "collaborative robot",
+        "proprioceptive learning",
+        "task adaptation"
+      ],
+      "description": "A unified Bayesian framework comparing Inferred-Structure Learning (MAML) and In-Context Learning (pre-trained transformer) for adaptive robotic intelligence, validated on a Niryo Ned3 Pro robot with 2,400 proprioceptive observations.",
+      "keywords": "inferred-structure learning, in-context learning, MAML, meta-learning, Bayesian framework, adaptive robotics, Niryo Ned3 Pro",
+      "isAccessibleForFree": true,
+      "creativeWorkStatus": "Under Review"
+    }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV1K905FF2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HV1K905FF2');
+  </script>
+
+  <style>
+    .md-highlight-box .fas { margin-right: 0.5rem; }
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="md-skip-link">Skip to main content</a>
+
+<!-- Top App Bar -->
+<nav class="md-top-app-bar" id="top-bar">
+  <span class="md-top-app-bar__title">IS vs ICL</span>
+  <div class="md-top-app-bar__nav">
+    <a href="/"><i class="fas fa-home"></i> Home</a>
+    <a href="#abstract"><i class="fas fa-file-alt"></i> Abstract</a>
+    <a href="#framework"><i class="fas fa-cogs"></i> Framework</a>
+    <a href="#results"><i class="fas fa-chart-bar"></i> Results</a>
+    <a href="#access"><i class="fas fa-download"></i> Paper</a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="md-hero">
+  <h1 class="md-display-medium">Inferred-Structure and In-Context Learning: A Unified Bayesian Framework for Adaptive Robotic Intelligence</h1>
+  <p class="md-hero__subtitle">K. Ghamati &amp; A. Zaraki &bull; University of Hertfordshire</p>
+  <div class="md-hero__actions">
+    <span class="md-publication-status md-publication-status--review"><i class="fas fa-clock"></i> Under Review</span>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="md-container md-sp-32">
+
+    <!-- About / Abstract -->
+    <section class="md-section" id="abstract">
+      <h2 class="md-headline-large md-mb-24">About the Paper</h2>
+
+      <div class="md-author-card md-mb-24">
+        <div class="md-author-card__info">
+          <div class="md-author-card__name">Khashayar Ghamati &amp; Abolfazl Zaraki</div>
+          <div class="md-author-card__affiliation">University of Hertfordshire, UK</div>
+          <div class="md-author-card__links">
+            <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+            <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID"><i class="fab fa-orcid"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <p class="md-body-large">
+        Modern adaptive robotic systems must rapidly adjust their behaviour when encountering new tasks or environments. Two paradigms have emerged for this challenge: <b>Inferred-Structure Learning (IS)</b>, which explicitly infers latent task structure via gradient-based meta-learning (e.g., MAML), and <b>In-Context Learning (ICL)</b>, which adapts implicitly through a pre-trained transformer's context window without parameter updates. This paper presents a unified Bayesian framework that formally characterises both approaches and derives precise conditions under which each strategy is optimal.
+      </p>
+      <p class="md-body-large">
+        We validate our theoretical predictions on a <b>Niryo Ned3 Pro</b> 6-axis collaborative robot, collecting 2,400 proprioceptive observations across 200 episodes. The results confirm that IS significantly outperforms ICL under <b>structural task shifts</b> (Cohen's <i>d</i> = 0.587, <i>p</i> = 1.42 &times; 10<sup>&minus;6</sup>), while ICL shows a directional advantage under <b>contextual task shifts</b> -- validating the complementarity predicted by the framework.
+      </p>
+
+      <div class="md-highlight-box">
+        <p class="md-highlight-box__title"><i class="fas fa-lightbulb"></i> Key Insight</p>
+        <p>IS and ICL are not competing methods -- they are complementary. Our Bayesian framework shows exactly when each excels, enabling principled strategy selection for adaptive robots.</p>
+      </div>
+    </section>
+
+    <!-- Framework -->
+    <section class="md-section" id="framework">
+      <h2 class="md-headline-large md-mb-24">Unified Bayesian Framework</h2>
+      <h3 class="md-title-large md-mb-16">How IS and ICL Complement Each Other</h3>
+
+      <div class="md-method-grid">
+        <div class="md-method-card">
+          <div class="md-method-card__icon"><i class="fas fa-brain"></i></div>
+          <div class="md-method-card__title">Inferred-Structure (IS)</div>
+          <div class="md-method-card__body">Uses MAML to explicitly infer latent task structure through gradient-based meta-learning. Excels when the underlying task dynamics change fundamentally -- structural shifts require re-estimating the generative model.</div>
+        </div>
+        <div class="md-method-card">
+          <div class="md-method-card__icon"><i class="fas fa-layer-group"></i></div>
+          <div class="md-method-card__title">In-Context Learning (ICL)</div>
+          <div class="md-method-card__body">Employs a pre-trained transformer that adapts implicitly through its context window, without updating parameters. Best suited for contextual shifts where the task structure remains stable but surface features change.</div>
+        </div>
+        <div class="md-method-card">
+          <div class="md-method-card__icon"><i class="fas fa-balance-scale"></i></div>
+          <div class="md-method-card__title">Bayesian Unification</div>
+          <div class="md-method-card__body">Both paradigms are formalised as posterior inference over latent task variables. The framework derives decision boundaries for optimal strategy selection based on shift type and magnitude.</div>
+        </div>
+        <div class="md-method-card">
+          <div class="md-method-card__icon"><i class="fas fa-robot"></i></div>
+          <div class="md-method-card__title">Real-Robot Validation</div>
+          <div class="md-method-card__body">Validated on a Niryo Ned3 Pro with 21-dimensional proprioceptive data (6 joint angles, 3 end-effector positions, 12 relative object positions) across 200 episodes with 4 reach targets each.</div>
+        </div>
+      </div>
+
+      <div class="md-highlight-box">
+        <p class="md-highlight-box__title"><i class="fas fa-flask"></i> Innovation</p>
+        <p>This is the first framework to formally unify IS and ICL under a single Bayesian lens, providing mathematically grounded criteria for when to use gradient-based adaptation vs. in-context adaptation on real robotic hardware.</p>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="md-section">
+      <h2 class="md-headline-large md-mb-24">Data Collection Demo</h2>
+      <p class="md-body-large">
+        Watch the data collection session using a Niryo Ned3 Pro 6-axis collaborative robot. The robot collects 2,400 proprioceptive observations (21-dimensional: 6 joint angles, 3 end-effector positions, 12 relative object positions) across 200 episodes, each involving 4 reach targets in the workspace. These observations are used to evaluate whether IS (via MAML) and ICL (via a pre-trained transformer) exhibit complementary adaptation under structural and contextual task shifts on real sensor data.
+      </p>
+      <div class="md-card-outlined md-sp-24 md-mt-24" style="overflow:hidden;border-radius:var(--md-shape-md);">
+        <div style="position:relative;padding-bottom:100%;height:0;overflow:hidden;max-width:360px;margin:0 auto;">
+          <iframe src="https://www.youtube.com/embed/9yoNYzumMOE"
+                  style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                  title="Niryo Ned3 Pro — Data Collection for IS vs ICL Adaptive Robotics Study"
+                  loading="lazy">
+          </iframe>
+        </div>
+        <p class="md-body-small" style="padding:16px 0 0;color:var(--md-on-surface-variant);text-align:center;font-style:italic;"><strong>Video:</strong> Niryo Ned3 Pro data collection for the IS vs ICL adaptive robotics study.</p>
+      </div>
+    </section>
+
+    <!-- VideoObject Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "Niryo Ned3 Pro — Data Collection for IS vs ICL Adaptive Robotics Study",
+      "description": "Data collection session using a Niryo Ned3 Pro 6-axis collaborative robot for the paper: Inferred-Structure and In-Context Learning: A Unified Bayesian Framework for Adaptive Robotic Intelligence. The robot collects 2,400 proprioceptive observations across 200 episodes to evaluate IS (MAML) vs ICL (transformer) under structural and contextual task shifts.",
+      "thumbnailUrl": "https://img.youtube.com/vi/9yoNYzumMOE/maxresdefault.jpg",
+      "uploadDate": "2026-02-27",
+      "contentUrl": "https://www.youtube.com/shorts/9yoNYzumMOE",
+      "embedUrl": "https://www.youtube.com/embed/9yoNYzumMOE",
+      "publisher": {
+        "@type": "Person",
+        "name": "Khashayar Ghamati",
+        "url": "https://ghamati.com"
+      },
+      "keywords": "Niryo Ned3 Pro, IS vs ICL, MAML, meta-learning, in-context learning, adaptive robotics, proprioceptive data, collaborative robot",
+      "inLanguage": "en",
+      "isFamilyFriendly": true
+    }
+    </script>
+
+    <!-- Results -->
+    <section class="md-section" id="results">
+      <h2 class="md-headline-large md-mb-24">Key Results</h2>
+      <h3 class="md-title-large md-mb-16">Empirical Validation on Real Robot Hardware</h3>
+
+      <ul>
+        <li><b>Experimental Setup:</b> A Niryo Ned3 Pro robot performed reach tasks across 200 episodes (4 targets each), generating 2,400 proprioceptive observations with 21 dimensions per sample.</li>
+        <li><b>Structural Shifts:</b> IS (MAML) significantly outperforms ICL under structural task shifts, with a large effect size (Cohen's <i>d</i> = 0.587) and high statistical significance (<i>p</i> = 1.42 &times; 10<sup>&minus;6</sup>).</li>
+        <li><b>Contextual Shifts:</b> ICL shows a directional advantage under contextual shifts, where the task structure is preserved but surface-level features change -- confirming the theoretical predictions.</li>
+        <li><b>Complementarity:</b> The results validate the Bayesian framework's prediction that IS and ICL are complementary strategies, each optimal for different types of distribution shifts.</li>
+      </ul>
+
+      <div class="md-stat-row md-mt-24">
+        <div class="md-stat-badge">
+          <div class="md-stat-badge__value">0.587</div>
+          <div class="md-stat-badge__label">Cohen's d (IS advantage)</div>
+        </div>
+        <div class="md-stat-badge">
+          <div class="md-stat-badge__value">2,400</div>
+          <div class="md-stat-badge__label">Proprioceptive Observations</div>
+        </div>
+        <div class="md-stat-badge">
+          <div class="md-stat-badge__value">21-D</div>
+          <div class="md-stat-badge__label">Observation Dimensions</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why It Matters -->
+    <section class="md-section">
+      <h2 class="md-headline-large md-mb-24">Why It Matters</h2>
+      <p class="md-body-large">
+        As robots are deployed in increasingly complex real-world settings, they must adapt quickly to unforeseen changes. Understanding <b>when</b> to use gradient-based meta-learning vs. in-context adaptation is critical for building reliable adaptive systems. This work advances the field by:
+      </p>
+      <ul>
+        <li>Providing the <b>first unified Bayesian framework</b> that formally connects IS and ICL as complementary strategies</li>
+        <li>Deriving <b>mathematically grounded decision boundaries</b> for choosing the optimal adaptation strategy</li>
+        <li>Validating predictions on <b>real robotic hardware</b> (Niryo Ned3 Pro) with proprioceptive data</li>
+        <li>Demonstrating that structural vs. contextual shift classification enables <b>principled, efficient adaptation</b></li>
+      </ul>
+      <div class="md-highlight-box md-mt-24">
+        <p class="md-highlight-box__title"><i class="fas fa-hands-helping"></i> Impact</p>
+        <p>This framework enables robot designers to select the right adaptation strategy based on the type of environmental change, leading to more robust and efficient adaptive robotic systems across manufacturing, assistive robotics, and collaborative applications.</p>
+      </div>
+    </section>
+
+    <!-- Open Science -->
+    <section class="md-section">
+      <h2 class="md-headline-large md-mb-24">Open Science &amp; Collaboration</h2>
+      <p class="md-body-large">
+        We are committed to open, reproducible research. If you are interested in collaborating, extending the framework, or accessing the experimental data, please reach out.
+      </p>
+      <div class="md-social-links" style="justify-content:center;">
+        <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar">
+          <i class="fas fa-graduation-cap"></i>
+        </a>
+        <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID">
+          <i class="fab fa-orcid"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- Download / Access -->
+    <section class="md-section" id="access">
+      <h2 class="md-headline-large md-mb-24">Full Paper &amp; Code</h2>
+      <div style="text-align:center;padding:24px 0;">
+        <a href="IS_vs_ICL__Mathematical_Foundations_and_Implications_for_Adaptive_Robot_Intelligence-15.pdf" class="md-btn-filled" target="_blank" rel="noopener noreferrer" style="margin:8px;">
+          <i class="fas fa-download"></i> Download Full Paper
+        </a>
+        <a href="#" class="md-btn-outlined" onclick="showCodeDialog(event)" style="margin:8px;">
+          <i class="fas fa-code"></i> View Code
+        </a>
+      </div>
+      <p class="md-body-small" style="text-align:center;color:var(--md-on-surface-variant);margin-top:16px;">
+        <i class="fas fa-info-circle"></i> This paper is currently under review. Code and datasets will be made available upon publication.
+      </p>
+    </section>
+
+  </div>
+</main>
+
+<script>
+  function showCodeDialog(event) {
+    event.preventDefault();
+    alert("To access the source code, please email us at: k.ghamati@herts.ac.uk");
+  }
+
+  // Top app bar scroll elevation
+  window.addEventListener('scroll', function() {
+    document.getElementById('top-bar').classList.toggle('md-scrolled', window.scrollY > 0);
+  });
+</script>
+
+<footer style="background-color:var(--md-inverse-surface);color:var(--md-inverse-on-surface);text-align:center;padding:48px 24px;">
+  <div class="md-container">
+    <p class="md-body-large">&copy; 2025 Khashayar Ghamati. All rights reserved.</p>
+    <p class="md-body-medium" style="opacity:0.8;margin-top:8px;">Advancing AI research for adaptive robotic intelligence</p>
+  </div>
+</footer>
+
+</body>
+</html>
