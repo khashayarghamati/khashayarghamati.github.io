@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- SEO Meta Tags (shortened for optimal SERP display) -->
+	<!-- SEO Meta Tags -->
 	<title>Khashayar Ghamati | AI & Robotics PhD Researcher</title>
 	<meta name="description" content="PhD candidate at University of Hertfordshire researching agentic AI, continual learning, and adaptive robotics. Published in IEEE, MDPI Sensors, and ICSR.">
 	<meta name="keywords" content="Khashayar Ghamati, AI researcher, PhD computer science, reinforcement learning, continual learning, robotics, human-robot interaction, HRI, agentic AI, novelty detection, large language models, University of Hertfordshire, machine learning, adaptive robotics, social robotics, embodied AI, cognitive AI, CAPA-AI, PLLM, vision-language models, neuroadaptive AI">
@@ -103,67 +103,104 @@
 		gtag('config', 'G-HV1K905FF2');
 	</script>
 
-	<!-- Homepage-specific styles (minimal, layout-only) -->
 	<style>
-		/* Profile avatar hover in hero */
+		/* Profile avatar hover */
 		.md-hero__avatar {
-			transition: transform var(--md-motion-duration-medium) var(--md-motion-emphasized),
-			            box-shadow var(--md-motion-duration-medium) var(--md-motion-emphasized);
+			transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1),
+			            box-shadow 0.4s cubic-bezier(0.2, 0, 0, 1);
 		}
 		.md-hero__avatar:hover {
-			transform: scale(1.04) translateY(-4px);
-			box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+			transform: scale(1.05) translateY(-4px);
+			box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 		}
 
-		/* Hero social links — light text on dark bg */
+		/* Hero social links */
 		.md-hero .md-social-links a {
-			color: rgba(255, 255, 255, 0.85);
-			font-size: 1.5rem;
+			color: rgba(255, 255, 255, 0.75);
+			font-size: 1.4rem;
+			transition: color 0.2s, transform 0.2s, background-color 0.2s;
 		}
 		.md-hero .md-social-links a:hover {
-			background-color: rgba(255, 255, 255, 0.15);
 			color: #ffffff;
+			transform: translateY(-2px);
+			background-color: rgba(255, 255, 255, 0.1);
 		}
 
-		/* Skills grid: two-column layout */
-		.homepage-skills-grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-			gap: 24px;
+		/* Hero university label */
+		.hero-affiliation {
+			font-size: 0.95rem;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			opacity: 0.6;
+			font-weight: 500;
+			margin-top: -8px;
 		}
 
-		/* Publication list items spacing */
-		.homepage-pub-list {
+		/* Scroll indicator */
+		.hero-scroll-indicator {
+			position: absolute;
+			bottom: 32px;
+			left: 50%;
+			transform: translateX(-50%);
+			color: rgba(255, 255, 255, 0.4);
+			font-size: 1.2rem;
+			animation: scrollBounce 2.5s ease-in-out infinite;
+			z-index: 1;
+		}
+		@keyframes scrollBounce {
+			0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.3; }
+			50% { transform: translateX(-50%) translateY(10px); opacity: 0.8; }
+		}
+
+		/* Scroll reveal */
+		.reveal {
+			opacity: 0;
+			transform: translateY(30px);
+			transition: opacity 0.6s cubic-bezier(0.2, 0, 0, 1),
+			            transform 0.6s cubic-bezier(0.2, 0, 0, 1);
+		}
+		.reveal.revealed {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		/* Metrics strip */
+		.homepage-metrics {
 			display: flex;
-			flex-direction: column;
-			gap: 16px;
-		}
-
-		/* Projects two-column grid */
-		.homepage-projects-grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-			gap: 24px;
-		}
-
-		/* Awards two-column grid */
-		.homepage-awards-grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-			gap: 24px;
-		}
-
-		/* Contact section social links */
-		.homepage-contact .md-social-links {
+			flex-wrap: wrap;
+			gap: 40px;
 			justify-content: center;
-			margin-top: 24px;
+			padding: 40px 24px;
+		}
+		.homepage-metrics__item {
+			text-align: center;
+		}
+		.homepage-metrics__value {
+			font-family: var(--md-font-display);
+			font-size: 2.25rem;
+			font-weight: 700;
+			color: var(--md-primary);
+			line-height: 1.1;
+		}
+		.homepage-metrics__label {
+			font-size: 0.8rem;
+			font-weight: 500;
+			letter-spacing: 0.04em;
+			color: var(--md-on-surface-variant);
+			margin-top: 6px;
+			text-transform: uppercase;
 		}
 
-		/* Section headings underline */
+		/* Section backgrounds */
+		.section-alt {
+			background-color: var(--md-surface-variant);
+		}
+
+		/* Section title underline */
 		.homepage-section-title::after {
 			content: '';
 			display: block;
-			width: 48px;
+			width: 40px;
 			height: 3px;
 			background-color: var(--md-primary);
 			margin: 12px auto 0;
@@ -175,17 +212,49 @@
 			background-color: var(--md-primary);
 			color: var(--md-on-primary) !important;
 			font-weight: 600 !important;
+			border-radius: 50px;
+			border-bottom: none !important;
+			padding: 6px 16px;
 		}
 		.nav-icsr-highlight:hover {
 			background: linear-gradient(0deg, rgba(255,255,255,0.12), rgba(255,255,255,0.12)), var(--md-primary) !important;
 			color: var(--md-on-primary) !important;
+			border-bottom: none !important;
 		}
 
-		/* Chip group wrapping */
+		/* Skills grid */
+		.homepage-skills-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 24px;
+		}
+
+		/* Chip group */
 		.homepage-chip-group {
 			display: flex;
 			flex-wrap: wrap;
 			gap: 8px;
+		}
+
+		/* Publication list */
+		.homepage-pub-list {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+		}
+
+		/* Projects grid */
+		.homepage-projects-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 24px;
+		}
+
+		/* Awards grid */
+		.homepage-awards-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 24px;
 		}
 
 		/* Card content text */
@@ -195,10 +264,32 @@
 			line-height: 1.5;
 			color: var(--md-on-surface-variant);
 		}
-
-		/* Card strong labels */
 		.homepage-card-text strong {
 			color: var(--md-on-surface);
+		}
+
+		/* Dark contact section */
+		.homepage-contact-dark {
+			background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+			color: #ffffff;
+		}
+		.homepage-contact-dark h2 {
+			color: #ffffff;
+		}
+		.homepage-contact-dark h2::after {
+			background-color: rgba(255, 255, 255, 0.25);
+		}
+		.homepage-contact-dark p,
+		.homepage-contact-dark strong {
+			color: rgba(255, 255, 255, 0.85);
+		}
+		.homepage-contact-dark .md-social-links a {
+			color: rgba(255, 255, 255, 0.7);
+			font-size: 1.5rem;
+		}
+		.homepage-contact-dark .md-social-links a:hover {
+			color: #ffffff;
+			background-color: rgba(255, 255, 255, 0.1);
 		}
 
 		@media (max-width: 599px) {
@@ -207,6 +298,17 @@
 			.homepage-awards-grid {
 				grid-template-columns: 1fr;
 			}
+			.homepage-metrics {
+				gap: 24px;
+			}
+			.homepage-metrics__value {
+				font-size: 1.75rem;
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.reveal { opacity: 1; transform: none; transition: none; }
+			.hero-scroll-indicator { animation: none; }
 		}
 	</style>
 </head>
@@ -217,18 +319,22 @@
 <header class="md-hero md-hero--profile">
 	<img src="images/profile.jpg" alt="Khashayar Ghamati - PhD candidate in AI and robotics at University of Hertfordshire" class="md-hero__avatar" loading="eager" width="160" height="160">
 	<h1 class="md-hero__title">Khashayar Ghamati</h1>
-	<p class="md-hero__subtitle">PhD Candidate | AI Researcher | Robotics | Continual Learning</p>
+	<p class="hero-affiliation">University of Hertfordshire, UK</p>
+	<p class="md-hero__subtitle">PhD Candidate &bull; AI Researcher &bull; Robotics &bull; Continual Learning</p>
 	<div class="md-social-links" style="justify-content: center; margin-top: 16px;">
 		<a href="https://www.linkedin.com/in/khashayarghamati" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn Profile" class="md-icon-button"><i class="fab fa-linkedin"></i></a>
 		<a href="https://github.com/khashayarghamati" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub Profile" class="md-icon-button"><i class="fab fa-github"></i></a>
 		<a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar Profile" class="md-icon-button"><i class="fas fa-graduation-cap"></i></a>
 		<a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID" aria-label="ORCID Profile" class="md-icon-button"><i class="fab fa-orcid"></i></a>
 	</div>
+	<div class="hero-scroll-indicator" aria-hidden="true">
+		<i class="fas fa-chevron-down"></i>
+	</div>
 </header>
 
 <!-- Top App Bar / Navigation -->
 <nav class="md-top-app-bar" id="main-nav">
-	<div class="md-top-app-bar__nav" style="flex-wrap: wrap; justify-content: center; width: 100%; gap: 4px;">
+	<div class="md-top-app-bar__nav" style="justify-content: center; width: 100%; gap: 4px;">
 		<a href="#about" aria-label="About Khashayar Ghamati">About</a>
 		<a href="#education" aria-label="Education background">Education</a>
 		<a href="#research" aria-label="Research interests">Research</a>
@@ -246,25 +352,25 @@
 <main>
 	<!-- About Section -->
 	<section id="about" class="md-section">
-		<div class="md-container">
+		<div class="md-container reveal">
 			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">About Me</h2>
 			<div class="md-card-elevated md-sp-32">
 				<p class="md-body-large" style="margin-bottom: 16px;">
-					I am a PhD researcher in Computer Science at the University of Hertfordshire, UK, and Principal AI Engineer at Inframatic. I specialise in crafting AI models, intelligent agents, and adaptive systems — with particular expertise in reinforcement learning, agentic AI, continual learning, and bio-inspired cognition applied to robotics and human-robot interaction.
+					I am a PhD researcher in Computer Science at the University of Hertfordshire, UK, and Principal AI Engineer at Inframatic. I specialise in crafting AI models, intelligent agents, and adaptive systems -- with particular expertise in reinforcement learning, agentic AI, continual learning, and bio-inspired cognition applied to robotics and human-robot interaction.
 				</p>
 				<p class="md-body-large" style="margin-bottom: 16px;">
 					My research has been published in leading venues including IEEE TCDS, IEEE RO-MAN, IEEE Humanoids, MDPI Sensors, and ICSR. I also co-organise the Special Session on Continual Learning and Generative AI in Social Robotics at ICSR 2026 and lecture in Computer Science at the University of Hertfordshire, collaborating internationally with the University of Luxembourg.
 				</p>
 				<p class="md-body-large">
-					I am passionate about building AI that is adaptive, explainable, and grounded in real-world deployment — bridging the gap between biological intelligence and autonomous systems. Whether designing novel learning architectures, engineering production AI pipelines, or deploying robots in unstructured environments, I bring a hands-on, research-driven approach to solving complex problems.
+					I am passionate about building AI that is adaptive, explainable, and grounded in real-world deployment -- bridging the gap between biological intelligence and autonomous systems. Whether designing novel learning architectures, engineering production AI pipelines, or deploying robots in unstructured environments, I bring a hands-on, research-driven approach to solving complex problems.
 				</p>
 			</div>
 		</div>
 	</section>
 
 	<!-- Education Section -->
-	<section id="education" class="md-section">
-		<div class="md-container">
+	<section id="education" class="md-section section-alt">
+		<div class="md-container reveal">
 			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">Education</h2>
 			<div class="md-card-grid">
 				<div class="md-card-outlined">
@@ -295,7 +401,7 @@
 					</div>
 					<div class="md-card__body">
 						<p>First Class Honours with specialisation in robotics and embedded systems</p>
-						<p style="margin-top: 8px;">Member of MRL Humanoid Kid Size and MRL At-Home Robot teams — contributing to motion control, vision, world modeling, localization, AI, and embedded system design for RoboCup competitions</p>
+						<p style="margin-top: 8px;">Member of MRL Humanoid Kid Size and MRL At-Home Robot teams -- contributing to motion control, vision, world modeling, localization, AI, and embedded system design for RoboCup competitions</p>
 					</div>
 				</div>
 			</div>
@@ -304,7 +410,7 @@
 
 	<!-- Research Interests Section -->
 	<section id="research" class="md-section">
-		<div class="md-container">
+		<div class="md-container reveal">
 			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">Research Interests</h2>
 			<div class="md-card-grid">
 				<div class="md-card-elevated">
@@ -344,16 +450,10 @@
 	</section>
 
 	<!-- Publications Section -->
-	<section id="publications" class="md-section">
-		<div class="md-container">
+	<section id="publications" class="md-section section-alt">
+		<div class="md-container reveal">
 			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">Selected Publications & Activities</h2>
 			<div class="homepage-pub-list">
-				<div class="md-card-filled">
-					<span class="md-chip md-chip-filter md-chip--selected" style="margin-bottom: 12px; cursor: default;">Under Review</span>
-					<div class="md-card__body">
-						<a href="/isvsicl" target="_blank" rel="noopener" style="color: var(--md-primary); font-weight: 500;">Inferred-Structure and In-Context Learning: A Unified Bayesian Framework for Adaptive Robotic Intelligence</a>
-					</div>
-				</div>
 				<div class="md-card-filled">
 					<span class="md-chip md-chip-filter md-chip--selected" style="margin-bottom: 12px; cursor: default;">ICSR 2026</span>
 					<div class="md-card__body">
@@ -410,7 +510,7 @@
 
 	<!-- Skills Section -->
 	<section id="skills" class="md-section">
-		<div class="md-container">
+		<div class="md-container reveal">
 			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">Technical Skills</h2>
 			<div class="homepage-skills-grid">
 				<div class="md-card-outlined">
@@ -475,8 +575,8 @@
 	</section>
 
 	<!-- Projects Section -->
-	<section id="projects" class="md-section">
-		<div class="md-container">
+	<section id="projects" class="md-section section-alt">
+		<div class="md-container reveal">
 			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">Research & Engineering Projects</h2>
 			<div class="homepage-projects-grid">
 				<div class="md-card-outlined">
@@ -541,7 +641,7 @@
 
 	<!-- Teaching Section -->
 	<section id="teaching" class="md-section">
-		<div class="md-container">
+		<div class="md-container reveal">
 			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">Teaching & Academic Activities</h2>
 			<div style="display: flex; flex-direction: column; gap: 16px;">
 				<div class="md-card-elevated">
@@ -574,8 +674,8 @@
 	</section>
 
 	<!-- Experience Section -->
-	<section id="experience" class="md-section">
-		<div class="md-container">
+	<section id="experience" class="md-section section-alt">
+		<div class="md-container reveal">
 			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">Industry Experience</h2>
 			<div style="display: flex; flex-direction: column; gap: 16px;">
 				<div class="md-card-elevated">
@@ -614,7 +714,7 @@
 
 	<!-- Awards Section -->
 	<section id="awards" class="md-section">
-		<div class="md-container">
+		<div class="md-container reveal">
 			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">Awards & Recognition</h2>
 			<div class="homepage-awards-grid">
 				<div class="md-card-filled">
@@ -646,8 +746,8 @@
 	</section>
 
 	<!-- Contact Section -->
-	<section id="contact" class="md-section homepage-contact" style="background-color: var(--md-surface-variant);">
-		<div class="md-container" style="text-align: center;">
+	<section id="contact" class="md-section homepage-contact-dark">
+		<div class="md-container reveal" style="text-align: center;">
 			<h2 class="md-headline-large homepage-section-title" style="margin-bottom: 32px;">Contact</h2>
 			<p class="md-body-large" style="margin-bottom: 16px;">If you're interested in research collaboration, consulting, or simply want to connect, please reach out!</p>
 			<p style="margin-bottom: 16px;">
@@ -668,22 +768,36 @@
 <footer style="background-color: var(--md-inverse-surface); color: var(--md-inverse-on-surface); text-align: center; padding: 32px 0;">
 	<div class="md-container">
 		<p class="md-body-medium" style="margin-bottom: 8px;">&copy; 2026 Khashayar Ghamati. All rights reserved.</p>
-		<p class="md-body-small" style="opacity: 0.8;">Website optimised for performance and accessibility | Advancing AI research for a better future</p>
+		<p class="md-body-small" style="opacity: 0.7;">Advancing AI research for a better future</p>
 	</div>
 </footer>
 
-<!-- Scroll elevation for app bar -->
 <script>
+	// Scroll elevation for app bar
 	(function() {
 		var nav = document.getElementById('main-nav');
 		if (nav) {
 			window.addEventListener('scroll', function() {
-				if (window.scrollY > 4) {
-					nav.classList.add('md-scrolled');
-				} else {
-					nav.classList.remove('md-scrolled');
-				}
+				nav.classList.toggle('md-scrolled', window.scrollY > 4);
 			}, { passive: true });
+		}
+	})();
+
+	// Scroll reveal with IntersectionObserver
+	(function() {
+		var reveals = document.querySelectorAll('.reveal');
+		if ('IntersectionObserver' in window) {
+			var observer = new IntersectionObserver(function(entries) {
+				entries.forEach(function(entry) {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('revealed');
+						observer.unobserve(entry.target);
+					}
+				});
+			}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+			reveals.forEach(function(el) { observer.observe(el); });
+		} else {
+			reveals.forEach(function(el) { el.classList.add('revealed'); });
 		}
 	})();
 </script>
