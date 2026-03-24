@@ -229,11 +229,11 @@
 <a href="#main-content" class="md-btn-text" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" onfocus="this.style.position='static';this.style.width='auto';this.style.height='auto';this.style.overflow='visible';" onblur="this.style.position='absolute';this.style.left='-9999px';this.style.width='1px';this.style.height='1px';this.style.overflow='hidden';">Skip to main content</a>
 
 <!-- Top App Bar -->
-<nav class="md-top-app-bar" id="topAppBar">
+<nav class="md-top-app-bar" id="top-bar">
+  <span class="md-top-app-bar__title">ICSR 2026 Special Session</span>
   <div class="md-top-app-bar__nav">
     <a href="/"><i class="fas fa-home"></i> Home</a>
   </div>
-  <span class="md-top-app-bar__title">ICSR 2026 Special Session</span>
 </nav>
 
 <!-- Hero Header -->
@@ -436,7 +436,7 @@
 <!-- Top App Bar scroll behaviour -->
 <script>
   (function(){
-    var bar=document.getElementById('topAppBar');
+    var bar=document.getElementById('top-bar');
     if(!bar)return;
     window.addEventListener('scroll',function(){
       bar.classList.toggle('md-scrolled',window.scrollY>0);

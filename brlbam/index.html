@@ -125,6 +125,7 @@
 
 <!-- Top App Bar -->
 <nav class="md-top-app-bar" id="top-bar">
+    <span class="md-top-app-bar__title">BRLBAM</span>
     <div class="md-top-app-bar__nav">
         <a href="/"><i class="fas fa-home"></i> Home</a>
         <a href="#abstract"><i class="fas fa-file-alt"></i> Abstract</a>
@@ -138,8 +139,11 @@
 
 <!-- Hero Section -->
 <header class="md-hero">
-    <h1 class="md-hero__title">Learning to Gaze: Bio-Inspired Attention Adaptation Strategy for Social Robots</h1>
-    <p class="md-hero__subtitle">Published in IEEE Transactions on Cognitive and Developmental Systems (TCDS)</p>
+    <h1 class="md-display-medium">Learning to Gaze: Bio-Inspired Attention Adaptation Strategy for Social Robots</h1>
+    <p class="md-hero__subtitle">IEEE TCDS 2025 &bull; Ghamati, Dehkordi, Nohooji, Voos, Amirabdollahian &amp; Zaraki &bull; University of Hertfordshire</p>
+    <div class="md-hero__actions">
+        <span class="md-publication-status md-publication-status--published"><i class="fas fa-check-circle"></i> Published</span>
+    </div>
 </header>
 
 <main id="main-content">
@@ -789,13 +793,13 @@
     // Top app bar scroll elevation
     window.addEventListener('scroll', function() {
         document.getElementById('top-bar').classList.toggle('md-scrolled', window.scrollY > 0);
-    });
+    }, { passive: true });
 </script>
 
 <footer style="background-color:var(--md-inverse-surface); color:var(--md-inverse-on-surface); text-align:center; padding:48px 24px;">
     <div class="md-container">
         <p class="md-body-large">&copy; 2025 Khashayar Ghamati. All rights reserved.</p>
-        <p class="md-body-medium" style="opacity:0.8; margin-top:8px;">University of Hertfordshire & University of Luxembourg</p>
+        <p class="md-body-medium" style="opacity:0.8; margin-top:8px;">Advancing AI research for a better future</p>
     </div>
 </footer>
 

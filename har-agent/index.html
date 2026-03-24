@@ -90,14 +90,21 @@
 
 <!-- Top App Bar -->
 <nav class="md-top-app-bar" id="top-bar">
+    <span class="md-top-app-bar__title">HAR-Agent</span>
     <div class="md-top-app-bar__nav">
         <a href="/"><i class="fas fa-home"></i> Home</a>
+        <a href="#main-content"><i class="fas fa-file-alt"></i> Abstract</a>
+        <a href="#exp"><i class="fas fa-video"></i> Video</a>
     </div>
 </nav>
 
 <!-- Hero Section -->
 <header class="md-hero">
-    <h1 class="md-hero__title">Towards Memory-Driven Agentic AI for Human Activity Recognition</h1>
+    <h1 class="md-display-medium">Towards Memory-Driven Agentic AI for Human Activity Recognition</h1>
+    <p class="md-hero__subtitle">ICSR 2025 &bull; Khashayar Ghamati &bull; University of Hertfordshire</p>
+    <div class="md-hero__actions">
+        <span class="md-publication-status md-publication-status--published"><i class="fas fa-check-circle"></i> Published</span>
+    </div>
 </header>
 
 <main id="main-content">
@@ -268,13 +275,13 @@
     // Top app bar scroll elevation
     window.addEventListener('scroll', function() {
         document.getElementById('top-bar').classList.toggle('md-scrolled', window.scrollY > 0);
-    });
+    }, { passive: true });
 </script>
 
 <footer style="background-color:var(--md-inverse-surface); color:var(--md-inverse-on-surface); text-align:center; padding:48px 24px;">
     <div class="md-container">
         <p class="md-body-large">&copy; 2025 Khashayar Ghamati. All rights reserved.</p>
-        <p class="md-body-medium" style="opacity:0.8; margin-top:8px;">Advancing agentic AI for human-centred robotics</p>
+        <p class="md-body-medium" style="opacity:0.8; margin-top:8px;">Advancing AI research for a better future</p>
     </div>
 </footer>
 

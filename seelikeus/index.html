@@ -132,7 +132,7 @@
 <a href="#abstract" class="md-skip-link">Skip to content</a>
 
 <!-- Top App Bar -->
-<nav class="md-top-app-bar" id="topBar">
+<nav class="md-top-app-bar" id="top-bar">
   <span class="md-top-app-bar__title">SeelikeUs</span>
   <div class="md-top-app-bar__nav">
     <a href="/"><i class="fas fa-home"></i> Home</a>
@@ -430,18 +430,15 @@
 
   // Top app bar scroll shadow
   window.addEventListener('scroll', function() {
-    var bar = document.getElementById('topBar');
-    if (window.scrollY > 4) {
-      bar.classList.add('md-scrolled');
-    } else {
-      bar.classList.remove('md-scrolled');
-    }
-  });
+    document.getElementById('top-bar').classList.toggle('md-scrolled', window.scrollY > 0);
+  }, { passive: true });
 </script>
 
 <footer style="background-color:var(--md-inverse-surface);color:var(--md-inverse-on-surface);text-align:center;padding:48px 24px;">
-  <p>&copy; 2025 Khashayar Ghamati. All rights reserved.</p>
-  <p class="md-body-small" style="opacity:0.8;margin-top:8px;">Advancing cognitive AI for human-centered robotics</p>
+  <div class="md-container">
+    <p class="md-body-large">&copy; 2025 Khashayar Ghamati. All rights reserved.</p>
+    <p class="md-body-medium" style="opacity:0.8;margin-top:8px;">Advancing cognitive AI for human-centered robotics</p>
+  </div>
 </footer>
 
 </body>
