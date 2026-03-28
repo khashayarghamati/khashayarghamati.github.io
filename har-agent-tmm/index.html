@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <title>HAR-Agent: Multilingual Multimodal Activity Recognition via Knowledge-Distilled LLM Reasoning | IEEE TMM 2026</title>
+    <meta name="description" content="HAR-Agent: a multimodal multilingual human activity recognition system combining vision-language-audio perception with knowledge-distilled LLM reasoning for consumer hardware deployment. IEEE Transactions on Multimedia.">
+    <meta name="keywords" content="human activity recognition, HAR, knowledge distillation, multimodal, multilingual, large language models, LLM, instruction tuning, QLoRA, Qwen2.5, LLaVA, Whisper, inverse scaling, consumer GPU, robotics, IEEE TMM, Khashayar Ghamati">
+
+    <meta property="og:title" content="HAR-Agent: Multilingual Multimodal HAR via Knowledge-Distilled LLM Reasoning">
+    <meta property="og:description" content="17 model configurations, inverse scaling discovery, 89.2% multilingual audio accuracy, deployment under 1 GB VRAM. IEEE Transactions on Multimedia.">
+    <meta property="og:image" content="https://ghamati.com/har-agent-tmm/HAR-LLM.png">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ghamati.com/har-agent-tmm/">
+    <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
+    <meta property="og:locale" content="en_GB">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HAR-Agent: Multilingual Multimodal HAR via KD-LLM Reasoning">
+    <meta name="twitter:description" content="Inverse scaling in knowledge distillation: the smallest 1.5B model outperforms all larger students. IEEE TMM.">
+    <meta name="twitter:image" content="https://ghamati.com/har-agent-tmm/HAR-LLM.png">
+
+    <link rel="canonical" href="https://ghamati.com/har-agent-tmm/">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="/css/material-design.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ScholarlyArticle",
+            "headline": "HAR-Agent: Multilingual Multimodal Activity Recognition via Knowledge-Distilled LLM Reasoning",
+            "author": [
+                {"@type": "Person", "name": "Khashayar Ghamati", "affiliation": "University of Hertfordshire"},
+                {"@type": "Person", "name": "Mohammad Reza Shahabian Alashti", "affiliation": "University of Hertfordshire"},
+                {"@type": "Person", "name": "Ali Fallahirahmatabadi", "affiliation": "University of Hertfordshire"},
+                {"@type": "Person", "name": "Abolfazl Zaraki", "affiliation": "University of Hertfordshire"}
+            ],
+            "datePublished": "2026-03-28",
+            "publisher": {"@type": "Organization", "name": "IEEE Transactions on Multimedia"},
+            "about": ["human activity recognition", "knowledge distillation", "multimodal", "multilingual", "LLM", "instruction tuning"],
+            "description": "A multimodal multilingual HAR system combining vision-language-audio perception with knowledge-distilled LLM reasoning, achieving deployment under 1 GB VRAM through inverse scaling in knowledge distillation."
+        }
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV1K905FF2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HV1K905FF2');
+    </script>
+
+    <style>
+        .md-highlight-box .fas { margin-right: 0.5rem; }
+        .md-section.md-card-elevated { margin-bottom: 2.5rem; }
+        .md-figure { margin: 2.5rem 0; }
+        .md-results-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1.25rem 0; }
+        .md-results-table th, .md-results-table td { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--md-outline-variant); }
+        .md-results-table th { background: var(--md-surface-variant); font-weight: 600; }
+        .md-results-table tr:hover { background: var(--md-surface-variant); }
+        .md-key-stat { display: inline-block; background: var(--md-primary-container); color: var(--md-on-primary-container); padding: 6px 16px; border-radius: 4px; font-weight: 600; margin: 4px; }
+        .md-method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+        .md-method-card { background: var(--md-surface-variant); border-radius: 4px; padding: 1.5rem; }
+        .md-method-card h4 { margin: 0 0 0.75rem 0; color: var(--md-primary); }
+        .md-dialog-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
+        .md-dialog-overlay.active { display: flex; }
+        .md-dialog { background: var(--md-surface); border-radius: 4px; padding: 2rem; max-width: 480px; width: 90%; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        .md-dialog h3 { margin-top: 0; color: var(--md-primary); }
+        .md-dialog .md-btn-close { background: var(--md-primary); color: white; border: none; padding: 10px 32px; border-radius: 4px; cursor: pointer; margin-top: 1rem; font-size: 1rem; }
+        .md-btn-filled, .md-btn-outlined { border-radius: 4px !important; padding: 12px 28px !important; }
+    </style>
+</head>
+<body>
+
+<a href="#main-content" class="md-skip-link">Skip to main content</a>
+
+<nav class="md-top-app-bar" id="top-bar">
+    <span class="md-top-app-bar__title">HAR-Agent TMM</span>
+    <div class="md-top-app-bar__nav">
+        <a href="/"><i class="fas fa-home"></i> Home</a>
+        <a href="#main-content"><i class="fas fa-file-alt"></i> Abstract</a>
+        <a href="#architecture"><i class="fas fa-project-diagram"></i> Architecture</a>
+        <a href="#results"><i class="fas fa-chart-bar"></i> Results</a>
+        <a href="#access"><i class="fas fa-download"></i> Access</a>
+    </div>
+</nav>
+
+<header class="md-hero">
+    <h1 class="md-display-medium">HAR-Agent: Multilingual Multimodal Activity Recognition via Knowledge-Distilled LLM Reasoning</h1>
+    <p class="md-hero__subtitle">IEEE Transactions on Multimedia &bull; Ghamati, Shahabian Alashti, Fallahirahmatabadi &amp; Zaraki &bull; University of Hertfordshire</p>
+    <div class="md-hero__actions">
+        <span class="md-publication-status"><i class="fas fa-clock"></i> Under Review</span>
+    </div>
+</header>
+
+<main id="main-content">
+    <div class="md-container">
+
+        <!-- ============================================================ -->
+        <!-- INTRODUCTION -->
+        <!-- ============================================================ -->
+
+        <section class="md-section md-card-elevated md-mt-32">
+            <h2 class="md-headline-large">The Problem: Powerful AI That Nobody Can Run</h2>
+            <p class="md-body-large">
+                Human activity recognition (HAR) is a cornerstone problem in computer vision, with applications ranging from elderly care monitoring and rehabilitation tracking to smart home automation and collaborative robotics. Decades of research have produced increasingly capable systems, from hand-crafted sensor features through deep learning architectures to modern transformer-based video classifiers. Yet a fundamental tension has persisted throughout this progression: <strong>the most powerful recognition systems demand computational resources that place them beyond the reach of most deployment scenarios</strong>.
+            </p>
+            <p class="md-body-large">
+                The emergence of Large Language Models (LLMs) has introduced a paradigm shift in how we can approach activity recognition. Rather than treating HAR as a pattern-matching problem &mdash; mapping sensor signals directly to activity labels through opaque neural networks &mdash; LLMs enable a fundamentally different approach: <em>generative, language-driven inference</em>. An LLM-based system can interpret that "a person bending forward with hands extended toward the floor" describes a fundamentally different activity than "a person lifting a heavy box," even when both share similar postural characteristics. This interpretability is transformative: practitioners can inspect exactly what the system perceives, understand why it made a particular classification, and diagnose failure modes through natural language.
+            </p>
+            <p class="md-body-large">
+                However, this promise comes at a steep cost. Running a 72-billion-parameter LLM for activity inference requires approximately 40 GB of GPU memory &mdash; four high-end A100 GPUs that few research labs, let alone care facilities or smart homes, can afford. The accessibility gap between what these models can do and where they can actually be deployed motivated the central research question behind HAR-Agent: <strong>Can we create HAR systems that harness LLM reasoning capabilities whilst remaining deployable on consumer-grade hardware?</strong>
+            </p>
+            <div style="text-align: center; margin: 1.5rem 0;">
+                <span class="md-key-stat">60.3% Teacher Accuracy (14 classes)</span>
+                <span class="md-key-stat">41.4% Best Student (1.5B params)</span>
+                <span class="md-key-stat">89.2% Multilingual Audio</span>
+                <span class="md-key-stat">0.8 GB VRAM</span>
+                <span class="md-key-stat">48x Compression</span>
+                <span class="md-key-stat">17 Model Configurations</span>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ARCHITECTURE -->
+        <!-- ============================================================ -->
+
+        <section class="md-section md-card-elevated" id="architecture">
+            <h2 class="md-headline-large">The Solution: A Multimodal Agent Architecture</h2>
+            <p class="md-body-large">
+                HAR-Agent answers this question through two interconnected innovations: a <strong>multimodal agent architecture</strong> that unifies visual, audio, and text perception through a common textual representation, and <strong>systematic knowledge distillation</strong> that compresses a 72-billion-parameter reasoning module into models small enough to run on a laptop GPU.
+            </p>
+            <p class="md-body-large">
+                The architecture mirrors how humans understand activities &mdash; through what we see, what we hear, and what we read. Rather than building separate systems for each input modality, HAR-Agent converts all inputs to text and employs a single LLM to reason about them. A description of "a person walking with steady strides" receives the same reasoning treatment whether it came from a visual observation, a spoken description in any language, or a written activity log. This unification dramatically simplifies the system while enabling unprecedented flexibility.
+            </p>
+        </section>
+
+        <div class="md-figure">
+            <img src="HAR-LLM.png" alt="HAR-Agent multimodal architecture with visual, audio, and text pathways converging to LLM reasoning" loading="eager" width="800">
+            <p class="md-figure__caption"><b>Figure 1: The HAR-Agent Architecture.</b> Three perception pathways &mdash; visual (LLaVA-NeXT), audio (Whisper), and direct text &mdash; convert multimodal inputs into a unified textual representation. A single instruction-tuned LLM reasoning module classifies the activity from this text, enabling modality-agnostic reasoning. This design means the entire reasoning component can be swapped, upgraded, or compressed independently of the perception modules.</p>
+        </div>
+
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">Three Perception Pathways</h2>
+            <p class="md-body-large">
+                Each pathway addresses a different deployment scenario and input modality, converting raw signals into the rich textual descriptions that the reasoning module needs.
+            </p>
+
+            <h3 class="md-headline-medium" style="margin-top: 1.5rem;">Visual Perception: Seeing Activities Through Language</h3>
+            <p class="md-body-large">
+                The visual pathway uses <strong>LLaVA-NeXT 7B</strong>, a state-of-the-art vision-language model, to process 17 uniformly sampled video frames. Rather than extracting abstract feature vectors, LLaVA generates natural language descriptions of each frame: <em>"A person is standing in a kitchen, their right hand reaching toward a shelf above their head. Their body is slightly tilted backward to maintain balance."</em> These descriptions capture poses, movements, objects, spatial relationships, and environmental context &mdash; the building blocks from which activity understanding emerges.
+            </p>
+            <p class="md-body-large">
+                A critical innovation is the <strong>Short-Term Memory (STM)</strong> mechanism. Rather than processing each frame in isolation, STM maintains a sliding window of recent frame descriptions, enabling the system to reason about temporal progression: how a person's position changes, what sequence of actions composes a complex activity, and when transitions occur. To prevent redundancy from overwhelming the reasoning module, <strong>semantic deduplication</strong> using sentence embeddings (cosine similarity threshold 0.85&ndash;0.92) removes near-identical descriptions from consecutive static frames, compressing the representation whilst preserving discriminative information.
+            </p>
+        </section>
+
+        <div class="md-figure">
+            <img src="Video_Perception_HAR_LLM.png" alt="Visual perception pipeline with LLaVA-NeXT and Short-Term Memory" loading="lazy" width="700">
+            <p class="md-figure__caption"><b>Figure 2: Visual Perception Pipeline.</b> Video frames are uniformly sampled and processed by LLaVA-NeXT 7B to generate natural language scene descriptions. The Short-Term Memory mechanism maintains temporal context across frames, while semantic deduplication removes redundant descriptions. The result is a compact but information-rich textual summary that captures the temporal evolution of the observed activity.</p>
+        </div>
+
+        <section class="md-section md-card-elevated">
+            <h3 class="md-headline-medium">Audio Perception: HAR in Any Language</h3>
+            <p class="md-body-large">
+                The audio pathway addresses a fundamentally different use case: verbal activity descriptions. Using <strong>Whisper-medium (769M parameters)</strong>, the system transcribes spoken descriptions in any supported language. When a user says "I am walking along the path with smooth and continuous steps" &mdash; whether in English, Chinese, Spanish, or Farsi &mdash; Whisper converts this to text that the reasoning module can classify. This enables multilingual HAR without requiring any language-specific training of the reasoning module, because the underlying activity semantics are language-invariant.
+            </p>
+            <p class="md-body-large">
+                This pathway opens practical deployment scenarios that visual perception cannot address: rehabilitation monitoring through verbal self-report ("I'm doing my walking exercises"), accessibility interfaces for visually impaired users, voice-controlled smart home systems operating in multilingual households, and activity logging in settings where cameras raise privacy concerns.
+            </p>
+        </section>
+
+        <div class="md-figure">
+            <img src="Audio_Perception_HAR_LLM.png" alt="Audio perception pipeline with Whisper multilingual speech recognition" loading="lazy" width="700">
+            <p class="md-figure__caption"><b>Figure 3: Audio Perception Pipeline.</b> Whisper-medium transcribes spoken activity descriptions across languages. The transcription feeds directly into the LLM reasoning module for classification, enabling multilingual HAR through verbal reporting without language-specific model training. Processing takes sub-second for all tested languages.</p>
+        </div>
+
+        <section class="md-section md-card-elevated">
+            <h3 class="md-headline-medium">The Reasoning Module: Where Understanding Happens</h3>
+            <p class="md-body-large">
+                All perception pathways converge at the reasoning module: an instruction-tuned LLM that receives unified text and generates activity classifications. By framing HAR as natural language reasoning, the model leverages its pre-trained understanding of human behaviour, body mechanics, and common-sense physics. The key insight is that a single powerful reasoning module can handle all input modalities equally &mdash; it does not need to know whether its input came from visual observation, spoken description, or written text.
+            </p>
+        </section>
+
+        <div class="md-figure">
+            <img src="HAR-LLM-inner.png" alt="Detailed HAR-Agent processing pipeline showing all three pathways" loading="lazy" width="800">
+            <p class="md-figure__caption"><b>Figure 4: Detailed Processing Pipeline.</b> This diagram shows the complete data flow from multimodal inputs through perception modules to the reasoning module. Visual frames pass through LLaVA with STM and semantic deduplication; audio recordings pass through Whisper for transcription; text inputs feed directly. All pathways produce text that the instruction-tuned LLM classifies into one of 14 activity categories.</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- KNOWLEDGE DISTILLATION -->
+        <!-- ============================================================ -->
+
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">Knowledge Distillation: Compressing 72 Billion Parameters into 1.5 Billion</h2>
+            <p class="md-body-large">
+                The reasoning module is the deployment bottleneck. A 72-billion-parameter teacher achieves 60.3% accuracy on 14-class activity recognition, but requires approximately 40 GB of GPU memory even with 4-bit quantisation. This makes it impractical for any setting outside a well-equipped research lab. Knowledge distillation addresses this by training smaller "student" models to replicate the teacher's behaviour, compressing the essential reasoning capabilities into models that fit on consumer hardware.
+            </p>
+            <p class="md-body-large">
+                We systematically evaluated distillation across <strong>five student scales</strong> (1.5B, 3B, 7B, 14B, and 32B parameters) under <strong>two training paradigms</strong>, producing ten student models plus five zero-shot baselines &mdash; 17 configurations in total. The choice of training paradigm turns out to matter far more than we expected.
+            </p>
+
+            <div class="md-method-grid">
+                <div class="md-method-card">
+                    <h4><i class="fas fa-graduation-cap"></i> Instruction Tuning (IT)</h4>
+                    <p class="md-body-large">Preserves the generative CausalLM architecture. The model generates activity labels as text in response to structured prompts, maintaining its native reasoning capabilities. Distillation operates in the <strong>shared vocabulary space</strong> common to all Qwen2.5 models &mdash; teacher and student "speak the same language," making knowledge transfer natural and effective.</p>
+                </div>
+                <div class="md-method-card">
+                    <h4><i class="fas fa-tag"></i> Supervised Fine-Tuning (SFT)</h4>
+                    <p class="md-body-large">Replaces the generative head with a 14-class classification layer. While conceptually simpler, this discards the generative paradigm and confines outputs to a <strong>task-specific representation space</strong>. Each model's randomly initialised classification head learns a different projection, creating representation-space mismatches that make knowledge transfer fundamentally harder.</p>
+                </div>
+            </div>
+
+            <div class="md-highlight-box">
+                <i class="fas fa-info-circle"></i> <b>Why does the paradigm matter so much?</b> IT distillation transfers knowledge through the full vocabulary distribution &mdash; every token probability carries information about the teacher's understanding. SFT distillation only transfers 14 logit values through incompatible representation spaces. This is the root cause of IT's dramatic superiority, as the results below reveal.
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- RESULTS -->
+        <!-- ============================================================ -->
+
+        <section class="md-section md-card-elevated" id="results">
+            <h2 class="md-headline-large">Results: Six Findings That Reshape How We Think About LLM-Based HAR</h2>
+            <p class="md-body-large">
+                Our evaluation spans 17 model configurations, two visual datasets (RHM-HAR and Toyota Smarthome), and one multilingual audio benchmark. The results tell a coherent story: the training paradigm matters more than model scale, smaller students can outperform larger ones, and accessible deployment need not sacrifice performance. We present each finding as it builds upon the previous, revealing how these insights connect.
+            </p>
+        </section>
+
+        <!-- Finding 1: Domain Adaptation -->
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">Finding 1: General-Purpose LLMs Cannot Perform HAR Without Adaptation</h2>
+            <p class="md-body-large">
+                Before examining which training approach works best, we must establish that training is even necessary. The zero-shot baselines provide the answer: five pre-trained Qwen2.5 models (1.5B to 32B), given the same activity classification prompt but no domain-specific training, achieve only <strong>19&ndash;24% accuracy</strong> on 14-class recognition. This is well above the 7.1% chance level &mdash; confirming that LLMs possess some pre-trained knowledge about human activities &mdash; but far below what fine-tuned models achieve.
+            </p>
+            <p class="md-body-large">
+                The IT-Teacher, by contrast, reaches <strong>60.3% accuracy</strong> (macro-F1 = 0.621) after instruction tuning on the RHM-HAR dataset. This 36&ndash;41 percentage point gap quantifies the value of domain-specific adaptation and motivates the central question of our study: <em>how should that adaptation be conducted, and how far can it be compressed?</em>
+            </p>
+        </section>
+
+        <div class="md-figure">
+            <div style="overflow-x: auto;">
+                <table class="md-results-table">
+                    <thead>
+                        <tr><th>Model</th><th>Method</th><th>Params</th><th>Accuracy</th><th>95% CI</th><th>F1 (Macro)</th><th>Cohen's &kappa;</th><th>VRAM</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background:var(--md-primary-container);"><td><b>IT-T-72B</b></td><td>IT</td><td>72B</td><td><b>60.3%</b></td><td>[57.7, 62.9]</td><td><b>0.621</b></td><td><b>0.571</b></td><td>~40 GB</td></tr>
+                        <tr><td>SFT-T-72B</td><td>SFT</td><td>72B</td><td>42.6%</td><td>[39.9, 45.3]</td><td>0.401</td><td>0.382</td><td>~40 GB</td></tr>
+                        <tr><td colspan="8" style="font-weight:600; padding-top:16px;">IT Students</td></tr>
+                        <tr><td>IT-S-32B</td><td>IT</td><td>32B</td><td>28.6%</td><td>[26.1, 31.0]</td><td>0.243</td><td>0.234</td><td>17.9 GB</td></tr>
+                        <tr><td>IT-S-14B</td><td>IT</td><td>14B</td><td>35.7%</td><td>[33.1, 38.2]</td><td>0.336</td><td>0.303</td><td>7.8 GB</td></tr>
+                        <tr><td>IT-S-7B</td><td>IT</td><td>7B</td><td>34.1%</td><td>[31.6, 36.8]</td><td>0.322</td><td>0.287</td><td>3.9 GB</td></tr>
+                        <tr><td>IT-S-3B</td><td>IT</td><td>3B</td><td>39.8%</td><td>[37.1, 42.4]</td><td>0.388</td><td>0.353</td><td>1.7 GB</td></tr>
+                        <tr style="background:var(--md-tertiary-container);"><td><b>IT-S-1.5B</b></td><td>IT</td><td>1.5B</td><td><b>41.4%</b></td><td>[38.7, 44.0]</td><td><b>0.405</b></td><td><b>0.371</b></td><td><b>0.8 GB</b></td></tr>
+                        <tr><td colspan="8" style="font-weight:600; padding-top:16px;">SFT Students (best shown)</td></tr>
+                        <tr><td>SFT-S-7B</td><td>SFT</td><td>7B</td><td>16.6%</td><td>[14.7, 18.6]</td><td>0.101</td><td>0.106</td><td>3.9 GB</td></tr>
+                        <tr><td colspan="8" style="font-weight:600; padding-top:16px;">Zero-Shot Baselines</td></tr>
+                        <tr><td>ZS-32B</td><td>ZS</td><td>32B</td><td>24.0%</td><td>[21.6, 26.3]</td><td>0.202</td><td>0.185</td><td>17.9 GB</td></tr>
+                        <tr><td>ZS-1.5B</td><td>ZS</td><td>1.5B</td><td>19.0%</td><td>[16.8, 21.2]</td><td>0.171</td><td>0.127</td><td>0.8 GB</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="md-figure__caption"><b>Table 1: Classification Performance on RHM-HAR</b> (1,347 validation samples, 14 activity classes). Accuracy and macro-averaged F1-score with 95% bootstrap confidence intervals (n=10,000). The IT-S-1.5B student (highlighted) achieves the highest student accuracy whilst requiring only 0.8 GB VRAM.</p>
+        </div>
+
+        <!-- Finding 2: IT vs SFT -->
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">Finding 2: Instruction Tuning Dominates Supervised Fine-Tuning at Every Scale</h2>
+            <p class="md-body-large">
+                With domain adaptation established as essential, the next question is: <em>which training paradigm should be used?</em> The answer is unequivocal and consistent across all scales. Instruction Tuning outperforms Supervised Fine-Tuning by <strong>17.5 to 27.9 percentage points</strong> at every model scale, with all differences confirmed as highly statistically significant by McNemar's test (all &chi;&sup2; > 100, all p < 0.0001).
+            </p>
+            <p class="md-body-large">
+                What makes this finding particularly striking is that the gap <em>amplifies through distillation</em>. At the teacher level (72B), IT leads SFT by 17.7 percentage points. But at the 3B student level, this gap widens to 27.9 points. The SFT approach does not merely underperform &mdash; it actively degrades through compression. SFT students typically achieve accuracies of 8&ndash;17%, barely above the 7.1% chance level for 14 classes. This is not a marginal difference: IT produces useful classifiers where SFT produces near-random ones.
+            </p>
+            <p class="md-body-large">
+                The mechanism behind this difference lies in representation space compatibility. IT models operate in the shared vocabulary space of the Qwen2.5 family &mdash; every model uses the same token set, making teacher output distributions directly informative for student learning. SFT models, by contrast, add randomly initialised classification heads that learn task-specific projections in incompatible representation spaces. When a 32B SFT student tries to learn from a 72B SFT teacher's classification logits, it is essentially trying to interpret signals from a foreign coordinate system.
+            </p>
+        </section>
+
+        <div class="md-figure">
+            <div style="overflow-x: auto;">
+                <table class="md-results-table">
+                    <thead><tr><th>Scale</th><th>IT Accuracy</th><th>SFT Accuracy</th><th>&Delta;</th><th>&chi;&sup2;</th><th>p-value</th></tr></thead>
+                    <tbody>
+                        <tr><td>72B (Teachers)</td><td>60.3%</td><td>42.6%</td><td>17.7 pp</td><td>&mdash;</td><td>&mdash;</td></tr>
+                        <tr><td>32B</td><td>28.6%</td><td>8.0%</td><td>20.5 pp</td><td>153.0</td><td>&lt; 0.0001</td></tr>
+                        <tr><td>14B</td><td>35.7%</td><td>9.3%</td><td>26.4 pp</td><td>272.4</td><td>&lt; 0.0001</td></tr>
+                        <tr><td>7B</td><td>34.1%</td><td>16.6%</td><td>17.5 pp</td><td>100.5</td><td>&lt; 0.0001</td></tr>
+                        <tr><td>3B</td><td>39.8%</td><td>11.9%</td><td>27.9 pp</td><td>223.3</td><td>&lt; 0.0001</td></tr>
+                        <tr><td>1.5B</td><td>41.4%</td><td>14.9%</td><td>26.5 pp</td><td>184.2</td><td>&lt; 0.0001</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="md-figure__caption"><b>Table 2: IT vs. SFT Statistical Comparison.</b> McNemar's test with continuity correction confirms highly significant differences at every student scale. The IT advantage ranges from 17.5 to 27.9 percentage points and <em>amplifies</em> through distillation.</p>
+        </div>
+
+        <div class="md-figure">
+            <img src="fig2_it_vs_sft.pdf" alt="IT vs SFT accuracy comparison across model scales" loading="lazy" width="600">
+            <p class="md-figure__caption"><b>Figure 5: IT vs. SFT Accuracy Across Model Scales.</b> The consistent superiority of instruction tuning (blue) over supervised fine-tuning (orange) is evident at every scale from 1.5B to 72B parameters. The gap between the two paradigms widens at smaller scales, demonstrating that the training paradigm choice has an even greater impact on student models than on teachers.</p>
+        </div>
+
+        <!-- Finding 3: Inverse Scaling -->
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">Finding 3: The Inverse Scaling Phenomenon &mdash; Smaller Is Better</h2>
+            <p class="md-body-large">
+                Perhaps our most surprising and consequential finding challenges a fundamental assumption in knowledge distillation: <strong>the smallest IT student (1.5B parameters) achieves the highest student accuracy (41.4%), outperforming all larger students including the 32B model (28.6%)</strong>. This inverse scaling phenomenon &mdash; where reducing model size <em>improves</em> performance under distillation &mdash; contradicts the conventional expectation that larger students should better absorb teacher knowledge.
+            </p>
+            <p class="md-body-large">
+                The pattern is systematic, not a statistical anomaly. Accuracy follows a clear inverse trajectory: 1.5B (41.4%) > 3B (39.8%) > 7B (34.1%) > 14B (35.7%) > 32B (28.6%). Meanwhile, zero-shot baselines follow the expected <em>positive</em> scaling: 32B (24.0%) > 14B (22.2%) > 7B (21.0%) > 3B (23.4%) > 1.5B (19.0%). The inversion occurs specifically through distillation, not in the underlying models themselves.
+            </p>
+            <p class="md-body-large">
+                We hypothesise that larger students use their excess capacity to overfit to spurious patterns in the teacher's output distribution &mdash; learning not just the teacher's classification decisions but also its noise and biases. Smaller models, constrained by limited capacity, are forced to learn only the most essential decision boundaries. This interpretation aligns with recent findings by McKenzie et al. on inverse scaling in broader LLM tasks, but extends the phenomenon to the knowledge distillation setting for the first time.
+            </p>
+            <div class="md-highlight-box">
+                <i class="fas fa-star"></i> <b>Why this matters for practitioners:</b> The inverse scaling finding means that deploying LLM-based HAR does not require difficult trade-offs between performance and accessibility. The model that requires the least resources (1.5B, 0.8 GB VRAM, deployable on virtually any GPU) is simultaneously the most capable student. Accessibility and performance are aligned, not opposed.
+            </div>
+        </section>
+
+        <div class="md-figure">
+            <img src="fig1_emergent_ability.pdf" alt="Inverse scaling: accuracy vs model scale" loading="lazy" width="600">
+            <p class="md-figure__caption"><b>Figure 6: Inverse Scaling in Knowledge Distillation.</b> Accuracy plotted against model scale reveals three distinct patterns. IT students (blue) exhibit inverse scaling &mdash; the 1.5B model achieves the highest student accuracy, with performance degrading as models grow larger. SFT students (orange) remain near chance level regardless of scale. Zero-shot baselines (grey) follow conventional positive scaling. The 72B teachers (stars) represent the capability frontier. This divergent behaviour between IT and zero-shot baselines confirms the inverse scaling is specific to the distillation process.</p>
+        </div>
+
+        <!-- Finding 4: Knowledge Transfer -->
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">Finding 4: Why IT Distillation Succeeds Where SFT Fails</h2>
+            <p class="md-body-large">
+                To understand the mechanisms behind IT's superiority, we examine knowledge transfer fidelity directly using Teacher-Student Agreement (TSA) and Cohen's kappa (&kappa;). These metrics quantify how faithfully each student replicates its teacher's predictions, independent of ground-truth accuracy &mdash; measuring the <em>quality of the knowledge transfer itself</em>.
+            </p>
+            <p class="md-body-large">
+                The contrast is dramatic. IT-S-1.5B achieves <strong>TSA = 45.7%</strong> with <strong>&kappa; = 0.417</strong> (moderate agreement, well above chance) at <strong>48x compression</strong> from the 72B teacher. The student reproduces nearly half of the teacher's exact predictions despite being 48 times smaller. In stark contrast, SFT-S-32B &mdash; the SFT student closest to its teacher in scale &mdash; achieves <strong>&kappa; = -0.002</strong>: literally no agreement beyond chance. Despite being only 2.2x smaller than its teacher, the SFT student cannot replicate any meaningful pattern from the teacher's classification decisions.
+            </p>
+            <p class="md-body-large">
+                The inverse scaling pattern extends to transfer metrics as well: the 1.5B and 3B IT students achieve the highest TSA values (45.7% and 45.4%), outperforming the 32B student (33.4%). This reinforces our hypothesis that smaller models are more receptive to structured classification knowledge during distillation.
+            </p>
+        </section>
+
+        <div class="md-figure">
+            <div style="overflow-x: auto;">
+                <table class="md-results-table">
+                    <thead><tr><th>Student</th><th>TSA</th><th>Cohen's &kappa;</th><th>Compression</th><th>CES</th></tr></thead>
+                    <tbody>
+                        <tr><td colspan="5" style="font-weight:600;">IT Teacher (72B) &rarr; IT Students</td></tr>
+                        <tr><td>IT-S-32B</td><td>33.4%</td><td>0.283</td><td>2.2x</td><td>14.85</td></tr>
+                        <tr><td>IT-S-14B</td><td>43.4%</td><td>0.377</td><td>5.1x</td><td>8.43</td></tr>
+                        <tr><td>IT-S-7B</td><td>37.6%</td><td>0.326</td><td>10.3x</td><td>3.65</td></tr>
+                        <tr><td>IT-S-3B</td><td>45.4%</td><td>0.412</td><td>24.0x</td><td>1.89</td></tr>
+                        <tr style="background:var(--md-tertiary-container);"><td><b>IT-S-1.5B</b></td><td><b>45.7%</b></td><td><b>0.417</b></td><td><b>48.0x</b></td><td>0.95</td></tr>
+                        <tr><td colspan="5" style="font-weight:600; padding-top:12px;">SFT Teacher (72B) &rarr; SFT Students</td></tr>
+                        <tr><td>SFT-S-32B</td><td>2.4%</td><td>-0.002</td><td>2.2x</td><td>1.06</td></tr>
+                        <tr><td>SFT-S-7B</td><td>7.8%</td><td>0.042</td><td>10.3x</td><td>0.76</td></tr>
+                        <tr><td>SFT-S-1.5B</td><td>5.2%</td><td>0.026</td><td>48.0x</td><td>0.11</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="md-figure__caption"><b>Table 3: Knowledge Distillation Analysis.</b> TSA (Teacher-Student Agreement) and Cohen's &kappa; measure how faithfully students replicate teacher predictions, independent of ground truth. IT students achieve moderate agreement (&kappa; up to 0.417) at 48x compression, while SFT students show no agreement beyond chance (&kappa; &asymp; 0) even at 2.2x compression. CES = Compression Efficiency Score.</p>
+        </div>
+
+        <div class="md-figure">
+            <img src="fig3_kd_scaling.pdf" alt="Knowledge distillation scaling curves" loading="lazy" width="600">
+            <p class="md-figure__caption"><b>Figure 7: Knowledge Distillation Scaling.</b> TSA and Compression Efficiency Score (CES) plotted against student model size for both IT (solid lines) and SFT (dashed lines). IT students consistently achieve higher agreement with their teacher at every scale. The inverse scaling pattern is visible in the TSA curve: the smallest IT students achieve the highest agreement, reinforcing the finding that smaller models are better receivers of distilled knowledge.</p>
+        </div>
+
+        <!-- Finding 5: Multilingual Audio -->
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">Finding 5: Cross-Lingual Activity Recognition at 89.2% Accuracy</h2>
+            <p class="md-body-large">
+                Having established that IT distillation produces capable, compact reasoning modules, we demonstrate the architecture's multilingual flexibility. The Whisper &rarr; IT-S-1.5B pipeline was evaluated on a controlled benchmark of 250 TTS-generated audio samples spanning five activities in five language variants: Chinese (Mandarin), Spanish, Farsi (Persian), US English, and UK English.
+            </p>
+            <p class="md-body-large">
+                The results demonstrate effective cross-lingual transfer without any language-specific training. Chinese achieves <strong>98.0% accuracy</strong> with only one misclassification across 50 samples, despite using a completely different writing system and grammatical structure from the English-dominant training data. Spanish reaches 96.0%, and both English variants achieve 94.0% with matched error patterns, confirming robustness to accent variations.
+            </p>
+            <p class="md-body-large">
+                The Farsi results (64.0%) reveal both promise and limitation. While substantially above the 20% chance level for five classes, the 30+ percentage point gap with other languages reflects reduced Whisper transcription quality for lower-resource languages and weaker LLM representations of Farsi activity semantics. This highlights an important direction for future work: extending robust multilingual HAR to lower-resource languages.
+            </p>
+            <p class="md-body-large">
+                We emphasise that verbal activity descriptions provide direct semantic content &mdash; users explicitly describe their actions &mdash; making this evaluation closer to text classification than perceptual HAR. The 89.2% audio vs. 41.4% visual disparity reflects both this fundamental difference and the task complexity gap (5 vs. 14 classes). Nevertheless, the results validate that a single reasoning module trained on English activity descriptions can correctly classify spoken descriptions across typologically diverse languages, enabling deployment in multilingual environments.
+            </p>
+        </section>
+
+        <div class="md-figure">
+            <div style="overflow-x: auto;">
+                <table class="md-results-table">
+                    <thead><tr><th>Language</th><th>Samples</th><th>Correct</th><th>Accuracy</th><th>F1 (Macro)</th><th>Avg Time</th></tr></thead>
+                    <tbody>
+                        <tr><td>Chinese (Mandarin)</td><td>50</td><td>49</td><td><b>98.0%</b></td><td>0.980</td><td>0.51s</td></tr>
+                        <tr><td>Spanish</td><td>50</td><td>48</td><td>96.0%</td><td>0.960</td><td>0.49s</td></tr>
+                        <tr><td>English (US)</td><td>50</td><td>47</td><td>94.0%</td><td>0.940</td><td>0.43s</td></tr>
+                        <tr><td>English (UK)</td><td>50</td><td>47</td><td>94.0%</td><td>0.940</td><td>0.43s</td></tr>
+                        <tr><td>Farsi (Persian)</td><td>50</td><td>32</td><td>64.0%</td><td>0.628</td><td>0.75s</td></tr>
+                        <tr style="background:var(--md-primary-container);"><td><b>Overall</b></td><td><b>250</b></td><td><b>223</b></td><td><b>89.2%</b></td><td><b>0.890</b></td><td><b>0.56s</b></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="md-figure__caption"><b>Table 4: Multilingual Audio Evaluation.</b> IT-S-1.5B classifying Whisper-medium transcriptions across 5 languages on 250 TTS samples. F1 is macro-averaged over the 5 ground-truth test classes. All languages process in sub-second time, enabling real-time interactive applications.</p>
+        </div>
+
+        <div class="md-figure">
+            <img src="table4_transcriptions.png" alt="Sample multilingual transcriptions" loading="lazy" width="700">
+            <p class="md-figure__caption"><b>Figure 8: Cross-Lingual Semantic Understanding.</b> Sample transcriptions and predictions for the Walking activity across all five languages. The system correctly classifies walking descriptions in Chinese, Spanish, English (both variants), and Farsi, demonstrating that activity semantics &mdash; steady pace, continuous steps, forward movement &mdash; transcend linguistic boundaries. The Whisper transcriptions preserve activity-relevant meaning regardless of source language.</p>
+        </div>
+
+        <!-- Finding 6: Cross-Domain -->
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">Finding 6: Cross-Domain Generalisation to Real Homes</h2>
+            <p class="md-body-large">
+                A critical test of any HAR system is whether it generalises beyond its training distribution. Models trained on laboratory data in controlled conditions may fail catastrophically when deployed in real homes with different camera angles, lighting conditions, subject demographics, and activity execution styles. To evaluate this, we tested our models on the <strong>Toyota Smarthome dataset</strong> &mdash; 186 samples from actual homes, with 8 activity classes mapped from our 14-class taxonomy.
+            </p>
+            <p class="md-body-large">
+                Three important patterns emerge. First, IT models consistently outperform SFT in cross-domain settings, mirroring the in-domain trend and confirming that IT produces more transferable representations. Second, and more surprisingly, <strong>mid-scale IT students show smaller relative performance drops</strong> than the teacher: IT-S-14B drops only 22.3% and IT-S-3B drops 31.5%, compared to the teacher's 50.5% drop. This suggests that knowledge distillation may implicitly regularise students toward more domain-general representations &mdash; by compressing the teacher's knowledge, distillation discards environment-specific patterns and retains more universal activity features.
+            </p>
+            <p class="md-body-large">
+                Third, per-class analysis reveals that activities with distinctive physical signatures transfer reliably across domains: StandingUp (F1=1.000), Walking (0.889), SittingDown (0.824), and Drinking (0.689) are recognised even in unfamiliar home environments. Fine-grained manipulation activities (LiftingObject: 0.000, Reaching: 0.000) fail completely, indicating that textual descriptions of these activities are too environment-dependent for cross-domain transfer.
+            </p>
+        </section>
+
+        <div class="md-figure">
+            <div style="overflow-x: auto;">
+                <table class="md-results-table">
+                    <thead><tr><th>Model</th><th>RHM-HAR F1</th><th>Toyota F1</th><th>Toyota Acc.</th><th>Relative Drop</th></tr></thead>
+                    <tbody>
+                        <tr><td>IT-T-72B</td><td>0.621</td><td>0.308</td><td>33.9%</td><td>50.5%</td></tr>
+                        <tr style="background:var(--md-tertiary-container);"><td>IT-S-14B</td><td>0.336</td><td>0.261</td><td>30.8%</td><td><b>22.3%</b></td></tr>
+                        <tr style="background:var(--md-tertiary-container);"><td>IT-S-3B</td><td>0.388</td><td>0.266</td><td>28.4%</td><td><b>31.5%</b></td></tr>
+                        <tr><td>IT-S-1.5B</td><td>0.405</td><td>0.221</td><td>25.3%</td><td>45.4%</td></tr>
+                        <tr><td>SFT-T-72B</td><td>0.401</td><td>0.189</td><td>18.8%</td><td>52.9%</td></tr>
+                        <tr><td>ZS-32B</td><td>0.202</td><td>0.166</td><td>23.1%</td><td>18.0%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="md-figure__caption"><b>Table 5: Cross-Domain Generalisation.</b> Performance drop when transferring from RHM-HAR (laboratory) to Toyota Smarthome (real homes). Mid-scale IT students (highlighted) show the smallest relative drops, suggesting knowledge distillation implicitly regularises toward domain-general representations.</p>
+        </div>
+
+        <!-- Per-Class Analysis -->
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">Understanding What the Models Get Right &mdash; and Wrong</h2>
+            <p class="md-body-large">
+                The per-class analysis reveals a clear pattern: HAR-Agent excels at recognising activities with <strong>distinctive physical signatures</strong> that are well-captured by textual descriptions. StairsClimbingUp (F1=0.930), StandingUp (0.894), StairsClimbingDown (0.878), and SittingDown (0.877) all involve clear directional body movements that generate unambiguous textual descriptions. In contrast, fine-grained manipulation activities like Cleaning (0.289) and ClosingCan (0.312) share overlapping vocabulary about hand and arm movements, making them harder to distinguish through text alone.
+            </p>
+            <p class="md-body-large">
+                The IT-S-1.5B student largely preserves the teacher's per-class profile at reduced magnitude: it maintains strong performance on distinctive activities (StandingUp: 0.833, StairsClimbingUp: 0.698) while showing the largest drops on subtle distinctions (Reaching: 0.052). This suggests that knowledge distillation effectively transfers coarse activity boundaries but struggles with inter-class distinctions that depend on fine textual nuance.
+            </p>
+        </section>
+
+        <div class="md-figure">
+            <img src="fig9_per_class_radar.pdf" alt="Per-class F1 radar chart" loading="lazy" width="600">
+            <p class="md-figure__caption"><b>Figure 9: Per-Class F1 Radar Chart.</b> Comparison of class-specific performance for IT-T-72B (teacher, outer polygon), IT-S-1.5B (best student, middle), and SFT-T-72B (inner) across all 14 activity classes. The IT teacher achieves strong performance on physically distinctive activities (StairsClimbingUp, StandingUp, SittingDown) while struggling with fine-grained manipulation (Cleaning, ClosingCan). The student preserves the teacher's profile shape at reduced magnitude, confirming effective knowledge transfer of the activity discrimination hierarchy.</p>
+        </div>
+
+        <div class="md-figure">
+            <img src="fig4_confusion_matrices.pdf" alt="Confusion matrices" loading="lazy" width="800">
+            <p class="md-figure__caption"><b>Figure 10: Normalised Confusion Matrices.</b> Four models compared: (a) IT-T-72B shows strong diagonal dominance with residual confusion between semantically similar activities (SittingDown/StandingUp, Bending/Reaching); (b) IT-S-1.5B preserves the teacher's primary classification patterns at reduced confidence; (c) SFT-T-72B shows a more diffuse prediction distribution; (d) ZS-7B baseline exhibits heavy bias toward a few dominant classes. These matrices reveal that IT preserves the teacher's learned activity discrimination structure through distillation.</p>
+        </div>
+
+        <!-- Prediction Stability -->
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">Prediction Reliability: Stable Despite Stochastic Decoding</h2>
+            <p class="md-body-large">
+                A natural concern with generative LLMs is whether stochastic decoding introduces meaningful variance. We conducted <strong>N=5 independent runs</strong> with stochastic sampling (T=0.3, top_p=0.95) for each model. IT models demonstrate <strong>self-agreement &ge; 89.4%</strong> across runs, meaning the vast majority of predictions are deterministic despite sampling randomness. Majority-vote ensembling consistently improves accuracy (IT-S-1.5B: 41.4% MV vs. 40.8% mean), suggesting that the small stochastic variance carries informative signal.
+            </p>
+            <p class="md-body-large">
+                The cross-model agreement analysis reveals a striking <strong>block-diagonal structure</strong>: IT models agree strongly with each other and their teacher, forming a coherent prediction cluster. SFT models show near-random agreement with all other models, including their own teacher &mdash; a quantitative confirmation that SFT distillation fails to transfer coherent classification patterns.
+            </p>
+        </section>
+
+        <div class="md-figure">
+            <img src="fig10_self_agreement.pdf" alt="Prediction self-agreement" loading="lazy" width="600">
+            <p class="md-figure__caption"><b>Figure 11: Prediction Self-Agreement.</b> Self-agreement (fraction of samples receiving identical predictions across N=5 independent runs) and pairwise agreement for all 17 models. IT models show meaningful self-agreement (89&ndash;93%) with informative stochastic variance. SFT and zero-shot models show higher but trivial self-agreement (95&ndash;97%), reflecting consistent <em>incorrect</em> predictions rather than reliable accuracy.</p>
+        </div>
+
+        <div class="md-figure">
+            <img src="fig5_agreement_heatmap.pdf" alt="Cross-model agreement heatmap" loading="lazy" width="600">
+            <p class="md-figure__caption"><b>Figure 12: Cross-Model Agreement Heatmap.</b> Pairwise agreement rates between all 17 model pairs. The block-diagonal structure is immediately visible: IT models (top-left) agree strongly with each other and their teacher, forming a coherent cluster. SFT models (middle block) show low agreement with everything, including their own teacher. Zero-shot baselines (bottom-right) form a separate cluster. This visualisation confirms that IT produces models with coherent, aligned decision boundaries, while SFT produces divergent classifiers.</p>
+        </div>
+
+        <!-- Confidence Calibration -->
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">Confidence Calibration and Hyperparameter Robustness</h2>
+            <p class="md-body-large">
+                Beyond accuracy, we examine whether models' confidence scores are trustworthy. The IT-T-72B teacher shows <strong>reasonable calibration</strong> with slight overconfidence on mid-range predictions. IT students retain similar calibration patterns at lower overall confidence, suggesting that knowledge distillation preserves the teacher's relative confidence structure. SFT models show poor calibration, consistent with their degraded performance.
+            </p>
+            <p class="md-body-large">
+                The KD hyperparameter ablation reveals that IT distillation is <strong>remarkably robust</strong>: the loss surface is smooth across temperature T (1&ndash;5) and interpolation weight &alpha; (0.3&ndash;0.9), meaning practitioners can achieve good results without extensive tuning. In contrast, SFT distillation loss <em>increases</em> with temperature &mdash; the opposite of IT &mdash; confirming that these two paradigms respond to hyperparameters in fundamentally different ways.
+            </p>
+        </section>
+
+        <div class="md-figure">
+            <img src="fig11_confidence_calibration.pdf" alt="Confidence calibration" loading="lazy" width="600">
+            <p class="md-figure__caption"><b>Figure 13: Confidence Calibration Analysis.</b> Reliability diagrams showing predicted confidence vs. observed accuracy. Well-calibrated models lie close to the diagonal. The IT teacher shows reasonable calibration; IT students retain similar patterns at lower confidence; SFT models show poor calibration across all confidence levels.</p>
+        </div>
+
+        <div class="md-figure">
+            <img src="fig7_zs_vs_finetuned.pdf" alt="Zero-shot vs fine-tuned" loading="lazy" width="600">
+            <p class="md-figure__caption"><b>Figure 14: Zero-Shot vs. Fine-Tuned Performance.</b> Direct comparison showing the effect of domain adaptation at each scale. IT fine-tuning (blue) produces substantial improvements over zero-shot (grey) at every scale, with the gap widening at smaller scales. SFT fine-tuning (orange) often <em>degrades</em> performance below zero-shot levels, confirming that classification-head distillation can be actively harmful.</p>
+        </div>
+
+        <div class="md-figure">
+            <img src="fig8_kd_hyperparameter.pdf" alt="KD hyperparameter sensitivity" loading="lazy" width="600">
+            <p class="md-figure__caption"><b>Figure 15: KD Hyperparameter Sensitivity.</b> Distillation loss surface across temperature T and interpolation weight &alpha;. For IT, moderate temperatures (T&asymp;2&ndash;3) and balanced weights (&alpha;&asymp;0.5&ndash;0.7) perform best, with a smooth surface indicating robustness. For SFT, loss increases with temperature &mdash; the opposite trend &mdash; confirming fundamental paradigmatic differences in how the two approaches respond to distribution softening.</p>
+        </div>
+
+        <!-- Deployment -->
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">From Research to Practice: Deployment on Consumer Hardware</h2>
+            <p class="md-body-large">
+                The inverse scaling finding crystallises into a compelling deployment story. The IT-S-1.5B model &mdash; requiring only <strong>0.8 GB VRAM</strong> &mdash; outperforms all larger students while being deployable on virtually any GPU-equipped hardware. The complete multilingual audio pipeline (Whisper + IT-S-1.5B) requires approximately <strong>6 GB</strong>, fitting comfortably on a consumer RTX 3060. The visual pipeline (LLaVA + IT-S-1.5B) needs approximately <strong>9 GB</strong>. Text-only operation runs under <strong>1 GB</strong>, enabling deployment even on integrated graphics.
+            </p>
+            <p class="md-body-large">
+                This accessibility has implications beyond hardware requirements. It enables iteration and experimentation that expensive infrastructure prohibits. It enables deployment in care facilities, homes, and developing regions where dedicated AI hardware is impractical. It enables privacy through local processing, performing activity recognition without streaming data to cloud services. And the multilingual capability ensures these benefits extend to non-English speakers.
+            </p>
+            <p class="md-body-large">
+                The full training pipeline &mdash; two 72B teachers and ten students across five scales &mdash; required approximately <strong>one month</strong> on a multi-GPU cluster (NVIDIA A100 80 GB). This is a one-time investment: once distillation is complete, the resulting models can be deployed indefinitely on consumer hardware without further cluster access.
+            </p>
+        </section>
+
+        <div class="md-figure">
+            <div style="overflow-x: auto;">
+                <table class="md-results-table">
+                    <thead><tr><th>Configuration</th><th>VRAM</th><th>Latency</th><th>Hardware</th><th>Use Case</th></tr></thead>
+                    <tbody>
+                        <tr><td>IT-T-72B + LLaVA</td><td>48 GB</td><td>~14s</td><td>4&times;A100</td><td>Research only</td></tr>
+                        <tr><td>IT-S-1.5B + LLaVA</td><td>9 GB</td><td>~12s</td><td>RTX 3060 12GB</td><td>Visual deployment</td></tr>
+                        <tr style="background:var(--md-tertiary-container);"><td><b>IT-S-1.5B + Whisper</b></td><td><b>6 GB</b></td><td><b>~0.6s</b></td><td><b>RTX 3060</b></td><td><b>Multilingual audio</b></td></tr>
+                        <tr><td>IT-S-1.5B only</td><td>0.8 GB</td><td>~0.2s</td><td>Any GPU</td><td>Text-only</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="md-figure__caption"><b>Table 6: Deployment Configurations.</b> The audio pathway with IT-S-1.5B (highlighted) provides the best trade-off: 89.2% multilingual accuracy with sub-second latency on consumer hardware. The inverse scaling phenomenon means the cheapest configuration is also the most capable.</p>
+        </div>
+
+        <div class="md-figure">
+            <img src="fig6_pareto_frontier.pdf" alt="Pareto frontier" loading="lazy" width="600">
+            <p class="md-figure__caption"><b>Figure 16: Pareto Frontier of Model Size vs. Accuracy.</b> Each point represents one of 17 model configurations. IT-S-1.5B (bottom-right of the IT cluster) achieves the best student trade-off: 41.4% accuracy at only 0.8 GB VRAM and 1.5B parameters. The inverse scaling phenomenon means that the Pareto-optimal point in the accessible region is also the best-performing student overall &mdash; practitioners need not sacrifice performance for deployability.</p>
+        </div>
+
+        <!-- Activity Classes -->
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">The 14 Activity Classes</h2>
+            <p class="md-body-large">
+                The RHM-HAR dataset comprises 6,701 robot-mounted video clips across 14 daily living activities, captured from multiple camera viewpoints in laboratory and simulated home environments. The dataset was split 80/20 into 5,354 training and 1,347 validation samples using stratified sampling by class label to ensure balanced representation across all activities.
+            </p>
+            <div class="md-method-grid">
+                <div class="md-method-card"><h4>Postural Activities</h4><p class="md-body-large">Bending, SittingDown, StandingUp, Reaching &mdash; involving changes in body posture and position. These activities are generally well-captured by textual descriptions of body orientation and joint positions.</p></div>
+                <div class="md-method-card"><h4>Locomotion</h4><p class="md-body-large">Walking, StairsClimbingUp, StairsClimbingDown &mdash; involving sustained movement through space. These produce highly distinctive textual descriptions and achieve the highest recognition accuracy.</p></div>
+                <div class="md-method-card"><h4>Object Manipulation</h4><p class="md-body-large">CarryingObject, LiftingObject, PuttingDownObjects &mdash; involving interaction with physical objects. Recognition depends on the VLM's ability to describe object-hand relationships in sufficient detail.</p></div>
+                <div class="md-method-card"><h4>Fine-Grained Activities</h4><p class="md-body-large">Cleaning, Drinking, OpeningCan, ClosingCan &mdash; involving subtle hand and arm movements. These are the most challenging for text-mediated recognition, as descriptions often share overlapping vocabulary.</p></div>
+            </div>
+        </section>
+
+        <!-- Open Science -->
+        <section class="md-section md-card-elevated">
+            <h2 class="md-headline-large">Open Science &amp; Reproducibility</h2>
+            <p class="md-body-large">
+                We are committed to fully reproducible research. All 12 trained LoRA adapter checkpoints, comprehensive evaluation results across all 17 configurations, the multilingual audio benchmark, and the complete codebase (perception pipelines, training scripts, evaluation tools, and deployment examples) are prepared for public release. The trained models are hosted on HuggingFace, and the codebase will be released under an open-source licence upon acceptance of the manuscript.
+            </p>
+            <div class="md-social-links" style="justify-content:center;">
+                <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID"><i class="fab fa-orcid"></i></a>
+            </div>
+        </section>
+
+        <!-- Access Buttons -->
+        <section class="md-section md-card-elevated" id="access">
+            <h2 class="md-headline-large">Paper, Models &amp; Code</h2>
+            <div style="text-align:center; padding:24px 0; display:flex; flex-wrap:wrap; justify-content:center; gap:16px;">
+                <a href="#" class="md-btn-filled" onclick="showAccessDialog(event, 'paper')">
+                    <i class="fas fa-file-pdf"></i> Download Paper
+                </a>
+                <a href="#" class="md-btn-filled" onclick="showAccessDialog(event, 'models')" style="background:var(--md-tertiary);">
+                    <i class="fas fa-brain"></i> Download Models (HuggingFace)
+                </a>
+                <a href="#" class="md-btn-outlined" onclick="showAccessDialog(event, 'code')">
+                    <i class="fas fa-code"></i> Access Codebase
+                </a>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- Dialog Overlay -->
+<div class="md-dialog-overlay" id="accessDialog">
+    <div class="md-dialog">
+        <h3><i class="fas fa-info-circle"></i> Access Information</h3>
+        <p id="dialogText"></p>
+        <p>For early access, please contact:<br><a href="mailto:k.ghamati@herts.ac.uk" style="color:var(--md-primary); font-weight:600;">k.ghamati@herts.ac.uk</a></p>
+        <button class="md-btn-close" onclick="closeDialog()">OK</button>
+    </div>
+</div>
+
+<script>
+    function showAccessDialog(event, type) {
+        event.preventDefault();
+        var messages = {
+            'paper': 'The manuscript is currently under review at IEEE Transactions on Multimedia. The paper will be made publicly available upon acceptance.',
+            'models': 'All 12 trained LoRA adapter checkpoints are hosted on HuggingFace and will be made publicly accessible upon acceptance of the manuscript.',
+            'code': 'The complete codebase (perception pipelines, training scripts, evaluation tools, and deployment examples) will be released under an open-source licence upon acceptance of the manuscript.'
+        };
+        document.getElementById('dialogText').textContent = messages[type];
+        document.getElementById('accessDialog').classList.add('active');
+    }
+
+    function closeDialog() {
+        document.getElementById('accessDialog').classList.remove('active');
+    }
+
+    document.getElementById('accessDialog').addEventListener('click', function(e) {
+        if (e.target === this) closeDialog();
+    });
+
+    window.addEventListener('scroll', function() {
+        document.getElementById('top-bar').classList.toggle('md-scrolled', window.scrollY > 0);
+    }, { passive: true });
+</script>
+
+<footer style="background-color:var(--md-inverse-surface); color:var(--md-inverse-on-surface); text-align:center; padding:48px 24px;">
+    <div class="md-container">
+        <p class="md-body-large">&copy; 2026 Khashayar Ghamati. All rights reserved.</p>
+        <p class="md-body-medium" style="opacity:0.8; margin-top:8px;">Advancing AI research for a better future</p>
+    </div>
+</footer>
+
+</body>
+</html>
