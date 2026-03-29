@@ -35,7 +35,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="IS vs ICL: Bayesian Framework for Adaptive Robotic Intelligence">
   <meta name="twitter:description" content="Unified Bayesian framework comparing Inferred-Structure (MAML) and In-Context Learning (transformer) for adaptive robotics. Validated on Niryo Ned3 Pro robot.">
-  <meta name="twitter:creator" content="@khashayarghamati">
+
 
   <link rel="canonical" href="https://ghamati.com/isvsicl/">
 
@@ -307,7 +307,7 @@
     <section class="md-section" id="access">
       <h2 class="md-headline-large md-mb-24">Full Paper &amp; Code</h2>
       <div style="text-align:center;padding:24px 0;">
-        <a href="IS_vs_ICL__Mathematical_Foundations_and_Implications_for_Adaptive_Robot_Intelligence-15.pdf" class="md-btn-filled" target="_blank" rel="noopener noreferrer" style="margin:8px;">
+        <a href="#" class="md-btn-filled" onclick="showPaperDialog(event)" style="margin:8px;">
           <i class="fas fa-download"></i> Download Full Paper
         </a>
         <a href="#" class="md-btn-outlined" onclick="showCodeDialog(event)" style="margin:8px;">
@@ -323,6 +323,11 @@
 </main>
 
 <script>
+  function showPaperDialog(event) {
+    event.preventDefault();
+    alert("This paper is currently under review. The full paper will be available upon acceptance. For inquiries, please contact: k.ghamati@herts.ac.uk");
+  }
+
   function showCodeDialog(event) {
     event.preventDefault();
     alert("To access the source code, please email us at: k.ghamati@herts.ac.uk");
