@@ -791,7 +791,7 @@ body {
   letter-spacing: 0.1px;
   line-height: 1.25rem;
   text-decoration: none;
-  border-radius: var(--md-shape-full);
+  border-radius: var(--md-shape-sm);
   transition: box-shadow var(--md-motion-duration-short) var(--md-motion-standard),
               background-color var(--md-motion-duration-short) var(--md-motion-standard);
   position: relative;

@@ -743,7 +743,7 @@
     <section class="md-section md-card-elevated" id="access">
         <h2 class="md-headline-large">Paper Access & Resources</h2>
         <div style="text-align:center; padding:24px 0;">
-            <a href="#" class="md-btn-filled" onclick="showPaperDialog(event)">
+            <a href="https://ieeexplore.ieee.org/abstract/document/11415394" class="md-btn-filled" target="_blank" rel="noopener noreferrer">
                 <i class="fas fa-file-alt"></i> View on IEEE Xplore
             </a>
             <a href="#" class="md-btn-outlined" onclick="showCodeDialog(event)">
@@ -767,7 +767,7 @@
         </div>
 
         <p class="md-body-medium" style="margin-top:24px; text-align:center; color:var(--md-on-surface-variant);">
-            <span class="md-publication-status md-publication-status--accepted"><i class="fas fa-check-circle"></i> Accepted</span>
+            <span class="md-publication-status md-publication-status--published"><i class="fas fa-check-circle"></i> Published</span>
             <strong style="margin-left:8px;">IEEE Transactions on Cognitive and Developmental Systems (TCDS)</strong>
         </p>
     </section>
@@ -777,7 +777,7 @@
 <script>
     function showPaperDialog(event) {
         event.preventDefault();
-        alert("The paper has been accepted by IEEE Transactions on Cognitive and Developmental Systems (TCDS). The IEEE Xplore link will be updated here once available. For early access, please contact: k.ghamati@herts.ac.uk");
+        window.open("https://ieeexplore.ieee.org/abstract/document/11415394", "_blank");
     }
 
     function showCodeDialog(event) {
