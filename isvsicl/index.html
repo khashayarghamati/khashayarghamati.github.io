@@ -199,6 +199,48 @@
       </div>
     </section>
 
+    <!-- Paper Explanation Video -->
+    <section class="md-section">
+      <h2 class="md-headline-large md-mb-24">Paper Overview</h2>
+      <p class="md-body-large">
+        Watch a video walkthrough explaining the IS vs ICL Bayesian framework, the core hypotheses, the experimental design on the Niryo Ned3 Pro, and the key findings on structural vs contextual task shifts.
+      </p>
+      <div class="md-card-outlined md-sp-24 md-mt-24" style="overflow:hidden;border-radius:var(--md-shape-md);">
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+          <iframe src="https://www.youtube.com/embed/1klx4xaBnjY"
+                  style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                  title="IS vs ICL — A Unified Bayesian Framework for Adaptive Robotic Intelligence (Paper Overview)"
+                  loading="lazy">
+          </iframe>
+        </div>
+        <p class="md-body-small" style="padding:16px 0 0;color:var(--md-on-surface-variant);text-align:center;font-style:italic;"><strong>Video:</strong> Paper overview — IS vs ICL: A Unified Bayesian Framework for Adaptive Robotic Intelligence.</p>
+      </div>
+    </section>
+
+    <!-- VideoObject Schema (Paper Overview) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "IS vs ICL — A Unified Bayesian Framework for Adaptive Robotic Intelligence (Paper Overview)",
+      "description": "Video overview of the paper 'Inferred-Structure and In-Context Learning: A Unified Bayesian Framework for Adaptive Robotic Intelligence'. Explains the Bayesian unification of MAML-based inferred-structure learning and transformer-based in-context learning, the experimental design on a Niryo Ned3 Pro, and the empirical findings on structural vs contextual task shifts.",
+      "thumbnailUrl": "https://img.youtube.com/vi/1klx4xaBnjY/maxresdefault.jpg",
+      "uploadDate": "2026-04-16T00:00:00+00:00",
+      "contentUrl": "https://www.youtube.com/watch?v=1klx4xaBnjY",
+      "embedUrl": "https://www.youtube.com/embed/1klx4xaBnjY",
+      "publisher": {
+        "@type": "Person",
+        "name": "Khashayar Ghamati",
+        "url": "https://ghamati.com"
+      },
+      "keywords": "IS vs ICL, MAML, meta-learning, in-context learning, Bayesian framework, adaptive robotics, Niryo Ned3 Pro, paper overview",
+      "inLanguage": "en",
+      "isFamilyFriendly": true
+    }
+    </script>
+
     <!-- Video Section -->
     <section class="md-section">
       <h2 class="md-headline-large md-mb-24">Data Collection Demo</h2>
@@ -307,7 +349,7 @@
     <section class="md-section" id="access">
       <h2 class="md-headline-large md-mb-24">Full Paper &amp; Code</h2>
       <div style="text-align:center;padding:24px 0;">
-        <a href="#" class="md-btn-filled" onclick="showPaperDialog(event)" style="margin:8px;">
+        <a href="https://dx.doi.org/10.2139/ssrn.6487278" class="md-btn-filled" target="_blank" rel="noopener" style="margin:8px;">
           <i class="fas fa-download"></i> Download Full Paper
         </a>
         <a href="#" class="md-btn-outlined" onclick="showCodeDialog(event)" style="margin:8px;">
@@ -315,7 +357,7 @@
         </a>
       </div>
       <p class="md-body-small" style="text-align:center;color:var(--md-on-surface-variant);margin-top:16px;">
-        <i class="fas fa-info-circle"></i> This paper is currently under review. Code and datasets will be made available upon publication.
+        <i class="fas fa-info-circle"></i> Preprint available on SSRN. Code and datasets will be made available upon publication.
       </p>
     </section>
 
@@ -323,11 +365,6 @@
 </main>
 
 <script>
-  function showPaperDialog(event) {
-    event.preventDefault();
-    alert("This paper is currently under review. The full paper will be available upon acceptance. For inquiries, please contact: k.ghamati@herts.ac.uk");
-  }
-
   function showCodeDialog(event) {
     event.preventDefault();
     alert("To access the source code, please email us at: k.ghamati@herts.ac.uk");
