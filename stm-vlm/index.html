@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+
+  <!-- DNS Prefetch and Preconnect for Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- SEO Meta Tags -->
+  <title>STM-VLM (ARTEMIS): Short-Term Memory Reduces Semantic Redundancy in Vision-Language Activity Recognition</title>
+  <meta name="description" content="ARTEMIS: a streaming vision-language pipeline that augments LLaVA + Qwen activity recognition with an explicit short-term memory buffer. 72.5% keyword-redundancy reduction on Toyota Smarthome, with strong gains on continuous activities on the RHM dataset. K. Ghamati, F. Amirabdollahian, F. Foerster, A. Zaraki.">
+  <meta name="keywords" content="short-term memory, vision-language models, VLM, activity recognition, LLaVA, Qwen, semantic aggregation, semantic redundancy, streaming perception, human-robot interaction, HRI, Toyota Smarthome, Robot House Multi Views, RHM, event segmentation, ARTEMIS, Khashayar Ghamati, Farshid Amirabdollahian, Frank Foerster, Abolfazl Zaraki, University of Hertfordshire">
+  <meta name="author" content="Khashayar Ghamati">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="STM-VLM (ARTEMIS): Short-Term Memory for Vision-Language Activity Recognition">
+  <meta property="og:description" content="A streaming VLM pipeline with an explicit short-term memory buffer. 72.5% redundancy reduction on Toyota Smarthome; 82.1% on RHM continuous activities (Hedges' g = 1.29, p_adj = 0.024).">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ghamati.com/stm-vlm/">
+  <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
+  <meta property="og:locale" content="en_GB">
+  <meta property="article:author" content="Khashayar Ghamati">
+  <meta property="article:section" content="Artificial Intelligence">
+  <meta property="article:tag" content="vision-language models">
+  <meta property="article:tag" content="short-term memory">
+  <meta property="article:tag" content="activity recognition">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="STM-VLM (ARTEMIS): Short-Term Memory for VLM Activity Recognition">
+  <meta name="twitter:description" content="Streaming vision-language pipeline with an explicit STM buffer. 72.5% keyword-redundancy reduction on Toyota Smarthome; strong gains on continuous activities on RHM.">
+
+  <link rel="canonical" href="https://ghamati.com/stm-vlm/">
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
+  <!-- Material Design 3 Shared CSS -->
+  <link rel="stylesheet" href="/css/material-design.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      "headline": "Short-Term Memory Reduces Semantic Redundancy in Vision-Language Activity Recognition",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Khashayar Ghamati",
+          "affiliation": { "@type": "Organization", "name": "University of Hertfordshire" },
+          "url": "https://ghamati.com",
+          "sameAs": [
+            "https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en",
+            "https://orcid.org/0009-0002-6416-3127"
+          ]
+        },
+        {
+          "@type": "Person",
+          "name": "Farshid Amirabdollahian",
+          "affiliation": { "@type": "Organization", "name": "University of Hertfordshire" }
+        },
+        {
+          "@type": "Person",
+          "name": "Frank Foerster",
+          "affiliation": { "@type": "Organization", "name": "University of Hertfordshire" }
+        },
+        {
+          "@type": "Person",
+          "name": "Abolfazl Zaraki",
+          "affiliation": { "@type": "Organization", "name": "University of Hertfordshire" },
+          "sameAs": [
+            "https://orcid.org/0000-0001-6204-7865"
+          ]
+        }
+      ],
+      "datePublished": "2026",
+      "url": "https://ghamati.com/stm-vlm/",
+      "inLanguage": "en",
+      "about": [
+        "short-term memory",
+        "vision-language models",
+        "LLaVA",
+        "Qwen",
+        "activity recognition",
+        "semantic redundancy",
+        "streaming perception",
+        "human-robot interaction",
+        "Toyota Smarthome",
+        "event segmentation"
+      ],
+      "description": "ARTEMIS augments vision-language frame-caption pipelines with an explicit short-term memory buffer to reduce semantic redundancy in activity recognition. Evaluated on Toyota Smarthome (72.5% keyword-redundancy reduction, 93% win rate across 29 activities) and the RHM dataset (82.1% reduction on continuous activities, Hedges' g = 1.29).",
+      "keywords": "short-term memory, vision-language models, LLaVA, Qwen, activity recognition, semantic redundancy, streaming perception, Toyota Smarthome",
+      "isAccessibleForFree": true,
+      "creativeWorkStatus": "Under Review"
+    }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV1K905FF2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HV1K905FF2');
+  </script>
+
+  <style>
+    .md-highlight-box .fas { margin-right: 0.5rem; }
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="md-skip-link">Skip to main content</a>
+
+<!-- Top App Bar -->
+<nav class="md-top-app-bar" id="top-bar">
+  <span class="md-top-app-bar__title">STM-VLM (ARTEMIS)</span>
+  <div class="md-top-app-bar__nav">
+    <a href="/"><i class="fas fa-home"></i> Home</a>
+    <a href="#abstract"><i class="fas fa-file-alt"></i> Abstract</a>
+    <a href="#framework"><i class="fas fa-cogs"></i> Framework</a>
+    <a href="#results"><i class="fas fa-chart-bar"></i> Results</a>
+    <a href="#access"><i class="fas fa-download"></i> Paper</a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="md-hero">
+  <h1 class="md-display-medium">Short-Term Memory Reduces Semantic Redundancy in Vision-Language Activity Recognition</h1>
+  <p class="md-hero__subtitle">K. Ghamati, F. Amirabdollahian, F. Foerster &amp; A. Zaraki &bull; University of Hertfordshire</p>
+  <div class="md-hero__actions">
+    <span class="md-publication-status md-publication-status--review"><i class="fas fa-clock"></i> Under Review</span>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="md-container md-sp-32">
+
+    <!-- About / Abstract -->
+    <section class="md-section" id="abstract">
+      <h2 class="md-headline-large md-mb-24">About the Paper</h2>
+
+      <div class="md-author-card md-mb-24">
+        <div class="md-author-card__info">
+          <div class="md-author-card__name">Khashayar Ghamati, Farshid Amirabdollahian, Frank Foerster &amp; Abolfazl Zaraki</div>
+          <div class="md-author-card__affiliation">University of Hertfordshire, UK</div>
+          <div class="md-author-card__links">
+            <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+            <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID"><i class="fab fa-orcid"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <p class="md-body-large">
+        When vision-language models (VLMs) process video frames independently, they produce semantically redundant descriptions that fail to capture the dominant, contextually coherent activity across time. Imagine a person working at a laptop who briefly reaches for a cup of tea: a memoryless VLM classifies the interlude as <em>drinking</em>, missing that the sustained activity is <em>working at a laptop</em>. We introduce <b>ARTEMIS</b> (Adaptive Reasoning Through Experience Memory and Intelligent Streaming), a streaming pipeline that augments VLM-based activity recognition with an explicit short-term memory (STM) buffer, enabling contextually coherent semantic aggregation.
+      </p>
+      <p class="md-body-large">
+        ARTEMIS pairs <b>LLaVA-Next (8B)</b> for per-frame captioning with a sliding buffer of the $W$ most recent descriptions and a <b>Qwen-2.5-7B</b> aggregator that consolidates the temporal context into a single activity representation. We evaluate redundancy reduction through paired within-video comparisons on two datasets: <b>Toyota Smarthome</b> (29 activity classes) and the <b>Robot House Multi-View</b> (RHM) dataset (14 classes, 28 videos). Across Toyota, STM delivers a <b>72.5% reduction in keyword redundancy</b> with a <b>93% win rate (27/29 activities)</b>; on RHM continuous activities, STM yields an <b>82.1% reduction</b> (Hedges' <i>g</i>&nbsp;=&nbsp;1.29, <i>p</i><sub>adj</sub>&nbsp;=&nbsp;0.024).
+      </p>
+
+      <div class="md-highlight-box">
+        <p class="md-highlight-box__title"><i class="fas fa-lightbulb"></i> Key Insight</p>
+        <p>Memory-augmented VLMs retain temporal context to recognise the <b>dominant sustained activity</b>, suppressing brief transient interruptions. The STM buffer acts as an ICL-style contextual aggregator: the VLM and aggregator weights remain frozen, and adaptation arises entirely from the content of the sliding window.</p>
+      </div>
+    </section>
+
+    <!-- Framework -->
+    <section class="md-section" id="framework">
+      <h2 class="md-headline-large md-mb-24">The ARTEMIS Framework</h2>
+      <h3 class="md-title-large md-mb-16">A Streaming Pipeline with Short-Term Memory</h3>
+
+      <p class="md-body-large">
+        ARTEMIS integrates three components operating in a continuous streaming loop: a vision-language perception module for per-frame captioning, a sliding short-term memory buffer for temporal context, and a semantic aggregation module that consolidates the buffer into a coherent activity representation.
+      </p>
+
+      <figure class="md-card-outlined md-sp-16 md-mt-24" style="overflow:hidden;border-radius:var(--md-shape-md);">
+        <img src="architecture.png" alt="ARTEMIS architecture: LLaVA-Next generates per-frame captions that accumulate in a sliding STM buffer; Qwen-2.5 aggregates the buffer into activity representations. The diagram also shows the broader cognitive framework (RLBAM attention, RL agent with transfer learning and pre-training, knowledge base) that is validated in companion papers but out of scope for this work." style="width:100%;height:auto;display:block;">
+        <figcaption class="md-body-small" style="padding:16px 0 0;color:var(--md-on-surface-variant);text-align:center;font-style:italic;">
+          <strong>Figure 1. ARTEMIS architecture.</strong> Visual observations are processed by LLaVA-Next to produce frame-level descriptions. These accumulate in the STM buffer (sliding window of $W$ frames). Qwen-2.5 aggregates the temporal context into a coherent activity representation with extracted keywords. Out-of-scope outer-loop components -- the RL-based attention mechanism (RLBAM) and the RL agent with transfer learning, pre-training and knowledge base -- are validated in our companion publications.
+        </figcaption>
+      </figure>
+
+      <h3 class="md-title-large md-mt-32 md-mb-16">Component Overview</h3>
+
+      <div class="md-method-grid">
+        <div class="md-method-card">
+          <div class="md-method-card__icon"><i class="fas fa-eye"></i></div>
+          <div class="md-method-card__title">Per-Frame Perception</div>
+          <div class="md-method-card__body">LLaVA-Next (llama3-llava-next-8b-hf) generates a concise textual description of each frame, focused on human posture, objects, spatial relationships, and environmental context. Descriptions are capped at 200 characters to bound memory.</div>
+        </div>
+        <div class="md-method-card">
+          <div class="md-method-card__icon"><i class="fas fa-memory"></i></div>
+          <div class="md-method-card__title">Sliding STM Buffer</div>
+          <div class="md-method-card__body">The $W$ most recent captions (default $W=10$, 1&nbsp;s at 10&nbsp;FPS) are retained in an ordered buffer. The buffer has constant memory footprint; older descriptions are displaced as new observations arrive.</div>
+        </div>
+        <div class="md-method-card">
+          <div class="md-method-card__icon"><i class="fas fa-project-diagram"></i></div>
+          <div class="md-method-card__title">Semantic Aggregation</div>
+          <div class="md-method-card__body">Qwen-2.5-7B-Instruct consolidates the concatenated buffer into a coherent activity representation, identifying the primary human activity, detecting transitions, and extracting contextual keywords that summarise the sustained behaviour.</div>
+        </div>
+        <div class="md-method-card">
+          <div class="md-method-card__icon"><i class="fas fa-balance-scale"></i></div>
+          <div class="md-method-card__title">Paired Evaluation</div>
+          <div class="md-method-card__body">We compare STM against a 1-frame baseline on the same video at the keyword level. Activity categories on RHM (Continuous / Fine Motor / Transitional) reveal that STM benefits are activity-dependent, with strong gains on sustained behaviours.</div>
+        </div>
+      </div>
+
+      <h3 class="md-title-large md-mt-32 md-mb-16">Step-by-Step Processing</h3>
+      <p class="md-body-large">
+        The figure below walks through the Sense--Think--Act cycle on a real example from the RHM dataset. The <b>SENSE</b> stage shows LLaVA processing successive frames with a context-aware prompt that incorporates the prior STM content. The <b>THINK</b> stage demonstrates how frame descriptions accumulate in the buffer across ten frames, followed by Qwen-based semantic aggregation that extracts consolidated activity keywords.
+      </p>
+
+      <figure class="md-card-outlined md-sp-16 md-mt-24" style="overflow:hidden;border-radius:var(--md-shape-md);">
+        <img src="pipeline.png" alt="Step-by-step ARTEMIS pipeline walkthrough on an RHM video: ten frames passed to LLaVA, descriptions accumulating in the STM buffer, Qwen-2.5 consolidating the buffer into activity keywords." style="width:100%;height:auto;display:block;">
+        <figcaption class="md-body-small" style="padding:16px 0 0;color:var(--md-on-surface-variant);text-align:center;font-style:italic;">
+          <strong>Figure 2. Detailed ARTEMIS processing pipeline.</strong> The Sense--Think--Act cycle is illustrated on a real RHM example. Frame-level descriptions accumulate across the 10-frame STM window, then Qwen-2.5 performs semantic aggregation to produce a contextually coherent keyword set.
+        </figcaption>
+      </figure>
+
+      <div class="md-highlight-box md-mt-32">
+        <p class="md-highlight-box__title"><i class="fas fa-flask"></i> Contribution</p>
+        <p>ARTEMIS is an architecturally simple, model-agnostic wrapper: the VLM and aggregator remain frozen, while temporal consolidation emerges from the buffer content. This makes the approach compatible with existing single-frame VLMs while maintaining the streaming, low-latency properties required for human-robot interaction.</p>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="md-section" id="results">
+      <h2 class="md-headline-large md-mb-24">Key Results</h2>
+      <h3 class="md-title-large md-mb-16">Paired Within-Video Evaluation Across Two Datasets</h3>
+
+      <ul>
+        <li><b>Toyota Smarthome (29 activities):</b> STM reduces mean keyword redundancy from 0.661 to 0.182 -- a <b>72.5% reduction</b>. Lower redundancy is achieved in <b>27 of 29 activities</b> (93.1% win rate), and <b>20 of 29 activities</b> reach complete redundancy elimination.</li>
+        <li><b>RHM continuous activities (n = 8):</b> Walking, Drinking, Cleaning and Carrying Object show a <b>100% win rate</b> and <b>82.1% relative reduction</b> (Hedges' <i>g</i>&nbsp;=&nbsp;1.29, <i>p</i><sub>adj</sub>&nbsp;=&nbsp;0.024 after Bonferroni correction).</li>
+        <li><b>RHM transitional activities (n = 14):</b> Sitting Down, Standing Up, Stairs Climbing, Lifting and Bending -- STM <em>does not</em> help and slightly increases redundancy, a pattern consistent with event segmentation theory: when the buffer spans a boundary between incompatible states, the aggregator cannot identify a single dominant activity.</li>
+        <li><b>Temporal coverage ablation:</b> At <b>5&nbsp;FPS</b> (where the 10-frame buffer spans 2 seconds), STM achieves a <b>91.9% reduction</b> compared to 72.5% at 10&nbsp;FPS. The NoSTM baseline is stable across frame rates, indicating that the effect operates through what is accumulated in the memory buffer rather than through per-frame VLM output alone.</li>
+      </ul>
+
+      <div class="md-stat-row md-mt-24">
+        <div class="md-stat-badge">
+          <div class="md-stat-badge__value">72.5%</div>
+          <div class="md-stat-badge__label">Toyota redundancy reduction</div>
+        </div>
+        <div class="md-stat-badge">
+          <div class="md-stat-badge__value">93.1%</div>
+          <div class="md-stat-badge__label">Win rate (27/29 activities)</div>
+        </div>
+        <div class="md-stat-badge">
+          <div class="md-stat-badge__value">1.29</div>
+          <div class="md-stat-badge__label">Hedges' g, RHM continuous</div>
+        </div>
+        <div class="md-stat-badge">
+          <div class="md-stat-badge__value">91.9%</div>
+          <div class="md-stat-badge__label">Reduction at 5 FPS</div>
+        </div>
+      </div>
+
+      <!-- Figure: Cross-dataset overview -->
+      <h3 class="md-title-large md-mt-32 md-mb-16">Cross-Dataset Overview</h3>
+      <p class="md-body-large">
+        At the aggregate level, STM lowers keyword redundancy on both datasets, but the magnitude of the effect differs. Toyota (predominantly sustained activities) shows a large, consistent reduction with a 93.1% win rate; RHM (half of which is transitional) shows a smaller aggregate effect because STM helps on continuous activities and hinders on transitions.
+      </p>
+      <figure class="md-card-outlined md-sp-16 md-mt-16" style="overflow:hidden;border-radius:var(--md-shape-md);">
+        <img src="cross-dataset.png" alt="Panel A: mean redundancy for NoSTM vs STM on Toyota Smarthome and RHM with error bars. Panel B: STM win rate for each dataset, with a dashed line at 50% chance." style="width:100%;height:auto;display:block;">
+        <figcaption class="md-body-small" style="padding:16px 0 0;color:var(--md-on-surface-variant);text-align:center;font-style:italic;">
+          <strong>Figure 3. Cross-dataset overview of STM effects.</strong> (A) Mean redundancy for the NoSTM baseline and STM-enabled conditions on Toyota Smarthome and RHM. Error bars are standard deviation. (B) STM win rate per dataset; the dashed line at 50% indicates chance performance.
+        </figcaption>
+      </figure>
+
+      <!-- Figure: Per-activity breakdown -->
+      <h3 class="md-title-large md-mt-32 md-mb-16">Per-Activity Breakdown</h3>
+      <p class="md-body-large">
+        Most Toyota activities achieve complete redundancy elimination under STM; 20 of 29 activities reach zero redundancy, covering all Drinking variants (except <em>From Cup</em>), all Eating activities, all Beverage Preparation activities, and several Cooking and Transitional activities. Two activities (<em>Cook.Cleandishes</em>, <em>Drink.Fromcup</em>) show a degenerate aggregator failure mode where the model produces repetitive templates about the <em>absence</em> of change.
+      </p>
+      <figure class="md-card-outlined md-sp-16 md-mt-16" style="overflow:hidden;border-radius:var(--md-shape-md);">
+        <img src="per-activity.png" alt="Horizontal bar chart showing per-activity difference in redundancy (NoSTM minus STM) across both datasets. Positive values indicate STM improvement." style="width:100%;height:auto;display:block;">
+        <figcaption class="md-body-small" style="padding:16px 0 0;color:var(--md-on-surface-variant);text-align:center;font-style:italic;">
+          <strong>Figure 4. Per-activity redundancy reduction.</strong> Horizontal bar chart showing the difference in redundancy (NoSTM&nbsp;$-$&nbsp;STM) for each activity across both datasets. Positive values (rightward) indicate an STM improvement; negative values (leftward) indicate a baseline advantage.
+        </figcaption>
+      </figure>
+
+      <!-- Figure: RHM subgroup -->
+      <h3 class="md-title-large md-mt-32 md-mb-16">Activity-Dependent Efficacy on RHM</h3>
+      <p class="md-body-large">
+        The RHM subgroup analysis reveals a clear dissociation. STM lowers redundancy for <b>Continuous</b> activities (100% win rate, Hedges' <i>g</i>&nbsp;=&nbsp;1.29) and <b>Fine Motor</b> activities (83% win rate, <i>g</i>&nbsp;=&nbsp;0.63), but <em>increases</em> redundancy for <b>Transitional</b> activities where the buffer spans a state change and no single dominant activity exists. This is consistent with event segmentation theory and suggests a hybrid pipeline that pairs the STM buffer with a structural-shift detector as a principled next step.
+      </p>
+      <figure class="md-card-outlined md-sp-16 md-mt-16" style="overflow:hidden;border-radius:var(--md-shape-md);">
+        <img src="category-comparison.png" alt="Bar chart comparing NoSTM and STM mean redundancy across three post-hoc categories on RHM: Continuous, Fine Motor, Transitional. STM lowers redundancy for Continuous and Fine Motor but raises it for Transitional." style="width:100%;height:auto;display:block;">
+        <figcaption class="md-body-small" style="padding:16px 0 0;color:var(--md-on-surface-variant);text-align:center;font-style:italic;">
+          <strong>Figure 5. Redundancy by RHM activity category.</strong> NoSTM (baseline) and STM mean redundancy across the three post-hoc categories on RHM. STM reduces redundancy for Continuous and Fine Motor activities and increases it for Transitional activities.
+        </figcaption>
+      </figure>
+
+      <!-- Figure: Bootstrap forest plot -->
+      <h3 class="md-title-large md-mt-32 md-mb-16">Bootstrap Confidence Intervals</h3>
+      <p class="md-body-large">
+        10,000-iteration bootstrap CIs corroborate the subgroup pattern. Continuous (CI [22.8%, 54.3%]) and Fine Motor (CI [3.4%, 60.0%]) both exclude zero; Transitional (CI [-42.0%, 12.4%]) and the Overall estimate both include zero with a negative central tendency for transitional activities. Bootstrap CIs are not Bonferroni-adjusted; correction applies only to the Wilcoxon $p$-values.
+      </p>
+      <figure class="md-card-outlined md-sp-16 md-mt-16" style="overflow:hidden;border-radius:var(--md-shape-md);">
+        <img src="bootstrap-forest.png" alt="Forest plot showing mean redundancy reduction and 95% bootstrap confidence intervals for each RHM activity category and overall. Continuous and Fine Motor intervals exclude zero; Transitional spans zero with a negative central tendency." style="width:100%;height:auto;display:block;max-width:800px;margin:0 auto;">
+        <figcaption class="md-body-small" style="padding:16px 0 0;color:var(--md-on-surface-variant);text-align:center;font-style:italic;">
+          <strong>Figure 6. Bootstrap forest plot.</strong> Mean redundancy reduction with 95% bootstrap CIs (10,000 iterations) for each RHM activity category and overall. Diamond markers indicate categories whose CI excludes zero; the dashed vertical line denotes no effect.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- Ablation -->
+    <section class="md-section" id="ablation">
+      <h2 class="md-headline-large md-mb-24">Temporal Coverage Ablation</h2>
+      <h3 class="md-title-large md-mb-16">Frame Rate and Memory-Window Span</h3>
+      <p class="md-body-large">
+        Lowering the sampling rate from 10&nbsp;FPS to 5&nbsp;FPS while holding the buffer at $W=10$ doubles the temporal span covered by the STM buffer (1&nbsp;s&nbsp;$\to$&nbsp;2&nbsp;s). At 5&nbsp;FPS, STM reaches a <b>91.9% redundancy reduction</b>, exceeding the 72.5% obtained at 10&nbsp;FPS. Crucially, the NoSTM baseline is nearly identical at both rates (0.661 vs 0.645), providing a partial natural control: if the improvement were purely a consequence of the VLM receiving more frames, the NoSTM side would shift too. The observed pattern is consistent with the effect operating through the <em>contents</em> of the memory buffer rather than through per-frame VLM output alone.
+      </p>
+      <figure class="md-card-outlined md-sp-16 md-mt-16" style="overflow:hidden;border-radius:var(--md-shape-md);">
+        <img src="frame-rate.png" alt="Per-activity redundancy reduction comparing 5 FPS and 10 FPS on Toyota Smarthome. Most activities reach full redundancy elimination at 5 FPS." style="width:100%;height:auto;display:block;">
+        <figcaption class="md-body-small" style="padding:16px 0 0;color:var(--md-on-surface-variant);text-align:center;font-style:italic;">
+          <strong>Figure 7. Temporal coverage ablation.</strong> Per-activity redundancy reduction at 5&nbsp;FPS versus 10&nbsp;FPS on Toyota Smarthome. Reducing the frame rate while holding $W=10$ constant doubles the temporal extent spanned by the STM buffer, so this reflects a joint change in sampling density and temporal coverage.
+        </figcaption>
+      </figure>
+      <div class="md-highlight-box md-mt-24">
+        <p class="md-highlight-box__title"><i class="fas fa-compress-arrows-alt"></i> Design Implication</p>
+        <p>For deployment, lower sampling rates -- together with the corresponding wider temporal window -- <em>amplify</em> STM's consolidation benefit and simultaneously reduce GPU load. A disentangled follow-up experiment ($W=10$ at 5&nbsp;FPS vs.\ $W=20$ at 10&nbsp;FPS, both spanning 2&nbsp;s) is needed to separate sampling density from temporal coverage.</p>
+      </div>
+    </section>
+
+    <!-- Scope & Caveats -->
+    <section class="md-section">
+      <h2 class="md-headline-large md-mb-24">Scope and Caveats</h2>
+      <p class="md-body-large">
+        We explicitly scope the empirical contribution to <b>representation efficiency</b> -- measured as keyword redundancy reduction -- and not to downstream activity-classification accuracy. Efficiency and accuracy are separable properties that can diverge; validating that the observed efficiency gains translate into improved classification or novelty-detection performance requires a downstream-task evaluation that we flag as the primary follow-up.
+      </p>
+      <p class="md-body-large">
+        The current baseline processes a single frame while STM processes $W=10$ frames, so the observed differences confound temporal consolidation with information quantity. A matched multi-frame baseline (all $W$ frames processed independently, then aggregated) is the definitive causal test and is identified as the highest-priority next experiment.
+      </p>
+      <div class="md-highlight-box">
+        <p class="md-highlight-box__title"><i class="fas fa-exclamation-circle"></i> Honest Framing</p>
+        <p>This is an exploratory, hypothesis-generating study. We report descriptive statistics on Toyota Smarthome (breadth-first sampling: one video per class across all 29 activity classes) and inferential statistics on the paired RHM design. Sample sizes on RHM subgroups (<i>n</i>&nbsp;=&nbsp;8 continuous, <i>n</i>&nbsp;=&nbsp;6 fine motor) are modest; confirmatory evaluation on larger samples is warranted.</p>
+      </div>
+    </section>
+
+    <!-- Why It Matters -->
+    <section class="md-section">
+      <h2 class="md-headline-large md-mb-24">Why It Matters</h2>
+      <p class="md-body-large">
+        Streaming activity recognition is a foundational capability for autonomous systems deployed in human-centred environments -- healthcare, assisted living, and collaborative robotics. Yet modern VLMs typically process each frame independently, producing repetitive, temporally incoherent outputs that overshadow sustained activities with brief transient events. ARTEMIS advances the field by:
+      </p>
+      <ul>
+        <li>Introducing an <b>architecturally simple, model-agnostic</b> memory wrapper that retrofits temporal coherence onto any frame-level VLM without fine-tuning.</li>
+        <li>Providing empirical evidence that <b>STM benefits are activity-dependent</b>, with sustained (continuous) activities benefiting strongly and transitional activities requiring complementary boundary-detection mechanisms.</li>
+        <li>Identifying a natural bridge to the <b>inferred-structure vs in-context learning</b> framework: STM acts as an ICL-style contextual adaptation that dominates under contextual shifts but must be paired with structural mechanisms when tasks change mid-buffer.</li>
+        <li>Characterising a <b>redundancy-efficiency-accuracy trade-off</b> that reframes how streaming VLM outputs should be evaluated -- efficiency is measurable now; accuracy requires follow-up downstream-task evaluation.</li>
+      </ul>
+      <div class="md-highlight-box md-mt-24">
+        <p class="md-highlight-box__title"><i class="fas fa-hands-helping"></i> Impact</p>
+        <p>ARTEMIS enables memory-augmented VLMs to maintain coherent activity representations across brief interruptions -- a prerequisite for activity-aware dialogue, novelty detection, and safe human-robot interaction in streaming settings.</p>
+      </div>
+    </section>
+
+    <!-- Open Science -->
+    <section class="md-section">
+      <h2 class="md-headline-large md-mb-24">Open Science &amp; Collaboration</h2>
+      <p class="md-body-large">
+        We are committed to open, reproducible research. If you are interested in collaborating, extending the framework, or accessing the experimental data and evaluation scripts, please reach out.
+      </p>
+      <div class="md-social-links" style="justify-content:center;">
+        <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar">
+          <i class="fas fa-graduation-cap"></i>
+        </a>
+        <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID">
+          <i class="fab fa-orcid"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- Download / Access -->
+    <section class="md-section" id="access">
+      <h2 class="md-headline-large md-mb-24">Full Paper &amp; Code</h2>
+      <div style="text-align:center;padding:24px 0;">
+        <a href="#" class="md-btn-filled" onclick="showPaperDialog(event)" style="margin:8px;">
+          <i class="fas fa-download"></i> Download Full Paper
+        </a>
+        <a href="#" class="md-btn-outlined" onclick="showCodeDialog(event)" style="margin:8px;">
+          <i class="fas fa-code"></i> Access Code &amp; Materials
+        </a>
+      </div>
+      <p class="md-body-small" style="text-align:center;color:var(--md-on-surface-variant);margin-top:16px;">
+        <i class="fas fa-info-circle"></i> Under review at <b>Expert Systems with Applications</b> (Elsevier). A preprint, code, and experimental materials will be made available at <a href="https://ghamati.com/stm-vlm/">ghamati.com/stm-vlm/</a> upon acceptance.
+      </p>
+    </section>
+
+  </div>
+</main>
+
+<script>
+  function showPaperDialog(event) {
+    event.preventDefault();
+    alert("The paper is currently under review at Expert Systems with Applications (Elsevier). A preprint will be made available at ghamati.com/stm-vlm/ upon acceptance. For earlier access, please email: k.ghamati@herts.ac.uk");
+  }
+
+  function showCodeDialog(event) {
+    event.preventDefault();
+    alert("The paper is under review. Code and experimental materials will be released at ghamati.com/stm-vlm/ upon acceptance. For earlier access, please email: k.ghamati@herts.ac.uk");
+  }
+
+  // Top app bar scroll elevation
+  window.addEventListener('scroll', function() {
+    document.getElementById('top-bar').classList.toggle('md-scrolled', window.scrollY > 0);
+  });
+</script>
+
+<footer style="background-color:var(--md-inverse-surface);color:var(--md-inverse-on-surface);text-align:center;padding:48px 24px;">
+  <div class="md-container">
+    <p class="md-body-large">&copy; 2025 Khashayar Ghamati. All rights reserved.</p>
+    <p class="md-body-medium" style="opacity:0.8;margin-top:8px;">Advancing AI research for adaptive robotic intelligence</p>
+  </div>
+</footer>
+
+</body>
+</html>
