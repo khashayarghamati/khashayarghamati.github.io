@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+
+  <!-- DNS Prefetch and Preconnect for Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- SEO Meta Tags -->
+  <title>Can Post-Training Adaptation Replace Continual Learning? | ICSR 2026</title>
+  <meta name="description" content="Post-Training Adaptation vs Continual Learning for EEG emotion recognition. Continual In-Context Learning framework with Agent Skills on Claude Haiku 4.5 reveals a context pollution phenomenon that degrades accuracy from 40% to 12%. ICSR 2026 SS03 paper by K. Ghamati & A. Zaraki.">
+  <meta name="keywords" content="post-training adaptation, continual learning, in-context learning, ICL, context pollution, EEG, emotion recognition, Muse EEG, NeuroSense, Claude Haiku, LLM, agent skills, episodic memory, social robotics, affective computing, ARI humanoid, HRI, Khashayar Ghamati, Abolfazl Zaraki, University of Hertfordshire, ICSR 2026, Springer LNCS">
+  <meta name="author" content="Khashayar Ghamati">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Can Post-Training Adaptation Replace Continual Learning? Evidence from EEG Emotion Recognition">
+  <meta property="og:description" content="ICSR 2026 SS03 paper. Continual In-Context Learning with an Agent Skills architecture on a frozen Claude Haiku 4.5. We discover a context pollution phenomenon: accuracy drops from 40% (Zero-Shot) to 12% (Continual ICL), p = 0.002.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ghamati.com/post-training-vs-continual-learning/">
+  <meta property="og:image" content="https://ghamati.com/post-training-vs-continual-learning/architecture-og.png">
+  <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
+  <meta property="og:locale" content="en_GB">
+  <meta property="article:author" content="Khashayar Ghamati">
+  <meta property="article:section" content="Artificial Intelligence">
+  <meta property="article:tag" content="continual learning">
+  <meta property="article:tag" content="post-training adaptation">
+  <meta property="article:tag" content="in-context learning">
+  <meta property="article:tag" content="EEG">
+  <meta property="article:tag" content="social robotics">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Can Post-Training Adaptation Replace Continual Learning? | ICSR 2026">
+  <meta name="twitter:description" content="We find a context pollution phenomenon: accumulating the model's own predictions as ICL context degrades EEG emotion recognition from 40% to 12% accuracy. Accepted at ICSR 2026.">
+  <meta name="twitter:image" content="https://ghamati.com/post-training-vs-continual-learning/architecture-og.png">
+
+  <link rel="canonical" href="https://ghamati.com/post-training-vs-continual-learning/">
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
+  <!-- Material Design 3 Shared CSS -->
+  <link rel="stylesheet" href="/css/material-design.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      "headline": "Can Post-Training Adaptation Replace Continual Learning? Evidence from EEG Emotion Recognition",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Khashayar Ghamati",
+          "affiliation": {
+            "@type": "Organization",
+            "name": "University of Hertfordshire"
+          },
+          "url": "https://ghamati.com",
+          "sameAs": [
+            "https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en",
+            "https://orcid.org/0009-0002-6416-3127"
+          ]
+        },
+        {
+          "@type": "Person",
+          "name": "Abolfazl Zaraki",
+          "affiliation": {
+            "@type": "Organization",
+            "name": "University of Hertfordshire"
+          },
+          "sameAs": [
+            "https://orcid.org/0000-0001-6204-7865"
+          ]
+        }
+      ],
+      "datePublished": "2026",
+      "url": "https://ghamati.com/post-training-vs-continual-learning/",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "PublicationEvent",
+        "name": "International Conference on Social Robotics (ICSR) 2026 - Special Session SS03: Continual Learning and Generative AI in Social Robotics",
+        "startDate": "2026-07-01",
+        "endDate": "2026-07-04",
+        "location": {
+          "@type": "Place",
+          "name": "London, United Kingdom"
+        }
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Springer - Lecture Notes in Computer Science (LNCS)"
+      },
+      "about": [
+        "post-training adaptation",
+        "continual learning",
+        "in-context learning",
+        "context pollution",
+        "EEG emotion recognition",
+        "large language models",
+        "agent skills architecture",
+        "episodic memory",
+        "social robotics",
+        "affective computing"
+      ],
+      "description": "A Continual In-Context Learning framework combining an Agent Skills architecture with episodic memory for EEG-based emotion recognition, using a frozen Claude Haiku 4.5. On the NeuroSense dataset, Zero-Shot achieves 40.0% accuracy, Single-Session ICL 32.0%, and Continual ICL 12.0% (p = 0.002), revealing a context pollution phenomenon where a frozen model's accumulated incorrect predictions create self-reinforcing error cascades.",
+      "keywords": "post-training adaptation, continual learning, in-context learning, context pollution, EEG, emotion recognition, social robotics, Claude Haiku, agent skills",
+      "isAccessibleForFree": true,
+      "creativeWorkStatus": "Accepted for Publication"
+    }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV1K905FF2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HV1K905FF2');
+  </script>
+
+  <style>
+    /* Flat accepted label (no pill background) */
+    .md-hero__status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0;
+      background: transparent;
+      border: none;
+      color: rgba(255,255,255,0.92);
+      font-family: var(--md-font-label);
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+    }
+    .md-hero__status .fas { color: #a7f3d0; }
+
+    /* Article-style typography */
+    .article-lede {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: var(--md-on-surface);
+      margin-bottom: 16px;
+    }
+    .article-lede::first-letter {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 3.6rem;
+      font-weight: 700;
+      float: left;
+      line-height: 0.95;
+      margin: 6px 10px 0 0;
+      color: var(--md-primary);
+    }
+    .article-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--md-primary);
+      color: var(--md-on-primary);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+    .pull-quote {
+      border-left: 4px solid var(--md-primary);
+      padding: 8px 0 8px 20px;
+      margin: 24px 0;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--md-on-surface);
+    }
+    .at-a-glance {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+      padding: 20px 24px;
+      background: var(--md-surface-variant);
+      border-radius: var(--md-shape-md);
+    }
+    .at-a-glance__item {
+      display: flex;
+      flex-direction: column;
+    }
+    .at-a-glance__label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--md-on-surface-variant);
+      margin-bottom: 4px;
+    }
+    .at-a-glance__value {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--md-on-surface);
+    }
+    .md-highlight-box .fas { margin-right: 0.5rem; }
+    .results-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 0.95rem;
+    }
+    .results-table th, .results-table td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--md-outline-variant);
+    }
+    .results-table thead th {
+      background: var(--md-surface-variant);
+      font-weight: 600;
+    }
+    .results-table tbody tr:last-child td { border-bottom: none; }
+    .results-table .num { font-variant-numeric: tabular-nums; }
+    .results-table .best { font-weight: 700; color: var(--md-primary); }
+    .citation-block {
+      background: var(--md-surface-variant);
+      border-radius: var(--md-shape-md);
+      padding: 20px 24px;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+    @media (max-width: 640px) {
+      .results-table { font-size: 0.85rem; }
+      .results-table th, .results-table td { padding: 8px 6px; }
+      .article-lede { font-size: 1.1rem; }
+      .article-lede::first-letter { font-size: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="md-skip-link">Skip to main content</a>
+
+<!-- Top App Bar -->
+<nav class="md-top-app-bar" id="top-bar">
+  <span class="md-top-app-bar__title">Post-Training vs CL</span>
+  <div class="md-top-app-bar__nav">
+    <a href="/"><i class="fas fa-home"></i> Home</a>
+    <a href="#summary"><i class="fas fa-compass"></i> Summary</a>
+    <a href="#question"><i class="fas fa-question-circle"></i> Question</a>
+    <a href="#architecture"><i class="fas fa-sitemap"></i> System</a>
+    <a href="#experiment"><i class="fas fa-vials"></i> Experiment</a>
+    <a href="#results"><i class="fas fa-chart-bar"></i> Results</a>
+    <a href="#pollution"><i class="fas fa-biohazard"></i> Pollution</a>
+    <a href="#discussion"><i class="fas fa-balance-scale"></i> Discussion</a>
+    <a href="#access"><i class="fas fa-download"></i> Paper</a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="md-hero">
+  <h1 class="md-display-medium">Can Post-Training Adaptation Replace Continual Learning? Evidence from EEG Emotion Recognition</h1>
+  <p class="md-hero__subtitle">K. Ghamati &amp; A. Zaraki &bull; ICSR 2026 (SS03) &bull; University of Hertfordshire</p>
+  <div class="md-hero__actions">
+    <span class="md-hero__status"><i class="fas fa-check-circle"></i> Accepted at ICSR 2026 &middot; Special Session SS03</span>
+  </div>
+</header>
+
+<main id="main-content">
+  <div class="md-container md-sp-32">
+
+    <!-- Summary / Lede -->
+    <section class="md-section" id="summary">
+      <div class="md-author-card md-mb-24">
+        <div class="md-author-card__info">
+          <div class="md-author-card__name">Khashayar Ghamati &amp; Abolfazl Zaraki</div>
+          <div class="md-author-card__affiliation">Robotics Research Group, University of Hertfordshire, UK</div>
+          <div class="md-author-card__links">
+            <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+            <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID"><i class="fab fa-orcid"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <p class="article-lede">
+        We tried to give a frozen Large Language Model an episodic memory of a user's brain activity, hoping that accumulating experience across sessions would let it recognise their emotions better over time. Instead, accuracy collapsed. This paper investigates why &mdash; and argues that the collapse points to a fundamental, often-missed distinction between <em>continual learning</em> (which updates weights) and <em>post-training adaptation</em> (which does not).
+      </p>
+
+      <div class="at-a-glance">
+        <div class="at-a-glance__item">
+          <span class="at-a-glance__label">Venue</span>
+          <span class="at-a-glance__value">ICSR 2026 (SS03)</span>
+        </div>
+        <div class="at-a-glance__item">
+          <span class="at-a-glance__label">Publisher</span>
+          <span class="at-a-glance__value">Springer LNCS</span>
+        </div>
+        <div class="at-a-glance__item">
+          <span class="at-a-glance__label">Dataset</span>
+          <span class="at-a-glance__value">NeuroSense (4-ch Muse EEG)</span>
+        </div>
+        <div class="at-a-glance__item">
+          <span class="at-a-glance__label">Model</span>
+          <span class="at-a-glance__value">Claude Haiku 4.5 (frozen)</span>
+        </div>
+        <div class="at-a-glance__item">
+          <span class="at-a-glance__label">Task</span>
+          <span class="at-a-glance__value">4-class VAD quadrant</span>
+        </div>
+        <div class="at-a-glance__item">
+          <span class="at-a-glance__label">Finding</span>
+          <span class="at-a-glance__value">40% &rarr; 12% (p = 0.002)</span>
+        </div>
+      </div>
+
+      <p class="md-body-large">
+        The result is both a cautionary empirical finding for builders of adaptive LLM-based HRI systems and a conceptual separator between two ideas the field frequently treats as interchangeable. The sections below walk through the motivating question, the architecture of our <b>Continual In-Context Learning</b> framework, the experimental design, and the context-pollution mechanism that drives the failure &mdash; and what each of these means for deploying adaptive AI on social robots.
+      </p>
+    </section>
+
+    <!-- 1. The Central Question -->
+    <section class="md-section" id="question">
+      <h2 class="md-headline-large md-mb-24"><span class="article-number">1</span>The Central Question</h2>
+
+      <p class="md-body-large">
+        Emotion recognition from physiological signals is a foundational capability for socially intelligent robots. EEG provides a direct, non-invasive measure of neural activity through spectral power distributions and hemispheric asymmetries, and consumer-grade headbands such as the Muse have made brain-computer interfaces accessible for everyday HRI. In our earlier <a href="/pllm/" style="color:var(--md-primary);font-weight:500;">Personalised LLM (PLLM) framework</a>, we showed that a pre-trained LLM can interpret EEG spectral features and classify emotional state when prompted with a prior session's results &mdash; but that work only held one session in memory, used static prompt engineering, and carried all of its reasoning through a single monolithic prompt.
+      </p>
+      <p class="md-body-large">
+        Two limitations followed naturally. First, a single-session context discards the longitudinal information that makes personalisation meaningful: a user's neural signature for &ldquo;calm&rdquo; is a property of many sessions, not one. Second, a monolithic prompt blurs distinct reasoning steps (signal quality assessment, classification, memory consolidation) that really ought to be addressed by specialised components. These limitations sit at the heart of a broader question currently unresolved in the social-robotics and LLM communities:
+      </p>
+      <p class="pull-quote">
+        Can post-training adaptation &mdash; manipulating only the context of a frozen model &mdash; substitute for parameter-level continual learning in practical deployment?
+      </p>
+      <p class="md-body-large">
+        The appeal of saying &ldquo;yes&rdquo; is obvious: no gradient computation, no training infrastructure, immediate applicability to any hosted LLM. The worry is equally clear: without parameter updates, the model cannot truly <i>learn</i> from its experience &mdash; it can only <i>see more</i> of it. Whether &ldquo;seeing more&rdquo; is enough is an empirical question, and this paper answers it with a controlled comparison on a task where the ground truth is slippery enough for any optimistic assumption to break.
+      </p>
+    </section>
+
+    <!-- 2. Two Paradigms Often Conflated -->
+    <section class="md-section" id="paradigms">
+      <h2 class="md-headline-large md-mb-24"><span class="article-number">2</span>Two Paradigms, Often Conflated</h2>
+
+      <p class="md-body-large">
+        Before describing the system, it helps to pin down the two paradigms we are comparing. <b>Continual learning</b> modifies a model's internal parameters in response to new experience. When a continual learner encounters a new user's EEG patterns, gradient-based updates adjust its weights so that subsequent predictions draw on genuinely updated representations. The canonical difficulty is <i>catastrophic forgetting</i>: learning new patterns can overwrite previously encoded knowledge. Mitigations such as Elastic Weight Consolidation and experience replay are well-studied; when continual learning works, improvement is robust because parameters have been shaped by ground-truth signals.
+      </p>
+      <p class="md-body-large">
+        <b>Post-training adaptation</b> is a structurally different thing. Parameters stay frozen; all adaptation happens through the input context at inference time. In-context learning (ICL), chain-of-thought prompting, and tool-augmented agents all fall under this umbrella. The attractive consequence is that any capable pre-trained LLM becomes usable on new tasks without retraining. The subtle cost is that the model has no mechanism to <i>verify</i> that its own accumulated context is reliable: unless an external signal intervenes, the model treats its earlier outputs with the same authority as the neuroscientific guidelines baked into the system prompt. This distinction sounds philosophical; in our experiments, it becomes sharply empirical.
+      </p>
+
+      <div class="md-highlight-box">
+        <p class="md-highlight-box__title"><i class="fas fa-compass"></i> Working Definitions</p>
+        <p><b>Continual learning.</b> Parameter-level updates from new experience. Challenge: catastrophic forgetting. Guarantee: correct patterns can be encoded into the network when supervision is available.</p>
+        <p style="margin-top:8px;"><b>Post-training adaptation.</b> Behaviour changes purely through input context; parameters never move. Challenge: no intrinsic mechanism to detect unreliable context. Guarantee: none &mdash; context quality must be managed externally.</p>
+      </div>
+    </section>
+
+    <!-- 3. System Architecture -->
+    <section class="md-section" id="architecture">
+      <h2 class="md-headline-large md-mb-24"><span class="article-number">3</span>System Architecture</h2>
+
+      <p class="md-body-large">
+        To test post-training adaptation in its strongest continual form, we designed a framework that deliberately isolates context manipulation as the sole mechanism of adaptation. Anthropic's <b>Claude Haiku 4.5</b> acts as the reasoning backbone with frozen parameters throughout every experiment. Any change in classification behaviour across conditions is therefore attributable solely to what enters the context window &mdash; not to weight updates. The system is organised into four layers (Fig. 1): a Data Layer, a Skills Layer, a Memory Layer, and a Pipeline Layer that orchestrates the three.
+      </p>
+
+      <div class="md-card-outlined md-sp-24 md-mt-16" style="overflow:hidden;border-radius:var(--md-shape-md);">
+        <img src="architecture.svg"
+             alt="Four-layer architecture: Data Layer (BIDS EEG loader, Welch features, natural-language representation), Skills Layer (EEG Analysis, Emotion Classifier, Memory Consolidation on Claude), Memory Layer (episodic memory store and knowledge consolidator), and Pipeline Layer (three experimental conditions)."
+             loading="lazy"
+             style="width:100%;height:auto;display:block;border-radius:var(--md-shape-md);">
+        <p class="md-body-small" style="padding:16px 0 0;color:var(--md-on-surface-variant);text-align:center;font-style:italic;"><strong>Figure 1.</strong> Four-layer architecture. EEG data are converted to spectral features and text, then processed by three LLM skills orchestrated under three experimental conditions. The model's parameters are frozen throughout.</p>
+      </div>
+
+      <h3 class="md-title-large md-mb-16 md-mt-32">3.1 Data Layer &mdash; From Raw EEG to Natural Language</h3>
+      <p class="md-body-large">
+        The Data Layer handles loading of 4-channel Muse EEG (AF7, TP9, TP10, AF8 at 256 Hz) from BIDS-format datasets. Using Welch's method with 2-s Hann windows and 50% overlap, we compute absolute band powers for delta (0.5&ndash;4 Hz), theta (4&ndash;8 Hz), alpha (8&ndash;13 Hz), beta (13&ndash;30 Hz), and gamma (30&ndash;100 Hz) by trapezoidal integration of the power spectral density, along with relative band powers normalised by total power per channel. Frontal asymmetry is computed as FAI = ln(P<sub>AF8</sub>) &minus; ln(P<sub>AF7</sub>) per band, where positive values indicate greater right-frontal activation associated with withdrawal motivation and negative valence. Time-domain statistics (mean and standard deviation of amplitude per channel) round out the feature set.
+      </p>
+      <p class="md-body-large">
+        Critically, these features are then converted into a structured natural-language representation of roughly 1,900 characters that includes interpretive labels (for example, &ldquo;alpha: 12.5% of total &mdash; moderate&rdquo;). This linguistic encoding is the bridge that makes post-training adaptation possible at all: rather than fine-tuning the model on raw EEG tensors, we translate the signal into the domain where a frozen LLM's pre-trained reasoning capabilities can be applied directly. It is also the layer at which the model's biases become visible: the Muse's characteristic delta dominance under movement artefacts is carried through to the text the model reads, and the prompt must explicitly instruct the model to discount it.
+      </p>
+
+      <h3 class="md-title-large md-mb-16 md-mt-32">3.2 Skills Layer &mdash; Three Specialised LLM Skills</h3>
+      <p class="md-body-large">
+        We decompose the reasoning into three composable skills, each implementing a common <code>Skill</code> interface and producing JSON-schema-validated output:
+      </p>
+
+      <div class="md-method-grid">
+        <div class="md-method-card">
+          <div class="md-method-card__icon"><i class="fas fa-heart"></i></div>
+          <div class="md-method-card__title">Emotion Classifier</div>
+          <div class="md-method-card__body">Receives EEG features, stimulus information, and optional participant history. Returns a structured classification: the VAD quadrant (HAHV, HALV, LAHV, LALV), continuous valence and arousal in [&minus;1, 1], a confidence estimate, and natural-language reasoning. Its prompt includes neuroscientific guidelines, Muse-specific calibration advice, and the quadrant boundary definitions.</div>
+        </div>
+        <div class="md-method-card">
+          <div class="md-method-card__icon"><i class="fas fa-wave-square"></i></div>
+          <div class="md-method-card__title">EEG Analysis</div>
+          <div class="md-method-card__body">Provides signal-level interpretation: dominant frequency band, inferred cognitive state, artefact detection, and a quality score. Its output can inform the classifier's downstream reasoning when signal quality is a concern.</div>
+        </div>
+        <div class="md-method-card">
+          <div class="md-method-card__icon"><i class="fas fa-layer-group"></i></div>
+          <div class="md-method-card__title">Memory Consolidation</div>
+          <div class="md-method-card__body">Compresses multiple episodic memories into a concise participant profile &mdash; an emotional-tendency distribution, recurring patterns, and key observations &mdash; so that longitudinal context fits within a finite context window.</div>
+        </div>
+      </div>
+
+      <h3 class="md-title-large md-mb-16 md-mt-32">3.3 Memory Layer &mdash; Episodic Store and Consolidation</h3>
+      <p class="md-body-large">
+        The Memory Layer maintains per-participant JSON <code>ParticipantMemory</code> objects containing a list of <code>EpisodeEntry</code> records (session ID, classified emotion, confidence, features summary, reasoning, stimulus), a running emotional-profile distribution, and a consolidated summary. Memory is formatted back into natural language and injected into the classification prompt, including the consolidated summary and the most recent episodes. Every 5 sessions, the Memory Consolidation Skill runs: it compresses the accumulated episodes into a new summary, preventing context overflow and (in principle) lifting recurring longitudinal patterns into a compact form the classifier can reason over.
+      </p>
+
+      <h3 class="md-title-large md-mb-16 md-mt-32">3.4 Pipeline Layer &mdash; The Experimental Conditions</h3>
+      <p class="md-body-large">
+        Finally, the Pipeline Layer defines how skills and memory interact under each experimental condition. By varying only the context given to the frozen classifier &mdash; none, one prior session, or the full consolidated history &mdash; we obtain a clean experimental handle on post-training adaptation as a replacement for continual learning.
+      </p>
+
+      <div class="md-highlight-box md-mt-16">
+        <p class="md-highlight-box__title"><i class="fas fa-snowflake"></i> Frozen by Design</p>
+        <p>At no point are the LLM's parameters updated. All three conditions share identical pre-trained weights and differ only in context. This makes context the sole independent variable in the experiment &mdash; the cleanest possible empirical test of context-only adaptation.</p>
+      </div>
+    </section>
+
+    <!-- 4. Experimental Design -->
+    <section class="md-section" id="experiment">
+      <h2 class="md-headline-large md-mb-24"><span class="article-number">4</span>Experimental Design</h2>
+
+      <h3 class="md-title-large md-mb-16">4.1 Dataset</h3>
+      <p class="md-body-large">
+        We use the <b>NeuroSense</b> dataset, a publicly available EEG corpus for emotion recognition. It comprises 30 university students (16 male, 14 female, aged 18&ndash;35), each completing 40 sessions in which they listen to a music stimulus. Two sessions are corrupted and excluded. EEG is acquired using the Muse consumer headband with 4 channels (AF7, TP9, TP10, AF8) at 256 Hz. Each stimulus carries crowd-sourced valence and arousal ratings on a 1&ndash;9 scale, mapped to VAD quadrants around a 5.0 midpoint; the dataset is approximately balanced across HAHV (299), HALV (300), LAHV (299), and LALV (300).
+      </p>
+
+      <h3 class="md-title-large md-mb-16 md-mt-32">4.2 Three Conditions</h3>
+      <div class="md-method-grid">
+        <div class="md-method-card">
+          <div class="md-method-card__icon"><i class="fas fa-eye"></i></div>
+          <div class="md-method-card__title">A &mdash; Zero-Shot</div>
+          <div class="md-method-card__body">No participant context. Each session is classified independently using only EEG features plus neuroscientific guidelines. Tests the frozen model's raw biosignal reasoning capability.</div>
+        </div>
+        <div class="md-method-card">
+          <div class="md-method-card__icon"><i class="fas fa-history"></i></div>
+          <div class="md-method-card__title">B &mdash; Single-Session ICL</div>
+          <div class="md-method-card__body">Only the immediately preceding session's classification (quadrant, confidence, reasoning) is provided as context. Replicates the prior PLLM approach with minimal post-training memory.</div>
+        </div>
+        <div class="md-method-card">
+          <div class="md-method-card__icon"><i class="fas fa-infinity"></i></div>
+          <div class="md-method-card__title">C &mdash; Continual ICL</div>
+          <div class="md-method-card__body">Full episodic memory with periodic consolidation &mdash; the classifier receives the consolidated profile and recent episode history. The post-training analogue of continual learning.</div>
+        </div>
+      </div>
+      <p class="md-body-large md-mt-24">
+        For all three conditions the first 5 sessions per participant build context and the remaining sessions are used for evaluation (n = 50 evaluation sessions across 10 participants). Chance level on the 4-class quadrant task is 25%.
+      </p>
+
+      <h3 class="md-title-large md-mb-16 md-mt-32">4.3 Metrics</h3>
+      <p class="md-body-large">
+        We report accuracy, F1 score (macro and weighted), Cohen's &kappa;, and Matthews Correlation Coefficient (MCC) with 95% bootstrap confidence intervals (n = 10,000 resamples), plus per-class F1 for each VAD quadrant. Statistical comparison uses <b>McNemar's test</b> for paired classifier comparison and the <b>Wilcoxon signed-rank test</b> for per-participant accuracy differences. We additionally compute continual-learning metrics &mdash; retention rate and forward transfer &mdash; to make the comparison to the continual-learning literature direct.
+      </p>
+    </section>
+
+    <!-- 5. Results -->
+    <section class="md-section" id="results">
+      <h2 class="md-headline-large md-mb-24"><span class="article-number">5</span>Results</h2>
+
+      <div class="md-stat-row md-mt-16">
+        <div class="md-stat-badge">
+          <div class="md-stat-badge__value">40.0%</div>
+          <div class="md-stat-badge__label">Zero-Shot Accuracy</div>
+        </div>
+        <div class="md-stat-badge">
+          <div class="md-stat-badge__value">32.0%</div>
+          <div class="md-stat-badge__label">Single-Session ICL</div>
+        </div>
+        <div class="md-stat-badge">
+          <div class="md-stat-badge__value">12.0%</div>
+          <div class="md-stat-badge__label">Continual ICL</div>
+        </div>
+        <div class="md-stat-badge">
+          <div class="md-stat-badge__value">p = 0.002</div>
+          <div class="md-stat-badge__label">McNemar (Zero-Shot vs Continual ICL)</div>
+        </div>
+      </div>
+
+      <h3 class="md-title-large md-mb-16 md-mt-32">5.1 LLMs as Biosignal Reasoners (Zero-Shot)</h3>
+      <p class="md-body-large">
+        The Zero-Shot condition &mdash; in which the LLM receives no participant-specific context whatsoever &mdash; achieves <b>40.0% accuracy</b> on this 4-class task, substantially above the 25% chance level. This demonstrates that a frozen LLM can meaningfully interpret EEG spectral features when given appropriate neuroscientific guidelines through prompt engineering: the model leverages frontal asymmetry patterns, relative band power distributions, and stimulus context to make above-chance classifications. This extends our prior PLLM work to a more rigorous comparative evaluation and establishes an important baseline: the frozen model possesses genuine &mdash; if limited &mdash; biosignal reasoning capabilities. The question is then whether post-training context accumulation can build on that foundation.
+      </p>
+
+      <div class="md-card-outlined md-sp-24 md-mt-24">
+        <h4 class="md-title-medium md-mb-16">Table 1. Classification performance across conditions (4-class, chance = 25%).</h4>
+        <div style="overflow-x:auto;">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>Condition</th>
+                <th class="num">Accuracy</th>
+                <th class="num">95% CI</th>
+                <th class="num">F1 Macro</th>
+                <th class="num">&kappa;</th>
+                <th class="num">MCC</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>Zero-Shot</b></td>
+                <td class="num best">0.400</td>
+                <td class="num">[0.260, 0.540]</td>
+                <td class="num best">0.263</td>
+                <td class="num best">0.194</td>
+                <td class="num best">0.241</td>
+              </tr>
+              <tr>
+                <td>Single-Session ICL</td>
+                <td class="num">0.320</td>
+                <td class="num">[0.200, 0.440]</td>
+                <td class="num">0.205</td>
+                <td class="num">0.096</td>
+                <td class="num">0.122</td>
+              </tr>
+              <tr>
+                <td>Continual ICL</td>
+                <td class="num">0.120</td>
+                <td class="num">[0.040, 0.220]</td>
+                <td class="num">0.105</td>
+                <td class="num">0.043</td>
+                <td class="num">0.073</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="md-body-small" style="margin-top:12px;color:var(--md-on-surface-variant);">Best values in bold. 95% CIs via bootstrap (n = 10,000). McNemar (Zero-Shot vs Continual ICL): &chi;&sup2; = 9.39, <i>p</i> = 0.002.</p>
+      </div>
+
+      <h3 class="md-title-large md-mb-16 md-mt-32">5.2 Per-Class Performance</h3>
+      <p class="md-body-large">
+        Per-class analysis exposes an uneven competence. All three conditions score F1 = 0 on the high-arousal quadrants (HAHV, HALV); correct predictions concentrate entirely in the low-arousal quadrants. This systematic failure on high-arousal classes is attributable to the Muse headband's characteristic delta dominance &mdash; movement artefacts inflate delta band power to 47&ndash;66% of total power, and the prompt must explicitly instruct the model to discount this dominance rather than interpret it as a marker of low arousal. The model evidently learns to recognise this low-arousal signature but struggles to distinguish genuine high arousal (beta/gamma spikes) from artefactual noise.
+      </p>
+
+      <div class="md-card-outlined md-sp-24 md-mt-16">
+        <h4 class="md-title-medium md-mb-16">Table 2. Per-class F1 for each VAD quadrant.</h4>
+        <div style="overflow-x:auto;">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>Condition</th>
+                <th class="num">HAHV</th>
+                <th class="num">HALV</th>
+                <th class="num">LAHV</th>
+                <th class="num">LALV</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><b>Zero-Shot</b></td><td class="num best">0.000</td><td class="num best">0.000</td><td class="num best">0.524</td><td class="num best">0.529</td></tr>
+              <tr><td>Single-Session ICL</td><td class="num">0.000</td><td class="num">0.000</td><td class="num">0.522</td><td class="num">0.296</td></tr>
+              <tr><td>Continual ICL</td><td class="num">0.000</td><td class="num">0.000</td><td class="num">0.125</td><td class="num">0.296</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h3 class="md-title-large md-mb-16 md-mt-32">5.3 Per-Participant Variation</h3>
+      <p class="md-body-large">
+        Per-participant analysis reveals substantial individual variation, with Zero-Shot accuracy ranging from 0% to 80% across participants. This spread reflects differences in EEG signal quality driven by electrode-skin impedance variability, the distinctiveness of each participant's neural emotional signatures, and the specific composition of quadrant labels within each participant's evaluation sessions &mdash; a finding consistent with traditional EEG-based emotion recognition literature. Participants for whom Zero-Shot performs well tend to have clearer spectral differentiation between emotional states, while those with noisier or more ambiguous signals approach chance-level performance regardless of condition.
+      </p>
+    </section>
+
+    <!-- 6. Context Pollution -->
+    <section class="md-section" id="pollution">
+      <h2 class="md-headline-large md-mb-24"><span class="article-number">6</span>Context Pollution: When Memory Hurts</h2>
+
+      <p class="md-body-large">
+        The most counter-intuitive finding &mdash; and the one that makes this paper interesting &mdash; is that <b>both ICL conditions perform below the zero-shot baseline</b>. Single-Session ICL drops to 32.0% and Continual ICL falls to just 12.0%, below the 25% chance level. McNemar's test confirms that the Zero-Shot vs.\ Continual ICL difference is statistically significant (&chi;&sup2; = 9.39, <i>p</i> = 0.002), while the Zero-Shot vs.\ Single-Session ICL difference is not (<i>p</i> = 0.502). The Wilcoxon signed-rank test on per-participant accuracies yields a borderline <i>p</i> = 0.055 for Zero-Shot vs.\ Continual ICL, consistent with the limited statistical power of 10 participants.
+      </p>
+
+      <p class="pull-quote">
+        The model's own incorrect early classifications, fed back as context, create a self-reinforcing error cascade.
+      </p>
+
+      <h3 class="md-title-large md-mb-16 md-mt-16">6.1 The Mechanism, Step by Step</h3>
+      <p class="md-body-large">
+        We term this failure mode <b>context pollution</b>. It unfolds in four steps. <b>First</b>, during the context-building phase (sessions 1&ndash;5), the model classifies each session using only EEG features &mdash; and, given the inherent difficulty of consumer-grade EEG interpretation, frequently gets them wrong. <b>Second</b>, these predictions, together with their erroneous reasoning, are stored in the episodic memory and injected into prompts for subsequent classifications. <b>Third</b>, the model anchors on this accumulated context, interpreting new EEG data through the lens of prior (wrong) conclusions rather than reasoning independently from the features. <b>Fourth</b>, because nothing in the loop verifies whether the accumulated context is correct, errors compound with each new session.
+      </p>
+
+      <h3 class="md-title-large md-mb-16 md-mt-32">6.2 The Locked-In Prediction Phenomenon</h3>
+      <p class="md-body-large">
+        The compounding effect is most visible in the raw outputs. For <b>8 out of 10 participants</b> under Continual ICL, the model locks onto a single quadrant (HALV for 6 participants, HAHV for 2) and repeats it for all 5 evaluation sessions, regardless of the true label. This is not a subtle bias &mdash; it is a collapse of the prediction distribution. Where Zero-Shot's predictions spread broadly across the four quadrants, Continual ICL's confusion matrix concentrates almost entirely onto HALV and HAHV, producing near-zero recall for the actually-correct LAHV and LALV labels.
+      </p>
+
+      <h3 class="md-title-large md-mb-16 md-mt-32">6.3 The Learning Curve</h3>
+      <p class="md-body-large">
+        The dynamics are also visible over time. Zero-Shot maintains a stable trajectory &mdash; rising to ~50% midway before settling at 40% &mdash; because the absence of context accumulation preserves the model's independent reasoning on each session. Single-Session ICL starts at 0% over the first 5 evaluations (inheriting errors from the context-building phase) and gradually recovers to 23&ndash;34% as its single-session memory is periodically &ldquo;reset&rdquo; whenever a correct classification happens to land. Continual ICL remains at <b>0% for the first 20 evaluation sessions</b> &mdash; spanning four participants &mdash; before a modest, coincidental recovery when one participant's locked-in prediction happens to align with their true labels. The recovery is not learning; it is alignment by chance.
+      </p>
+
+      <h3 class="md-title-large md-mb-16 md-mt-32">6.4 Can Confidence Gating Save It?</h3>
+      <p class="md-body-large">
+        If frozen parameters are the root cause, an obvious mitigation within the paradigm is to be selective about what enters the context. We implemented a confidence-gating mechanism that stores only episodes with self-reported classification confidence &ge; 0.50 in the episodic memory. The improvement was marginal: Cohen's &kappa; moved from &minus;0.038 to 0.043 and F1 from 0.090 to 0.105. The reason is straightforward: LLM self-reported confidence does not reliably predict classification correctness on this out-of-distribution task. The model is frequently &ldquo;confidently wrong&rdquo;, so gating selectively retains exactly the most harmful episodes. This parallels well-documented calibration challenges in LLM uncertainty estimation and underscores the deeper issue: a frozen model lacks the internal feedback loop necessary to calibrate its own uncertainty on tasks far from its pre-training distribution.
+      </p>
+
+      <div class="md-highlight-box md-mt-16">
+        <p class="md-highlight-box__title"><i class="fas fa-exclamation-triangle"></i> The Structural Vulnerability</p>
+        <p>Unlike supervised fine-tuning &mdash; where ground-truth labels guide adaptation &mdash; ICL relies on the model's own outputs as future context. This makes it structurally vulnerable to error propagation. The severity of degradation scales with context volume: Single-Session ICL, which retains only the most recent session, drops 8 points; Continual ICL, which accumulates all prior sessions, drops 28 points. Approaches that incorporate external validation &mdash; probabilistic novelty detection with ground-truth task labels, or memory-driven HAR with supervised model outputs &mdash; achieve positive transfer precisely because their accumulated context is <i>reliable</i>.</p>
+      </div>
+    </section>
+
+    <!-- 7. Discussion -->
+    <section class="md-section" id="discussion">
+      <h2 class="md-headline-large md-mb-24"><span class="article-number">7</span>Post-Training Adaptation vs Continual Learning</h2>
+
+      <p class="md-body-large">
+        Our results give empirical shape to a distinction often collapsed in conversation. Continual learning and post-training adaptation are frequently discussed as though they address the same problem &mdash; enabling a model to improve over time. They are, however, two fundamentally distinct paradigms with different mechanisms, different guarantees, and different failure modes.
+      </p>
+      <p class="md-body-large">
+        Continual learning, in the classical sense, modifies the model's internal parameters in response to new experiences. When it works, the improvement is robust: the network's weights have been shaped by ground-truth signals, and correct patterns are encoded into its structure. Catastrophic forgetting is the well-known hazard &mdash; one the community has studied carefully and for which there are principled mitigations.
+      </p>
+      <p class="md-body-large">
+        Post-training adaptation operates on a pre-trained model whose parameters remain entirely frozen. In our framework, Claude Haiku 4.5 &mdash; trained on vast text corpora but never exposed to EEG signals during training &mdash; is asked to classify emotions using only the information in its input context. &ldquo;Adaptation&rdquo; means injecting summaries, profiles, and consolidated memories into the prompt. The model's weights never change; only its input changes. This is a fundamentally different form of adaptation because the model cannot actually learn from its mistakes. When it misclassifies a session, the error becomes part of the context for future sessions, but the model has no mechanism to recognise that context as unreliable &mdash; it treats its own earlier outputs with the same authority as the guidelines in the prompt template.
+      </p>
+      <p class="pull-quote">
+        A continual learning system, given ground-truth labels, corrects its representations. Our post-training system has no such corrective channel &mdash; only more context.
+      </p>
+      <p class="md-body-large">
+        The context-pollution phenomenon &mdash; accuracy dropping from 40% to 12% as more context accumulates &mdash; is a direct empirical consequence of this structural asymmetry. The locked-in prediction phenomenon is its pathological endpoint. Neither is an implementation detail; both follow from the choice to adapt through context alone. This reframing also suggests why some post-training systems succeed: supervised fine-tuning works because labels are external; probabilistic novelty detection with task-label ground truth works because memory is curated by a reliable signal; memory-driven HAR pipelines with supervised outputs work because the context is correct by construction. When reliability is absent, accumulation becomes poison.
+      </p>
+    </section>
+
+    <!-- 8. Implications for Social Robotics -->
+    <section class="md-section" id="implications">
+      <h2 class="md-headline-large md-mb-24"><span class="article-number">8</span>Implications for Social Robotics</h2>
+
+      <p class="md-body-large">
+        Social robots are precisely the class of system where this distinction matters most. They must adapt to individual users over long horizons, often without labelled supervision. A roboticist who reads the literature and concludes &ldquo;I'll just use an LLM with memory&rdquo; will likely ship a system whose accuracy declines with usage &mdash; the inverse of what users expect from a personalising device. Our findings suggest four practical takeaways:
+      </p>
+      <ul>
+        <li><b>Do not treat &ldquo;add memory&rdquo; as free.</b> The improvement you expect will not appear automatically. Context accumulation is a liability unless something in the loop validates what gets written.</li>
+        <li><b>Engineer feedback, not just memory.</b> In deployed HRI, the robot can solicit explicit user feedback (&ldquo;are you feeling energised or calm?&rdquo;) and use it to gate memory writes. This converts unsupervised ICL into supervised post-training adaptation without touching parameters.</li>
+        <li><b>Prefer hybrid architectures for long-horizon personalisation.</b> Parameter-efficient fine-tuning (e.g., LoRA adapters) provides the reliability of continual learning; in-context memory provides the responsiveness and cheapness of post-training. Combining them is where we think the next generation of personalising HRI systems lives.</li>
+        <li><b>Measure the right thing.</b> Reporting accuracy at a single snapshot hides context pollution. Report per-session accuracy over time and the distribution of predictions &mdash; a collapsing prediction distribution is often a more honest failure signal than mean accuracy.</li>
+      </ul>
+    </section>
+
+    <!-- 9. Limitations & Future Work -->
+    <section class="md-section" id="limitations">
+      <h2 class="md-headline-large md-mb-24"><span class="article-number">9</span>Limitations &amp; Future Directions</h2>
+
+      <p class="md-body-large">
+        Several limitations should temper the conclusions. The sample size of 10 participants with 5 evaluation sessions each (n = 50) limits statistical power; the 95% confidence intervals on accuracy span approximately 28 percentage points, and the Wilcoxon test for Zero-Shot vs. Continual ICL is borderline (<i>p</i> = 0.055). Ground-truth labels are crowd-sourced stimulus ratings rather than direct emotional measurements, imposing a ceiling that affects all conditions equally. Inference latency of 25&ndash;60 seconds per classification limits real-time HRI applicability, though faster models or batched processing could mitigate this. And EEG-based emotion recognition in social robotics raises ethical considerations around privacy and consent; our system processes extracted spectral features rather than raw signals, which provides a degree of data minimisation but is not a substitute for explicit consent frameworks.
+      </p>
+      <p class="md-body-large">
+        Future work will bridge the two paradigms. <b>Human-in-the-loop feedback</b> to provide ground-truth signals for post-training context curation is the most immediate direction; early prototypes suggest it converts context pollution from a structural vulnerability to a tractable engineering problem. <b>Multi-modal integration</b> &mdash; combining EEG with facial expression and speech prosody &mdash; should improve prediction reliability before context storage, reducing the rate at which errors enter memory in the first place. <b>Real-time deployment</b> on social robots such as the <a href="/rlbam/" style="color:var(--md-primary);font-weight:500;">ARI humanoid platform</a> will force the latency-accuracy trade-off into the design. And <b>hybrid architectures</b> &mdash; LoRA adapters paired with in-context memory &mdash; offer a path to the reliability of continual learning with the practicality of post-training adaptation.
+      </p>
+    </section>
+
+    <!-- Citation -->
+    <section class="md-section" id="cite">
+      <h2 class="md-headline-large md-mb-24">How to Cite</h2>
+      <p class="md-body-large">Please use the following BibTeX entry once the proceedings are available:</p>
+      <div class="citation-block">@inproceedings{ghamati2026posttraining,
+  title     = {Can Post-Training Adaptation Replace Continual Learning? Evidence from EEG Emotion Recognition},
+  author    = {Ghamati, Khashayar and Zaraki, Abolfazl},
+  booktitle = {International Conference on Social Robotics (ICSR) 2026,
+               Special Session SS03: Continual Learning and Generative AI
+               in Social Robotics},
+  year      = {2026},
+  publisher = {Springer, Lecture Notes in Computer Science}
+}</div>
+    </section>
+
+    <!-- Open Science -->
+    <section class="md-section">
+      <h2 class="md-headline-large md-mb-24">Open Science &amp; Collaboration</h2>
+      <p class="md-body-large">
+        This work was conducted within the <a href="/icsr-2026/" style="color:var(--md-primary);font-weight:500;">ICSR 2026 Special Session SS03 (Continual Learning and Generative AI in Social Robotics)</a>. If you are interested in extending the framework, running comparisons, or accessing the experimental code upon publication, please get in touch.
+      </p>
+      <div class="md-social-links" style="justify-content:center;">
+        <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar">
+          <i class="fas fa-graduation-cap"></i>
+        </a>
+        <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID">
+          <i class="fab fa-orcid"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- Download / Access -->
+    <section class="md-section" id="access">
+      <h2 class="md-headline-large md-mb-24">Full Paper &amp; Code</h2>
+      <div style="text-align:center;padding:24px 0;">
+        <a href="#" class="md-btn-filled" onclick="showPaperDialog(event)" style="margin:8px;">
+          <i class="fas fa-download"></i> Download Full Paper
+        </a>
+        <a href="#" class="md-btn-outlined" onclick="showCodeDialog(event)" style="margin:8px;">
+          <i class="fas fa-code"></i> View Code
+        </a>
+      </div>
+      <p class="md-body-small" style="text-align:center;color:var(--md-on-surface-variant);margin-top:16px;">
+        <i class="fas fa-info-circle"></i> Accepted at ICSR 2026 (SS03). The camera-ready paper and code will be made available upon publication in the Springer LNCS proceedings.
+      </p>
+    </section>
+
+  </div>
+</main>
+
+<script>
+  function showPaperDialog(event) {
+    event.preventDefault();
+    alert("This paper has been accepted at ICSR 2026 (Special Session SS03). The camera-ready manuscript will be available in the Springer LNCS proceedings. For early access or inquiries, please contact: k.ghamati@herts.ac.uk");
+  }
+
+  function showCodeDialog(event) {
+    event.preventDefault();
+    alert("To access the source code and experimental materials, please email us at: k.ghamati@herts.ac.uk");
+  }
+
+  // Top app bar scroll elevation
+  window.addEventListener('scroll', function() {
+    document.getElementById('top-bar').classList.toggle('md-scrolled', window.scrollY > 0);
+  }, { passive: true });
+</script>
+
+<footer style="background-color:var(--md-inverse-surface);color:var(--md-inverse-on-surface);text-align:center;padding:48px 24px;">
+  <div class="md-container">
+    <p class="md-body-large">&copy; 2026 Khashayar Ghamati. All rights reserved.</p>
+    <p class="md-body-medium" style="opacity:0.8;margin-top:8px;">Advancing AI research for adaptive robotic intelligence</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -63,4 +63,10 @@
         <changefreq>monthly</changefreq>
         <lastmod>2026-02-26</lastmod>
     </url>
+    <url>
+        <loc>https://ghamati.com/post-training-vs-continual-learning/</loc>
+        <priority>0.9</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-04-23</lastmod>
+    </url>
 </urlset>
