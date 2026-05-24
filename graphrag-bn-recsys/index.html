@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+
+  <!-- DNS Prefetch and Preconnect for Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- SEO Meta Tags -->
+  <title>LLM-Augmented GraphRAG and Bayesian Networks for Cold-Start-Resilient Market Basket Recommendation</title>
+  <meta name="description" content="LLM-augmented GraphRAG with a GPT-4 cold start handler vs Bayesian network models for market basket recommendation. Ten architectures compared on Instacart (32M order-product records). K. Ghamati, A. Fallahi, M. R. Shahabian Alashti, A. Zaraki.">
+  <meta name="keywords" content="recommender systems, market basket recommendation, cold start problem, GraphRAG, retrieval-augmented generation, Bayesian networks, knowledge graphs, large language models, GPT-4, Instacart, grocery recommendation, cold start handler, popularity fallback, semantic matching, F1@10, Khashayar Ghamati, Ali Fallahi, Mohamad Reza Shahabian Alashti, Abolfazl Zaraki, University of Hertfordshire">
+  <meta name="author" content="Khashayar Ghamati">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="LLM-Augmented GraphRAG and Bayesian Networks for Cold-Start-Resilient Market Basket Recommendation">
+  <meta property="og:description" content="Comparative study of ten recommender architectures under warm and cold start conditions on Instacart. Proposes an LLM-augmented GraphRAG with a GPT-4 cold start handler that restores F1@10 from a 100% collapse to 0.0262.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ghamati.com/graphrag-bn-recsys/">
+  <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
+  <meta property="og:locale" content="en_GB">
+  <meta property="article:author" content="Khashayar Ghamati">
+  <meta property="article:section" content="Artificial Intelligence">
+  <meta property="article:tag" content="recommender systems">
+  <meta property="article:tag" content="GraphRAG">
+  <meta property="article:tag" content="Bayesian networks">
+  <meta property="article:tag" content="cold start">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LLM-Augmented GraphRAG and Bayesian Networks for Cold-Start-Resilient Market Basket Recommendation">
+  <meta name="twitter:description" content="Ten recommender architectures compared on Instacart. LLM-augmented GraphRAG with GPT-4 cold start handler restores recommendation quality when historical data is absent.">
+
+
+  <link rel="canonical" href="https://ghamati.com/graphrag-bn-recsys/">
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
+  <!-- Material Design 3 Shared CSS -->
+  <link rel="stylesheet" href="/css/material-design.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      "headline": "LLM-Augmented GraphRAG and Bayesian Networks for Cold-Start-Resilient Market Basket Recommendation",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Khashayar Ghamati",
+          "affiliation": {
+            "@type": "Organization",
+            "name": "University of Hertfordshire"
+          },
+          "url": "https://ghamati.com",
+          "sameAs": [
+            "https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en",
+            "https://orcid.org/0009-0002-6416-3127"
+          ]
+        },
+        {
+          "@type": "Person",
+          "name": "Ali Fallahi",
+          "affiliation": {
+            "@type": "Organization",
+            "name": "University of Hertfordshire"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Mohamad Reza Shahabian Alashti",
+          "affiliation": {
+            "@type": "Organization",
+            "name": "University of Hertfordshire"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Abolfazl Zaraki",
+          "affiliation": {
+            "@type": "Organization",
+            "name": "University of Hertfordshire"
+          }
+        }
+      ],
+      "datePublished": "2026",
+      "url": "https://ghamati.com/graphrag-bn-recsys/",
+      "inLanguage": "en",
+      "about": [
+        "recommender systems",
+        "market basket recommendation",
+        "cold start problem",
+        "GraphRAG",
+        "retrieval-augmented generation",
+        "Bayesian networks",
+        "knowledge graphs",
+        "large language models",
+        "grocery recommendation"
+      ],
+      "description": "A comparative study of ten recommendation architectures spanning Bayesian network models, GraphRAG systems, and traditional baselines, evaluated under warm and cold start conditions on the Instacart grocery dataset (over 32 million order-product records). Proposes an LLM-augmented GraphRAG architecture with a dedicated GPT-4 cold start handler.",
+      "keywords": "recommender systems, market basket recommendation, cold start, GraphRAG, Bayesian networks, knowledge graphs, large language models, GPT-4, Instacart",
+      "isAccessibleForFree": true,
+      "creativeWorkStatus": "Under Review"
+    }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV1K905FF2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HV1K905FF2');
+  </script>
+
+  <style>
+    .md-highlight-box .fas { margin-right: 0.5rem; }
+    .md-hero__status-text {
+      margin-top: 16px;
+      font-family: var(--md-font-label), sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    .md-hero__status-text .fas { margin-right: 0.5rem; }
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="md-skip-link">Skip to main content</a>
+
+<!-- Top App Bar -->
+<nav class="md-top-app-bar" id="top-bar">
+  <span class="md-top-app-bar__title">GraphRAG &amp; BN Recommender</span>
+  <div class="md-top-app-bar__nav">
+    <a href="/"><i class="fas fa-home"></i> Home</a>
+    <a href="#abstract"><i class="fas fa-file-alt"></i> Abstract</a>
+    <a href="#architectures"><i class="fas fa-project-diagram"></i> Architectures</a>
+    <a href="#results"><i class="fas fa-chart-bar"></i> Results</a>
+    <a href="#access"><i class="fas fa-download"></i> Paper</a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="md-hero">
+  <h1 class="md-display-medium">LLM-Augmented GraphRAG and Bayesian Networks for Cold-Start-Resilient Market Basket Recommendation</h1>
+  <p class="md-hero__subtitle">K. Ghamati, A. Fallahi, M. R. Shahabian Alashti &amp; A. Zaraki &bull; University of Hertfordshire</p>
+  <p class="md-hero__status-text"><i class="fas fa-clock"></i> Under Review</p>
+</header>
+
+<main id="main-content">
+  <div class="md-container md-sp-32">
+
+    <!-- About / Abstract -->
+    <section class="md-section" id="abstract">
+      <h2 class="md-headline-large md-mb-24">About the Paper</h2>
+
+      <div class="md-author-card md-mb-24">
+        <div class="md-author-card__info">
+          <div class="md-author-card__name">Khashayar Ghamati, Ali Fallahi, Mohamad Reza Shahabian Alashti &amp; Abolfazl Zaraki</div>
+          <div class="md-author-card__affiliation">Robotic Research Group, University of Hertfordshire, UK</div>
+          <div class="md-author-card__links">
+            <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+            <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID"><i class="fab fa-orcid"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <p class="md-body-large">
+        Market basket recommendation systems face a persistent challenge known as the <b>cold start problem</b>, in which newly introduced items or users lack the historical interaction data that conventional algorithms depend on. This paper presents a comparative study of <b>ten recommendation architectures</b> spanning three families: Bayesian network models, graph-based retrieval-augmented generation (<b>GraphRAG</b>) systems with varying degrees of knowledge integration, and traditional baselines. All architectures are evaluated under warm and cold start conditions on the <b>Instacart</b> grocery dataset, comprising over <b>32 million order-product records</b>.
+      </p>
+      <p class="md-body-large">
+        We introduce an <b>LLM-augmented GraphRAG</b> architecture employing a dedicated cold start handler that leverages <b>GPT-4 semantic reasoning</b> to maintain recommendation quality when historical data is absent. Experiments on a 500,000-record sample with 2,000 evaluation baskets reveal a nuanced performance landscape, and a final ablation isolates the cold start handler's contribution across structurally distinct deployment scenarios.
+      </p>
+
+      <div class="md-highlight-box">
+        <p class="md-highlight-box__title"><i class="fas fa-lightbulb"></i> Key Insight</p>
+        <p>Graph-based representations provide an inherent buffering effect against cold start degradation that purely probabilistic models lack. When transaction data is absent, external knowledge (via GPT-4 semantic matching or a popularity prior) can bridge the gap and rescue a system from total collapse.</p>
+      </div>
+    </section>
+
+    <!-- Architectures -->
+    <section class="md-section" id="architectures">
+      <h2 class="md-headline-large md-mb-24">Three Families of Architectures</h2>
+      <h3 class="md-title-large md-mb-16">Ten systems, three paradigms, one apples-to-apples comparison</h3>
+
+      <div class="md-method-grid">
+        <div class="md-method-card">
+          <div class="md-method-card__icon"><i class="fas fa-project-diagram"></i></div>
+          <div class="md-method-card__title">Bayesian Network Models</div>
+          <div class="md-method-card__body">Two structural complexities: <b>Bayesian_V1</b> captures pairwise item co-occurrences via conditional probability distributions; <b>Bayesian_V3</b> employs user-based collaborative filtering with temporal priors for personalised recommendations. A hybrid Bayesian-Markov variant (V2) was prototyped but excluded after its O(B<sup>2</sup>) basket-comparison memory exhausted 126&nbsp;GB of RAM at scale.</div>
+        </div>
+        <div class="md-method-card">
+          <div class="md-method-card__icon"><i class="fas fa-network-wired"></i></div>
+          <div class="md-method-card__title">GraphRAG Systems</div>
+          <div class="md-method-card__body">Graph-based retrieval-augmented generation over a product knowledge graph encoding categorical taxonomies, brand hierarchies, nutritional attributes, and semantic similarities. Variants differ in their degree of knowledge integration -- from pure graph retrieval to <b>LLM-augmented</b> reasoning with GPT-4.</div>
+        </div>
+        <div class="md-method-card">
+          <div class="md-method-card__icon"><i class="fas fa-snowflake"></i></div>
+          <div class="md-method-card__title">Cold Start Handler</div>
+          <div class="md-method-card__body">A dedicated module attached to the LLM-augmented GraphRAG. When historical interaction data is absent, it falls back to either <b>popularity priors</b> or <b>GPT-4 semantic matching</b> over the knowledge graph -- rescuing recommendation quality from total collapse.</div>
+        </div>
+        <div class="md-method-card">
+          <div class="md-method-card__icon"><i class="fas fa-balance-scale"></i></div>
+          <div class="md-method-card__title">Traditional Baselines</div>
+          <div class="md-method-card__body">Collaborative filtering and association-rule mining serve as well-understood reference points. Both rely on patterns extracted from historical co-occurrence data and are structurally incapable of handling items or users outside the observed interaction matrix.</div>
+        </div>
+      </div>
+
+      <div class="md-highlight-box">
+        <p class="md-highlight-box__title"><i class="fas fa-flask"></i> Methodological Contribution</p>
+        <p>Rather than benchmarking a single new model, the study systematically maps the warm-vs-cold trade-off space across ten architectures, separating the contribution of <b>graph structure</b>, <b>LLM reasoning</b>, and <b>fallback strategy</b> as independent design dimensions.</p>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="md-section" id="results">
+      <h2 class="md-headline-large md-mb-24">Key Results</h2>
+      <h3 class="md-title-large md-mb-16">Warm performance, cold collapse, and rescue strategies</h3>
+
+      <ul>
+        <li><b>Warm scenario:</b> <b>Bayesian_V3</b> achieves the strongest F1@10 of <b>0.0528</b> among probabilistic models, while <b>GraphRAG_V3</b> leads among graph-based methods at <b>0.0569</b>.</li>
+        <li><b>Cold item scenario (10% product holdout):</b> <b>GraphRAG_V2</b> proves the most resilient, with only <b>12.8% degradation</b>. By contrast, GraphRAG_V3 and GraphRAG_LLM <i>without</i> a cold start handler suffer a complete <b>100% collapse</b>.</li>
+        <li><b>Cold start handler:</b> Restores GraphRAG_LLM to F1@10 = <b>0.0262</b> with the popularity strategy and <b>0.0208</b> with LLM-based semantic matching -- demonstrating that external knowledge can bridge the gap left by absent transaction data.</li>
+        <li><b>Popularity beats semantics in grocery:</b> In this domain, a simple popularity fallback outperforms LLM-based semantic matching as a cold start strategy.</li>
+        <li><b>Statistical significance:</b> Findings confirmed via paired <i>t</i>-tests and bootstrap confidence intervals across 160 cold item evaluation baskets.</li>
+      </ul>
+
+      <div class="md-stat-row md-mt-24">
+        <div class="md-stat-badge">
+          <div class="md-stat-badge__value">0.0569</div>
+          <div class="md-stat-badge__label">GraphRAG_V3 F1@10 (warm)</div>
+        </div>
+        <div class="md-stat-badge">
+          <div class="md-stat-badge__value">12.8%</div>
+          <div class="md-stat-badge__label">GraphRAG_V2 cold degradation</div>
+        </div>
+        <div class="md-stat-badge">
+          <div class="md-stat-badge__value">32M+</div>
+          <div class="md-stat-badge__label">Instacart order-product records</div>
+        </div>
+        <div class="md-stat-badge">
+          <div class="md-stat-badge__value">10</div>
+          <div class="md-stat-badge__label">Architectures compared</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why It Matters -->
+    <section class="md-section">
+      <h2 class="md-headline-large md-mb-24">Why It Matters</h2>
+      <p class="md-body-large">
+        In grocery retail, the cold start problem is not an edge case but a routine operational reality: new products are introduced weekly, seasonal items appear and disappear, and new customers begin shopping without prior transaction history. This work advances the field by:
+      </p>
+      <ul>
+        <li>Providing a <b>systematic empirical comparison</b> of ten recommender architectures under realistic warm and cold start conditions on a 32M-record retail dataset</li>
+        <li>Demonstrating that <b>global graph pathways confer inherent cold start resilience</b> that purely probabilistic models cannot match</li>
+        <li>Introducing an <b>LLM-augmented GraphRAG with a dedicated cold start handler</b> that recovers performance when historical data is absent</li>
+        <li>Identifying a <b>cascade deployment strategy</b> that optimises coverage across both warm and cold scenarios</li>
+      </ul>
+      <div class="md-highlight-box md-mt-24">
+        <p class="md-highlight-box__title"><i class="fas fa-hands-helping"></i> Impact</p>
+        <p>These results give practitioners a principled basis for selecting recommender architectures and fallback strategies based on the warm/cold mixture of their deployment, rather than optimising for a single average-case metric.</p>
+      </div>
+    </section>
+
+    <!-- Open Science -->
+    <section class="md-section">
+      <h2 class="md-headline-large md-mb-24">Open Science &amp; Collaboration</h2>
+      <p class="md-body-large">
+        We are committed to open, reproducible research. The source code for all ten architectures, the cold start handler, and the evaluation harness will be released upon acceptance. If you are interested in collaborating, extending the framework, or accessing pre-publication artifacts, please reach out.
+      </p>
+      <div class="md-social-links" style="justify-content:center;">
+        <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar">
+          <i class="fas fa-graduation-cap"></i>
+        </a>
+        <a href="https://orcid.org/0009-0002-6416-3127" target="_blank" rel="noopener" title="ORCID">
+          <i class="fab fa-orcid"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- Download / Access -->
+    <section class="md-section" id="access">
+      <h2 class="md-headline-large md-mb-24">Full Paper &amp; Code</h2>
+      <div style="text-align:center;padding:24px 0;">
+        <a href="#" class="md-btn-outlined" onclick="showManuscriptDialog(event)" style="margin:8px;">
+          <i class="fas fa-file-alt"></i> Read Manuscript
+        </a>
+        <a href="#" class="md-btn-outlined" onclick="showCodeDialog(event)" style="margin:8px;">
+          <i class="fas fa-code"></i> View Code
+        </a>
+      </div>
+      <p class="md-body-small" style="text-align:center;color:var(--md-on-surface-variant);margin-top:16px;">
+        <i class="fas fa-info-circle"></i> Manuscript currently under peer review. The full paper, source code, and processed datasets will be released upon acceptance.
+      </p>
+    </section>
+
+  </div>
+</main>
+
+<script>
+  function showManuscriptDialog(event) {
+    event.preventDefault();
+    alert("The full manuscript will be released upon paper acceptance. For early access or review-stage discussion, please email: k.ghamati@herts.ac.uk");
+  }
+
+  function showCodeDialog(event) {
+    event.preventDefault();
+    alert("Source code will be released upon paper acceptance. For early access or collaboration, please email: k.ghamati@herts.ac.uk");
+  }
+
+  // Top app bar scroll elevation
+  window.addEventListener('scroll', function() {
+    document.getElementById('top-bar').classList.toggle('md-scrolled', window.scrollY > 0);
+  });
+</script>
+
+<footer style="background-color:var(--md-inverse-surface);color:var(--md-inverse-on-surface);text-align:center;padding:48px 24px;">
+  <div class="md-container">
+    <p class="md-body-large">&copy; 2025 Khashayar Ghamati. All rights reserved.</p>
+    <p class="md-body-medium" style="opacity:0.8;margin-top:8px;">Advancing AI research for adaptive intelligent systems</p>
+  </div>
+</footer>
+
+</body>
+</html>
