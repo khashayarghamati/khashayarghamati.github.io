@@ -91,6 +91,7 @@
       ],
       "datePublished": "2025-03-24",
       "url": "https://ghamati.com/pllm/",
+      "codeRepository": "https://github.com/khashayarghamati/PLLM",
       "image": "https://ghamati.com/pllm/f1.jpg",
       "inLanguage": "en",
       "publisher": {
@@ -311,8 +312,8 @@
       <a href="https://www.mdpi.com/1424-8220/25/7/2024" target="_blank" rel="noopener" class="md-btn-filled" style="margin:8px;">
         <i class="fas fa-download"></i> Download Full Paper (Open Access)
       </a>
-      <a href="#" class="md-btn-outlined" onclick="showCodeDialog(event)" style="margin:8px;">
-        <i class="fas fa-code"></i> Access Source Code
+      <a href="https://github.com/khashayarghamati/PLLM" target="_blank" rel="noopener" class="md-btn-outlined" style="margin:8px;">
+        <i class="fab fa-github"></i> Source Code on GitHub
       </a>
     </div>
     <p class="md-body-small" style="text-align:center;color:var(--md-on-surface-variant);margin-top:16px;">
@@ -323,11 +324,6 @@
 </main>
 
 <script>
-  function showCodeDialog(event) {
-    event.preventDefault();
-    alert("To access the source code and datasets, please email us at: k.ghamati@herts.ac.uk\n\nWe're happy to share our implementation and support collaborative research!");
-  }
-
   // Top app bar scroll shadow
   window.addEventListener('scroll', function() {
     document.getElementById('top-bar').classList.toggle('md-scrolled', window.scrollY > 0);
