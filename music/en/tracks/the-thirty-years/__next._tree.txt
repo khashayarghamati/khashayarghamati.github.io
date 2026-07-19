@@ -1,5 +1,5 @@
-:HL["/music/_next/static/chunks/1muvpocq_k-69.css","style"]
+:HL["/music/_next/static/chunks/38ucy1ccsir5m.css","style"]
 :HL["/music/_next/static/media/4ee71d90e0f663bd-s.p.33jraz4m6n5g3.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/music/_next/static/media/e4505858a30c79c2-s.p.0tlhhw_qyyfys.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/music/_next/static/media/f1d25eabcf1db66d-s.p.21se6xk6bxqs6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":0,"slots":{"children":{"name":"locale","param":{"type":"d","key":"en","siblings":null},"prefetchHints":16,"slots":{"children":{"name":"tracks","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"the-thirty-years","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}}}},"staleTime":300,"buildId":"yp4PTlSSuUcqJ4XLsMlV1"}
+0:{"tree":{"name":"","param":null,"prefetchHints":0,"slots":{"children":{"name":"locale","param":{"type":"d","key":"en","siblings":null},"prefetchHints":16,"slots":{"children":{"name":"tracks","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"the-thirty-years","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}}}},"staleTime":300,"buildId":"VRxDT8To7JVPPR47VLuri"}
