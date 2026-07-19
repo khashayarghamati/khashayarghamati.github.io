@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://ghamati.com/sitemap.xml
+Sitemap: https://ghamati.com/music/sitemap.xml
