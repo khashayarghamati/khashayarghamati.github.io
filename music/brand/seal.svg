@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="AI-generated music — Persian Blues Sessions">
+  <defs>
+    <path id="ta" d="M 120 120 m -86 0 a 86 86 0 0 1 172 0" fill="none"/>
+    <path id="ba" d="M 120 120 m -86 0 a 86 86 0 0 0 172 0" fill="none"/>
+  </defs>
+  <circle cx="120" cy="120" r="106" fill="none" stroke="#d4af53" stroke-width="2"/>
+  <circle cx="120" cy="120" r="70" fill="none" stroke="#d4af53" stroke-width="1" opacity="0.5"/>
+  <text font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="4.5" fill="#d4af53" font-weight="600">
+    <textPath href="#ta" startOffset="50%" text-anchor="middle">AI·GENERATED</textPath>
+  </text>
+  <text font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="4.5" fill="#d4af53" font-weight="600">
+    <textPath href="#ba" startOffset="50%" text-anchor="middle" side="right">MUSIC·SESSIONS</textPath>
+  </text>
+  <circle cx="28" cy="120" r="2.5" fill="#d4af53"/><circle cx="212" cy="120" r="2.5" fill="#d4af53"/>
+  <g stroke="#d4af53" stroke-width="3.5" fill="none" stroke-linejoin="round" transform="translate(120,120) scale(0.44) translate(-50,-50)">
+    <path d="M96 50 L50 96 L4 50 L50 4 Z"/><path d="M82.5 17.5 L82.5 82.5 L17.5 82.5 L17.5 17.5 Z"/>
+    <path d="M74 50 L67 67 L50 74 L33 67 L26 50 L33 33 L50 26 L67 33 Z" opacity="0.7"/>
+    <circle cx="50" cy="50" r="4" fill="#d4af53" stroke="none"/>
+  </g>
+</svg>
