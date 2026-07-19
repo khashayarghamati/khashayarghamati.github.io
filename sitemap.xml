@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <!-- Homepage -->
     <url>
         <loc>https://ghamati.com/</loc>
@@ -74,5 +75,160 @@
         <priority>0.9</priority>
         <changefreq>monthly</changefreq>
         <lastmod>2026-05-24</lastmod>
+    </url>
+
+    <!-- Persian Blues Sessions (music project) -->
+    <url>
+        <loc>https://ghamati.com/music/</loc>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-07-19</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/"/>
+    </url>
+    <url>
+        <loc>https://ghamati.com/music/en/</loc>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-07-19</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/"/>
+    </url>
+    <url>
+        <loc>https://ghamati.com/music/fa/</loc>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-07-19</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/"/>
+    </url>
+    <url>
+        <loc>https://ghamati.com/music/en/tracks/</loc>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-07-19</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/"/>
+    </url>
+    <url>
+        <loc>https://ghamati.com/music/fa/tracks/</loc>
+        <priority>0.8</priority>
+        <changefreq>weekly</changefreq>
+        <lastmod>2026-07-19</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/"/>
+    </url>
+    <url>
+        <loc>https://ghamati.com/music/en/tracks/the-song-of-the-reed/</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-07-19</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/the-song-of-the-reed/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/the-song-of-the-reed/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/the-song-of-the-reed/"/>
+    </url>
+    <url>
+        <loc>https://ghamati.com/music/fa/tracks/the-song-of-the-reed/</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-07-19</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/the-song-of-the-reed/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/the-song-of-the-reed/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/the-song-of-the-reed/"/>
+    </url>
+    <url>
+        <loc>https://ghamati.com/music/en/tracks/the-gambler/</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-07-19</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/the-gambler/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/the-gambler/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/the-gambler/"/>
+    </url>
+    <url>
+        <loc>https://ghamati.com/music/fa/tracks/the-gambler/</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-07-19</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/the-gambler/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/the-gambler/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/the-gambler/"/>
+    </url>
+    <url>
+        <loc>https://ghamati.com/music/en/tracks/the-saqis-cup/</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-07-19</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/the-saqis-cup/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/the-saqis-cup/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/the-saqis-cup/"/>
+    </url>
+    <url>
+        <loc>https://ghamati.com/music/fa/tracks/the-saqis-cup/</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-07-19</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/the-saqis-cup/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/the-saqis-cup/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/the-saqis-cup/"/>
+    </url>
+    <url>
+        <loc>https://ghamati.com/music/en/tracks/the-thirty-years/</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-07-19</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/the-thirty-years/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/the-thirty-years/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/the-thirty-years/"/>
+    </url>
+    <url>
+        <loc>https://ghamati.com/music/fa/tracks/the-thirty-years/</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-07-19</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/the-thirty-years/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/the-thirty-years/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/the-thirty-years/"/>
+    </url>
+    <url>
+        <loc>https://ghamati.com/music/en/about/</loc>
+        <priority>0.6</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-07-19</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/about/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/about/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/about/"/>
+    </url>
+    <url>
+        <loc>https://ghamati.com/music/fa/about/</loc>
+        <priority>0.6</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-07-19</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/about/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/about/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/about/"/>
+    </url>
+    <url>
+        <loc>https://ghamati.com/music/en/contact/</loc>
+        <priority>0.6</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-07-19</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/contact/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/contact/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/contact/"/>
+    </url>
+    <url>
+        <loc>https://ghamati.com/music/fa/contact/</loc>
+        <priority>0.6</priority>
+        <changefreq>monthly</changefreq>
+        <lastmod>2026-07-19</lastmod>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/contact/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/contact/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/contact/"/>
     </url>
 </urlset>

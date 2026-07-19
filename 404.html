@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>404 — Page Not Found | Khashayar Ghamati</title>
+	<meta name="robots" content="noindex, follow">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
+
+	<!-- Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-HV1K905FF2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-HV1K905FF2');
+	</script>
+
+	<style>
+		:root {
+			--bg-start: #0f172a;
+			--bg-end: #1e293b;
+			--accent: #3b82f6;
+			--accent-soft: rgba(59, 130, 246, 0.15);
+			--text: #e2e8f0;
+			--text-dim: #94a3b8;
+		}
+		body.music-404 {
+			--bg-start: #0e1c46;
+			--bg-end: #132456;
+			--accent: #d4af53;
+			--accent-soft: rgba(212, 175, 83, 0.15);
+			--text: #e9dcc0;
+			--text-dim: #b9a97f;
+		}
+		* { margin: 0; padding: 0; box-sizing: border-box; }
+		body {
+			font-family: 'Inter', system-ui, sans-serif;
+			background: linear-gradient(160deg, var(--bg-start), var(--bg-end));
+			color: var(--text);
+			min-height: 100vh;
+			display: grid;
+			place-items: center;
+			padding: 24px;
+			text-align: center;
+		}
+		.code {
+			font-family: 'Playfair Display', Georgia, serif;
+			font-size: clamp(6rem, 20vw, 10rem);
+			font-weight: 700;
+			line-height: 1;
+			color: var(--accent);
+			opacity: 0.9;
+		}
+		h1 {
+			font-family: 'Playfair Display', Georgia, serif;
+			font-size: clamp(1.5rem, 4vw, 2.25rem);
+			font-weight: 600;
+			margin: 16px 0 12px;
+		}
+		p { color: var(--text-dim); max-width: 34rem; margin: 0 auto 32px; line-height: 1.6; }
+		.actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+		.actions a {
+			display: inline-block;
+			padding: 12px 28px;
+			border-radius: 50px;
+			text-decoration: none;
+			font-weight: 600;
+			font-size: 0.95rem;
+			transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+		}
+		.actions a.primary { background-color: var(--accent); color: var(--bg-start); }
+		.actions a.secondary { border: 1px solid var(--accent); color: var(--accent); background-color: var(--accent-soft); }
+		.actions a:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); }
+		.fa-note { display: none; margin-top: 10px; direction: rtl; }
+		body.music-404 .fa-note { display: block; }
+	</style>
+</head>
+<body>
+	<main>
+		<div class="code">404</div>
+		<h1 id="headline">Page not found</h1>
+		<p id="message">The page you're looking for doesn't exist or has moved.</p>
+		<p class="fa-note">صفحه‌ای که دنبال آن هستید وجود ندارد یا جابه‌جا شده است.</p>
+		<nav class="actions" aria-label="Suggested destinations">
+			<a class="primary" id="primary-link" href="/">Back to homepage</a>
+			<a class="secondary" id="secondary-link" href="/music/">Persian Blues Sessions</a>
+		</nav>
+	</main>
+	<script>
+		(function () {
+			if (location.pathname.indexOf('/music') === 0) {
+				document.body.classList.add('music-404');
+				document.getElementById('headline').textContent = 'This session is missing';
+				document.getElementById('message').textContent =
+					'The track or page you’re looking for isn’t here — but the music is.';
+				var p = document.getElementById('primary-link');
+				p.href = '/music/';
+				p.textContent = 'Persian Blues Sessions';
+				var s = document.getElementById('secondary-link');
+				s.href = '/';
+				s.textContent = 'ghamati.com';
+			}
+		})();
+	</script>
+</body>
+</html>
