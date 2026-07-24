@@ -638,5 +638,23 @@
     </div>
 </footer>
 
+<button type="button" class="md-btn-fab md-btn-fab--small" id="back-to-top" aria-label="Back to top" style="position: fixed; right: 24px; bottom: 24px; z-index: 90; opacity: 0; visibility: hidden; transition: opacity 0.2s, visibility 0.2s;">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</button>
+<script>
+    (function() {
+        var fab = document.getElementById('back-to-top');
+        if (!fab) { return; }
+        window.addEventListener('scroll', function() {
+            var on = window.scrollY > 600;
+            fab.style.opacity = on ? '1' : '0';
+            fab.style.visibility = on ? 'visible' : 'hidden';
+        }, { passive: true });
+        fab.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    })();
+</script>
+
 </body>
 </html>

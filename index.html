@@ -5,15 +5,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- SEO Meta Tags -->
-	<title>Khashayar Ghamati | AI & Robotics PhD Researcher</title>
-	<meta name="description" content="PhD candidate at University of Hertfordshire researching agentic AI, continual learning, and adaptive robotics. Published in IEEE, MDPI Sensors, and ICSR.">
-	<meta name="keywords" content="Khashayar Ghamati, AI researcher, PhD computer science, reinforcement learning, continual learning, robotics, human-robot interaction, HRI, agentic AI, novelty detection, large language models, University of Hertfordshire, machine learning, adaptive robotics, social robotics, embodied AI, cognitive AI, CAPA-AI, PLLM, vision-language models, neuroadaptive AI">
+	<title>Khashayar Ghamati | Principal AI Engineer &middot; Adaptive AI & Robotics</title>
+	<meta name="description" content="AI engineer building systems that keep learning after deployment. Principal AI Engineer at Inframatic Engineering; PhD research on continual learning and novelty detection in HRI at University of Hertfordshire. Published in IEEE, MDPI Sensors, and ICSR.">
+	<meta name="keywords" content="Khashayar Ghamati, Principal AI Engineer, AI engineer, continual learning, agentic AI, reinforcement learning, robotics, human-robot interaction, HRI, novelty detection, large language models, knowledge graphs, multi-agent systems, Inframatic, University of Hertfordshire, machine learning, adaptive AI, social robotics, embodied AI, cognitive AI, CAPA-AI, PLLM, vision-language models, neuroadaptive AI">
 	<meta name="author" content="Khashayar Ghamati">
 	<meta name="robots" content="index, follow">
 
 	<!-- Open Graph / Twitter SEO -->
-	<meta property="og:title" content="Khashayar Ghamati | AI & Robotics Researcher | Continual Learning Expert">
-	<meta property="og:description" content="PhD candidate at University of Hertfordshire specialising in agentic AI, continual learning, and adaptive robotics. Published researcher in IEEE, MDPI Sensors, and leading AI conferences.">
+	<meta property="og:title" content="Khashayar Ghamati | Principal AI Engineer &middot; Adaptive AI & Robotics">
+	<meta property="og:description" content="AI engineer working on systems that keep learning after deployment. Principal AI Engineer at Inframatic Engineering with doctoral research on continual learning and novelty detection in human-robot interaction. Published in IEEE, MDPI Sensors, and leading AI conferences.">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://ghamati.com/">
 	<meta property="og:image" content="https://ghamati.com/images/profile.jpg">
@@ -21,8 +21,8 @@
 	<meta property="og:locale" content="en_GB">
 
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Khashayar Ghamati | AI & Robotics Researcher | Continual Learning Expert">
-	<meta name="twitter:description" content="PhD candidate at University of Hertfordshire researching agentic AI, continual learning, and human-robot interaction. Published in top-tier AI conferences.">
+	<meta name="twitter:title" content="Khashayar Ghamati | Principal AI Engineer &middot; Adaptive AI & Robotics">
+	<meta name="twitter:description" content="AI engineer working on systems that keep learning after deployment. Doctoral research on continual learning and novelty detection in human-robot interaction. Published in top-tier AI venues.">
 	<meta name="twitter:image" content="https://ghamati.com/images/profile.jpg">
 
 
@@ -59,8 +59,8 @@
 				},
 				"url": "https://www.herts.ac.uk/"
 			},
-			"jobTitle": "PhD Candidate in Computer Science",
-			"description": "PhD candidate researching agentic AI, continual learning, and reinforcement learning for adaptive robotics and human-robot interaction",
+			"jobTitle": "Principal AI Engineer",
+			"description": "AI engineer working on systems that keep learning after deployment; doctoral research on novelty detection and continual learning in human-robot interaction",
 			"knowsAbout": [
 				"Artificial Intelligence",
 				"Robotics",
@@ -75,7 +75,8 @@
 			"alumniOf": "University of Hertfordshire",
 			"worksFor": {
 				"@type": "Organization",
-				"name": "University of Hertfordshire"
+				"name": "Inframatic",
+				"url": "https://inframatic.ai"
 			},
 			"sameAs": [
 				"https://github.com/khashayarghamati",
@@ -85,7 +86,7 @@
 			],
 			"hasOccupation": {
 				"@type": "Occupation",
-				"name": "AI Researcher",
+				"name": "Principal AI Engineer",
 				"occupationLocation": {
 					"@type": "Country",
 					"name": "United Kingdom"
@@ -164,45 +165,18 @@
 			transform: translateY(0);
 		}
 
-		/* Metrics strip */
-		.homepage-metrics {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 40px;
-			justify-content: center;
-			padding: 40px 24px;
-		}
-		.homepage-metrics__item {
-			text-align: center;
-		}
-		.homepage-metrics__value {
-			font-family: var(--md-font-display);
-			font-size: 2.25rem;
-			font-weight: 700;
-			color: var(--md-primary);
-			line-height: 1.1;
-		}
-		.homepage-metrics__label {
-			font-size: 0.8rem;
-			font-weight: 500;
-			letter-spacing: 0.04em;
-			color: var(--md-on-surface-variant);
-			margin-top: 6px;
-			text-transform: uppercase;
-		}
-
 		/* Section backgrounds */
 		.section-alt {
 			background-color: var(--md-surface-variant);
 		}
 
-		/* Section title underline */
+		/* Section title underline — warm gold accent */
 		.homepage-section-title::after {
 			content: '';
 			display: block;
 			width: 40px;
 			height: 3px;
-			background-color: var(--md-primary);
+			background-color: var(--md-tertiary);
 			margin: 12px auto 0;
 			border-radius: 2px;
 		}
@@ -277,23 +251,211 @@
 			background-color: rgba(255, 255, 255, 0.1);
 		}
 
+		/* Hero sizing — tighter, career-first */
+		.md-hero--profile {
+			min-height: 70vh;
+		}
+
+		/* About readability — cap line length */
+		#about .md-card-elevated {
+			max-width: 760px;
+			margin-inline: auto;
+		}
+
+		/* Experience timeline */
+		.homepage-timeline {
+			position: relative;
+			max-width: 820px;
+			margin-inline: auto;
+		}
+		.homepage-timeline::before {
+			content: '';
+			position: absolute;
+			left: 5px;
+			top: 8px;
+			bottom: 8px;
+			width: 2px;
+			background-color: var(--md-outline-variant);
+		}
+		.homepage-timeline__item {
+			position: relative;
+			padding-left: 40px;
+			padding-bottom: 32px;
+		}
+		.homepage-timeline__item:last-child {
+			padding-bottom: 0;
+		}
+		.homepage-timeline__item::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 8px;
+			width: 12px;
+			height: 12px;
+			border-radius: var(--md-shape-xs);
+			background-color: var(--md-tertiary);
+		}
+		.homepage-timeline__role {
+			font-family: var(--md-font-title);
+			font-size: 1.125rem;
+			font-weight: 500;
+			line-height: 1.5rem;
+			color: var(--md-on-surface);
+		}
+		.homepage-timeline__meta {
+			font-family: var(--md-font-label);
+			font-size: 0.875rem;
+			font-weight: 500;
+			color: var(--md-primary);
+			margin-top: 4px;
+		}
+		.homepage-timeline__body {
+			font-family: var(--md-font-body);
+			font-size: 0.875rem;
+			line-height: 1.5;
+			color: var(--md-on-surface-variant);
+			margin-top: 8px;
+			max-width: 70ch;
+		}
+
+		/* Publications — dense rows with semantic status */
+		.homepage-pub-list {
+			border: 1px solid var(--md-outline-variant);
+			border-radius: var(--md-shape-md);
+			overflow: hidden;
+			background-color: var(--md-surface);
+		}
+		.homepage-pub-row {
+			display: flex;
+			align-items: center;
+			gap: 16px;
+			padding: 16px 24px;
+			border-bottom: 1px solid var(--md-outline-variant);
+			transition: background-color 0.2s;
+		}
+		.homepage-pub-row:last-child {
+			border-bottom: none;
+		}
+		.homepage-pub-row:hover {
+			background-color: var(--md-surface-variant);
+		}
+		.homepage-pub-row .md-publication-status {
+			flex-shrink: 0;
+			cursor: default;
+		}
+		.homepage-pub-row__title {
+			color: var(--md-primary);
+			font-weight: 500;
+			font-size: 0.9375rem;
+			line-height: 1.5;
+		}
+		span.homepage-pub-row__title {
+			color: var(--md-on-surface);
+		}
+		a.homepage-pub-row__title:hover {
+			text-decoration: underline;
+		}
+
+		/* Research interests chip cloud */
+		.homepage-interests {
+			justify-content: center;
+			max-width: 880px;
+			margin-inline: auto;
+		}
+		.homepage-interests .md-chip {
+			height: auto;
+			min-height: 32px;
+			padding-block: 4px;
+			cursor: default;
+		}
+
+		/* Persian Blues Sessions card — music brand colours */
+		.pbs-card {
+			background-color: #0e1c46;
+			border-color: rgba(212, 175, 83, 0.45);
+			color: #e9dcc0;
+		}
+		.pbs-card:hover {
+			border-color: #d4af53;
+		}
+		.pbs-card .md-card__title {
+			color: #d4af53;
+		}
+		.pbs-card .md-card__subtitle {
+			color: rgba(233, 220, 192, 0.75);
+		}
+		.pbs-card .md-card__body {
+			color: rgba(233, 220, 192, 0.85);
+		}
+
+		/* Nav scrollspy */
+		.md-top-app-bar__nav a.active {
+			color: var(--md-primary);
+			border-bottom-color: var(--md-primary);
+		}
+
+		/* Back-to-top FAB */
+		.back-to-top {
+			position: fixed;
+			right: 24px;
+			bottom: 24px;
+			z-index: 90;
+			opacity: 0;
+			visibility: hidden;
+			transform: translateY(8px);
+			transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+		}
+		.back-to-top.visible {
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
+		}
+
+		/* Footer links */
+		.footer-links {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 8px 24px;
+			margin-bottom: 16px;
+		}
+		.footer-links a {
+			color: var(--md-inverse-on-surface);
+			opacity: 0.8;
+			font-family: var(--md-font-label);
+			font-size: 0.875rem;
+			font-weight: 500;
+		}
+		.footer-links a:hover {
+			opacity: 1;
+			text-decoration: underline;
+		}
+
 		@media (max-width: 599px) {
 			.homepage-skills-grid,
 			.homepage-projects-grid,
 			.homepage-awards-grid {
 				grid-template-columns: 1fr;
 			}
-			.homepage-metrics {
-				gap: 24px;
+			.md-hero--profile {
+				min-height: 76vh;
 			}
-			.homepage-metrics__value {
-				font-size: 1.75rem;
+			.homepage-pub-row {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 8px;
+				padding: 16px;
+			}
+			.back-to-top {
+				right: 16px;
+				bottom: 16px;
 			}
 		}
 
 		@media (prefers-reduced-motion: reduce) {
 			.reveal { opacity: 1; transform: none; transition: none; }
 			.hero-scroll-indicator { animation: none; }
+			.back-to-top { transform: none; }
 		}
 	</style>
 </head>
@@ -302,11 +464,15 @@
 
 <!-- Hero Header -->
 <header class="md-hero md-hero--profile">
-	<img src="images/profile.jpg" alt="Khashayar Ghamati - PhD candidate in AI and robotics at University of Hertfordshire" class="md-hero__avatar" loading="eager" width="160" height="160">
+	<img src="images/profile.jpg" alt="Khashayar Ghamati - AI engineer and researcher in AI and robotics" class="md-hero__avatar" loading="eager" width="160" height="160">
 	<h1 class="md-hero__title">Khashayar Ghamati</h1>
-	<p class="hero-affiliation">University of Hertfordshire, UK</p>
-	<p class="md-hero__subtitle">PhD Candidate &bull; AI Researcher &bull; Robotics &bull; Continual Learning</p>
-	<div class="md-social-links" style="justify-content: center; margin-top: 16px;">
+	<p class="hero-affiliation">Principal AI Engineer &middot; Inframatic &middot; University of Hertfordshire</p>
+	<p class="md-hero__subtitle">I build AI systems that keep learning after they&rsquo;re deployed.</p>
+	<div class="md-hero__actions" style="margin-top: 0;">
+		<a href="#experience" class="md-btn-filled">View Experience</a>
+		<a href="#publications" class="md-btn-outlined">Publications</a>
+	</div>
+	<div class="md-social-links" style="justify-content: center; margin-top: 0;">
 		<a href="https://www.linkedin.com/in/khashayarghamati" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn Profile" class="md-icon-button"><i class="fab fa-linkedin"></i></a>
 		<a href="https://github.com/khashayarghamati" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub Profile" class="md-icon-button"><i class="fab fa-github"></i></a>
 		<a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar Profile" class="md-icon-button"><i class="fas fa-graduation-cap"></i></a>
@@ -321,13 +487,13 @@
 <nav class="md-top-app-bar" id="main-nav">
 	<div class="md-top-app-bar__nav" style="justify-content: center; width: 100%; gap: 4px;">
 		<a href="#about" aria-label="About Khashayar Ghamati">About</a>
+		<a href="#experience" aria-label="Industry experience">Experience</a>
 		<a href="#education" aria-label="Education background">Education</a>
 		<a href="#research" aria-label="Research interests">Research</a>
 		<a href="#publications" aria-label="Published research papers">Publications</a>
 		<a href="#skills" aria-label="Technical skills">Skills</a>
 		<a href="#projects" aria-label="Research and engineering projects">Projects</a>
 		<a href="#teaching" aria-label="Teaching and academic activities">Teaching</a>
-		<a href="#experience" aria-label="Industry experience">Experience</a>
 		<a href="#awards" aria-label="Awards and grants">Awards</a>
 		<a href="/music/" aria-label="Persian Blues Sessions — a music project">Music</a>
 			<a href="#contact" aria-label="Contact information">Contact</a>
@@ -341,16 +507,13 @@
 			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">About Me</h2>
 			<div class="md-card-elevated md-sp-32">
 				<p class="md-body-large" style="margin-bottom: 16px;">
-					I’m Khashayar -- a Principal AI Engineer at <a href="https://inframatic.ai" target="_blank" rel="noopener">Inframatic Engineering</a>, where I design and deploy adaptive AI systems for automated compliance in UK. My focus is on learning agents that operate and adapt in real time within dynamic, non-stationary environments -- bridging advanced research in online learning, reinforcement learning, continual learning, and meta-learning with scalable, production-ready systems.
+					I’m Khashayar -- an AI engineer working on systems that keep learning after they’re deployed.
 				</p>
 				<p class="md-body-large" style="margin-bottom: 16px;">
-					Alongside industry, I’m in the final year of a PhD in Computer Science at the University of Hertfordshire. My research centres on <strong>NOVA</strong>, a cognitive framework for continual learning, novelty detection, and reinforcement learning in human–robot teaming. The work has been validated on the ARI humanoid platform at the UH Robot House and spans bio-inspired gaze control (RLBAM), confidence-aware perception (CAPA-AI), and activity recognition (HAR-Agent), with publications in venues including <em>IEEE Transactions on Cognitive and Developmental Systems</em>.
+					I’m currently Principal AI Engineer at <a href="https://inframatic.ai" target="_blank" rel="noopener">Inframatic Engineering</a>, where I lead the design and delivery of adaptive AI for compliance automation in critical infrastructure: knowledge-graph retrieval, multi-agent architectures, and computer vision, built to run in production rather than in a notebook. Behind that sits more than a decade of Python and software engineering, and a habit of taking research-grade ideas -- online learning, reinforcement learning, continual and meta-learning -- and making them reliable enough to ship.
 				</p>
 				<p class="md-body-large" style="margin-bottom: 16px;">
-					I also supervise BSc and MSc students at the University of Hertfordshire on AI and robotics projects -- a role I enjoy because it keeps me close to the first-principles questions that get lost when you spend too long shipping. The rhythm I care about most is the one between research and engineering: translating ideas into systems that hold up under production load, and letting real-world constraints shape the questions worth pursuing in the lab.
-				</p>
-				<p class="md-body-large" style="margin-bottom: 16px;">
-					My technical interests sit across continual learning, agent architectures, MCP and multi-agent systems, MLOps, and the kind of MLE work that turns a paper into something reliable. I’ve been writing Python for over a decade, and I’m most at home at the seam where theory meets what actually ships.
+					That engineering practice is grounded in published work. I defended my doctoral thesis at the University of Hertfordshire’s Robotics Research Group in June 2026, on NOVA, a framework for novelty detection and continual learning in human–robot interaction, validated on the ARI humanoid platform. I continue to hold an academic appointment there, supervising BSc and MSc students. My work appears in <em>IEEE TCDS</em>, <em>RO-MAN</em>, <em>ICSR</em> and <em>Sensors</em>, alongside an Alan Turing Institute output; I review for <em>IEEE TCDS</em> and co-organised the SS03 workshop at ICSR 2026.
 				</p>
 				<p class="md-body-large">
 					If you’d like to get in touch about research collaboration, speaking, or anything at the intersection of adaptive AI and real-world systems -- <a href="#contact">say hello</a>.
@@ -359,18 +522,63 @@
 		</div>
 	</section>
 
+	<!-- Experience Section -->
+	<section id="experience" class="md-section section-alt">
+		<div class="md-container reveal">
+			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">Industry Experience</h2>
+			<div class="homepage-timeline">
+				<div class="homepage-timeline__item">
+					<div class="homepage-timeline__role">Principal AI Engineer</div>
+					<div class="homepage-timeline__meta">Inframatic &middot; 2024--Present</div>
+					<p class="homepage-timeline__body">Leading the design and delivery of adaptive AI for compliance automation in critical infrastructure -- knowledge-graph retrieval, multi-agent architectures, and computer vision, running in production</p>
+				</div>
+				<div class="homepage-timeline__item">
+					<div class="homepage-timeline__role">AI Engineer</div>
+					<div class="homepage-timeline__meta">Vect AI &middot; 2023--2024</div>
+					<p class="homepage-timeline__body">Principal developer of the company's AI platform, building machine learning pipelines for natural language processing and recommendation</p>
+				</div>
+				<div class="homepage-timeline__item">
+					<div class="homepage-timeline__role">Technical Lead</div>
+					<div class="homepage-timeline__meta">SnappRoom! &middot; 2022--2023</div>
+					<p class="homepage-timeline__body">Led development of intelligent booking systems with ML-driven demand prediction</p>
+				</div>
+				<div class="homepage-timeline__item">
+					<div class="homepage-timeline__role">Product Manager</div>
+					<div class="homepage-timeline__meta">Alef Market &middot; 2019--2021</div>
+					<p class="homepage-timeline__body">Managed AI-powered e-commerce platform with focus on personalisation and user experience</p>
+				</div>
+				<div class="homepage-timeline__item">
+					<div class="homepage-timeline__role">Senior Software Engineer</div>
+					<div class="homepage-timeline__meta">Arta Vision AVA &middot; 2017--2019</div>
+					<p class="homepage-timeline__body">Developed computer vision solutions for industrial automation and quality control</p>
+				</div>
+				<div class="homepage-timeline__item">
+					<div class="homepage-timeline__role">Software Developer</div>
+					<div class="homepage-timeline__meta">Karina Mobile Solutions &middot; 2016--2017</div>
+					<p class="homepage-timeline__body">Built mobile applications with integrated AI features for enhanced user interaction</p>
+				</div>
+				<div class="homepage-timeline__item">
+					<div class="homepage-timeline__role">Earlier Roles</div>
+					<div class="homepage-timeline__meta">2011--2015</div>
+					<p class="homepage-timeline__body">Software Developer at Kaman Academy (2014--2015) and Atie Dade Pardaz (2013--2014); Volunteer Software Developer at the Mechatronic Research Lab, MRL (2011--2013), where the RoboCup journey began</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- Education Section -->
-	<section id="education" class="md-section section-alt">
+	<section id="education" class="md-section">
 		<div class="md-container reveal">
 			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">Education</h2>
 			<div class="md-card-grid">
 				<div class="md-card-outlined">
 					<div class="md-card__header">
 						<div class="md-card__title">PhD in Computer Science</div>
-						<div class="md-card__subtitle">University of Hertfordshire (2023--Present)</div>
+						<div class="md-card__subtitle">University of Hertfordshire (2023--2026)</div>
 					</div>
 					<div class="md-card__body">
 						<p>Thesis: <em>Robot Adaptation to Unseen Environments: On-the-Fly Learning Using Novelty Detection and RL</em></p>
+						<p style="margin-top: 8px;">Viva passed June 2026; award recommended subject to minor amendments</p>
 						<p style="margin-top: 8px;">Supervisors: Dr. Abolfazl Zaraki, Prof. Farshid Amirabdollahian, and Dr. Frank Foerster</p>
 						<p style="margin-top: 8px;">Funded PhD Studentship focusing on agentic AI and continual learning for adaptive robotics</p>
 					</div>
@@ -400,74 +608,46 @@
 	</section>
 
 	<!-- Research Interests Section -->
-	<section id="research" class="md-section">
+	<section id="research" class="md-section section-alt">
 		<div class="md-container reveal">
 			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">Research Interests</h2>
-			<div class="md-card-grid">
-				<div class="md-card-elevated">
-					<div class="md-card__title" style="margin-bottom: 8px;">Agentic AI & Cognitive Architectures</div>
-					<div class="md-card__body">Developing intelligent agents with human-like reasoning and adaptation capabilities</div>
-				</div>
-				<div class="md-card-elevated">
-					<div class="md-card__title" style="margin-bottom: 8px;">Continual & Lifelong Learning</div>
-					<div class="md-card__body">Enabling robots to learn continuously without catastrophic forgetting</div>
-				</div>
-				<div class="md-card-elevated">
-					<div class="md-card__title" style="margin-bottom: 8px;">Novelty Detection & Transfer Learning</div>
-					<div class="md-card__body">Probabilistic methods for identifying and adapting to novel scenarios</div>
-				</div>
-				<div class="md-card-elevated">
-					<div class="md-card__title" style="margin-bottom: 8px;">Reinforcement Learning & Policy Transfer</div>
-					<div class="md-card__body">Advanced RL techniques for robust robot behaviour in dynamic environments</div>
-				</div>
-				<div class="md-card-elevated">
-					<div class="md-card__title" style="margin-bottom: 8px;">Human-Robot Interaction (HRI)</div>
-					<div class="md-card__body">Socially-aware robots with natural interaction capabilities</div>
-				</div>
-				<div class="md-card-elevated">
-					<div class="md-card__title" style="margin-bottom: 8px;">Vision-Language Models & Multimodal AI</div>
-					<div class="md-card__body">Integrating visual and linguistic understanding for robotic applications</div>
-				</div>
-				<div class="md-card-elevated">
-					<div class="md-card__title" style="margin-bottom: 8px;">Neuroadaptive AI & Affective Computing</div>
-					<div class="md-card__body">EEG-driven personalisation and emotion-aware AI systems</div>
-				</div>
-				<div class="md-card-elevated">
-					<div class="md-card__title" style="margin-bottom: 8px;">Explainable & Trustworthy AI</div>
-					<div class="md-card__body">Developing transparent and reliable AI systems for safety-critical applications</div>
-				</div>
+			<div class="homepage-chip-group homepage-interests">
+				<span class="md-chip md-chip-assist">Agentic AI &amp; Cognitive Architectures</span>
+				<span class="md-chip md-chip-assist">Continual &amp; Lifelong Learning</span>
+				<span class="md-chip md-chip-assist">Novelty Detection &amp; Transfer Learning</span>
+				<span class="md-chip md-chip-assist">Reinforcement Learning &amp; Policy Transfer</span>
+				<span class="md-chip md-chip-assist">Human-Robot Interaction (HRI)</span>
+				<span class="md-chip md-chip-assist">Vision-Language Models &amp; Multimodal AI</span>
+				<span class="md-chip md-chip-assist">Neuroadaptive AI &amp; Affective Computing</span>
+				<span class="md-chip md-chip-assist">Explainable &amp; Trustworthy AI</span>
 			</div>
 		</div>
 	</section>
 
 	<!-- Publications Section -->
-	<section id="publications" class="md-section section-alt">
+	<section id="publications" class="md-section">
 		<div class="md-container reveal">
 			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">Selected Publications & Activities</h2>
 			<div class="homepage-pub-list">
-				<div class="md-card-filled">
-					<span class="md-chip md-chip-filter md-chip--selected" style="margin-bottom: 12px; cursor: default;">ICSR 2026</span>
-					<div class="md-card__body">
-						<a href="/post-training-vs-continual-learning/" target="_blank" rel="noopener" style="color: var(--md-primary); font-weight: 500;">Can Post-Training Adaptation Replace Continual Learning? Evidence from EEG Emotion Recognition</a>
-					</div>
+				<div class="homepage-pub-row">
+					<span class="md-publication-status md-publication-status--published">ICSR 2026</span>
+					<a class="homepage-pub-row__title" href="/post-training-vs-continual-learning/">Can Post-Training Adaptation Replace Continual Learning? Evidence from EEG Emotion Recognition</a>
 				</div>
-				<div class="md-card-filled">
-					<span class="md-chip md-chip-filter md-chip--selected" style="margin-bottom: 12px; cursor: default;">IEEE TMM 2026 (Under review)</span>
-					<div class="md-card__body">
-						<a href="/har-agent-tmm/" target="_blank" rel="noopener" style="color: var(--md-primary); font-weight: 500;">HAR-Agent: Multilingual Multimodal Activity Recognition via Knowledge-Distilled LLM Reasoning</a>
-					</div>
+				<div class="homepage-pub-row">
+					<span class="md-publication-status md-publication-status--published">ICSR 2026</span>
+					<span class="homepage-pub-row__title">Vision–Language Models for Fall Detection in Socially Assistive Robotics: Zero-Shot Prompting and Few-Shot Calibration</span>
 				</div>
-				<div class="md-card-filled">
-					<span class="md-chip md-chip-filter md-chip--selected" style="margin-bottom: 12px; cursor: default;">Elsevier on Robotics and Autonomous Systems 2026 (Under review)</span>
-					<div class="md-card__body">
-						<a href="/isvsicl/" target="_blank" rel="noopener" style="color: var(--md-primary); font-weight: 500;">Inferred-Structure and In-Context Learning: A Unified Bayesian Framework for Adaptive Robotic Intelligence</a>
-					</div>
+				<div class="homepage-pub-row">
+					<span class="md-publication-status md-publication-status--review">IEEE TMM &middot; Under review</span>
+					<a class="homepage-pub-row__title" href="/har-agent-tmm/">HAR-Agent: Multilingual Multimodal Activity Recognition via Knowledge-Distilled LLM Reasoning</a>
 				</div>
-				<div class="md-card-filled">
-					<span class="md-chip md-chip-filter md-chip--selected" style="margin-bottom: 12px; cursor: default;">Under review 2026</span>
-					<div class="md-card__body">
-						<a href="/graphrag-bn-recsys/" target="_blank" rel="noopener" style="color: var(--md-primary); font-weight: 500;">LLM-Augmented GraphRAG and Bayesian Networks for Cold-Start-Resilient Market Basket Recommendation</a>
-					</div>
+				<div class="homepage-pub-row">
+					<span class="md-publication-status md-publication-status--review">Elsevier RAS &middot; Under review</span>
+					<a class="homepage-pub-row__title" href="/isvsicl/">Inferred-Structure and In-Context Learning: A Unified Bayesian Framework for Adaptive Robotic Intelligence</a>
+				</div>
+				<div class="homepage-pub-row">
+					<span class="md-publication-status md-publication-status--review">Under review &middot; 2026</span>
+					<a class="homepage-pub-row__title" href="/graphrag-bn-recsys/">LLM-Augmented GraphRAG and Bayesian Networks for Cold-Start-Resilient Market Basket Recommendation</a>
 				</div>
 <!--				<div class="md-card-filled">-->
 <!--					<span class="md-chip md-chip-filter md-chip&#45;&#45;selected" style="margin-bottom: 12px; cursor: default;">Under Review 2026</span>-->
@@ -475,54 +655,40 @@
 <!--						<a href="/stm-vlm/" target="_blank" rel="noopener" style="color: var(&#45;&#45;md-primary); font-weight: 500;">STM-VLM (ARTEMIS): Short-Term Memory Reduces Semantic Redundancy in Vision-Language Activity Recognition</a>-->
 <!--					</div>-->
 <!--				</div>-->
-				<div class="md-card-filled">
-					<span class="md-chip md-chip-filter md-chip--selected" style="margin-bottom: 12px; cursor: default;">MDPI Sensors 2025</span>
-					<div class="md-card__body">
-						<a href="/seelikeus/" target="_blank" rel="noopener" style="color: var(--md-primary); font-weight: 500;">Which AI Sees Like Us? Investigating the Cognitive Plausibility of Language and Vision Models via Eye-Tracking in Human-Robot Interaction</a>
-					</div>
+				<div class="homepage-pub-row">
+					<span class="md-publication-status md-publication-status--published">MDPI Sensors 2025</span>
+					<a class="homepage-pub-row__title" href="/seelikeus/">Which AI Sees Like Us? Investigating the Cognitive Plausibility of Language and Vision Models via Eye-Tracking in Human-Robot Interaction</a>
 				</div>
-				<div class="md-card-filled">
-					<span class="md-chip md-chip-filter md-chip--selected" style="margin-bottom: 12px; cursor: default;">ICSR 2025</span>
-					<div class="md-card__body">
-						<a href="/har-agent/" target="_blank" rel="noopener" style="color: var(--md-primary); font-weight: 500;">Towards Memory-Driven Agentic AI for Human Activity Recognition</a>
-					</div>
+				<div class="homepage-pub-row">
+					<span class="md-publication-status md-publication-status--published">ICSR 2025</span>
+					<a class="homepage-pub-row__title" href="/har-agent/">Towards Memory-Driven Agentic AI for Human Activity Recognition</a>
 				</div>
-				<div class="md-card-filled">
-					<span class="md-chip md-chip-filter md-chip--selected" style="margin-bottom: 12px; cursor: default;">IEEE RO-MAN 2025</span>
-					<div class="md-card__body">
-						<a href="/CAPA-AI/" target="_blank" rel="noopener" style="color: var(--md-primary); font-weight: 500;">Cognitive Agentic AI: Probabilistic Novelty Detection for Continual Adaptation in HRI</a>
-					</div>
+				<div class="homepage-pub-row">
+					<span class="md-publication-status md-publication-status--published">IEEE RO-MAN 2025</span>
+					<a class="homepage-pub-row__title" href="/CAPA-AI/">Cognitive Agentic AI: Probabilistic Novelty Detection for Continual Adaptation in HRI</a>
 				</div>
-				<div class="md-card-filled">
-					<span class="md-chip md-chip-filter md-chip--selected" style="margin-bottom: 12px; cursor: default;">IEEE TCDS 2025</span>
-					<div class="md-card__body">
-						<a href="/brlbam/" target="_blank" rel="noopener" style="color: var(--md-primary); font-weight: 500;">Learning to Gaze: Bio-Inspired Attention Adaptation Strategy for Social Robots</a>
-					</div>
+				<div class="homepage-pub-row">
+					<span class="md-publication-status md-publication-status--published">IEEE TCDS 2026</span>
+					<a class="homepage-pub-row__title" href="/brlbam/">Learning to Gaze: Bio-Inspired Attention Adaptation Strategy for Social Robots</a>
 				</div>
-				<div class="md-card-filled">
-					<span class="md-chip md-chip-filter md-chip--selected" style="margin-bottom: 12px; cursor: default;">MDPI Sensors 2025</span>
-					<div class="md-card__body">
-						<a href="/pllm/" target="_blank" rel="noopener" style="color: var(--md-primary); font-weight: 500;">Towards AI-Powered Applications: The Development of a Personalised LLM for HRI and HCI</a>
-					</div>
+				<div class="homepage-pub-row">
+					<span class="md-publication-status md-publication-status--published">MDPI Sensors 2025</span>
+					<a class="homepage-pub-row__title" href="/pllm/">Towards AI-Powered Applications: The Development of a Personalised LLM for HRI and HCI</a>
 				</div>
-				<div class="md-card-filled">
-					<span class="md-chip md-chip-filter md-chip--selected" style="margin-bottom: 12px; cursor: default;">IEEE Humanoids 2024</span>
-					<div class="md-card__body">
-						<a href="/rlbam/" target="_blank" rel="noopener" style="color: var(--md-primary); font-weight: 500;">ARI Humanoid Robot Imitates Human Gaze Behaviour Using Reinforcement Learning in Real-World Environments</a>
-					</div>
+				<div class="homepage-pub-row">
+					<span class="md-publication-status md-publication-status--published">IEEE Humanoids 2024</span>
+					<a class="homepage-pub-row__title" href="/rlbam/">ARI Humanoid Robot Imitates Human Gaze Behaviour Using Reinforcement Learning in Real-World Environments</a>
 				</div>
-				<div class="md-card-filled">
-					<span class="md-chip md-chip-filter md-chip--selected" style="margin-bottom: 12px; cursor: default;">Alan Turing Institute 2023</span>
-					<div class="md-card__body">
-						<a href="https://www.turing.ac.uk/news/publications/data-study-group-final-report-environmental-investigation-agency-eia" target="_blank" rel="noopener" style="color: var(--md-primary); font-weight: 500;">Identifying Tiger Stripes with Machine Learning for Environmental Investigation Agency</a>
-					</div>
+				<div class="homepage-pub-row">
+					<span class="md-publication-status md-publication-status--published">Alan Turing Institute 2023</span>
+					<a class="homepage-pub-row__title" href="https://www.turing.ac.uk/news/publications/data-study-group-final-report-environmental-investigation-agency-eia" target="_blank" rel="noopener">Identifying Tiger Stripes with Machine Learning for Environmental Investigation Agency</a>
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- Skills Section -->
-	<section id="skills" class="md-section">
+	<section id="skills" class="md-section section-alt">
 		<div class="md-container reveal">
 			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">Technical Skills</h2>
 			<div class="homepage-skills-grid">
@@ -588,7 +754,7 @@
 	</section>
 
 	<!-- Projects Section -->
-	<section id="projects" class="md-section section-alt">
+	<section id="projects" class="md-section">
 		<div class="md-container reveal">
 			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">Research & Engineering Projects</h2>
 			<div class="homepage-projects-grid">
@@ -648,36 +814,41 @@
 					</div>
 					<div class="md-card__body">Octomap integration with ROS for autonomous exploration in unknown environments</div>
 				</div>
-				<a class="md-card-outlined" href="/music/" aria-label="Persian Blues Sessions music project" style="text-decoration: none; color: inherit; display: block;">
+				<a class="md-card-outlined pbs-card" href="/music/" aria-label="Persian Blues Sessions music project" style="text-decoration: none; display: block;">
 					<div class="md-card__header">
 						<div class="md-card__title">Persian Blues Sessions</div>
 						<div class="md-card__subtitle">Music Project &middot; 2026--Present</div>
 					</div>
-					<div class="md-card__body">Classical Persian poetry (Rumi, Hafez, Ferdowsi) set to AI-generated blues and blues-fusion. <span style="color: var(--md-primary); font-weight: 500;">Listen &#8599;</span></div>
+					<div class="md-card__body">I'm an AI engineer, not a musician -- so I used generative AI to set classical Persian poetry (Rumi, Hafez, Ferdowsi) to blues and blues-fusion. <span style="color: #d4af53; font-weight: 500;">Listen &#8599;</span></div>
 				</a>
 			</div>
 		</div>
 	</section>
 
 	<!-- Teaching Section -->
-	<section id="teaching" class="md-section">
+	<section id="teaching" class="md-section section-alt">
 		<div class="md-container reveal">
 			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">Teaching & Academic Activities</h2>
 			<div style="display: flex; flex-direction: column; gap: 16px;">
 				<div class="md-card-elevated">
 					<div class="md-card__title">Special Session Co-Organiser, ICSR 2026</div>
-					<div class="md-card__subtitle">17th International Conference on Social Robotics, London (July 2026)</div>
+					<div class="md-card__subtitle">18th International Conference on Social Robotics, London (July 2026)</div>
 					<div class="md-card__body" style="margin-top: 8px;">Co-organised <a href="/icsr-2026/" style="color: var(--md-primary); font-weight: 500;">SS03 – Continual Learning and Generative AI in Social Robotics</a> with Dr Abolfazl Zaraki</div>
 				</div>
 				<div class="md-card-elevated">
 					<div class="md-card__title">MSc & BSc Project Supervisor</div>
 					<div class="md-card__subtitle">University of Hertfordshire (2024--Present)</div>
-					<div class="md-card__body" style="margin-top: 8px;">Supervising final-year projects in AI, robotics, and machine learning</div>
+					<div class="md-card__body" style="margin-top: 8px;">Supervising final-year and research projects in AI, robotics, and machine learning -- 20+ BSc and MSc students to date</div>
 				</div>
 				<div class="md-card-elevated">
 					<div class="md-card__title">Visiting Lecturer (AI & Robotics)</div>
 					<div class="md-card__subtitle">University of Hertfordshire (2024--Present)</div>
 					<div class="md-card__body" style="margin-top: 8px;">Delivering lectures on advanced AI topics, continual learning, and HRI</div>
+				</div>
+				<div class="md-card-elevated">
+					<div class="md-card__title">Workshop: From Prompt to Agent -- Build Your First Intelligent AI System</div>
+					<div class="md-card__subtitle">University of Hertfordshire (April 2026)</div>
+					<div class="md-card__body" style="margin-top: 8px;">Hands-on workshop taking practitioners from prompt engineering to building agentic AI systems</div>
 				</div>
 				<div class="md-card-elevated">
 					<div class="md-card__title">RL & Robotics Workshop Instructor</div>
@@ -698,45 +869,6 @@
 		</div>
 	</section>
 
-	<!-- Experience Section -->
-	<section id="experience" class="md-section section-alt">
-		<div class="md-container reveal">
-			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">Industry Experience</h2>
-			<div style="display: flex; flex-direction: column; gap: 16px;">
-				<div class="md-card-elevated">
-					<div class="md-card__title">Principal AI Engineer</div>
-					<div class="md-card__subtitle">Inframatic (2024--Present)</div>
-					<div class="md-card__body" style="margin-top: 8px;">Developing AI-powered infrastructure monitoring solutions using computer vision and predictive analytics</div>
-				</div>
-				<div class="md-card-elevated">
-					<div class="md-card__title">AI Engineer (Part-time)</div>
-					<div class="md-card__subtitle">Vect AI (2023--2024)</div>
-					<div class="md-card__body" style="margin-top: 8px;">Implemented machine learning pipelines for natural language processing and recommendation systems</div>
-				</div>
-				<div class="md-card-elevated">
-					<div class="md-card__title">Senior Software Engineer</div>
-					<div class="md-card__subtitle">SnappRoom! (2022--2023)</div>
-					<div class="md-card__body" style="margin-top: 8px;">Led development of intelligent booking systems with ML-driven demand prediction</div>
-				</div>
-				<div class="md-card-elevated">
-					<div class="md-card__title">Product Manager</div>
-					<div class="md-card__subtitle">Alef Market (2019--2021)</div>
-					<div class="md-card__body" style="margin-top: 8px;">Managed AI-powered e-commerce platform with focus on personalisation and user experience</div>
-				</div>
-				<div class="md-card-elevated">
-					<div class="md-card__title">Senior Software Engineer</div>
-					<div class="md-card__subtitle">Arta Vision AVA (2017--2019)</div>
-					<div class="md-card__body" style="margin-top: 8px;">Developed computer vision solutions for industrial automation and quality control</div>
-				</div>
-				<div class="md-card-elevated">
-					<div class="md-card__title">Software Developer</div>
-					<div class="md-card__subtitle">Karina Mobile Solutions (2016--2017)</div>
-					<div class="md-card__body" style="margin-top: 8px;">Built mobile applications with integrated AI features for enhanced user interaction</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
 	<!-- Awards Section -->
 	<section id="awards" class="md-section">
 		<div class="md-container reveal">
@@ -745,15 +877,15 @@
 				<div class="md-card-filled">
 					<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
 						<div class="md-card__title">Funded PhD Studentship</div>
-						<span class="md-badge--large" style="background-color: var(--md-primary); color: var(--md-on-primary); display: inline-flex; align-items: center; justify-content: center; padding: 0 10px; border-radius: 50px; font-size: 0.75rem; font-weight: 500; height: 24px;">Scholarship</span>
+						<span class="md-badge--large" style="background-color: var(--md-primary); color: var(--md-on-primary); display: inline-flex; align-items: center; justify-content: center; padding: 0 8px; border-radius: var(--md-shape-sm); font-size: 0.75rem; font-weight: 500; height: 24px;">Scholarship</span>
 					</div>
-					<div class="md-card__subtitle">University of Hertfordshire (2023--Present)</div>
+					<div class="md-card__subtitle">University of Hertfordshire (2023--2026)</div>
 					<div class="md-card__body" style="margin-top: 8px;">Competitive research funding for doctoral studies in AI and robotics</div>
 				</div>
 				<div class="md-card-filled">
 					<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
 						<div class="md-card__title">1st Place, RoboCup Competition</div>
-						<span class="md-badge--large" style="background-color: var(--md-primary); color: var(--md-on-primary); display: inline-flex; align-items: center; justify-content: center; padding: 0 10px; border-radius: 50px; font-size: 0.75rem; font-weight: 500; height: 24px;">Champion</span>
+						<span class="md-badge--large" style="background-color: var(--md-primary); color: var(--md-on-primary); display: inline-flex; align-items: center; justify-content: center; padding: 0 8px; border-radius: var(--md-shape-sm); font-size: 0.75rem; font-weight: 500; height: 24px;">Champion</span>
 					</div>
 					<div class="md-card__subtitle">Home & Humanoid Robots League (2013--2015)</div>
 					<div class="md-card__body" style="margin-top: 8px;">International robotics competition focusing on autonomous robot behaviour</div>
@@ -761,7 +893,7 @@
 				<div class="md-card-filled">
 					<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
 						<div class="md-card__title">Travel Grant</div>
-						<span class="md-badge--large" style="background-color: var(--md-primary); color: var(--md-on-primary); display: inline-flex; align-items: center; justify-content: center; padding: 0 10px; border-radius: 50px; font-size: 0.75rem; font-weight: 500; height: 24px;">Grant</span>
+						<span class="md-badge--large" style="background-color: var(--md-primary); color: var(--md-on-primary); display: inline-flex; align-items: center; justify-content: center; padding: 0 8px; border-radius: var(--md-shape-sm); font-size: 0.75rem; font-weight: 500; height: 24px;">Grant</span>
 					</div>
 					<div class="md-card__subtitle">IEEE RO-MAN Conference (2025)</div>
 					<div class="md-card__body" style="margin-top: 8px;">Travel funding for presenting research at the IEEE International Conference on Robot and Human Interactive Communication</div>
@@ -776,7 +908,7 @@
 			<h2 class="md-headline-large homepage-section-title" style="margin-bottom: 32px;">Contact</h2>
 			<p class="md-body-large" style="margin-bottom: 16px;">If you're interested in research collaboration, consulting, or simply want to connect, please reach out!</p>
 			<p style="margin-bottom: 16px;">
-				<img src="images/email.png" alt="Contact email: khashayarghamati@gmail.com" loading="lazy" width="300" height="40" style="display: inline-block; border-radius: var(--md-shape-sm);">
+				<img src="images/email.png" alt="Contact email: k.ghamati@herts.ac.uk" loading="lazy" width="155" height="19" style="display: inline-block; border-radius: var(--md-shape-sm);">
 			</p>
 			<p class="md-body-large" style="margin-bottom: 8px;"><strong>Based in:</strong> Hertfordshire, United Kingdom</p>
 			<p class="md-body-large" style="margin-bottom: 24px;"><strong>Available for:</strong> Research collaborations, consulting, speaking engagements, and academic partnerships</p>
@@ -792,20 +924,63 @@
 
 <footer style="background-color: var(--md-inverse-surface); color: var(--md-inverse-on-surface); text-align: center; padding: 32px 0;">
 	<div class="md-container">
+		<nav class="footer-links" aria-label="Footer navigation">
+			<a href="#about">About</a>
+			<a href="#experience">Experience</a>
+			<a href="#publications">Publications</a>
+			<a href="#projects">Projects</a>
+			<a href="#teaching">Teaching</a>
+			<a href="/music/">Music</a>
+			<a href="#contact">Contact</a>
+		</nav>
 		<p class="md-body-medium" style="margin-bottom: 8px;">&copy; 2026 Khashayar Ghamati. All rights reserved.</p>
-		<p class="md-body-small" style="opacity: 0.7;">Advancing AI research for a better future</p>
+		<p class="md-body-small" style="opacity: 0.7;">Building AI systems that keep learning</p>
 	</div>
 </footer>
 
+<button type="button" class="md-btn-fab md-btn-fab--small back-to-top" id="back-to-top" aria-label="Back to top">
+	<i class="fas fa-arrow-up" aria-hidden="true"></i>
+</button>
+
 <script>
-	// Scroll elevation for app bar
+	// Scroll elevation for app bar + back-to-top visibility
 	(function() {
 		var nav = document.getElementById('main-nav');
-		if (nav) {
-			window.addEventListener('scroll', function() {
-				nav.classList.toggle('md-scrolled', window.scrollY > 4);
-			}, { passive: true });
+		var fab = document.getElementById('back-to-top');
+		window.addEventListener('scroll', function() {
+			if (nav) { nav.classList.toggle('md-scrolled', window.scrollY > 4); }
+			if (fab) { fab.classList.toggle('visible', window.scrollY > 600); }
+			if (window.scrollY < 100) {
+				document.querySelectorAll('.md-top-app-bar__nav a.active').forEach(function(link) {
+					link.classList.remove('active');
+				});
+			}
+		}, { passive: true });
+		if (fab) {
+			fab.addEventListener('click', function() {
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			});
 		}
+	})();
+
+	// Nav scrollspy — highlight the section in view
+	(function() {
+		var links = document.querySelectorAll('.md-top-app-bar__nav a[href^="#"]');
+		if (!links.length || !('IntersectionObserver' in window)) { return; }
+		var byId = {};
+		links.forEach(function(link) { byId[link.getAttribute('href').slice(1)] = link; });
+		var spy = new IntersectionObserver(function(entries) {
+			entries.forEach(function(entry) {
+				if (entry.isIntersecting && byId[entry.target.id]) {
+					links.forEach(function(link) { link.classList.remove('active'); });
+					byId[entry.target.id].classList.add('active');
+				}
+			});
+		}, { rootMargin: '-40% 0px -55% 0px' });
+		Object.keys(byId).forEach(function(id) {
+			var section = document.getElementById(id);
+			if (section) { spy.observe(section); }
+		});
 	})();
 
 	// Scroll reveal with IntersectionObserver
