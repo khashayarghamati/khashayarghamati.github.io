@@ -5,7 +5,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/" />
-<lastmod>2026-07-16</lastmod>
+<lastmod>2026-07-24</lastmod>
 <changefreq>weekly</changefreq>
 <priority>1</priority>
 </url>
@@ -14,7 +14,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/" />
-<lastmod>2026-07-16</lastmod>
+<lastmod>2026-07-24</lastmod>
 <changefreq>weekly</changefreq>
 <priority>1</priority>
 </url>
@@ -23,7 +23,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/" />
-<lastmod>2026-07-16</lastmod>
+<lastmod>2026-07-24</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -32,7 +32,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/" />
-<lastmod>2026-07-16</lastmod>
+<lastmod>2026-07-24</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -41,7 +41,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/about/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/about/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/about/" />
-<lastmod>2026-07-16</lastmod>
+<lastmod>2026-07-24</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -50,7 +50,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/about/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/about/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/about/" />
-<lastmod>2026-07-16</lastmod>
+<lastmod>2026-07-24</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -59,7 +59,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/contact/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/contact/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/contact/" />
-<lastmod>2026-07-16</lastmod>
+<lastmod>2026-07-24</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -68,9 +68,27 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/contact/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/contact/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/contact/" />
-<lastmod>2026-07-16</lastmod>
+<lastmod>2026-07-24</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.6</priority>
+</url>
+<url>
+<loc>https://ghamati.com/music/en/tracks/joyful-world/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/joyful-world/" />
+<xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/joyful-world/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/joyful-world/" />
+<lastmod>2026-07-24</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://ghamati.com/music/fa/tracks/joyful-world/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/joyful-world/" />
+<xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/joyful-world/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/joyful-world/" />
+<lastmod>2026-07-24</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
 </url>
 <url>
 <loc>https://ghamati.com/music/en/tracks/the-saqis-cup/</loc>
