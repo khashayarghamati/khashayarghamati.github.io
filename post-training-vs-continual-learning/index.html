@@ -165,7 +165,7 @@
       justify-content: center;
       width: 32px;
       height: 32px;
-      border-radius: 50%;
+      border-radius: var(--md-shape-sm);
       background: var(--md-primary);
       color: var(--md-on-primary);
       font-size: 0.85rem;
@@ -175,7 +175,7 @@
     }
     .pull-quote {
       border-left: 4px solid var(--md-primary);
-      padding: 8px 0 8px 20px;
+      padding: 8px 0 8px 24px;
       margin: 24px 0;
       font-family: 'Playfair Display', Georgia, serif;
       font-size: 1.2rem;
@@ -188,7 +188,7 @@
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 16px;
       margin: 24px 0;
-      padding: 20px 24px;
+      padding: 24px;
       background: var(--md-surface-variant);
       border-radius: var(--md-shape-md);
     }
@@ -217,7 +217,7 @@
       font-size: 0.95rem;
     }
     .results-table th, .results-table td {
-      padding: 10px 12px;
+      padding: 12px;
       text-align: left;
       border-bottom: 1px solid var(--md-outline-variant);
     }
@@ -231,7 +231,7 @@
     .citation-block {
       background: var(--md-surface-variant);
       border-radius: var(--md-shape-md);
-      padding: 20px 24px;
+      padding: 24px;
       font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
       font-size: 0.85rem;
       line-height: 1.55;
@@ -240,7 +240,7 @@
     }
     @media (max-width: 640px) {
       .results-table { font-size: 0.85rem; }
-      .results-table th, .results-table td { padding: 8px 6px; }
+      .results-table th, .results-table td { padding: 8px; }
       .article-lede { font-size: 1.1rem; }
       .article-lede::first-letter { font-size: 3rem; }
     }
@@ -728,6 +728,24 @@
     <p class="md-body-medium" style="opacity:0.8;margin-top:8px;">Advancing AI research for adaptive robotic intelligence</p>
   </div>
 </footer>
+
+<button type="button" class="md-btn-fab md-btn-fab--small" id="back-to-top" aria-label="Back to top" style="position: fixed; right: 24px; bottom: 24px; z-index: 90; opacity: 0; visibility: hidden; transition: opacity 0.2s, visibility 0.2s;">
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</button>
+<script>
+  (function() {
+    var fab = document.getElementById('back-to-top');
+    if (!fab) { return; }
+    window.addEventListener('scroll', function() {
+      var on = window.scrollY > 600;
+      fab.style.opacity = on ? '1' : '0';
+      fab.style.visibility = on ? 'visible' : 'hidden';
+    }, { passive: true });
+    fab.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
 
 </body>
 </html>
