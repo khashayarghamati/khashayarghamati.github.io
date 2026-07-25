@@ -37,7 +37,7 @@
    32. Focus-Visible Accessibility
    33. Reduced Motion
    34. Print Styles
-   35. Light Mode Fallback (prefers-color-scheme: light)
+   35. Theme note (dark for all visitors)
    ========================================================================== */
 
 
@@ -2078,61 +2078,8 @@ body {
 
 
 /* ==========================================================================
-   35. Light Mode Fallback (prefers-color-scheme: light)
-   Dark Midnight Indigo is the default; this keeps light-preference
-   visitors on a clean ivory variant of the same family.
+   35. Theme note
+   Midnight Indigo dark is the site's signature look for ALL visitors.
+   (A prefers-color-scheme:light fallback was considered and removed —
+   see docs/superpowers/specs/2026-07-25-site-redesign-design.md.)
    ========================================================================== */
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --md-primary: #3d53c6;
-    --md-on-primary: #ffffff;
-    --md-primary-container: #e0e6ff;
-    --md-on-primary-container: #1b2a80;
-
-    --md-secondary: #5a6384;
-    --md-on-secondary: #ffffff;
-    --md-secondary-container: #e6e9f5;
-    --md-on-secondary-container: #232a4d;
-
-    --md-tertiary: #b45309;
-    --md-on-tertiary: #ffffff;
-    --md-tertiary-container: #fef3c7;
-    --md-on-tertiary-container: #78350f;
-
-    --md-error: #dc2626;
-    --md-on-error: #ffffff;
-    --md-error-container: #fee2e2;
-    --md-on-error-container: #7f1d1d;
-
-    --md-surface: #fafaf7;
-    --md-surface-dim: #f1f2f7;
-    --md-surface-bright: #ffffff;
-    --md-surface-variant: #ffffff;
-    --md-on-surface: #101430;
-    --md-on-surface-variant: #5a6384;
-
-    --md-outline: #b9c0da;
-    --md-outline-variant: #e3e6f2;
-
-    --md-inverse-surface: #101430;
-    --md-inverse-on-surface: #eef1ff;
-    --md-inverse-primary: #7c93ff;
-
-    --md-surface-tint: #3d53c6;
-  }
-
-  .md-top-app-bar {
-    background: rgba(250, 250, 247, 0.85);
-  }
-
-  .md-publication-status--published {
-    background-color: #dcf5e3;
-    color: #14532d;
-  }
-
-  .md-publication-status--review {
-    background-color: #fdf0d2;
-    color: #92400e;
-  }
-}
