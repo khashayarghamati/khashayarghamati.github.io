@@ -132,7 +132,7 @@
 			font-size: 0.95rem;
 			letter-spacing: 0.08em;
 			text-transform: uppercase;
-			opacity: 0.6;
+			color: var(--md-tertiary);
 			font-weight: 500;
 			margin-top: -8px;
 		}
@@ -167,7 +167,7 @@
 
 		/* Section backgrounds */
 		.section-alt {
-			background-color: var(--md-surface-variant);
+			background-color: var(--md-surface-dim);
 		}
 
 		/* Section title underline — warm gold accent */
@@ -227,33 +227,17 @@
 			color: var(--md-on-surface);
 		}
 
-		/* Dark contact section */
+		/* Contact section — same dark family as the rest of the page */
 		.homepage-contact-dark {
-			background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
-			color: #ffffff;
-		}
-		.homepage-contact-dark h2 {
-			color: #ffffff;
-		}
-		.homepage-contact-dark h2::after {
-			background-color: rgba(255, 255, 255, 0.25);
-		}
-		.homepage-contact-dark p,
-		.homepage-contact-dark strong {
-			color: rgba(255, 255, 255, 0.85);
+			background-color: var(--md-surface-dim);
 		}
 		.homepage-contact-dark .md-social-links a {
-			color: rgba(255, 255, 255, 0.7);
 			font-size: 1.5rem;
-		}
-		.homepage-contact-dark .md-social-links a:hover {
-			color: #ffffff;
-			background-color: rgba(255, 255, 255, 0.1);
 		}
 
 		/* Hero sizing — tighter, career-first */
 		.md-hero--profile {
-			min-height: 70vh;
+			min-height: 65vh;
 		}
 
 		/* About readability — cap line length */
@@ -323,7 +307,7 @@
 			border: 1px solid var(--md-outline-variant);
 			border-radius: var(--md-shape-md);
 			overflow: hidden;
-			background-color: var(--md-surface);
+			background-color: var(--md-surface-variant);
 		}
 		.homepage-pub-row {
 			display: flex;
@@ -337,7 +321,7 @@
 			border-bottom: none;
 		}
 		.homepage-pub-row:hover {
-			background-color: var(--md-surface-variant);
+			background-color: rgba(238, 241, 255, 0.05);
 		}
 		.homepage-pub-row .md-publication-status {
 			flex-shrink: 0;
@@ -401,7 +385,7 @@
 			margin-bottom: 16px;
 		}
 		.footer-links a {
-			color: var(--md-inverse-on-surface);
+			color: #9aa6d8;
 			opacity: 0.8;
 			font-family: var(--md-font-label);
 			font-size: 0.875rem;
@@ -889,7 +873,7 @@
 			<h2 class="md-headline-large homepage-section-title" style="margin-bottom: 32px;">Contact</h2>
 			<p class="md-body-large" style="margin-bottom: 16px;">If you're interested in research collaboration, consulting, or simply want to connect, please reach out!</p>
 			<p style="margin-bottom: 16px;">
-				<img src="images/email.png" alt="Contact email: k.ghamati@herts.ac.uk" loading="lazy" width="155" height="19" style="display: inline-block; border-radius: var(--md-shape-sm);">
+				<img src="images/email.png" alt="Contact email: k.ghamati@herts.ac.uk" loading="lazy" width="155" height="19" style="display: inline-block; background: #eef1ff; padding: 8px; border-radius: var(--md-shape-sm); box-sizing: content-box;">
 			</p>
 			<p class="md-body-large" style="margin-bottom: 8px;"><strong>Based in:</strong> Hertfordshire, United Kingdom</p>
 			<p class="md-body-large" style="margin-bottom: 24px;"><strong>Available for:</strong> Research collaborations, consulting, speaking engagements, and academic partnerships</p>
@@ -903,7 +887,7 @@
 	</section>
 </main>
 
-<footer style="background-color: var(--md-inverse-surface); color: var(--md-inverse-on-surface); text-align: center; padding: 32px 0;">
+<footer style="background-color: #080d22; color: #9aa6d8; text-align: center; padding: 32px 0;">
 	<div class="md-container">
 		<nav class="footer-links" aria-label="Footer navigation">
 			<a href="#about">About</a>
