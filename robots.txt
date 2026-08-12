@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+# /en/ and /fa/ do not exist at the site root (the bilingual pages live under
+# /music/en/ and /music/fa/). Next.js serializes its internal routes without
+# the /music basePath, and crawlers mine those strings and 404 on them.
+Disallow: /en/
+Disallow: /fa/
 Sitemap: https://ghamati.com/sitemap.xml
 Sitemap: https://ghamati.com/music/sitemap.xml
