@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- TODO: remove noindex when the first post is published -->
-  <meta name="robots" content="noindex, follow">
+  <meta name="robots" content="index, follow">
 
   <title>Blog | Khashayar Ghamati — Essays on Agentic AI &amp; Continual Learning</title>
   <meta name="description" content="Essays and engineering notes by Khashayar Ghamati, Principal AI Engineer — agentic AI, continual learning, novelty detection, and reinforcement learning for adaptive robotics. Also available in Persian.">
@@ -94,11 +93,11 @@
         </a>
         -->
 
-        <div class="blog-empty">
-          <p><i class="fas fa-pen-nib" aria-hidden="true"></i></p>
-          <p>The first essays are being written &mdash; on agentic AI, continual learning, and what it takes to build systems that keep learning after deployment.</p>
-          <p>Subscribe to the <a href="/blog/feed.xml" style="color: var(--md-primary);">RSS feed</a> to catch the first post.</p>
-        </div>
+        <a class="blog-row" href="/blog/context-pollution/">
+          <p class="blog-row__meta">20 August 2026 &middot; 7 min read</p>
+          <h2 class="blog-row__title">Context Pollution: How Giving an LLM a Memory Made It Worse</h2>
+          <p class="blog-row__summary">We gave a frozen LLM an episodic memory of a user's EEG and accuracy collapsed from 40% to 12% &mdash; below chance. What context pollution is, why confidence gating can't fix it, and what it means for anyone building agent memory.</p>
+        </a>
 
       </div>
     </section>

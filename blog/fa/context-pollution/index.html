@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+
+  <title>آلودگی بافتار: وقتی دادن حافظه به مدل زبانی کارش را خراب‌تر کرد | خشایار قماتی</title>
+  <meta name="description" content="به یک مدل زبانی منجمد حافظهٔ اپیزودیک از سیگنال مغزی کاربر دادیم و دقت از ۴۰٪ به ۱۲٪ سقوط کرد — پایین‌تر از شانس. آلودگی بافتار چیست، چرا فیلتر اطمینان نجاتش نمی‌دهد، و چه درسی برای سازندگان حافظهٔ عامل‌های هوشمند دارد.">
+  <meta name="keywords" content="آلودگی بافتار, حافظه عامل هوش مصنوعی, یادگیری درون‌بافتاری, یادگیری مداوم, تطبیق پس از آموزش, مدل زبانی بزرگ, بازشناسی هیجان EEG, خشایار قماتی">
+  <meta name="author" content="Khashayar Ghamati">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="آلودگی بافتار: وقتی دادن حافظه به مدل زبانی کارش را خراب‌تر کرد">
+  <meta property="og:description" content="حافظهٔ اپیزودیک، دقت یک مدل زبانی منجمد را از ۴۰٪ به ۱۲٪ رساند — پایین‌تر از شانس. این شکست ساختاری است و دامن هر عاملی را می‌گیرد که خروجی‌های خودش را به خاطر می‌سپارد.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ghamati.com/blog/fa/context-pollution/">
+  <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:image" content="https://ghamati.com/images/khashayar-og.jpg">
+  <meta property="article:author" content="Khashayar Ghamati">
+  <meta property="article:published_time" content="2026-08-20">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="آلودگی بافتار: وقتی دادن حافظه به مدل زبانی کارش را خراب‌تر کرد">
+  <meta name="twitter:description" content="حافظهٔ اپیزودیک، دقت یک مدل زبانی منجمد را از ۴۰٪ به ۱۲٪ رساند — پایین‌تر از شانس.">
+
+  <link rel="canonical" href="https://ghamati.com/blog/fa/context-pollution/">
+  <link rel="alternate" hreflang="en" href="https://ghamati.com/blog/context-pollution/">
+  <link rel="alternate" hreflang="fa" href="https://ghamati.com/blog/fa/context-pollution/">
+  <link rel="alternate" hreflang="x-default" href="https://ghamati.com/blog/context-pollution/">
+
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/fonts.css?v=2">
+  <link rel="stylesheet" href="/css/material-design.css?v=4">
+  <link rel="preload" href="/fonts/Vazirmatn-arabic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=1" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=1"></noscript>
+
+  <style>
+    /* Persian pages read in Vazirmatn; Latin runs fall back to Inter */
+    body { font-family: 'Vazirmatn', 'Inter', system-ui, sans-serif; }
+    .md-hero__status-text {
+      margin-top: 16px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.85;
+    }
+    .md-hero__status-text .far, .md-hero__status-text .fas { margin-inline-end: 0.5rem; }
+  </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "@id": "https://ghamati.com/blog/fa/context-pollution/#post",
+      "mainEntityOfPage": "https://ghamati.com/blog/fa/context-pollution/",
+      "headline": "آلودگی بافتار: وقتی دادن حافظه به مدل زبانی کارش را خراب‌تر کرد",
+      "description": "به یک مدل زبانی منجمد حافظهٔ اپیزودیک از سیگنال مغزی کاربر دادیم و دقت از ۴۰٪ به ۱۲٪ سقوط کرد — پایین‌تر از شانس.",
+      "inLanguage": "fa",
+      "datePublished": "2026-08-20",
+      "dateModified": "2026-08-20",
+      "image": "https://ghamati.com/images/khashayar-og.jpg",
+      "isPartOf": { "@id": "https://ghamati.com/blog/fa/#blog" },
+      "translationOfWork": { "@id": "https://ghamati.com/blog/context-pollution/#post" },
+      "author": {
+        "@type": "Person",
+        "name": "Khashayar Ghamati",
+        "alternateName": "خشایار قماتی",
+        "url": "https://ghamati.com",
+        "jobTitle": "Principal AI Engineer",
+        "sameAs": [
+          "https://orcid.org/0009-0002-6416-3127",
+          "https://scholar.google.com/citations?user=zRG8t_oAAAAJ"
+        ]
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Khashayar Ghamati",
+        "url": "https://ghamati.com"
+      }
+    }
+  </script>
+</head>
+<body>
+
+<a href="#main-content" class="md-skip-link">پرش به محتوای اصلی</a>
+
+<nav class="md-top-app-bar" id="top-bar">
+  <span class="md-top-app-bar__title">وبلاگ</span>
+  <div class="md-top-app-bar__nav">
+    <a href="/"><i class="fas fa-home"></i> خانه</a>
+    <a href="/blog/fa/"><i class="fas fa-arrow-right"></i> همهٔ نوشته‌ها</a>
+    <a href="/blog/context-pollution/" lang="en" aria-label="English version of this post">English</a>
+  </div>
+</nav>
+
+<header class="md-hero">
+  <h1 class="md-display-medium">آلودگی بافتار: وقتی دادن حافظه به مدل زبانی کارش را خراب‌تر کرد</h1>
+  <p class="md-hero__subtitle">خشایار قماتی &bull; ۲۹ مرداد ۱۴۰۵</p>
+  <p class="md-hero__status-text"><i class="far fa-clock"></i> ۷ دقیقه</p>
+</header>
+
+<main id="main-content">
+  <div class="md-container md-sp-32">
+    <article class="blog-article md-section" lang="fa">
+
+      <p>ایده‌ای داشتیم که به‌ظاهر بی‌برو‌برگرد خوب بود: به یک مدل زبانی بزرگ حافظهٔ اپیزودیک بدهیم. سامانهٔ ما فعالیت مغزی کاربر را از یک هدبند EEG مصرفی می‌خوانَد، سیگنال را به زبان طبیعی توصیف می‌کند و از یک مدل زبانیِ منجمد می‌خواهد حالت هیجانی کاربر را دسته‌بندی کند. با خودمان گفتیم اگر مدل بتواند جلسه‌های قبلی‌اش با آن کاربر را <em>به یاد بیاورد</em> — تجربه بیندوزد، آن را در قالب یک نیم‌رخ فشرده کند، کاربر را «بشناسد» — به‌مرور بهتر دسته‌بندی خواهد کرد. این همان وعده‌ای است که این روزها در دل هر قابلیت «حافظهٔ عامل» نهفته است.</p>
+
+      <p>اما دقت فروریخت. بدون هیچ حافظه‌ای، مدل در یک وظیفهٔ چهارکلاسه که شانس در آن ۲۵٪ است به ۴۰٪ رسید. با حافظه‌ای از یک جلسهٔ قبل، به ۳۲٪ افت کرد. و با حافظهٔ اپیزودیک کامل و تثبیت دوره‌ای — «مداوم‌ترین» پیکربندی ممکن بدون دست‌زدن به وزن‌ها — به ۱۲٪ سقوط کرد. <strong>پایین‌تر از شانس.</strong> هرچه مدل بیشتر به یاد می‌آورد، بدتر عمل می‌کرد؛ و این تفاوت از نظر آماری معنادار است (آزمون مک‌نمار: χ² = 9.39، p = 0.002).</p>
+
+      <p>ما این شیوهٔ شکست را <strong>آلودگی بافتار</strong> (context pollution) نامیده‌ایم و گمان می‌کنم اهمیتش بسیار فراتر از EEG است: این ویژگیِ ساختاریِ هر سامانه‌ای است که خروجی‌های تأییدنشدهٔ خودِ مدل را دوباره به‌عنوان بافتار به او بازمی‌خورانَد — توصیفی که بر بخش بزرگی از معماری‌های حافظهٔ عامل که امروز ساخته می‌شوند صدق می‌کند.</p>
+
+      <h2>آزمایش، به‌اختصار</h2>
+
+      <p>جزئیات کامل در <a href="/post-training-vs-continual-learning/">مقالهٔ ICSR 2026 ما</a> آمده است (با ابوالفضل زرکی، نشست ویژهٔ SS03)، اما طرح کلی ساده است. مدل Claude Haiku 4.5 را «منجمد» نگه داشتیم — به این معنا که هرگز به پارامترهایش دست نزدیم — و سامانه‌ای چهارلایه گِردش ساختیم: سیگنال خام چهارکاناله به ویژگی‌های طیفی تبدیل می‌شود، ویژگی‌ها به توصیفی حدوداً ۱۹۰۰نویسه‌ای به زبان طبیعی، و سه مهارت تخصصی — دسته‌بند هیجان، تحلیل‌گر کیفیت سیگنال و تثبیت‌کنندهٔ حافظه — روی همان متن استدلال می‌کنند. حافظهٔ هر شرکت‌کننده دسته‌بندی، اطمینان و استدلال هر جلسه را نگه می‌دارد و هر پنج جلسه یک‌بار، تثبیت‌کننده اپیزودها را در یک نیم‌رخ فشرده می‌کند.</p>
+
+      <p>سپس فقط یک چیز را تغییر دادیم: آنچه وارد پنجرهٔ بافتار می‌شود.</p>
+
+      <ul>
+        <li><strong>بدون بافتار (Zero-shot)</strong> — فقط ویژگی‌های EEG و راهنمای علوم اعصاب. بدون حافظه.</li>
+        <li><strong>حافظهٔ تک‌جلسه‌ای</strong> — دسته‌بندی جلسهٔ قبلی هم به بافتار افزوده می‌شود.</li>
+        <li><strong>حافظهٔ مداوم</strong> — نیم‌رخ تثبیت‌شده به‌علاوهٔ تاریخچهٔ اپیزودهای اخیر؛ کامل‌ترین شکل حافظه بدون آموزش.</li>
+      </ul>
+
+      <p>وزن‌ها یکسان، ویژگی‌ها یکسان، پرامپت‌ها جز بخش حافظه یکسان. روی دادگان NeuroSense (۳۰ شرکت‌کننده، هر یک ۴۰ جلسهٔ شنیدن موسیقی) و ارزیابی ۵۰ جلسه از ۱۰ شرکت‌کننده: ۴۰٫۰٪ ← ۳۲٫۰٪ ← ۱۲٫۰٪.</p>
+
+      <h2>سازوکار: آبشار خودتقویت‌شوندهٔ خطا</h2>
+
+      <p>آلودگی بافتار در چهار گام رخ می‌دهد و وقتی این گام‌ها را ببینید، همین الگو را در سامانه‌های دیگر هم بازخواهید شناخت.</p>
+
+      <p><strong>نخست</strong>، در مرحلهٔ ساخت حافظه، مدل جلسه‌های نخست را بی‌هیچ کمکی دسته‌بندی می‌کند — و با توجه به دشواری ذاتی تفسیر EEG مصرفی، اغلب اشتباه می‌کند. <strong>دوم</strong>، همین پیش‌بینی‌ها همراه با استدلال (نادرست)شان در حافظهٔ اپیزودیک ذخیره و به پرامپت‌های بعدی تزریق می‌شوند. <strong>سوم</strong>، مدل به این بافتار انباشته لنگر می‌اندازد: به‌جای استدلال مستقل از سیگنال تازه، داده‌های نو را از دریچهٔ نتیجه‌گیری‌های پیشین (و غلط) خود تفسیر می‌کند. <strong>چهارم</strong>، هیچ‌چیز در این چرخه نمی‌تواند حافظهٔ درست را از نادرست تمیز دهد — پس خطاها جلسه به جلسه روی هم انباشته می‌شوند.</p>
+
+      <p>این انباشت نامحسوس نیست. با حافظهٔ کامل، در ۸ نفر از ۱۰ شرکت‌کننده پدیده‌ای رخ داد که ما «پیش‌بینی قفل‌شده» می‌نامیم: مدل روی یک ربع هیجانی واحد قفل کرد و آن را برای همهٔ جلسه‌های ارزیابی تکرار کرد — فارغ از برچسب واقعی. توزیع پیش‌بینی‌ها نلغزید؛ فروپاشید. و شدت افت با حجم حافظه مقیاس گرفت: حافظهٔ یک جلسه ۸ واحد دقت هزینه داشت؛ تاریخچهٔ کامل ۲۸ واحد.</p>
+
+      <blockquote>مدلِ منجمد به خروجی‌های گذشتهٔ خودش همان‌قدر اعتبار می‌دهد که به راهنمای متخصصان در پرامپت سیستم. او سازوکاری برای شک‌کردن به خاطراتش ندارد.</blockquote>
+
+      <h2>«خب حافظه را فیلتر کنید» هم جواب نمی‌دهد</h2>
+
+      <p>چارهٔ بدیهی، گزینشی‌بودن است: فقط اپیزودهایی ذخیره شوند که مدل درباره‌شان مطمئن بوده است. ما دقیقاً همین را ساختیم — دروازهٔ اطمینانی که تنها اپیزودهای با اطمینانِ خوداظهارشدهٔ ۰٫۵۰ به بالا را به حافظه راه می‌دهد. بهبود چنان ناچیز بود که عملاً هیچ بود (κ کوهن از ‎−0.038‎ به 0.043 رسید).</p>
+
+      <p>دلیلش واقعیتی شناخته‌شده اما کم‌قدر است: <strong>اطمینانِ خوداظهارشدهٔ مدل‌های زبانی در وظایف خارج از توزیعِ آموزش، با درستی همبسته نیست.</strong> مدل ما بارها «با اطمینانِ کامل اشتباه» می‌کرد؛ یعنی دروازهٔ اطمینان دقیقاً مخرب‌ترین اپیزودها — پاسخ‌های غلطِ با قاطعیت — را نگه می‌دارد. نمی‌توان از مدلی که خودسنجی‌اش کالیبره نیست خواست نگهبان حافظهٔ خودش باشد.</p>
+
+      <h2>حافظه، یادگیری نیست</h2>
+
+      <p>نکتهٔ عمیق‌تر، تمایزی است که این حوزه مدام آن را نادیده می‌گیرد. <em>یادگیری مداوم</em> پارامترهای مدل را در برابر حقیقتِ زمین به‌روز می‌کند؛ وقتی کار می‌کند، الگوهای درست عملاً در شبکه حک می‌شوند و خطر کلاسیکش — فراموشی فاجعه‌بار — دست‌کم خوب مطالعه شده است. <em>تطبیق پس از آموزش</em> (یادگیری درون‌بافتاری، RAG، حافظهٔ عامل، و هر تکنیکی که وزن‌ها را منجمد می‌گذارد) فقط آنچه را مدل «می‌بیند» تغییر می‌دهد. چیزی را حک نمی‌کند؛ فقط دوباره می‌خوانَد.</p>
+
+      <p>این دو را معمولاً دو مسیر هم‌ارز به سوی «سامانه‌ای که با تجربه بهتر می‌شود» معرفی می‌کنند. هم‌ارز نیستند. به‌روزرسانی پارامترها ضمانتی دارد — نظارت، وزن‌ها را شکل می‌دهد — و شیوهٔ شکستِ شناخته‌شده‌ای به نام فراموشی. انباشت بافتار <em>هیچ</em> ضمانتی ندارد و شیوهٔ شکستِ کمترگفته‌شده‌ای دارد: آلودگی. اینکه «بیشتر دیدن» جای «یاد گرفتن» را می‌گیرد یا نه، تماماً به یک پرسش برمی‌گردد: <strong>آیا بافتارِ انباشته قابل‌اعتماد است؟</strong> در سامانه‌های دیگر ما — مثل <a href="/CAPA-AI/">تشخیص نوپدیدی</a> و <a href="/har-agent/">بازشناسی فعالیتِ حافظه‌محور</a> — که حافظه برچسب‌های واقعی یا خروجی‌های بیرونی‌تأییدشده را نگه می‌دارد، انباشت به‌راستی کمک می‌کند. اینجا که حافظه حدس‌های تأییدنشدهٔ خودِ مدل دربارهٔ سیگنالی سخت و پرنوفه را نگه می‌داشت، انباشت زهر بود.</p>
+
+      <h2>به سازندگان حافظهٔ عامل چه می‌گفتم</h2>
+
+      <ul>
+        <li><strong>اول خط پایهٔ بدون حافظه را بسنجید، و سنجیدنش را رها نکنید.</strong> قابلیت‌های حافظه با این پیش‌فرض عرضه می‌شوند که کمک می‌کنند. برای ما ۲۸ واحد هزینه داشت. اگر هرگز آزمایشِ بدون حافظه را اجرا نکنید، هرگز نخواهید فهمید.</li>
+        <li><strong>پیش از سپردن به حافظه، راستی‌آزمایی کنید.</strong> مرز میان حافظهٔ مفید و مضر، تأیید بیرونی است: آنچه انسانی تأیید کرده، آنچه برچسب واقعی خورده، آنچه از یک وارسی پایین‌دستی گذشته — نه خروجی خامِ مدل.</li>
+        <li><strong>اطمینانِ خوداظهارشده را دروازه‌بان نکنید.</strong> در وظایف دور از توزیع آموزش، این سنجه خطاهای بااطمینان را برمی‌گزیند.</li>
+        <li><strong>انتظار داشته باشید آلودگی با اندازهٔ حافظه مقیاس بگیرد.</strong> اگر خروجی‌های تأییدنشده وارد چرخه شوند، حافظهٔ بزرگ‌تر داراییِ بزرگ‌تر نیست؛ بدهیِ بزرگ‌تر است.</li>
+        <li><strong>مراقب پیش‌بینی‌های قفل‌شده باشید.</strong> فروپاشی تدریجی توزیع خروجی، نشانهٔ بالینیِ عاملی است که به‌جای ورودی‌هایش از خاطراتش استدلال می‌کند.</li>
+      </ul>
+
+      <p>هیچ‌کدام از این‌ها استدلالی علیه حافظهٔ عامل نیست. استدلالی است برای اینکه حافظهٔ بدون راستی‌آزمایی، نسخهٔ ضعیف‌ترِ یادگیری نیست — سازوکار دیگری است با شیوهٔ شکست دیگری؛ شکستی خاموش، تجمعی و نادیدنی، مگر آنکه دنبالش بگردید. ما به این دلیل سقوط تمیزِ ۴۰٪ به ۱۲٪ را دیدیم که EEG بی‌گذشت است. در دامنهٔ شما، شاید همین آبشار پشت اعدادی نرم‌تر پنهان باشد.</p>
+
+      <p>مقاله — <a href="/post-training-vs-continual-learning/">Can Post-Training Adaptation Replace Continual Learning? Evidence from EEG Emotion Recognition</a> — در ICSR 2026 (اشپرینگر LNCS) منتشر می‌شود. اگر آلودگی بافتار را در سامانه‌های عامل‌محورِ در حال کار دیده‌اید، خوشحال می‌شوم بشنوم؛ راه‌های تماس در <a href="/#contact">صفحهٔ اصلی</a> آمده است.</p>
+
+    </article>
+
+    <footer class="blog-post-footer">
+      <p><i class="fas fa-language" aria-hidden="true"></i> این نوشته به <a href="/blog/context-pollution/" lang="en">English</a> هم در دسترس است.</p>
+    </footer>
+  </div>
+</main>
+
+<footer style="background-color:var(--md-inverse-surface);color:var(--md-inverse-on-surface);text-align:center;padding:48px 24px;">
+  <div class="md-container">
+    <p class="md-body-large">&copy; ۲۰۲۶ خشایار قماتی. همهٔ حقوق محفوظ است.</p>
+    <p class="md-body-medium" style="opacity:0.8;margin-top:8px;">ساختن سامانه‌های هوشمندی که یاد گرفتن را رها نمی‌کنند</p>
+  </div>
+</footer>
+
+</body>
+</html>

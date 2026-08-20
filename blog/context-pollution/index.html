@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+
+  <title>Context Pollution: How Giving an LLM a Memory Made It Worse | Khashayar Ghamati</title>
+  <meta name="description" content="We gave a frozen LLM an episodic memory of a user's EEG and accuracy collapsed from 40% to 12% — below chance. What context pollution is, why confidence gating can't fix it, and what it means for anyone building agent memory.">
+  <meta name="keywords" content="context pollution, LLM agent memory, in-context learning failure, continual learning vs post-training adaptation, error cascade LLM, agentic AI memory, EEG emotion recognition LLM, RAG memory pitfalls, Khashayar Ghamati">
+  <meta name="author" content="Khashayar Ghamati">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Context Pollution: How Giving an LLM a Memory Made It Worse">
+  <meta property="og:description" content="We gave a frozen LLM an episodic memory of a user's EEG and accuracy collapsed from 40% to 12% — below chance. The failure mode is structural, and it applies to any agent that remembers its own outputs.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ghamati.com/blog/context-pollution/">
+  <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="https://ghamati.com/images/khashayar-og.jpg">
+  <meta property="article:author" content="Khashayar Ghamati">
+  <meta property="article:published_time" content="2026-08-20">
+  <meta property="article:section" content="Artificial Intelligence">
+  <meta property="article:tag" content="agent memory">
+  <meta property="article:tag" content="in-context learning">
+  <meta property="article:tag" content="continual learning">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Context Pollution: How Giving an LLM a Memory Made It Worse">
+  <meta name="twitter:description" content="Episodic memory took a frozen LLM from 40% accuracy to 12% — below chance. The failure is structural, and it applies to any agent that remembers its own outputs.">
+
+  <link rel="canonical" href="https://ghamati.com/blog/context-pollution/">
+  <link rel="alternate" hreflang="en" href="https://ghamati.com/blog/context-pollution/">
+  <link rel="alternate" hreflang="fa" href="https://ghamati.com/blog/fa/context-pollution/">
+  <link rel="alternate" hreflang="x-default" href="https://ghamati.com/blog/context-pollution/">
+  <link rel="alternate" type="application/rss+xml" title="Khashayar Ghamati — Blog" href="/blog/feed.xml">
+
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/fonts.css?v=2">
+  <link rel="stylesheet" href="/css/material-design.css?v=4">
+  <link rel="preload" href="/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=1" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=1"></noscript>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "@id": "https://ghamati.com/blog/context-pollution/#post",
+      "mainEntityOfPage": "https://ghamati.com/blog/context-pollution/",
+      "headline": "Context Pollution: How Giving an LLM a Memory Made It Worse",
+      "description": "We gave a frozen LLM an episodic memory of a user's EEG and accuracy collapsed from 40% to 12% — below chance. What context pollution is, why confidence gating can't fix it, and what it means for anyone building agent memory.",
+      "inLanguage": "en",
+      "datePublished": "2026-08-20",
+      "dateModified": "2026-08-20",
+      "image": "https://ghamati.com/images/khashayar-og.jpg",
+      "isPartOf": { "@id": "https://ghamati.com/blog/#blog" },
+      "about": { "@id": "https://ghamati.com/post-training-vs-continual-learning/" },
+      "author": {
+        "@type": "Person",
+        "name": "Khashayar Ghamati",
+        "url": "https://ghamati.com",
+        "jobTitle": "Principal AI Engineer",
+        "sameAs": [
+          "https://orcid.org/0009-0002-6416-3127",
+          "https://scholar.google.com/citations?user=zRG8t_oAAAAJ"
+        ]
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Khashayar Ghamati",
+        "url": "https://ghamati.com"
+      }
+    }
+  </script>
+
+  <style>
+    .md-hero__status-text {
+      margin-top: 16px;
+      font-family: var(--md-font-label), sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    .md-hero__status-text .far, .md-hero__status-text .fas { margin-inline-end: 0.5rem; }
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="md-skip-link">Skip to main content</a>
+
+<nav class="md-top-app-bar" id="top-bar">
+  <span class="md-top-app-bar__title">Blog</span>
+  <div class="md-top-app-bar__nav">
+    <a href="/"><i class="fas fa-home"></i> Home</a>
+    <a href="/blog/"><i class="fas fa-arrow-left"></i> All posts</a>
+    <a href="/blog/fa/context-pollution/" lang="fa" aria-label="Persian version of this post">فارسی</a>
+  </div>
+</nav>
+
+<header class="md-hero">
+  <h1 class="md-display-medium">Context Pollution: How Giving an LLM a Memory Made It Worse</h1>
+  <p class="md-hero__subtitle">Khashayar Ghamati &bull; 20 August 2026</p>
+  <p class="md-hero__status-text"><i class="far fa-clock"></i> 7 min read</p>
+</header>
+
+<main id="main-content">
+  <div class="md-container md-sp-32">
+    <article class="blog-article md-section">
+
+      <p>We had what felt like an obviously good idea: give a large language model an episodic memory. Our system reads a user's brain activity from a consumer EEG headband, describes the signal in natural language, and asks a frozen LLM to classify the user's emotional state. Surely, we reasoned, if the model could <em>remember</em> its previous sessions with that user — accumulate experience, consolidate it into a profile, get to know them — it would classify better over time. That is, after all, the promise implicit in every "agent memory" feature shipping right now.</p>
+
+      <p>Instead, accuracy collapsed. With no memory at all, the model scored 40% on a four-class task where chance is 25%. With a memory of one previous session, it dropped to 32%. With a full episodic memory and periodic consolidation — the most "continual" configuration we could build without touching the weights — it fell to 12%. <strong>Below chance.</strong> The more the model remembered, the worse it got, and the difference is statistically significant (McNemar's χ² = 9.39, p = 0.002).</p>
+
+      <p>We call this failure mode <strong>context pollution</strong>, and I think it matters far beyond EEG. It is a structural property of any system that feeds a model's own unverified outputs back to it as context — which describes a large fraction of the agent-memory architectures being built today.</p>
+
+      <h2>The experiment, briefly</h2>
+
+      <p>The full details are in our <a href="/post-training-vs-continual-learning/">ICSR 2026 paper</a> (with Abolfazl Zaraki, Special Session SS03), but the shape of it is simple. We took Claude Haiku 4.5, froze it in the trivial sense that we never touch its parameters, and built a four-layer system around it: raw 4-channel Muse EEG becomes spectral features, the features become a ~1,900-character natural-language description, and three specialised skills — an emotion classifier, a signal-quality analyst, and a memory consolidator — reason over that text. Per-participant memory stores each session's classification, confidence, and reasoning; every five sessions the consolidator compresses episodes into a profile.</p>
+
+      <p>Then we varied exactly one thing: what enters the context window.</p>
+
+      <ul>
+        <li><strong>Zero-shot</strong> — EEG features and neuroscientific guidelines only. No memory.</li>
+        <li><strong>Single-session ICL</strong> — the previous session's classification is included.</li>
+        <li><strong>Continual ICL</strong> — the consolidated profile plus recent episode history. Memory in its fullest post-training form.</li>
+      </ul>
+
+      <p>Same weights, same features, same prompts apart from the memory block. On the NeuroSense dataset (30 participants, 40 music-listening sessions each), evaluated on 50 sessions across 10 participants: 40.0% → 32.0% → 12.0%.</p>
+
+      <h2>The mechanism: a self-reinforcing error cascade</h2>
+
+      <p>Context pollution unfolds in four steps, and once you see them you will recognise the pattern in other systems.</p>
+
+      <p><strong>First</strong>, during the memory-building phase, the model classifies early sessions with no help — and, consumer-grade EEG being what it is, frequently gets them wrong. <strong>Second</strong>, those predictions are stored, along with their (erroneous) reasoning, and injected into every subsequent prompt. <strong>Third</strong>, the model anchors on this accumulated context: instead of reasoning independently from the fresh signal, it interprets new data through the lens of its prior conclusions. <strong>Fourth</strong>, nothing in the loop can tell the difference between a correct memory and a wrong one — so errors compound, session after session.</p>
+
+      <p>The compounding is not subtle. Under full memory, 8 of 10 participants triggered what we call <em>locked-in prediction</em>: the model latched onto a single emotional quadrant and repeated it for every evaluation session, regardless of the true label. The prediction distribution didn't drift — it collapsed. And the degradation scaled with memory volume: one remembered session cost 8 points of accuracy; a full history cost 28.</p>
+
+      <blockquote>A frozen model treats its own past outputs with the same authority as the expert guidelines in its system prompt. It has no mechanism to doubt its memories.</blockquote>
+
+      <h2>"Just filter the memory" doesn't work</h2>
+
+      <p>The obvious mitigation is selectivity: only store episodes the model was confident about. We implemented exactly that — a confidence gate that admits only episodes with self-reported confidence ≥ 0.50 into memory. The improvement was marginal to the point of irrelevance (Cohen's κ moved from −0.038 to 0.043).</p>
+
+      <p>The reason is a known but under-appreciated fact: <strong>LLM self-reported confidence does not track correctness on out-of-distribution tasks.</strong> Our model was frequently confidently wrong, which means a confidence gate selectively retains exactly the most damaging episodes — the wrong answers delivered with conviction. You cannot ask a model to police its own memory when the model's self-assessment is itself uncalibrated.</p>
+
+      <h2>Memory is not learning</h2>
+
+      <p>The deeper point is a distinction the field keeps collapsing. <em>Continual learning</em> updates a model's parameters against ground truth; when it works, correct patterns are physically encoded into the network, and the classic hazard — catastrophic forgetting — is at least well studied. <em>Post-training adaptation</em> (in-context learning, RAG, agent memory, every technique that leaves weights frozen) changes only what the model sees. It cannot encode anything; it can only re-read.</p>
+
+      <p>These two are routinely discussed as interchangeable routes to "a system that improves with experience". They are not. Parameter updates come with a guarantee — supervision shapes the weights — and a known failure mode, forgetting. Context accumulation comes with <em>no</em> guarantee and a less-discussed failure mode: pollution. Whether "seeing more" substitutes for "learning" turns entirely on one question — <strong>is the accumulated context reliable?</strong> In our other systems, where memory stores ground-truth labels or externally validated outputs — as in our <a href="/CAPA-AI/">novelty-detection</a> and <a href="/har-agent/">memory-driven activity-recognition</a> work — accumulation genuinely helps. Here, where memory stored the model's own unverified guesses about a hard, noisy signal, accumulation was poison.</p>
+
+      <h2>What I'd tell anyone building agent memory</h2>
+
+      <ul>
+        <li><strong>Measure your zero-shot baseline first, and keep measuring it.</strong> Memory features ship on the assumption they help. Ours cost 28 points. If you never run the memoryless ablation, you will never know.</li>
+        <li><strong>Validate before you memorise.</strong> The line between helpful and harmful memory is external verification. Store what a human confirmed, what ground truth labelled, what a downstream check passed — not raw model output.</li>
+        <li><strong>Don't trust self-reported confidence as the gatekeeper.</strong> On tasks far from pre-training distribution, it selects for confident errors.</li>
+        <li><strong>Expect pollution to scale with memory size.</strong> If unverified outputs enter the loop, a bigger memory is a bigger liability, not a bigger asset.</li>
+        <li><strong>Watch for locked-in predictions.</strong> A collapsing output distribution over time is the clinical sign that your agent is reasoning from its memories instead of its inputs.</li>
+      </ul>
+
+      <p>None of this argues against agent memory. It argues that memory without verification is not a weaker form of learning — it is a different mechanism with a different failure mode, and the failure mode is quiet, cumulative, and invisible unless you look for it. We got a clean 40%→12% collapse because EEG is unforgiving. Your domain may hide the same cascade behind softer numbers.</p>
+
+      <p>The paper — <a href="/post-training-vs-continual-learning/">Can Post-Training Adaptation Replace Continual Learning? Evidence from EEG Emotion Recognition</a> — appears at ICSR 2026 (Springer LNCS). I'd genuinely like to hear from anyone who has observed context pollution in production agent systems; my contact details are on the <a href="/#contact">home page</a>.</p>
+
+    </article>
+
+    <footer class="blog-post-footer">
+      <p><i class="fas fa-language" aria-hidden="true"></i> Also available in <a href="/blog/fa/context-pollution/" lang="fa">فارسی</a>.</p>
+    </footer>
+  </div>
+</main>
+
+<footer style="background-color:var(--md-inverse-surface);color:var(--md-inverse-on-surface);text-align:center;padding:48px 24px;">
+  <div class="md-container">
+    <p class="md-body-large">&copy; 2026 Khashayar Ghamati. All rights reserved.</p>
+    <p class="md-body-medium" style="opacity:0.8;margin-top:8px;">Building AI systems that keep learning</p>
+  </div>
+</footer>
+
+</body>
+</html>
