@@ -6,14 +6,14 @@
   <!-- TODO: remove noindex when the first post is published -->
   <meta name="robots" content="noindex, follow">
 
-  <title>Blog | Khashayar Ghamati — Essays on Agentic AI &amp; Continual Learning</title>
-  <meta name="description" content="Essays and engineering notes by Khashayar Ghamati, Principal AI Engineer — agentic AI, continual learning, novelty detection, and reinforcement learning for adaptive robotics. Also available in Persian.">
-  <meta name="keywords" content="Khashayar Ghamati blog, agentic AI blog, continual learning, novelty detection, reinforcement learning robotics, AI engineering essays, human-robot interaction">
+  <title>Blog | Khashayar Ghamati — AI, Computer Science &amp; Software Engineering</title>
+  <meta name="description" content="Essays and engineering notes on artificial intelligence, computer science, and software engineering. Also available in Persian.">
+  <meta name="keywords" content="Khashayar Ghamati blog, AI blog, computer science blog, software engineering blog, machine learning, agentic AI, engineering essays">
   <meta name="author" content="Khashayar Ghamati">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Blog | Khashayar Ghamati">
-  <meta property="og:description" content="Essays and engineering notes on agentic AI, continual learning, and adaptive robotics.">
+  <meta property="og:description" content="Essays and engineering notes on artificial intelligence, computer science, and software engineering.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ghamati.com/blog/">
   <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
@@ -23,7 +23,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Blog | Khashayar Ghamati">
-  <meta name="twitter:description" content="Essays and engineering notes on agentic AI, continual learning, and adaptive robotics.">
+  <meta name="twitter:description" content="Essays and engineering notes on artificial intelligence, computer science, and software engineering.">
 
   <link rel="canonical" href="https://ghamati.com/blog/">
   <link rel="alternate" hreflang="en" href="https://ghamati.com/blog/">
@@ -35,7 +35,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="/css/fonts.css?v=2">
-  <link rel="stylesheet" href="/css/material-design.css?v=4">
+  <link rel="stylesheet" href="/css/material-design.css?v=5">
   <link rel="preload" href="/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=1" media="print" onload="this.media='all'">
@@ -49,7 +49,7 @@
       "@id": "https://ghamati.com/blog/#blog",
       "url": "https://ghamati.com/blog/",
       "name": "Khashayar Ghamati — Blog",
-      "description": "Essays and engineering notes on agentic AI, continual learning, novelty detection, and reinforcement learning for adaptive robotics.",
+      "description": "Essays and engineering notes on artificial intelligence, computer science, and software engineering.",
       "inLanguage": ["en", "fa"],
       "author": {
         "@type": "Person",
@@ -72,35 +72,41 @@
   <span class="md-top-app-bar__title">Blog</span>
   <div class="md-top-app-bar__nav">
     <a href="/"><i class="fas fa-home"></i> Home</a>
+    <a href="/blog/feed.xml"><i class="fas fa-rss"></i> RSS</a>
     <a href="/blog/fa/" lang="fa" aria-label="Persian edition of the blog">فارسی</a>
   </div>
 </nav>
 
 <header class="md-hero">
-  <h1 class="md-display-medium">Essays on AI That Keeps Learning</h1>
-  <p class="md-hero__subtitle">Agentic AI &bull; Continual Learning &bull; Adaptive Robotics &mdash; by Khashayar Ghamati</p>
+  <p class="blog-hero-eyebrow">Blog</p>
+  <h1 class="md-display-medium">Essays &amp; Engineering Notes</h1>
+  <p class="md-hero__subtitle">On artificial intelligence, computer science, and software engineering</p>
+  <svg class="blog-trace" viewBox="0 0 220 24" width="220" height="24" aria-hidden="true" focusable="false">
+    <polyline points="0,19 18,17 32,21 48,11 64,15 82,8 100,13 118,6 136,9 156,4 178,7 200,4 220,5"
+      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+  </svg>
 </header>
 
 <main id="main-content">
   <div class="md-container md-sp-32">
     <section class="md-section" aria-label="Blog posts">
-      <div class="blog-list">
+      <ol class="blog-timeline">
 
-        <!-- POSTS: newest first. Row template:
-        <a class="blog-row" href="/blog/SLUG/">
-          <p class="blog-row__meta">1 January 2026 &middot; 8 min read</p>
-          <h2 class="blog-row__title">Post Title</h2>
-          <p class="blog-row__summary">One-or-two-sentence summary.</p>
-        </a>
+        <!-- POSTS: newest first. Entry template:
+        <li class="blog-entry">
+          <p class="blog-entry__date">1 January 2026 &middot; 8 min read</p>
+          <h2 class="blog-entry__title"><a href="/blog/SLUG/">Post Title</a></h2>
+          <p class="blog-entry__summary">One-or-two-sentence summary.</p>
+        </li>
         -->
 
-        <div class="blog-empty">
-          <p><i class="fas fa-pen-nib" aria-hidden="true"></i></p>
-          <p>The first essays are being written &mdash; on agentic AI, continual learning, and what it takes to build systems that keep learning after deployment.</p>
-          <p>Subscribe to the <a href="/blog/feed.xml" style="color: var(--md-primary);">RSS feed</a> to catch the first post.</p>
-        </div>
+        <li class="blog-entry blog-entry--empty">
+          <p class="blog-entry__date">Coming soon</p>
+          <h2 class="blog-entry__title">The first post is being written</h2>
+          <p class="blog-entry__summary">Subscribe to the <a href="/blog/feed.xml" style="color: var(--md-primary); position: relative; z-index: 1;">RSS feed</a> to catch it when it lands.</p>
+        </li>
 
-      </div>
+      </ol>
     </section>
   </div>
 </main>

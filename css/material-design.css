@@ -2086,75 +2086,143 @@ body {
 
 
 /* ==========================================================================
-   Blog — listing rows, article prose, RTL (fa) support
+   Blog — notebook timeline listing, learning-trace motif, article prose, RTL
    ========================================================================== */
 
-.blog-list {
-  max-width: 860px;
-  margin: 0 auto;
-}
-
-.blog-row {
-  display: block;
-  padding: 22px 26px;
-  margin-bottom: 16px;
-  background: var(--md-surface-variant);
-  border: 1px solid var(--md-outline-variant);
-  border-radius: var(--md-shape-md);
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.2s var(--md-motion-standard), border-color 0.2s var(--md-motion-standard);
-}
-
-.blog-row:hover,
-.blog-row:focus-visible {
-  transform: translateY(-2px);
-  border-color: var(--md-primary);
-}
-
-.blog-row__meta {
+/* Hero refinements */
+.blog-hero-eyebrow {
   font-size: 0.8125rem;
-  letter-spacing: 0.06em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--md-tertiary);
-  margin-bottom: 6px;
+  margin-bottom: 14px;
 }
 
-[dir="rtl"] .blog-row__meta {
+[dir="rtl"] .blog-hero-eyebrow {
+  letter-spacing: 0.04em;
+}
+
+.blog-hero-meta {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  color: var(--md-on-surface-variant);
+  letter-spacing: 0.02em;
+}
+
+/* Signature: the learning trace — a noisy signal converging upward */
+.blog-trace {
+  display: block;
+  margin: 22px auto 0;
+  color: var(--md-tertiary);
+  opacity: 0.9;
+}
+
+.blog-article-wrap .blog-trace {
+  margin: 40px auto;
+  opacity: 0.55;
+}
+
+/* Notebook timeline listing */
+.blog-timeline {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 8px 0 8px 30px;
+  list-style: none;
+  border-inline-start: 2px solid var(--md-outline-variant);
+}
+
+[dir="rtl"] .blog-timeline {
+  padding: 8px 30px 8px 0;
+}
+
+.blog-entry {
+  position: relative;
+  padding-bottom: 44px;
+}
+
+.blog-entry:last-child {
+  padding-bottom: 8px;
+}
+
+/* Square marker on the rule — matches the homepage experience timeline */
+.blog-entry::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: -37px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  background: var(--md-tertiary);
+  border: 2px solid var(--md-surface);
+  transition: background-color 0.2s var(--md-motion-standard);
+}
+
+.blog-entry:hover::before,
+.blog-entry:focus-within::before {
+  background: var(--md-primary);
+}
+
+.blog-entry__date {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--md-tertiary);
+  margin-bottom: 8px;
+}
+
+[dir="rtl"] .blog-entry__date {
   letter-spacing: 0;
   text-transform: none;
 }
 
-.blog-row__title {
+.blog-entry__title {
   font-family: 'Space Grotesk', 'Vazirmatn', system-ui, sans-serif;
   font-weight: 700;
   letter-spacing: -0.02em;
-  font-size: 1.35rem;
-  line-height: 1.3;
-  color: var(--md-on-surface);
-  margin-bottom: 8px;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  margin-bottom: 10px;
 }
 
-[dir="rtl"] .blog-row__title {
+[dir="rtl"] .blog-entry__title {
   letter-spacing: 0;
 }
 
-.blog-row__summary {
-  color: var(--md-on-surface-variant);
-  line-height: 1.6;
-  font-size: 0.975rem;
+.blog-entry__title a {
+  color: var(--md-on-surface);
+  text-decoration: none;
+  transition: color 0.2s var(--md-motion-standard);
 }
 
-.blog-empty {
-  max-width: 620px;
-  margin: 0 auto;
-  padding: 48px 26px;
-  text-align: center;
-  background: var(--md-surface-variant);
-  border: 1px dashed var(--md-outline);
-  border-radius: var(--md-shape-md);
+.blog-entry__title a:hover,
+.blog-entry__title a:focus-visible {
+  color: var(--md-primary);
+}
+
+/* Make the whole entry clickable through the title link */
+.blog-entry__title a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.blog-entry__summary {
   color: var(--md-on-surface-variant);
-  line-height: 1.7;
+  line-height: 1.65;
+  font-size: 0.975rem;
+  max-width: 60ch;
+}
+
+/* Empty state as a pending entry on the same timeline */
+.blog-entry--empty::before {
+  background: transparent;
+  border: 2px dashed var(--md-outline);
+}
+
+.blog-entry--empty .blog-entry__summary {
+  color: var(--md-on-surface-variant);
 }
 
 /* Article body — a readable single column for long-form prose */
@@ -2175,6 +2243,18 @@ body {
 
 .blog-article p {
   margin: 0 0 1.25em;
+}
+
+/* Lede: the opening paragraph carries the essay in */
+.blog-article > p:first-of-type {
+  font-size: 1.1875rem;
+  line-height: 1.7;
+  color: var(--md-on-surface);
+}
+
+[lang="fa"] .blog-article > p:first-of-type,
+.blog-article[lang="fa"] > p:first-of-type {
+  line-height: 1.95;
 }
 
 .blog-article h2 {
@@ -2286,7 +2366,7 @@ body {
   border-top: 2px solid var(--md-outline);
 }
 
-/* Post footer — mirrors / translation cross-link */
+/* Post footer — translation / mirror cross-links */
 .blog-post-footer {
   max-width: 72ch;
   margin: 48px auto 0;
@@ -2298,9 +2378,9 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .blog-row:hover,
-  .blog-row:focus-visible {
-    transform: none;
+  .blog-entry::before,
+  .blog-entry__title a {
+    transition: none;
   }
 }
 
@@ -2310,7 +2390,16 @@ body {
     padding: 0 18px;
   }
 
-  .blog-row {
-    padding: 18px 20px;
+  .blog-timeline {
+    padding-inline-start: 24px;
+    margin-inline: 18px;
+  }
+
+  .blog-entry::before {
+    inset-inline-start: -31px;
+  }
+
+  .blog-entry__title {
+    font-size: 1.3rem;
   }
 }

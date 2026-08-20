@@ -2,8 +2,8 @@
   BLOG POST TEMPLATE (English) — copy to /blog/{{SLUG}}/index.html and fill every {{...}}.
   Checklist per post:
     1. Fill placeholders; delete the hreflang fa lines if no Persian version (keep en + x-default).
-    2. Add a .blog-row to /blog/index.html (newest first); remove the .blog-empty block and
-       the noindex meta from /blog/index.html on the first post.
+    2. Add a .blog-entry <li> to the .blog-timeline in /blog/index.html (newest first);
+       remove the .blog-entry--empty item and the noindex meta on the first post.
     3. Add an <item> to /blog/feed.xml and bump its lastBuildDate.
     4. Add the URL to /sitemap.xml.
     5. First post only: add "Blog" links to homepage nav + footer.
@@ -48,7 +48,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="/css/fonts.css?v=2">
-  <link rel="stylesheet" href="/css/material-design.css?v=4">
+  <link rel="stylesheet" href="/css/material-design.css?v=5">
   <link rel="preload" href="/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=1" media="print" onload="this.media='all'">
@@ -86,18 +86,6 @@
     }
   </script>
 
-  <style>
-    .md-hero__status-text {
-      margin-top: 16px;
-      font-family: var(--md-font-label), sans-serif;
-      font-size: 0.95rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      opacity: 0.85;
-    }
-    .md-hero__status-text .far, .md-hero__status-text .fas { margin-inline-end: 0.5rem; }
-  </style>
 </head>
 <body>
 
@@ -114,9 +102,13 @@
 </nav>
 
 <header class="md-hero">
+  <p class="blog-hero-eyebrow">{{TOPIC_EYEBROW e.g. Software Engineering}}</p>
   <h1 class="md-display-medium">{{TITLE}}</h1>
-  <p class="md-hero__subtitle">Khashayar Ghamati &bull; {{HUMAN_DATE}}</p>
-  <p class="md-hero__status-text"><i class="far fa-clock"></i> {{N}} min read</p>
+  <p class="blog-hero-meta">{{HUMAN_DATE}} &middot; {{N}} min read</p>
+  <svg class="blog-trace" viewBox="0 0 220 24" width="220" height="24" aria-hidden="true" focusable="false">
+    <polyline points="0,19 18,17 32,21 48,11 64,15 82,8 100,13 118,6 136,9 156,4 178,7 200,4 220,5"
+      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+  </svg>
 </header>
 
 <main id="main-content">
