@@ -2083,3 +2083,234 @@ body {
    (A prefers-color-scheme:light fallback was considered and removed —
    see docs/superpowers/specs/2026-07-25-site-redesign-design.md.)
    ========================================================================== */
+
+
+/* ==========================================================================
+   Blog — listing rows, article prose, RTL (fa) support
+   ========================================================================== */
+
+.blog-list {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.blog-row {
+  display: block;
+  padding: 22px 26px;
+  margin-bottom: 16px;
+  background: var(--md-surface-variant);
+  border: 1px solid var(--md-outline-variant);
+  border-radius: var(--md-shape-md);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s var(--md-motion-standard), border-color 0.2s var(--md-motion-standard);
+}
+
+.blog-row:hover,
+.blog-row:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--md-primary);
+}
+
+.blog-row__meta {
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--md-tertiary);
+  margin-bottom: 6px;
+}
+
+[dir="rtl"] .blog-row__meta {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.blog-row__title {
+  font-family: 'Space Grotesk', 'Vazirmatn', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: 1.35rem;
+  line-height: 1.3;
+  color: var(--md-on-surface);
+  margin-bottom: 8px;
+}
+
+[dir="rtl"] .blog-row__title {
+  letter-spacing: 0;
+}
+
+.blog-row__summary {
+  color: var(--md-on-surface-variant);
+  line-height: 1.6;
+  font-size: 0.975rem;
+}
+
+.blog-empty {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 48px 26px;
+  text-align: center;
+  background: var(--md-surface-variant);
+  border: 1px dashed var(--md-outline);
+  border-radius: var(--md-shape-md);
+  color: var(--md-on-surface-variant);
+  line-height: 1.7;
+}
+
+/* Article body — a readable single column for long-form prose */
+.blog-article {
+  max-width: 72ch;
+  margin: 0 auto;
+  padding: 0 24px;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--md-on-surface);
+}
+
+[lang="fa"] .blog-article,
+.blog-article[lang="fa"] {
+  font-family: 'Vazirmatn', 'Inter', system-ui, sans-serif;
+  line-height: 2;
+}
+
+.blog-article p {
+  margin: 0 0 1.25em;
+}
+
+.blog-article h2 {
+  font-family: 'Space Grotesk', 'Vazirmatn', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: 1.6rem;
+  line-height: 1.3;
+  margin: 2em 0 0.7em;
+  color: var(--md-on-surface);
+}
+
+.blog-article h3 {
+  font-family: 'Space Grotesk', 'Vazirmatn', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin: 1.7em 0 0.6em;
+  color: var(--md-on-surface);
+}
+
+[lang="fa"] .blog-article h2,
+[lang="fa"] .blog-article h3 {
+  letter-spacing: 0;
+}
+
+.blog-article ul,
+.blog-article ol {
+  margin: 0 0 1.25em;
+  padding-inline-start: 1.5em;
+}
+
+.blog-article li {
+  margin-bottom: 0.4em;
+}
+
+.blog-article a {
+  color: var(--md-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--md-outline);
+  text-underline-offset: 3px;
+}
+
+.blog-article a:hover {
+  text-decoration-color: var(--md-primary);
+}
+
+.blog-article blockquote {
+  margin: 1.5em 0;
+  padding: 0.25em 1.25em;
+  border-inline-start: 3px solid var(--md-tertiary);
+  color: var(--md-on-surface-variant);
+  font-style: italic;
+}
+
+.blog-article code {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.875em;
+  background: var(--md-surface-bright);
+  border: 1px solid var(--md-outline-variant);
+  border-radius: var(--md-shape-xs);
+  padding: 0.1em 0.4em;
+}
+
+.blog-article pre {
+  margin: 1.5em 0;
+  padding: 18px 20px;
+  background: #080d22;
+  border: 1px solid var(--md-outline-variant);
+  border-radius: var(--md-shape-sm);
+  overflow-x: auto;
+  direction: ltr;
+  text-align: left;
+}
+
+.blog-article pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* Figures keep white frames so diagrams stay legible on the dark theme */
+.blog-article figure {
+  margin: 1.75em 0;
+  padding: 12px;
+  background: #fff;
+  border-radius: var(--md-shape-sm);
+}
+
+.blog-article figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.blog-article figcaption {
+  padding-top: 10px;
+  font-size: 0.85rem;
+  text-align: center;
+  color: #444;
+}
+
+.blog-article hr {
+  margin: 2.5em auto;
+  width: 80px;
+  border: none;
+  border-top: 2px solid var(--md-outline);
+}
+
+/* Post footer — mirrors / translation cross-link */
+.blog-post-footer {
+  max-width: 72ch;
+  margin: 48px auto 0;
+  padding: 20px 24px;
+  border-top: 1px solid var(--md-outline-variant);
+  color: var(--md-on-surface-variant);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-row:hover,
+  .blog-row:focus-visible {
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .blog-article {
+    font-size: 1rem;
+    padding: 0 18px;
+  }
+
+  .blog-row {
+    padding: 18px 20px;
+  }
+}

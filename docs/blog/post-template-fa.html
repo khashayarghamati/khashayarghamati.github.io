@@ -1,0 +1,139 @@
+<!--
+  BLOG POST TEMPLATE (Persian) — copy to /blog/fa/{{SLUG}}/index.html and fill every {{...}}.
+  Same slug as the English post. Add a .blog-row to /blog/fa/index.html (remove its
+  .blog-empty block and noindex meta on the first fa post). Persian posts are not in feed.xml.
+-->
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+
+  <title>{{TITLE_FA}} | خشایار قماتی</title>
+  <meta name="description" content="{{DESCRIPTION_FA}}">
+  <meta name="keywords" content="{{KEYWORDS_FA_COMMA_SEPARATED}}">
+  <meta name="author" content="Khashayar Ghamati">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{TITLE_FA}}">
+  <meta property="og:description" content="{{DESCRIPTION_FA}}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ghamati.com/blog/fa/{{SLUG}}/">
+  <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:image" content="https://ghamati.com/images/khashayar-og.jpg">
+  <meta property="article:author" content="Khashayar Ghamati">
+  <meta property="article:published_time" content="{{ISO_DATE}}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{TITLE_FA}}">
+  <meta name="twitter:description" content="{{DESCRIPTION_FA}}">
+
+  <link rel="canonical" href="https://ghamati.com/blog/fa/{{SLUG}}/">
+  <link rel="alternate" hreflang="en" href="https://ghamati.com/blog/{{SLUG}}/">
+  <link rel="alternate" hreflang="fa" href="https://ghamati.com/blog/fa/{{SLUG}}/">
+  <link rel="alternate" hreflang="x-default" href="https://ghamati.com/blog/{{SLUG}}/">
+
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/fonts.css?v=2">
+  <link rel="stylesheet" href="/css/material-design.css?v=4">
+  <link rel="preload" href="/fonts/Vazirmatn-arabic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=1" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=1"></noscript>
+
+  <style>
+    /* Persian pages read in Vazirmatn; Latin runs fall back to Inter */
+    body { font-family: 'Vazirmatn', 'Inter', system-ui, sans-serif; }
+    .md-hero__status-text {
+      margin-top: 16px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.85;
+    }
+    .md-hero__status-text .far, .md-hero__status-text .fas { margin-inline-end: 0.5rem; }
+  </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "@id": "https://ghamati.com/blog/fa/{{SLUG}}/#post",
+      "mainEntityOfPage": "https://ghamati.com/blog/fa/{{SLUG}}/",
+      "headline": "{{TITLE_FA}}",
+      "description": "{{DESCRIPTION_FA}}",
+      "inLanguage": "fa",
+      "datePublished": "{{ISO_DATE}}",
+      "dateModified": "{{ISO_DATE}}",
+      "image": "https://ghamati.com/images/khashayar-og.jpg",
+      "isPartOf": { "@id": "https://ghamati.com/blog/fa/#blog" },
+      "translationOfWork": { "@id": "https://ghamati.com/blog/{{SLUG}}/#post" },
+      "author": {
+        "@type": "Person",
+        "name": "Khashayar Ghamati",
+        "alternateName": "خشایار قماتی",
+        "url": "https://ghamati.com",
+        "jobTitle": "Principal AI Engineer",
+        "sameAs": [
+          "https://orcid.org/0009-0002-6416-3127",
+          "https://scholar.google.com/citations?user=zRG8t_oAAAAJ"
+        ]
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Khashayar Ghamati",
+        "url": "https://ghamati.com"
+      }
+    }
+  </script>
+</head>
+<body>
+
+<a href="#main-content" class="md-skip-link">پرش به محتوای اصلی</a>
+
+<nav class="md-top-app-bar" id="top-bar">
+  <span class="md-top-app-bar__title">وبلاگ</span>
+  <div class="md-top-app-bar__nav">
+    <a href="/"><i class="fas fa-home"></i> خانه</a>
+    <a href="/blog/fa/"><i class="fas fa-arrow-right"></i> همهٔ نوشته‌ها</a>
+    <a href="/blog/{{SLUG}}/" lang="en" aria-label="English version of this post">English</a>
+  </div>
+</nav>
+
+<header class="md-hero">
+  <h1 class="md-display-medium">{{TITLE_FA}}</h1>
+  <p class="md-hero__subtitle">خشایار قماتی &bull; {{HUMAN_DATE_FA}}</p>
+  <p class="md-hero__status-text"><i class="far fa-clock"></i> {{N_FA}} دقیقه</p>
+</header>
+
+<main id="main-content">
+  <div class="md-container md-sp-32">
+    <article class="blog-article md-section" lang="fa">
+
+      <p>{{OPENING_PARAGRAPH_FA}}</p>
+
+      <h2>{{SECTION_HEADING_FA}}</h2>
+      <p>{{BODY_FA}}</p>
+
+    </article>
+
+    <footer class="blog-post-footer">
+      <p><i class="fas fa-language" aria-hidden="true"></i> این نوشته به <a href="/blog/{{SLUG}}/" lang="en">English</a> هم در دسترس است.</p>
+    </footer>
+  </div>
+</main>
+
+<footer style="background-color:var(--md-inverse-surface);color:var(--md-inverse-on-surface);text-align:center;padding:48px 24px;">
+  <div class="md-container">
+    <p class="md-body-large">&copy; ۲۰۲۶ خشایار قماتی. همهٔ حقوق محفوظ است.</p>
+    <p class="md-body-medium" style="opacity:0.8;margin-top:8px;">ساختن سامانه‌های هوشمندی که یاد گرفتن را رها نمی‌کنند</p>
+  </div>
+</footer>
+
+</body>
+</html>

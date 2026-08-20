@@ -1,0 +1,159 @@
+<!--
+  BLOG POST TEMPLATE (English) — copy to /blog/{{SLUG}}/index.html and fill every {{...}}.
+  Checklist per post:
+    1. Fill placeholders; delete the hreflang fa lines if no Persian version (keep en + x-default).
+    2. Add a .blog-row to /blog/index.html (newest first); remove the .blog-empty block and
+       the noindex meta from /blog/index.html on the first post.
+    3. Add an <item> to /blog/feed.xml and bump its lastBuildDate.
+    4. Add the URL to /sitemap.xml.
+    5. First post only: add "Blog" links to homepage nav + footer.
+    6. After a few days indexed: mirror to dev.to (canonical_url) and Medium (import), excerpt on LinkedIn.
+-->
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+
+  <title>{{TITLE}} | Khashayar Ghamati</title>
+  <meta name="description" content="{{DESCRIPTION_150_CHARS}}">
+  <meta name="keywords" content="{{KEYWORDS_COMMA_SEPARATED}}">
+  <meta name="author" content="Khashayar Ghamati">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION_150_CHARS}}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ghamati.com/blog/{{SLUG}}/">
+  <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="https://ghamati.com/images/khashayar-og.jpg">
+  <meta property="article:author" content="Khashayar Ghamati">
+  <meta property="article:published_time" content="{{ISO_DATE}}">
+  <meta property="article:section" content="Artificial Intelligence">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{TITLE}}">
+  <meta name="twitter:description" content="{{DESCRIPTION_150_CHARS}}">
+
+  <link rel="canonical" href="https://ghamati.com/blog/{{SLUG}}/">
+  <link rel="alternate" hreflang="en" href="https://ghamati.com/blog/{{SLUG}}/">
+  <link rel="alternate" hreflang="fa" href="https://ghamati.com/blog/fa/{{SLUG}}/">
+  <link rel="alternate" hreflang="x-default" href="https://ghamati.com/blog/{{SLUG}}/">
+  <link rel="alternate" type="application/rss+xml" title="Khashayar Ghamati — Blog" href="/blog/feed.xml">
+
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/fonts.css?v=2">
+  <link rel="stylesheet" href="/css/material-design.css?v=4">
+  <link rel="preload" href="/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=1" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=1"></noscript>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "@id": "https://ghamati.com/blog/{{SLUG}}/#post",
+      "mainEntityOfPage": "https://ghamati.com/blog/{{SLUG}}/",
+      "headline": "{{TITLE}}",
+      "description": "{{DESCRIPTION_150_CHARS}}",
+      "inLanguage": "en",
+      "datePublished": "{{ISO_DATE}}",
+      "dateModified": "{{ISO_DATE}}",
+      "image": "https://ghamati.com/images/khashayar-og.jpg",
+      "isPartOf": { "@id": "https://ghamati.com/blog/#blog" },
+      "author": {
+        "@type": "Person",
+        "name": "Khashayar Ghamati",
+        "url": "https://ghamati.com",
+        "jobTitle": "Principal AI Engineer",
+        "sameAs": [
+          "https://orcid.org/0009-0002-6416-3127",
+          "https://scholar.google.com/citations?user=zRG8t_oAAAAJ"
+        ]
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Khashayar Ghamati",
+        "url": "https://ghamati.com"
+      }
+    }
+  </script>
+
+  <style>
+    .md-hero__status-text {
+      margin-top: 16px;
+      font-family: var(--md-font-label), sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    .md-hero__status-text .far, .md-hero__status-text .fas { margin-inline-end: 0.5rem; }
+  </style>
+</head>
+<body>
+
+<a href="#main-content" class="md-skip-link">Skip to main content</a>
+
+<nav class="md-top-app-bar" id="top-bar">
+  <span class="md-top-app-bar__title">Blog</span>
+  <div class="md-top-app-bar__nav">
+    <a href="/"><i class="fas fa-home"></i> Home</a>
+    <a href="/blog/"><i class="fas fa-arrow-left"></i> All posts</a>
+    <!-- Delete if no Persian version -->
+    <a href="/blog/fa/{{SLUG}}/" lang="fa" aria-label="Persian version of this post">فارسی</a>
+  </div>
+</nav>
+
+<header class="md-hero">
+  <h1 class="md-display-medium">{{TITLE}}</h1>
+  <p class="md-hero__subtitle">Khashayar Ghamati &bull; {{HUMAN_DATE}}</p>
+  <p class="md-hero__status-text"><i class="far fa-clock"></i> {{N}} min read</p>
+</header>
+
+<main id="main-content">
+  <div class="md-container md-sp-32">
+    <article class="blog-article md-section">
+
+      <p>{{OPENING_PARAGRAPH}}</p>
+
+      <h2>{{SECTION_HEADING}}</h2>
+      <p>{{BODY}}</p>
+
+      <!-- Optional building blocks:
+      <blockquote>Pull quote or aside.</blockquote>
+      <pre><code>code block</code></pre>
+      <figure>
+        <img src="/blog/{{SLUG}}/figure-1.webp" alt="{{ALT}}" width="1200" height="675" loading="lazy">
+        <figcaption>Figure 1 — caption.</figcaption>
+      </figure>
+      -->
+
+    </article>
+
+    <footer class="blog-post-footer">
+      <p><i class="fas fa-language" aria-hidden="true"></i> Also available in <a href="/blog/fa/{{SLUG}}/" lang="fa">فارسی</a>.</p>
+      <!-- After mirroring, add:
+      <p>Also published on <a href="{{DEVTO_URL}}" rel="nofollow">dev.to</a> and <a href="{{MEDIUM_URL}}" rel="nofollow">Medium</a>.</p>
+      -->
+    </footer>
+  </div>
+</main>
+
+<footer style="background-color:var(--md-inverse-surface);color:var(--md-inverse-on-surface);text-align:center;padding:48px 24px;">
+  <div class="md-container">
+    <p class="md-body-large">&copy; 2026 Khashayar Ghamati. All rights reserved.</p>
+    <p class="md-body-medium" style="opacity:0.8;margin-top:8px;">Building AI systems that keep learning</p>
+  </div>
+</footer>
+
+</body>
+</html>
