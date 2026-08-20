@@ -1,0 +1,58 @@
+name: IndexNow
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: "URLs to submit (space/newline separated). Empty = pages changed in the pushed commit."
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+env:
+  HOST: ghamati.com
+  KEY: d2b242f8eb430f04f58d84c44aced400
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Build URL list
+        env:
+          URLS: ${{ inputs.urls }}
+        run: |
+          if [ -n "$URLS" ]; then
+            printf '%s\n' "$URLS" | tr ' ' '\n' | sed '/^$/d' | sort -u > urls.txt
+          else
+            git diff --name-only HEAD^ HEAD -- '*.html' | while read -r f; do
+              [ "$f" = "404.html" ] && continue
+              url="https://$HOST/$f"
+              echo "${url%index.html}"
+            done | sort -u > urls.txt
+          fi
+          echo "Submitting $(wc -l < urls.txt) URL(s):"
+          cat urls.txt
+
+      - name: Submit to IndexNow
+        run: |
+          if [ ! -s urls.txt ]; then
+            echo "No page changes to submit."
+            exit 0
+          fi
+          # Give GitHub Pages a moment to publish the pushed content first.
+          sleep 60
+          jq -Rn --arg host "$HOST" --arg key "$KEY" \
+            '{host: $host, key: $key, keyLocation: ("https://" + $host + "/" + $key + ".txt"), urlList: [inputs]}' \
+            < urls.txt > payload.json
+          curl -sS -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            --data @payload.json \
+            -w "\nHTTP %{http_code}\n"
