@@ -5,7 +5,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/" />
-<lastmod>2026-08-17</lastmod>
+<lastmod>2026-08-20</lastmod>
 <changefreq>weekly</changefreq>
 <priority>1</priority>
 </url>
@@ -14,7 +14,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/" />
-<lastmod>2026-08-17</lastmod>
+<lastmod>2026-08-20</lastmod>
 <changefreq>weekly</changefreq>
 <priority>1</priority>
 </url>
@@ -23,7 +23,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/" />
-<lastmod>2026-08-17</lastmod>
+<lastmod>2026-08-20</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -32,7 +32,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/" />
-<lastmod>2026-08-17</lastmod>
+<lastmod>2026-08-20</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -41,7 +41,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/about/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/about/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/about/" />
-<lastmod>2026-08-17</lastmod>
+<lastmod>2026-08-20</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -50,7 +50,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/about/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/about/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/about/" />
-<lastmod>2026-08-17</lastmod>
+<lastmod>2026-08-20</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -59,7 +59,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/contact/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/contact/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/contact/" />
-<lastmod>2026-08-17</lastmod>
+<lastmod>2026-08-20</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -68,16 +68,34 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/contact/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/contact/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/contact/" />
-<lastmod>2026-08-17</lastmod>
+<lastmod>2026-08-20</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.6</priority>
+</url>
+<url>
+<loc>https://ghamati.com/music/en/tracks/dawn-of-fortune/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/dawn-of-fortune/" />
+<xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/dawn-of-fortune/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/dawn-of-fortune/" />
+<lastmod>2026-08-20</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://ghamati.com/music/fa/tracks/dawn-of-fortune/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/dawn-of-fortune/" />
+<xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/dawn-of-fortune/" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/dawn-of-fortune/" />
+<lastmod>2026-08-20</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
 </url>
 <url>
 <loc>https://ghamati.com/music/en/tracks/as-night-turned-dark/</loc>
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/as-night-turned-dark/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/as-night-turned-dark/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/as-night-turned-dark/" />
-<lastmod>2026-08-17</lastmod>
+<lastmod>2026-08-20</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.8</priority>
 </url>
@@ -86,7 +104,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/as-night-turned-dark/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/as-night-turned-dark/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/as-night-turned-dark/" />
-<lastmod>2026-08-17</lastmod>
+<lastmod>2026-08-20</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.8</priority>
 </url>
@@ -95,7 +113,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/a-thousand-efforts/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/a-thousand-efforts/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/a-thousand-efforts/" />
-<lastmod>2026-08-17</lastmod>
+<lastmod>2026-08-20</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.8</priority>
 </url>
@@ -104,7 +122,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/a-thousand-efforts/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/a-thousand-efforts/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/a-thousand-efforts/" />
-<lastmod>2026-08-17</lastmod>
+<lastmod>2026-08-20</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.8</priority>
 </url>
@@ -203,7 +221,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/the-song-of-the-reed/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/the-song-of-the-reed/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/the-song-of-the-reed/" />
-<lastmod>2026-08-17</lastmod>
+<lastmod>2026-08-20</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.8</priority>
 </url>
@@ -212,7 +230,7 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://ghamati.com/music/en/tracks/the-song-of-the-reed/" />
 <xhtml:link rel="alternate" hreflang="fa" href="https://ghamati.com/music/fa/tracks/the-song-of-the-reed/" />
 <xhtml:link rel="alternate" hreflang="x-default" href="https://ghamati.com/music/en/tracks/the-song-of-the-reed/" />
-<lastmod>2026-08-17</lastmod>
+<lastmod>2026-08-20</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.8</priority>
 </url>
