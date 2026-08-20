@@ -8,15 +8,6 @@
     <language>en-gb</language>
     <lastBuildDate>Thu, 20 Aug 2026 12:00:00 +0000</lastBuildDate>
 
-    <item>
-      <title>Context Pollution: How Giving an LLM a Memory Made It Worse</title>
-      <link>https://ghamati.com/blog/context-pollution/</link>
-      <guid isPermaLink="true">https://ghamati.com/blog/context-pollution/</guid>
-      <pubDate>Thu, 20 Aug 2026 12:00:00 +0000</pubDate>
-      <dc:creator>Khashayar Ghamati</dc:creator>
-      <description>We gave a frozen LLM an episodic memory of a user's EEG and accuracy collapsed from 40% to 12% — below chance. What context pollution is, why confidence gating can't fix it, and what it means for anyone building agent memory.</description>
-    </item>
-
     <!-- ITEMS: newest first. Item template (keep lastBuildDate above in sync):
     <item>
       <title>Post Title</title>
