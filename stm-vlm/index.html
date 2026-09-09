@@ -191,7 +191,7 @@
       </p>
 
       <figure class="md-card-outlined md-sp-16 md-mt-24" style="overflow:hidden;border-radius:var(--md-shape-md);">
-        <img src="architecture.png" alt="ARTEMIS architecture: LLaVA-Next generates per-frame captions that accumulate in a sliding STM buffer; Qwen-2.5 aggregates the buffer into activity representations. The diagram also shows the broader cognitive framework (RLBAM attention, RL agent with transfer learning and pre-training, knowledge base) that is validated in companion papers but out of scope for this work." style="width:100%;height:auto;display:block;">
+        <img loading="lazy" src="architecture.png" alt="ARTEMIS architecture: LLaVA-Next generates per-frame captions that accumulate in a sliding STM buffer; Qwen-2.5 aggregates the buffer into activity representations. The diagram also shows the broader cognitive framework (RLBAM attention, RL agent with transfer learning and pre-training, knowledge base) that is validated in companion papers but out of scope for this work." style="width:100%;height:auto;display:block;">
         <figcaption class="md-body-small" style="padding:16px 0 0;color:var(--md-on-surface-variant);text-align:center;font-style:italic;">
           <strong>Figure 1. ARTEMIS architecture.</strong> Visual observations are processed by LLaVA-Next to produce frame-level descriptions. These accumulate in the STM buffer (sliding window of $W$ frames). Qwen-2.5 aggregates the temporal context into a coherent activity representation with extracted keywords. Out-of-scope outer-loop components -- the RL-based attention mechanism (RLBAM) and the RL agent with transfer learning, pre-training and knowledge base -- are validated in our companion publications.
         </figcaption>
@@ -228,7 +228,7 @@
       </p>
 
       <figure class="md-card-outlined md-sp-16 md-mt-24" style="overflow:hidden;border-radius:var(--md-shape-md);">
-        <img src="pipeline.png" alt="Step-by-step ARTEMIS pipeline walkthrough on an RHM video: ten frames passed to LLaVA, descriptions accumulating in the STM buffer, Qwen-2.5 consolidating the buffer into activity keywords." style="width:100%;height:auto;display:block;">
+        <img loading="lazy" src="pipeline.png" alt="Step-by-step ARTEMIS pipeline walkthrough on an RHM video: ten frames passed to LLaVA, descriptions accumulating in the STM buffer, Qwen-2.5 consolidating the buffer into activity keywords." style="width:100%;height:auto;display:block;">
         <figcaption class="md-body-small" style="padding:16px 0 0;color:var(--md-on-surface-variant);text-align:center;font-style:italic;">
           <strong>Figure 2. Detailed ARTEMIS processing pipeline.</strong> The Sense--Think--Act cycle is illustrated on a real RHM example. Frame-level descriptions accumulate across the 10-frame STM window, then Qwen-2.5 performs semantic aggregation to produce a contextually coherent keyword set.
         </figcaption>
@@ -277,7 +277,7 @@
         At the aggregate level, STM lowers keyword redundancy on both datasets, but the magnitude of the effect differs. Toyota (predominantly sustained activities) shows a large, consistent reduction with a 93.1% win rate; RHM (half of which is transitional) shows a smaller aggregate effect because STM helps on continuous activities and hinders on transitions.
       </p>
       <figure class="md-card-outlined md-sp-16 md-mt-16" style="overflow:hidden;border-radius:var(--md-shape-md);">
-        <img src="cross-dataset.png" alt="Panel A: mean redundancy for NoSTM vs STM on Toyota Smarthome and RHM with error bars. Panel B: STM win rate for each dataset, with a dashed line at 50% chance." style="width:100%;height:auto;display:block;">
+        <img loading="lazy" src="cross-dataset.png" alt="Panel A: mean redundancy for NoSTM vs STM on Toyota Smarthome and RHM with error bars. Panel B: STM win rate for each dataset, with a dashed line at 50% chance." style="width:100%;height:auto;display:block;">
         <figcaption class="md-body-small" style="padding:16px 0 0;color:var(--md-on-surface-variant);text-align:center;font-style:italic;">
           <strong>Figure 3. Cross-dataset overview of STM effects.</strong> (A) Mean redundancy for the NoSTM baseline and STM-enabled conditions on Toyota Smarthome and RHM. Error bars are standard deviation. (B) STM win rate per dataset; the dashed line at 50% indicates chance performance.
         </figcaption>
@@ -289,7 +289,7 @@
         Most Toyota activities achieve complete redundancy elimination under STM; 20 of 29 activities reach zero redundancy, covering all Drinking variants (except <em>From Cup</em>), all Eating activities, all Beverage Preparation activities, and several Cooking and Transitional activities. Two activities (<em>Cook.Cleandishes</em>, <em>Drink.Fromcup</em>) show a degenerate aggregator failure mode where the model produces repetitive templates about the <em>absence</em> of change.
       </p>
       <figure class="md-card-outlined md-sp-16 md-mt-16" style="overflow:hidden;border-radius:var(--md-shape-md);">
-        <img src="per-activity.png" alt="Horizontal bar chart showing per-activity difference in redundancy (NoSTM minus STM) across both datasets. Positive values indicate STM improvement." style="width:100%;height:auto;display:block;">
+        <img loading="lazy" src="per-activity.png" alt="Horizontal bar chart showing per-activity difference in redundancy (NoSTM minus STM) across both datasets. Positive values indicate STM improvement." style="width:100%;height:auto;display:block;">
         <figcaption class="md-body-small" style="padding:16px 0 0;color:var(--md-on-surface-variant);text-align:center;font-style:italic;">
           <strong>Figure 4. Per-activity redundancy reduction.</strong> Horizontal bar chart showing the difference in redundancy (NoSTM&nbsp;$-$&nbsp;STM) for each activity across both datasets. Positive values (rightward) indicate an STM improvement; negative values (leftward) indicate a baseline advantage.
         </figcaption>
@@ -301,7 +301,7 @@
         The RHM subgroup analysis reveals a clear dissociation. STM lowers redundancy for <b>Continuous</b> activities (100% win rate, Hedges' <i>g</i>&nbsp;=&nbsp;1.29) and <b>Fine Motor</b> activities (83% win rate, <i>g</i>&nbsp;=&nbsp;0.63), but <em>increases</em> redundancy for <b>Transitional</b> activities where the buffer spans a state change and no single dominant activity exists. This is consistent with event segmentation theory and suggests a hybrid pipeline that pairs the STM buffer with a structural-shift detector as a principled next step.
       </p>
       <figure class="md-card-outlined md-sp-16 md-mt-16" style="overflow:hidden;border-radius:var(--md-shape-md);">
-        <img src="category-comparison.png" alt="Bar chart comparing NoSTM and STM mean redundancy across three post-hoc categories on RHM: Continuous, Fine Motor, Transitional. STM lowers redundancy for Continuous and Fine Motor but raises it for Transitional." style="width:100%;height:auto;display:block;">
+        <img loading="lazy" src="category-comparison.png" alt="Bar chart comparing NoSTM and STM mean redundancy across three post-hoc categories on RHM: Continuous, Fine Motor, Transitional. STM lowers redundancy for Continuous and Fine Motor but raises it for Transitional." style="width:100%;height:auto;display:block;">
         <figcaption class="md-body-small" style="padding:16px 0 0;color:var(--md-on-surface-variant);text-align:center;font-style:italic;">
           <strong>Figure 5. Redundancy by RHM activity category.</strong> NoSTM (baseline) and STM mean redundancy across the three post-hoc categories on RHM. STM reduces redundancy for Continuous and Fine Motor activities and increases it for Transitional activities.
         </figcaption>
@@ -313,7 +313,7 @@
         10,000-iteration bootstrap CIs corroborate the subgroup pattern. Continuous (CI [22.8%, 54.3%]) and Fine Motor (CI [3.4%, 60.0%]) both exclude zero; Transitional (CI [-42.0%, 12.4%]) and the Overall estimate both include zero with a negative central tendency for transitional activities. Bootstrap CIs are not Bonferroni-adjusted; correction applies only to the Wilcoxon $p$-values.
       </p>
       <figure class="md-card-outlined md-sp-16 md-mt-16" style="overflow:hidden;border-radius:var(--md-shape-md);">
-        <img src="bootstrap-forest.png" alt="Forest plot showing mean redundancy reduction and 95% bootstrap confidence intervals for each RHM activity category and overall. Continuous and Fine Motor intervals exclude zero; Transitional spans zero with a negative central tendency." style="width:100%;height:auto;display:block;max-width:800px;margin:0 auto;">
+        <img loading="lazy" src="bootstrap-forest.png" alt="Forest plot showing mean redundancy reduction and 95% bootstrap confidence intervals for each RHM activity category and overall. Continuous and Fine Motor intervals exclude zero; Transitional spans zero with a negative central tendency." style="width:100%;height:auto;display:block;max-width:800px;margin:0 auto;">
         <figcaption class="md-body-small" style="padding:16px 0 0;color:var(--md-on-surface-variant);text-align:center;font-style:italic;">
           <strong>Figure 6. Bootstrap forest plot.</strong> Mean redundancy reduction with 95% bootstrap CIs (10,000 iterations) for each RHM activity category and overall. Diamond markers indicate categories whose CI excludes zero; the dashed vertical line denotes no effect.
         </figcaption>
@@ -328,7 +328,7 @@
         Lowering the sampling rate from 10&nbsp;FPS to 5&nbsp;FPS while holding the buffer at $W=10$ doubles the temporal span covered by the STM buffer (1&nbsp;s&nbsp;$\to$&nbsp;2&nbsp;s). At 5&nbsp;FPS, STM reaches a <b>91.9% redundancy reduction</b>, exceeding the 72.5% obtained at 10&nbsp;FPS. Crucially, the NoSTM baseline is nearly identical at both rates (0.661 vs 0.645), providing a partial natural control: if the improvement were purely a consequence of the VLM receiving more frames, the NoSTM side would shift too. The observed pattern is consistent with the effect operating through the <em>contents</em> of the memory buffer rather than through per-frame VLM output alone.
       </p>
       <figure class="md-card-outlined md-sp-16 md-mt-16" style="overflow:hidden;border-radius:var(--md-shape-md);">
-        <img src="frame-rate.png" alt="Per-activity redundancy reduction comparing 5 FPS and 10 FPS on Toyota Smarthome. Most activities reach full redundancy elimination at 5 FPS." style="width:100%;height:auto;display:block;">
+        <img loading="lazy" src="frame-rate.png" alt="Per-activity redundancy reduction comparing 5 FPS and 10 FPS on Toyota Smarthome. Most activities reach full redundancy elimination at 5 FPS." style="width:100%;height:auto;display:block;">
         <figcaption class="md-body-small" style="padding:16px 0 0;color:var(--md-on-surface-variant);text-align:center;font-style:italic;">
           <strong>Figure 7. Temporal coverage ablation.</strong> Per-activity redundancy reduction at 5&nbsp;FPS versus 10&nbsp;FPS on Toyota Smarthome. Reducing the frame rate while holding $W=10$ constant doubles the temporal extent spanned by the STM buffer, so this reflects a joint change in sampling density and temporal coverage.
         </figcaption>
