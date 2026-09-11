@@ -5,5 +5,8 @@ Allow: /
 # the /music basePath, and crawlers mine those strings and 404 on them.
 Disallow: /en/
 Disallow: /fa/
+# Cloudflare-injected endpoints (email obfuscation etc.) 404 when fetched
+# bare; Cloudflare recommends excluding them from crawling.
+Disallow: /cdn-cgi/
 Sitemap: https://ghamati.com/sitemap.xml
 Sitemap: https://ghamati.com/music/sitemap.xml
