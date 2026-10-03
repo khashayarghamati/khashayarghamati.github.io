@@ -6,14 +6,14 @@
 
 	<!-- SEO Meta Tags -->
 	<title>Khashayar Ghamati | Principal AI & Robotics Engineer</title>
-	<meta name="description" content="Principal AI Engineer at Inframatic building robots and AI systems that keep learning after deployment. PhD research in continual learning and robotics.">
-	<meta name="keywords" content="Khashayar Ghamati, Principal AI Engineer, AI engineer, continual learning, agentic AI, reinforcement learning, robotics, human-robot interaction, HRI, novelty detection, large language models, knowledge graphs, multi-agent systems, Inframatic, University of Hertfordshire, machine learning, adaptive AI, social robotics, embodied AI, cognitive AI, CAPA-AI, PLLM, vision-language models, neuroadaptive AI">
+	<meta name="description" content="Principal AI Engineer at Inframatic building robots and AI systems that keep learning after deployment. PhD research in continual learning and robotics. LLM post-training, knowledge distillation.">
+	<meta name="keywords" content="Khashayar Ghamati, Principal AI Engineer, AI engineer, continual learning, agentic AI, reinforcement learning, robotics, human-robot interaction, HRI, novelty detection, large language models, knowledge graphs, LLM post-training, knowledge distillation, multi-agent systems, Inframatic, University of Hertfordshire, machine learning, adaptive AI, social robotics, embodied AI, cognitive AI, CAPA-AI, PLLM, vision-language models, neuroadaptive AI">
 	<meta name="author" content="Khashayar Ghamati">
 	<meta name="robots" content="index, follow">
 
 	<!-- Open Graph / Twitter SEO -->
 	<meta property="og:title" content="Khashayar Ghamati | Principal AI & Robotics Engineer">
-	<meta property="og:description" content="AI engineer working on systems that keep learning after deployment. Principal AI Engineer at Inframatic Engineering with doctoral research on continual learning and novelty detection in human-robot interaction. Published in IEEE, MDPI Sensors, and leading AI conferences.">
+	<meta property="og:description" content="AI engineer working on systems that keep learning after deployment. Principal AI Engineer at Inframatic Engineering with doctoral research on continual learning and novelty detection in human-robot interaction. LLM post-training and knowledge distillation. Published in IEEE, MDPI Sensors, and leading AI conferences.">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://ghamati.com/">
 	<meta property="og:image" content="https://ghamati.com/images/og-card.jpg">
@@ -362,6 +362,15 @@
 			gap: 4px;
 			min-width: 0;
 		}
+		.homepage-pub-row__authors {
+			font-size: 0.8125rem;
+			line-height: 1.5;
+			color: var(--md-on-surface-variant);
+		}
+		.homepage-pub-row__authors strong {
+			color: var(--md-on-surface);
+			font-weight: 600;
+		}
 		.homepage-pub-row__links {
 			font-size: 0.8125rem;
 			color: var(--md-on-surface-variant);
@@ -518,6 +527,9 @@
 					As Principal AI Engineer at <a href="https://inframatic.ai" target="_blank" rel="noopener">Inframatic Engineering</a>, I lead adaptive AI for compliance automation in critical infrastructure -- knowledge-graph retrieval, multi-agent architectures, and computer vision, built to run in production rather than in a notebook. Behind that sits a decade of software engineering and a habit of making research-grade ideas reliable enough to ship.
 				</p>
 				<p class="md-body-large" style="margin-bottom: 16px;">
+					Alongside that, I distilled a 72B language model into a 1.5B agent released on Hugging Face, and I build transformers from scratch to understand the models I optimise.
+				</p>
+				<p class="md-body-large" style="margin-bottom: 16px;">
 					That practice is grounded in published work. I defended my doctoral thesis at the University of Hertfordshire in June 2026 -- NOVA, a framework for novelty detection and continual learning in human–robot interaction, validated on the ARI humanoid -- and I still supervise BSc and MSc students there. My work appears in <em>IEEE TCDS</em>, <em>RO-MAN</em>, <em>ICSR</em> and <em>Sensors</em>; I review for <em>IEEE TCDS</em> and co-organised SS03 at ICSR 2026.
 				</p>
 				<p class="md-body-large">
@@ -535,22 +547,22 @@
 				<div class="homepage-timeline__item">
 					<div class="homepage-timeline__role">Principal AI Engineer</div>
 					<div class="homepage-timeline__meta">Inframatic &middot; 2024--Present</div>
-					<p class="homepage-timeline__body">Leading the design and delivery of adaptive AI for compliance automation in critical infrastructure -- knowledge-graph retrieval, multi-agent architectures, and computer vision, running in production</p>
+					<p class="homepage-timeline__body">Leading the design and delivery of a production generative-AI platform for compliance automation in UK rail infrastructure, deployed to Network Rail with a BSI pilot and HS2 integration in progress. Owns the platform end to end: Graph RAG retrieval over large real-world document corpora (Oxigraph RDF/SPARQL with Elasticsearch hybrid retrieval and a relational graph in PostgreSQL), multi-agent LangGraph pipelines for clause-citation and statute-reference extraction, a multi-provider model-routing layer across Azure AI Foundry, AWS Bedrock, Groq and OpenRouter with data-residency constraints and cost-based fallback, fine-tuned vision detectors (Grounding DINO, RF-DETR) deployed in production, and the evaluation harness (accuracy, hallucination rate, latency, cost per model and prompt version) and CI/CD that gate every change.</p>
 				</div>
 				<div class="homepage-timeline__item">
 					<div class="homepage-timeline__role">AI Engineer</div>
 					<div class="homepage-timeline__meta">Vect AI &middot; 2023--2024</div>
-					<p class="homepage-timeline__body">Principal developer of the company's AI platform, building machine learning pipelines for natural language processing and recommendation</p>
+					<p class="homepage-timeline__body">Principal developer and technical lead for a generative-AI platform for construction businesses: designed the RAG system, built the web application, backend and the majority of the RAG pipelines, and took the platform to production, including a client deployment.</p>
 				</div>
 				<div class="homepage-timeline__item">
 					<div class="homepage-timeline__role">Technical Lead</div>
 					<div class="homepage-timeline__meta">SnappRoom! &middot; 2022--2023</div>
-					<p class="homepage-timeline__body">Led development of intelligent booking systems with ML-driven demand prediction</p>
+					<p class="homepage-timeline__body">Led the DevOps, backend, frontend and mobile teams on a property-booking platform.</p>
 				</div>
 				<div class="homepage-timeline__item">
 					<div class="homepage-timeline__role">Product Manager</div>
 					<div class="homepage-timeline__meta">Alef Market &middot; 2019--2021</div>
-					<p class="homepage-timeline__body">Managed AI-powered e-commerce platform with focus on personalisation and user experience</p>
+					<p class="homepage-timeline__body">Managed delivery of warehouse and finance software.</p>
 				</div>
 				<div class="homepage-timeline__item">
 					<div class="homepage-timeline__role">Senior Software Engineer</div>
@@ -637,13 +649,26 @@
 				<div class="homepage-pub-year">Under Review</div>
 				<div class="homepage-pub-row">
 					<span class="md-publication-status md-publication-status--review">IEEE TMM</span>
-					<a class="homepage-pub-row__title" href="/har-agent-tmm/">HAR-Agent: Multilingual Multimodal Activity Recognition via Knowledge-Distilled LLM Reasoning</a>
+					<div class="homepage-pub-row__main">
+						<a class="homepage-pub-row__title" href="/har-agent-tmm/">HAR-Agent: Multilingual Multimodal Activity Recognition via Knowledge-Distilled LLM Reasoning</a>
+						<div class="homepage-pub-row__authors"><strong>K. Ghamati</strong>, M. R. Shahabian Alashti, A. Fallahirahmatabadi, A. Zaraki</div>
+						<div class="homepage-pub-row__links"><a href="https://doi.org/10.22541/au.177499021.11495152/v1" target="_blank" rel="noopener">Preprint</a> &middot; <a href="https://huggingface.co/HAR-Agent-Team/HAR-Agent" target="_blank" rel="noopener">Model</a></div>
+					</div>
 				</div>
 				<div class="homepage-pub-row">
 					<span class="md-publication-status md-publication-status--review">Elsevier RAS</span>
 					<div class="homepage-pub-row__main">
 						<a class="homepage-pub-row__title" href="/isvsicl/">Inferred-Structure and In-Context Learning: A Unified Bayesian Framework for Adaptive Robotic Intelligence</a>
+						<div class="homepage-pub-row__authors"><strong>K. Ghamati</strong>, A. Zaraki</div>
 						<div class="homepage-pub-row__links"><a href="https://dx.doi.org/10.2139/ssrn.6487278" target="_blank" rel="noopener">DOI</a> &middot; <a href="https://youtu.be/1klx4xaBnjY" target="_blank" rel="noopener">Video</a></div>
+					</div>
+				</div>
+				<div class="homepage-pub-row">
+					<span class="md-publication-status md-publication-status--review">Elsevier ESWA</span>
+					<div class="homepage-pub-row__main">
+						<a class="homepage-pub-row__title" href="/stm-vlm/">Short-Term Memory Reduces Semantic Redundancy in Vision-Language Activity Recognition</a>
+						<div class="homepage-pub-row__authors"><strong>K. Ghamati</strong>, F. Amirabdollahian, F. Foerster, A. Zaraki</div>
+						<div class="homepage-pub-row__links"><a href="https://doi.org/10.2139/ssrn.6659796" target="_blank" rel="noopener">Preprint</a></div>
 					</div>
 				</div>
 				<div class="homepage-pub-row">
@@ -653,17 +678,24 @@
 				<div class="homepage-pub-year">2026</div>
 				<div class="homepage-pub-row">
 					<span class="md-publication-status md-publication-status--published">ICSR 2026</span>
-					<a class="homepage-pub-row__title" href="/post-training-vs-continual-learning/">Can Post-Training Adaptation Replace Continual Learning? Evidence from EEG Emotion Recognition</a>
+					<div class="homepage-pub-row__main">
+						<a class="homepage-pub-row__title" href="/post-training-vs-continual-learning/">Can Post-Training Adaptation Replace Continual Learning? Evidence from EEG Emotion Recognition</a>
+						<div class="homepage-pub-row__authors"><strong>K. Ghamati</strong>, A. Zaraki</div>
+					</div>
 				</div>
 				<div class="homepage-pub-row">
 					<span class="md-publication-status md-publication-status--published">ICSR 2026</span>
-					<span class="homepage-pub-row__title">Vision–Language Models for Fall Detection in Socially Assistive Robotics: Zero-Shot Prompting and Few-Shot Calibration</span>
+					<div class="homepage-pub-row__main">
+						<a class="homepage-pub-row__title" href="https://researchprofiles.herts.ac.uk/en/publications/visionlanguage-model-for-fall-detection-in-socially-assistive-rob/" target="_blank" rel="noopener">Vision–Language Model for Fall Detection in Socially Assistive Robotics: Zero-Shot Prompting and Few-Shot Calibration</a>
+						<div class="homepage-pub-row__authors">M. R. Shahabian Alashti, <strong>K. Ghamati</strong>, A. Zaraki, B. Zhang, P. Holthaus, S. Alingal-Meethal, V. Velmurugan, G. Lakatos, A. Dickinson, F. Amirabdollahian</div>
+					</div>
 				</div>
 				<div class="homepage-pub-row">
 					<span class="md-publication-status md-publication-status--published">IEEE TCDS 2026</span>
 					<div class="homepage-pub-row__main">
 						<a class="homepage-pub-row__title" href="/brlbam/">Learning to Gaze: Bio-Inspired Attention Adaptation Strategy for Social Robots</a>
-						<div class="homepage-pub-row__links"><a href="https://youtu.be/_xPYhtL0aBw" target="_blank" rel="noopener">Video</a></div>
+						<div class="homepage-pub-row__authors"><strong>K. Ghamati</strong>, M. Banitalebi Dehkordi, H. Rahimi Nohooji, H. Voos, F. Amirabdollahian, A. Zaraki</div>
+						<div class="homepage-pub-row__links"><a href="https://doi.org/10.1109/TCDS.2026.3669012" target="_blank" rel="noopener">DOI</a> &middot; <a href="https://youtu.be/_xPYhtL0aBw" target="_blank" rel="noopener">Video</a></div>
 					</div>
 				</div>
 				<div class="homepage-pub-year">2025</div>
@@ -671,6 +703,7 @@
 					<span class="md-publication-status md-publication-status--published">MDPI Sensors 2025</span>
 					<div class="homepage-pub-row__main">
 						<a class="homepage-pub-row__title" href="/seelikeus/">Which AI Sees Like Us? Investigating the Cognitive Plausibility of Language and Vision Models via Eye-Tracking in Human-Robot Interaction</a>
+						<div class="homepage-pub-row__authors"><strong>K. Ghamati</strong>, M. Banitalebi Dehkordi, A. Zaraki</div>
 						<div class="homepage-pub-row__links"><a href="https://doi.org/10.3390/s25154687" target="_blank" rel="noopener">DOI</a></div>
 					</div>
 				</div>
@@ -678,13 +711,15 @@
 					<span class="md-publication-status md-publication-status--published">ICSR 2025</span>
 					<div class="homepage-pub-row__main">
 						<a class="homepage-pub-row__title" href="/har-agent/">Towards Memory-Driven Agentic AI for Human Activity Recognition</a>
-						<div class="homepage-pub-row__links"><a href="https://youtu.be/pB8x4oMSqqY" target="_blank" rel="noopener">Video</a></div>
+						<div class="homepage-pub-row__authors">M. R. Shahabian Alashti, <strong>K. Ghamati</strong>, H. Samani, A. Zaraki</div>
+						<div class="homepage-pub-row__links"><a href="https://uhra.herts.ac.uk/id/eprint/26459/" target="_blank" rel="noopener">UHRA</a> &middot; <a href="https://youtu.be/pB8x4oMSqqY" target="_blank" rel="noopener">Video</a></div>
 					</div>
 				</div>
 				<div class="homepage-pub-row">
 					<span class="md-publication-status md-publication-status--published">IEEE RO-MAN 2025</span>
 					<div class="homepage-pub-row__main">
 						<a class="homepage-pub-row__title" href="/CAPA-AI/">Cognitive Agentic AI: Probabilistic Novelty Detection for Continual Adaptation in HRI</a>
+						<div class="homepage-pub-row__authors"><strong>K. Ghamati</strong>, F. Amirabdollahian, D. Resende Faria, A. Zaraki</div>
 						<div class="homepage-pub-row__links"><a href="https://doi.org/10.1109/RO-MAN63969.2025.11217818" target="_blank" rel="noopener">DOI</a> &middot; <a href="https://youtu.be/pTxR_r9Mo2c" target="_blank" rel="noopener">Video</a></div>
 					</div>
 				</div>
@@ -692,6 +727,7 @@
 					<span class="md-publication-status md-publication-status--published">MDPI Sensors 2025</span>
 					<div class="homepage-pub-row__main">
 						<a class="homepage-pub-row__title" href="/pllm/">Towards AI-Powered Applications: The Development of a Personalised LLM for HRI and HCI</a>
+						<div class="homepage-pub-row__authors"><strong>K. Ghamati</strong>, M. Banitalebi Dehkordi, A. Zaraki</div>
 						<div class="homepage-pub-row__links"><a href="https://doi.org/10.3390/s25072024" target="_blank" rel="noopener">DOI</a> &middot; <a href="https://github.com/khashayarghamati/PLLM" target="_blank" rel="noopener">Code</a></div>
 					</div>
 				</div>
@@ -700,13 +736,17 @@
 					<span class="md-publication-status md-publication-status--published">IEEE Humanoids 2024</span>
 					<div class="homepage-pub-row__main">
 						<a class="homepage-pub-row__title" href="/rlbam/">ARI Humanoid Robot Imitates Human Gaze Behaviour Using Reinforcement Learning in Real-World Environments</a>
-						<div class="homepage-pub-row__links"><a href="https://youtu.be/HI_fXSfgixk" target="_blank" rel="noopener">Video</a></div>
+						<div class="homepage-pub-row__authors"><strong>K. Ghamati</strong>, A. Zaraki, F. Amirabdollahian</div>
+						<div class="homepage-pub-row__links"><a href="https://ieeexplore.ieee.org/document/10769867" target="_blank" rel="noopener">IEEE Xplore</a> &middot; <a href="https://youtu.be/HI_fXSfgixk" target="_blank" rel="noopener">Video</a></div>
 					</div>
 				</div>
 				<div class="homepage-pub-year">2023</div>
 				<div class="homepage-pub-row">
 					<span class="md-publication-status md-publication-status--published">Alan Turing Institute</span>
-					<a class="homepage-pub-row__title" href="https://www.turing.ac.uk/news/publications/data-study-group-final-report-environmental-investigation-agency-eia" target="_blank" rel="noopener">Identifying Tiger Stripes with Machine Learning for Environmental Investigation Agency</a>
+					<div class="homepage-pub-row__main">
+						<a class="homepage-pub-row__title" href="https://www.turing.ac.uk/news/publications/data-study-group-final-report-environmental-investigation-agency-eia" target="_blank" rel="noopener">Identifying Tiger Stripes with Machine Learning for Environmental Investigation Agency</a>
+						<div class="homepage-pub-row__authors">Data Study Group team, incl. <strong>K. Ghamati</strong></div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -718,60 +758,103 @@
 			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">Technical Skills</h2>
 			<div class="homepage-skills-grid">
 				<div class="md-card-outlined">
-					<div class="md-card__title" style="margin-bottom: 16px;">Programming & ML</div>
+					<div class="md-card__title" style="margin-bottom: 16px;">Programming</div>
 					<div class="homepage-chip-group">
-						<span class="md-chip md-chip-assist" style="cursor: default;">Python</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">Java</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">JavaScript (React)</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">C++</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">MATLAB</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">PyTorch</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">HuggingFace</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">Keras</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">TensorFlow</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">scikit-learn</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Python (10+ years)</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Java</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">C++</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">JavaScript/React</span>
 					</div>
 				</div>
 				<div class="md-card-outlined">
-					<div class="md-card__title" style="margin-bottom: 16px;">Robotics & RL</div>
+					<div class="md-card__title" style="margin-bottom: 16px;">ML frameworks</div>
 					<div class="homepage-chip-group">
-						<span class="md-chip md-chip-assist" style="cursor: default;">OpenAI Gym</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">Ray RLlib</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">IsaacSim</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">Stable-Baselines3</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">ROS/ROS2</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">Kinect</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">EEG Systems</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">Arduino</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">Raspberry Pi</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">CUDA</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">PyTorch</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Hugging Face Transformers</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Ray RLlib</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">OpenAI Gym</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Isaac Sim</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">ROS/ROS2</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">scikit-learn</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Keras</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">TensorFlow</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Stable-Baselines3</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">MATLAB</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">CUDA</span>
 					</div>
 				</div>
 				<div class="md-card-outlined">
-					<div class="md-card__title" style="margin-bottom: 16px;">Specialised AI</div>
+					<div class="md-card__title" style="margin-bottom: 16px;">LLM &amp; agents</div>
 					<div class="homepage-chip-group">
-						<span class="md-chip md-chip-assist" style="cursor: default;">Large Language Models</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">Vision-Language Models</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">Continual Learning</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">Transfer Learning</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">LangGraph</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">LangChain</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">RAG / Graph RAG</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Instruction tuning</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Knowledge distillation</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">LoRA/PEFT</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Model compression</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Prompt optimisation</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Evaluation harnesses</span>
 					</div>
 				</div>
 				<div class="md-card-outlined">
-					<div class="md-card__title" style="margin-bottom: 16px;">Dev Tools & Data</div>
+					<div class="md-card__title" style="margin-bottom: 16px;">Multimodal &amp; vision</div>
 					<div class="homepage-chip-group">
-						<span class="md-chip md-chip-assist" style="cursor: default;">Docker</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">Docker-compose</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">ZMQ</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">Git</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">Linux</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">Cloud Computing</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">PostgreSQL</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">SQLite</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">MongoDB</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">Neo4j</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">Vector DBs</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">LaTeX</span>
-						<span class="md-chip md-chip-assist" style="cursor: default;">Jupyter</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">LLaVA-Next</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Grounding DINO</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">RF-DETR</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Qwen2.5</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">RGB-D</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">EEG</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Eye tracking</span>
+					</div>
+				</div>
+				<div class="md-card-outlined">
+					<div class="md-card__title" style="margin-bottom: 16px;">Robotics &amp; hardware</div>
+					<div class="homepage-chip-group">
+							<span class="md-chip md-chip-assist" style="cursor: default;">Kinect</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Arduino</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Raspberry Pi</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Embedded systems</span>
+					</div>
+				</div>
+				<div class="md-card-outlined">
+					<div class="md-card__title" style="margin-bottom: 16px;">RL &amp; continual learning</div>
+					<div class="homepage-chip-group">
+							<span class="md-chip md-chip-assist" style="cursor: default;">PPO</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">DQN/Rainbow</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Meta-RL</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Domain randomisation</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Sim-to-real</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Bandits / best-arm identification</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Novelty detection</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Bayesian inference</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Continual learning</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Transfer learning</span>
+					</div>
+				</div>
+				<div class="md-card-outlined">
+					<div class="md-card__title" style="margin-bottom: 16px;">Infrastructure &amp; data</div>
+					<div class="homepage-chip-group">
+							<span class="md-chip md-chip-assist" style="cursor: default;">AWS (Bedrock, Secrets Manager, SSM, IAM)</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Azure AI Foundry</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Groq</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">OpenRouter</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Docker/Compose/Portainer</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">GitLab CI/CD</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Django/DRF</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">PostgreSQL</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Elasticsearch</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Oxigraph (RDF/SPARQL)</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Neo4j</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">MongoDB</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">SQLite</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Vector DBs</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">ZMQ</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Git</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Linux</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">LaTeX</span>
+							<span class="md-chip md-chip-assist" style="cursor: default;">Jupyter</span>
 					</div>
 				</div>
 			</div>
@@ -785,10 +868,38 @@
 			<div class="homepage-projects-grid">
 				<div class="md-card-outlined">
 					<div class="md-card__header">
+						<div class="md-card__title">HAR-Agent -- distilled multimodal LLM agent</div>
+						<div class="md-card__subtitle">2025--2026</div>
+					</div>
+					<div class="md-card__body">LLM-centred activity-recognition agent over a vision/audio/text harness. 17 configurations compared from 1.5B to 72B parameters (instruction tuning vs. supervised fine-tuning); 72B teacher distilled to a 1.5B student at 48&times; compression, running in under 1 GB of GPU memory; 89.2% on a five-language audio benchmark. <a href="https://huggingface.co/HAR-Agent-Team/HAR-Agent" target="_blank" rel="noopener" style="color: var(--md-primary); font-weight: 500;">Model on Hugging Face &#8599;</a></div>
+				</div>
+				<div class="md-card-outlined">
+					<div class="md-card__header">
+						<div class="md-card__title">ARTEMIS -- short-term memory for vision-language agents</div>
+						<div class="md-card__subtitle">2025--2026</div>
+					</div>
+					<div class="md-card__body">Short-term-memory mechanism aggregating LLaVA-Next frame descriptions before Qwen2.5 reasoning; cuts semantic redundancy by 72.5% across 29 activities at ~2 FPS entirely on local hardware. <a href="/stm-vlm/" style="color: var(--md-primary); font-weight: 500;">Project page &#8599;</a></div>
+				</div>
+				<div class="md-card-outlined">
+					<div class="md-card__header">
+						<div class="md-card__title">Transformers from scratch (PyTorch)</div>
+						<div class="md-card__subtitle">2025--2026</div>
+					</div>
+					<div class="md-card__body">GPT-2-class decoder-only LLM (BPE tokenisation, causal multi-head attention, KV-cache inference, pre-training, instruction fine-tuning with loss masking); MusicGen-style text-to-music transformer (EnCodec RVQ tokens, delay pattern, cross-attention over frozen T5, classifier-free guidance); LLaVA-style VLM (frozen ViT &rarr; MLP projector &rarr; LLM). Each built in verified stages to understand the architectures from first principles.</div>
+				</div>
+				<div class="md-card-outlined">
+					<div class="md-card__header">
+						<div class="md-card__title">Vision detector fine-tuning for rail infrastructure</div>
+						<div class="md-card__subtitle">2025--2026</div>
+					</div>
+					<div class="md-card__body">Fine-tuned Grounding DINO (open-vocabulary VLM detector) and RF-DETR on real-world rail imagery and deployed them in Inframatic's production pipeline.</div>
+				</div>
+				<div class="md-card-outlined">
+					<div class="md-card__header">
 						<div class="md-card__title">CAPA-AI Framework</div>
 						<div class="md-card__subtitle">2023--Present</div>
 					</div>
-					<div class="md-card__body">Continual adaptation system with 89% novelty detection accuracy for real-world HRI</div>
+					<div class="md-card__body">Continual adaptation system with 89% novelty detection accuracy for real-world HRI; calibrated confidence (ECE 0.062) and 80% adaptation accuracy in live sessions on the ARI humanoid</div>
 				</div>
 				<div class="md-card-outlined">
 					<div class="md-card__header">
@@ -823,7 +934,7 @@
 						<div class="md-card__title">Memory-Driven Activity Recognition</div>
 						<div class="md-card__subtitle">2024--2025</div>
 					</div>
-					<div class="md-card__body">Agentic AI framework for robust human activity recognition with temporal memory</div>
+					<div class="md-card__body">Agentic AI framework for robust human activity recognition with temporal memory -- the ICSR 2025 paper that HAR-Agent builds on. <a href="/har-agent/" style="color: var(--md-primary); font-weight: 500;">Project page &#8599;</a></div>
 				</div>
 				<div class="md-card-outlined">
 					<div class="md-card__header">
@@ -912,7 +1023,7 @@
 						<div class="md-card__title">1st Place, RoboCup Competition</div>
 						<span class="md-badge--large" style="background-color: var(--md-primary); color: var(--md-on-primary); display: inline-flex; align-items: center; justify-content: center; padding: 0 8px; border-radius: var(--md-shape-sm); font-size: 0.75rem; font-weight: 500; height: 24px;">Champion</span>
 					</div>
-					<div class="md-card__subtitle">Home & Humanoid Robots League (2013--2015)</div>
+					<div class="md-card__subtitle">@Home and Humanoid Robots Leagues (2013--2015)</div>
 					<div class="md-card__body" style="margin-top: 8px;">International robotics competition focusing on autonomous robot behaviour</div>
 				</div>
 				<div class="md-card-filled">
@@ -932,6 +1043,7 @@
 		<div class="md-container reveal" style="text-align: center;">
 			<h2 class="md-headline-large homepage-section-title" style="margin-bottom: 32px;">Contact</h2>
 			<p class="md-body-large" style="margin-bottom: 16px;">If you're interested in research collaboration, consulting, or simply want to connect, please reach out!</p>
+			<p class="md-body-large" style="margin-bottom: 16px;"><strong>Email:</strong> <a href="mailto:khashayarghamati@gmail.com">khashayarghamati@gmail.com</a></p>
 			<p class="md-body-large" style="margin-bottom: 8px;"><strong>Based in:</strong> Hertfordshire, United Kingdom</p>
 			<p class="md-body-large" style="margin-bottom: 24px;"><strong>Available for:</strong> Research collaborations, consulting, speaking engagements, and academic partnerships</p>
 			<div class="md-social-links" style="justify-content: center;">
