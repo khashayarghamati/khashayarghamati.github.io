@@ -571,7 +571,7 @@
         <section class="md-section md-card-elevated">
             <h2 class="md-headline-large">Open Science &amp; Reproducibility</h2>
             <p class="md-body-large">
-                We are committed to fully reproducible research. All 12 trained LoRA adapter checkpoints, comprehensive evaluation results across all 17 configurations, the multilingual audio benchmark, and the complete codebase (perception pipelines, training scripts, evaluation tools, and deployment examples) are prepared for public release. The trained models are hosted on HuggingFace, and the codebase will be released under an open-source licence upon acceptance of the manuscript.
+                We are committed to fully reproducible research. All 12 trained LoRA adapter checkpoints, comprehensive evaluation results across all 17 configurations, the multilingual audio benchmark, and the complete codebase (perception pipelines, training scripts, evaluation tools, and deployment examples) are prepared for public release. The trained models are publicly available on <a href="https://huggingface.co/HAR-Agent-Team/HAR-Agent" target="_blank" rel="noopener">Hugging Face</a> (access is granted on request), and the codebase will be released under an open-source licence upon acceptance of the manuscript.
             </p>
             <div class="md-social-links" style="justify-content:center;">
                 <a href="https://scholar.google.com/citations?user=zRG8t_oAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
@@ -586,8 +586,8 @@
                 <a href="#" class="md-btn-filled" onclick="showAccessDialog(event, 'paper')">
                     <i class="fas fa-file-pdf"></i> Download Paper
                 </a>
-                <a href="#" class="md-btn-filled" onclick="showAccessDialog(event, 'models')" style="background:var(--md-tertiary);">
-                    <i class="fas fa-brain"></i> Download Models (HuggingFace)
+                <a href="https://huggingface.co/HAR-Agent-Team/HAR-Agent" class="md-btn-filled" target="_blank" rel="noopener" style="background:var(--md-tertiary);">
+                    <i class="fas fa-brain"></i> Models on Hugging Face
                 </a>
                 <a href="#" class="md-btn-outlined" onclick="showAccessDialog(event, 'code')">
                     <i class="fas fa-code"></i> Access Codebase
@@ -621,7 +621,6 @@
         event.preventDefault();
         var messages = {
             'paper': 'The manuscript is currently under review at IEEE Transactions on Multimedia. The paper will be made publicly available upon acceptance.',
-            'models': 'All 12 trained LoRA adapter checkpoints are hosted on HuggingFace and will be made publicly accessible upon acceptance of the manuscript.',
             'code': 'The complete codebase (perception pipelines, training scripts, evaluation tools, and deployment examples) will be released under an open-source licence upon acceptance of the manuscript.'
         };
         document.getElementById('dialogText').textContent = messages[type];
