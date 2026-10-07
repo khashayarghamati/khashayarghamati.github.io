@@ -31,6 +31,7 @@
 
 	<!-- Canonical and DNS optimisation -->
 	<link rel="canonical" href="https://ghamati.com/">
+	<link rel="alternate" type="application/rss+xml" title="Khashayar Ghamati — Blog" href="/blog/feed.xml">
 
 	<!-- Google Fonts and Font Awesome -->
 	<link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -509,6 +510,7 @@
 		<a href="#projects" aria-label="Research and engineering projects">Projects</a>
 		<a href="#teaching" aria-label="Teaching and academic activities">Teaching</a>
 		<a href="#awards" aria-label="Awards and grants">Awards</a>
+		<a href="/blog/" aria-label="Blog: essays and engineering notes">Blog</a>
 		<a href="/music/" aria-label="Persian Blues Sessions — a music project">Music</a>
 			<a href="#contact" aria-label="Contact information">Contact</a>
 	</div>
@@ -877,7 +879,7 @@
 						<div class="md-card__title">Transformers from scratch (PyTorch)</div>
 						<div class="md-card__subtitle">2025--2026</div>
 					</div>
-					<div class="md-card__body">GPT-2-class decoder-only LLM (BPE tokenisation, causal multi-head attention, KV-cache inference, pre-training, instruction fine-tuning with loss masking); MusicGen-style text-to-music transformer (EnCodec RVQ tokens, delay pattern, cross-attention over frozen T5, classifier-free guidance) trained with hand-written GPipe-style pipeline parallelism on 2&times; RTX A6000 and released as an open model; LLaVA-style VLM (frozen ViT &rarr; MLP projector &rarr; LLM). Each built in verified stages to understand the architectures from first principles. <a href="/music-llm/" style="color: var(--md-primary); font-weight: 500;">Music-LLM project page &#8599;</a> &middot; <a href="https://huggingface.co/khashayargh/music-llm-45m" target="_blank" rel="noopener" style="color: var(--md-primary); font-weight: 500;">Model on Hugging Face &#8599;</a></div>
+					<div class="md-card__body">GPT-2-class decoder-only LLM (BPE tokenisation, causal multi-head attention, KV-cache inference, pre-training, instruction fine-tuning with loss masking); MusicGen-style text-to-music transformer (EnCodec RVQ tokens, delay pattern, cross-attention over frozen T5, classifier-free guidance) trained with hand-written GPipe-style pipeline parallelism on 2&times; RTX A6000 and released as an open model; LLaVA-style VLM (frozen ViT &rarr; MLP projector &rarr; LLM). Each built in verified stages to understand the architectures from first principles. <a href="/music-llm/" style="color: var(--md-primary); font-weight: 500;">Music-LLM project page &#8599;</a> &middot; <a href="/music-llm/" style="color: var(--md-primary); font-weight: 500;">Read the story &rarr;</a> &middot; <a href="https://huggingface.co/khashayargh/music-llm-45m" target="_blank" rel="noopener" style="color: var(--md-primary); font-weight: 500;">Model on Hugging Face &#8599;</a></div>
 				</div>
 				<div class="md-card-outlined">
 					<div class="md-card__header">
@@ -1015,6 +1017,27 @@
 		</div>
 	</section>
 
+	<!-- Blog Section -->
+	<section id="blog" class="md-section section-alt">
+		<div class="md-container reveal">
+			<h2 class="md-headline-large homepage-section-title" style="text-align: center; margin-bottom: 32px;">From the Blog</h2>
+			<div style="max-width: 760px; margin: 0 auto;">
+				<ol class="blog-timeline">
+					<li class="blog-entry">
+						<p class="blog-entry__date">7 October 2026 &middot; 9 min read</p>
+						<h3 class="blog-entry__title"><a href="/music-llm/">Building a Small Transformer That Makes Music</a></h3>
+						<p class="blog-entry__summary">Building a 45M-parameter text-to-music model by hand in PyTorch &mdash; EnCodec tokens, cross-attention, home-made pipeline parallelism on two GPUs, and the silent PCIe bug that nearly stopped it. With real training curves and generated audio to judge.</p>
+					</li>
+				</ol>
+				<p class="md-body-medium" style="margin-top: 24px; text-align: center;">
+					<a href="/blog/" style="color: var(--md-primary); font-weight: 500;">All posts &rarr;</a>
+					&nbsp;&middot;&nbsp;
+					<a href="/blog/feed.xml" style="color: var(--md-primary); font-weight: 500;"><i class="fas fa-rss" aria-hidden="true"></i> RSS</a>
+				</p>
+			</div>
+		</div>
+	</section>
+
 	<!-- Contact Section -->
 	<section id="contact" class="md-section homepage-contact-dark">
 		<div class="md-container reveal" style="text-align: center;">
@@ -1041,6 +1064,7 @@
 			<a href="#publications">Publications</a>
 			<a href="#projects">Projects</a>
 			<a href="#teaching">Teaching</a>
+			<a href="/blog/">Blog</a>
 			<a href="/music/">Music</a>
 			<a href="#contact">Contact</a>
 		</nav>

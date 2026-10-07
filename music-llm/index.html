@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Music-LLM 45M: the story of building a compact text-to-music transformer in pure PyTorch - EnCodec audio tokens, T5 conditioning, hand-written pipeline parallelism on two RTX A6000s, and the hardware bug that almost stopped it. A research and education project.">
+  <meta name="description" content="A 45M-parameter text-to-music transformer built by hand in PyTorch: EnCodec tokens, two-GPU pipeline parallelism, and the PCIe bug that nearly stopped it.">
   <meta name="keywords" content="text-to-music, music generation LLM, pipeline parallelism, GPipe, EnCodec, T5 conditioning, classifier-free guidance, distributed training, PyTorch, Optuna, two GPU training">
   <meta name="author" content="Khashayar Ghamati">
   <meta name="robots" content="index, follow">
@@ -14,6 +14,10 @@
   <meta property="og:title" content="Music-LLM 45M - Building a Small Transformer That Makes Music">
   <meta property="og:description" content="The story of a compact text-to-music transformer: built in pure PyTorch, trained with hand-written pipeline parallelism, debugged down to the PCIe bus.">
   <meta property="og:image" content="https://ghamati.com/music-llm/training-curves.png">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="800">
+  <meta property="article:published_time" content="2026-10-07">
+  <meta property="article:author" content="Khashayar Ghamati">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://ghamati.com/music-llm/">
   <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
@@ -26,6 +30,7 @@
   <meta name="twitter:image" content="https://ghamati.com/music-llm/training-curves.png">
 
   <link rel="canonical" href="https://ghamati.com/music-llm/">
+  <link rel="alternate" type="application/rss+xml" title="Khashayar Ghamati — Blog" href="/blog/feed.xml">
 
   <title>Music-LLM 45M - Building a Small Transformer That Makes Music</title>
 
@@ -46,15 +51,34 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Music-LLM 45M - Building a Small Transformer That Makes Music",
-      "author": {"@type": "Person", "name": "Khashayar Ghamati"},
-      "url": "https://ghamati.com/music-llm/",
-      "image": "https://ghamati.com/music-llm/training-curves.png",
-      "about": ["text-to-music generation", "pipeline parallelism", "distributed training", "transformer", "EnCodec", "classifier-free guidance"],
-      "description": "The story of building and training a compact text-to-music transformer in pure PyTorch, with hand-written pipeline parallelism across two GPUs.",
-      "inLanguage": "en",
-      "isAccessibleForFree": true
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://ghamati.com/music-llm/#article",
+          "headline": "Building a Small Transformer That Makes Music",
+          "alternativeHeadline": "Music-LLM 45M",
+          "mainEntityOfPage": "https://ghamati.com/music-llm/",
+          "url": "https://ghamati.com/music-llm/",
+          "datePublished": "2026-10-07",
+          "dateModified": "2026-10-07",
+          "author": {"@type": "Person", "name": "Khashayar Ghamati", "url": "https://ghamati.com"},
+          "publisher": {"@type": "Person", "name": "Khashayar Ghamati", "url": "https://ghamati.com"},
+          "isPartOf": {"@id": "https://ghamati.com/blog/#blog"},
+          "image": "https://ghamati.com/music-llm/training-curves.png",
+          "about": ["text-to-music generation", "pipeline parallelism", "distributed training", "transformer", "EnCodec", "classifier-free guidance"],
+          "description": "The story of building and training a compact text-to-music transformer in pure PyTorch, with hand-written pipeline parallelism across two GPUs.",
+          "inLanguage": "en",
+          "isAccessibleForFree": true
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ghamati.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://ghamati.com/blog/"},
+            {"@type": "ListItem", "position": 3, "name": "Building a Small Transformer That Makes Music", "item": "https://ghamati.com/music-llm/"}
+          ]
+        }
+      ]
     }
   </script>
 
@@ -112,6 +136,7 @@
   <span class="md-top-app-bar__title">Music-LLM 45M</span>
   <div class="md-top-app-bar__nav">
     <a href="/"><i class="fas fa-home"></i> Home</a>
+    <a href="/blog/"><i class="fas fa-book-open"></i> Blog</a>
     <a href="#hearing"><i class="fas fa-wave-square"></i> The idea</a>
     <a href="#two-gpus"><i class="fas fa-microchip"></i> Two GPUs</a>
     <a href="#the-bug"><i class="fas fa-bug"></i> The bug</a>
@@ -355,7 +380,7 @@
 </main>
 
 <footer class="md-footer">
-  <p>&copy; 2026 <a href="/">ghamati.com</a></p>
+  <p><a href="/blog/">&larr; All posts</a> &nbsp;&middot;&nbsp; &copy; 2026 <a href="/">ghamati.com</a></p>
 </footer>
 
 </body>
