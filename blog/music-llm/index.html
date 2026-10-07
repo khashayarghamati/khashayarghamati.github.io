@@ -123,6 +123,8 @@
     .mll-stat .n { font-family: var(--md-font-display), sans-serif;
       font-size: 1.5rem; font-weight: 700; color: var(--md-primary); }
     .mll-stat .l { font-size: 0.85rem; opacity: 0.75; margin-top: 4px; }
+    .mll-cta { display: flex; flex-wrap: wrap; gap: 16px; margin: 32px 0 8px; }
+    .mll-cta a { margin: 0; }
     .mll-code { font-family: monospace; font-size: 0.92rem; line-height: 1.9; overflow-x: auto; }
     @media (max-width: 600px) {
       .mll-figure { overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -375,16 +377,28 @@
     hf download khashayargh/music-llm-45m --local-dir music-llm-45m<br>
     cd music-llm-45m &amp;&amp; python example.py "jazz music" --seconds 15
   </div>
-  <p class="md-mt-24">
-    <a href="https://huggingface.co/khashayargh/music-llm-45m" target="_blank" rel="noopener" style="color: var(--md-primary); font-weight: 600;">
-      <i class="fas fa-cube" style="margin-right:6px;"></i>khashayargh/music-llm-45m on Hugging Face &#8599;</a>
-  </p>
+  <div class="mll-cta">
+    <a href="https://huggingface.co/khashayargh/music-llm-45m" class="md-btn-filled" target="_blank" rel="noopener">
+      <i class="fas fa-cube" aria-hidden="true"></i> Get the model on Hugging Face
+    </a>
+    <a href="/blog/" class="md-btn-outlined">
+      <i class="fas fa-arrow-left" aria-hidden="true"></i> More posts
+    </a>
+  </div>
 
 </article>
 </main>
 
-<footer class="md-footer">
-  <p><a href="/blog/">&larr; All posts</a> &nbsp;&middot;&nbsp; &copy; 2026 <a href="/">ghamati.com</a></p>
+<footer style="background-color:#080d22;color:#9aa6d8;text-align:center;padding:48px 24px;">
+  <div class="md-container">
+    <p class="md-body-medium" style="margin-bottom:16px;">
+      <a href="/blog/" style="color:inherit;">All posts</a> &nbsp;&middot;&nbsp;
+      <a href="/" style="color:inherit;">Home</a> &nbsp;&middot;&nbsp;
+      <a href="/blog/feed.xml" style="color:inherit;"><i class="fas fa-rss" aria-hidden="true"></i> RSS</a>
+    </p>
+    <p class="md-body-large">&copy; 2026 Khashayar Ghamati. All rights reserved.</p>
+    <p class="md-body-medium" style="opacity:0.8;margin-top:8px;">Building AI systems that keep learning</p>
+  </div>
 </footer>
 
 </body>
