@@ -21,8 +21,8 @@
 
     <item>
       <title>Building a Small Transformer That Makes Music</title>
-      <link>https://ghamati.com/music-llm/</link>
-      <guid isPermaLink="true">https://ghamati.com/music-llm/</guid>
+      <link>https://ghamati.com/blog/music-llm/</link>
+      <guid isPermaLink="true">https://ghamati.com/blog/music-llm/</guid>
       <pubDate>Tue, 07 Oct 2026 12:00:00 +0000</pubDate>
       <dc:creator>Khashayar Ghamati</dc:creator>
       <description>Building a 45M-parameter text-to-music model by hand in PyTorch - EnCodec tokens, cross-attention, home-made pipeline parallelism on two GPUs, and the silent PCIe bug that nearly stopped it. With real training curves and generated audio.</description>
