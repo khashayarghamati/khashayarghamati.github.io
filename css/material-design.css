@@ -609,10 +609,23 @@ body {
 /* Responsive nav: horizontal scroll on mobile */
 @media (max-width: 839px) {
   .md-top-app-bar {
-    padding: 8px 16px;
+    padding: 4px 16px;
+    gap: 12px;
+  }
+
+  .md-top-app-bar__title {
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 45%;
+    font-size: 1.0625rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .md-top-app-bar__nav {
+    flex: 1 1 0;
+    min-width: 0;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -628,7 +641,7 @@ body {
     white-space: nowrap;
     flex-shrink: 0;
     font-size: 0.75rem;
-    padding: 6px 10px;
+    padding: 11px 10px;
   }
 }
 

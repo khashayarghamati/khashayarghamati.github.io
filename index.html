@@ -44,7 +44,7 @@
   <noscript><link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=1"></noscript>
 
 	<!-- Shared Material Design 3 CSS -->
-	<link rel="stylesheet" href="/css/material-design.css?v=5">
+	<link rel="stylesheet" href="/css/material-design.css?v=6">
 
 	<!-- Enhanced Structured Data -->
 	<script type="application/ld+json">
@@ -196,6 +196,12 @@
 		}
 
 		/* Chip group */
+		.homepage-chip-group .md-chip {
+			height: auto;
+			min-height: 32px;
+			padding-block: 4px;
+			cursor: default;
+		}
 		.homepage-chip-group {
 			display: flex;
 			flex-wrap: wrap;
@@ -377,6 +383,9 @@
 			color: var(--md-on-surface-variant);
 		}
 		.homepage-pub-row__links a {
+			display: inline-block;
+			padding: 6px 4px;
+			margin: -6px -2px;
 			color: var(--md-on-surface-variant);
 			text-decoration: underline;
 			text-underline-offset: 3px;
@@ -400,6 +409,17 @@
 			cursor: default;
 		}
 
+		/* Nav: when the 11 links do not fit, scroll from the start instead of clipping both ends */
+		@media (max-width: 1100px) {
+			#main-nav .md-top-app-bar__nav {
+				justify-content: flex-start !important;
+				overflow-x: auto;
+				flex-wrap: nowrap !important;
+				scrollbar-width: none;
+			}
+			#main-nav .md-top-app-bar__nav::-webkit-scrollbar { display: none; }
+			#main-nav .md-top-app-bar__nav a { flex-shrink: 0; white-space: nowrap; }
+		}
 		/* Nav scrollspy */
 		.md-top-app-bar__nav a.active {
 			color: var(--md-primary);
@@ -794,22 +814,17 @@
 					</div>
 				</div>
 				<div class="md-card-outlined">
-					<div class="md-card__title" style="margin-bottom: 16px;">Multimodal &amp; vision</div>
+					<div class="md-card__title" style="margin-bottom: 16px;">Multimodal, vision &amp; robotics</div>
 					<div class="homepage-chip-group">
-							<span class="md-chip md-chip-assist" style="cursor: default;">LLaVA-Next</span>
-									<span class="md-chip md-chip-assist" style="cursor: default;">Qwen2.5</span>
-							<span class="md-chip md-chip-assist" style="cursor: default;">RGB-D</span>
-							<span class="md-chip md-chip-assist" style="cursor: default;">EEG</span>
-							<span class="md-chip md-chip-assist" style="cursor: default;">Eye tracking</span>
-					</div>
-				</div>
-				<div class="md-card-outlined">
-					<div class="md-card__title" style="margin-bottom: 16px;">Robotics &amp; hardware</div>
-					<div class="homepage-chip-group">
-							<span class="md-chip md-chip-assist" style="cursor: default;">Kinect</span>
-							<span class="md-chip md-chip-assist" style="cursor: default;">Arduino</span>
-							<span class="md-chip md-chip-assist" style="cursor: default;">Raspberry Pi</span>
-							<span class="md-chip md-chip-assist" style="cursor: default;">Embedded systems</span>
+						<span class="md-chip md-chip-assist" style="cursor: default;">LLaVA-Next</span>
+						<span class="md-chip md-chip-assist" style="cursor: default;">Qwen2.5</span>
+						<span class="md-chip md-chip-assist" style="cursor: default;">RGB-D</span>
+						<span class="md-chip md-chip-assist" style="cursor: default;">EEG</span>
+						<span class="md-chip md-chip-assist" style="cursor: default;">Eye tracking</span>
+						<span class="md-chip md-chip-assist" style="cursor: default;">Kinect</span>
+						<span class="md-chip md-chip-assist" style="cursor: default;">Arduino</span>
+						<span class="md-chip md-chip-assist" style="cursor: default;">Raspberry Pi</span>
+						<span class="md-chip md-chip-assist" style="cursor: default;">Embedded systems</span>
 					</div>
 				</div>
 				<div class="md-card-outlined">
@@ -1108,7 +1123,12 @@
 			entries.forEach(function(entry) {
 				if (entry.isIntersecting && byId[entry.target.id]) {
 					links.forEach(function(link) { link.classList.remove('active'); });
-					byId[entry.target.id].classList.add('active');
+					var active = byId[entry.target.id];
+					active.classList.add('active');
+					var bar = active.parentElement;
+					if (bar && bar.scrollWidth > bar.clientWidth) {
+						bar.scrollTo({ left: active.offsetLeft - (bar.clientWidth - active.offsetWidth) / 2, behavior: 'smooth' });
+					}
 				}
 			});
 		}, { rootMargin: '-40% 0px -55% 0px' });
