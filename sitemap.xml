@@ -10,6 +10,11 @@
 
     <!-- Publication Pages -->
     <url>
+        <loc>https://ghamati.com/music-llm/</loc>
+        <priority>0.9</priority>
+        <changefreq>yearly</changefreq>
+    </url>
+    <url>
         <loc>https://ghamati.com/CAPA-AI/</loc>
         <priority>0.9</priority>
         <changefreq>yearly</changefreq>
