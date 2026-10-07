@@ -6,7 +6,7 @@
     <atom:link href="https://ghamati.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Essays and engineering notes on artificial intelligence, computer science, and software engineering.</description>
     <language>en-gb</language>
-    <lastBuildDate>Thu, 20 Aug 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Oct 2026 12:00:00 +0000</lastBuildDate>
 
     <!-- ITEMS: newest first. Item template (keep lastBuildDate above in sync):
     <item>
@@ -18,6 +18,15 @@
       <description>One-or-two-sentence summary of the post.</description>
     </item>
     -->
+
+    <item>
+      <title>Teaching a Small Transformer to Make Music</title>
+      <link>https://ghamati.com/music-llm/</link>
+      <guid isPermaLink="true">https://ghamati.com/music-llm/</guid>
+      <pubDate>Tue, 07 Oct 2026 12:00:00 +0000</pubDate>
+      <dc:creator>Khashayar Ghamati</dc:creator>
+      <description>Building a 45M-parameter text-to-music model by hand in PyTorch - EnCodec tokens, cross-attention, home-made pipeline parallelism on two GPUs, and the silent PCIe bug that nearly stopped it. With real training curves and generated audio.</description>
+    </item>
 
   </channel>
 </rss>
