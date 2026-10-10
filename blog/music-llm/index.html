@@ -63,7 +63,8 @@
           "dateModified": "2026-10-07",
           "author": {"@type": "Person", "name": "Khashayar Ghamati", "url": "https://ghamati.com"},
           "publisher": {"@type": "Person", "name": "Khashayar Ghamati", "url": "https://ghamati.com"},
-          "isPartOf": {"@id": "https://ghamati.com/blog/#blog"},
+          "isPartOf": [{"@id": "https://ghamati.com/blog/#blog"}, {"@type": "CreativeWorkSeries", "@id": "https://ghamati.com/blog/#series-music-llm", "name": "Music-LLM", "url": "https://ghamati.com/blog/"}],
+          "position": 1,
           "image": "https://ghamati.com/blog/music-llm/training-curves.png",
           "about": ["text-to-music generation", "pipeline parallelism", "distributed training", "transformer", "EnCodec", "classifier-free guidance"],
           "description": "The story of building and training a compact text-to-music transformer in pure PyTorch, with hand-written pipeline parallelism across two GPUs.",
@@ -93,6 +94,9 @@
 
   <style>
     .mll-article { max-width: 760px; margin: 0 auto; }
+    .mll-series { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0 0 28px; padding: 12px 18px;
+      border: 1px solid rgba(127,127,127,0.3); border-left: 4px solid var(--md-tertiary); border-radius: 12px; font-size: 0.95rem; }
+    .mll-series strong { color: var(--md-tertiary); letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.82rem; }
     .mll-article p { line-height: 1.75; }
     .mll-lede {
       font-size: 1.22rem; line-height: 1.7; opacity: 0.92;
@@ -160,6 +164,9 @@
 
 <main class="md-container md-sp-32">
 <article class="mll-article" id="story">
+
+  <p class="mll-series"><strong>Part 1 of 2</strong> <span>The Music-LLM series</span>
+    <a href="/blog/music-llm-1b/">Next: Part 2 &mdash; A Billion-Parameter Music Model: What 23&times; More Parameters Bought &rarr;</a></p>
 
   <p class="mll-lede">
     Type <em>&ldquo;jazz music&rdquo;</em>, and a small neural network writes thirty seconds
@@ -380,6 +387,9 @@
   <div class="mll-cta">
     <a href="https://huggingface.co/khashayargh/music-llm-45m" class="md-btn-filled" target="_blank" rel="noopener">
       <i class="fas fa-cube" aria-hidden="true"></i> Get the model on Hugging Face
+    </a>
+    <a href="/blog/music-llm-1b/" class="md-btn-outlined">
+      Part 2: the 1B model <i class="fas fa-arrow-right" aria-hidden="true"></i>
     </a>
     <a href="/blog/" class="md-btn-outlined">
       <i class="fas fa-arrow-left" aria-hidden="true"></i> More posts

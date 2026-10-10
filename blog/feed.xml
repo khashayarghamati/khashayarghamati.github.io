@@ -6,7 +6,7 @@
     <atom:link href="https://ghamati.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Essays and engineering notes on artificial intelligence, computer science, and software engineering.</description>
     <language>en-gb</language>
-    <lastBuildDate>Tue, 07 Oct 2026 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Oct 2026 12:00:00 +0000</lastBuildDate>
 
     <!-- ITEMS: newest first. Item template (keep lastBuildDate above in sync):
     <item>
@@ -20,12 +20,21 @@
     -->
 
     <item>
+      <title>A Billion-Parameter Music Model: What 23x More Parameters Bought</title>
+      <link>https://ghamati.com/blog/music-llm-1b/</link>
+      <guid isPermaLink="true">https://ghamati.com/blog/music-llm-1b/</guid>
+      <pubDate>Fri, 10 Oct 2026 12:00:00 +0000</pubDate>
+      <dc:creator>Khashayar Ghamati</dc:creator>
+      <description>Part 2 of the Music-LLM series. I scaled a text-to-music transformer from 45 million to 1 billion parameters, trained it on two GPUs, and measured what the extra parameters actually bought.</description>
+    </item>
+
+    <item>
       <title>Building a Small Transformer That Makes Music</title>
       <link>https://ghamati.com/blog/music-llm/</link>
       <guid isPermaLink="true">https://ghamati.com/blog/music-llm/</guid>
       <pubDate>Tue, 07 Oct 2026 12:00:00 +0000</pubDate>
       <dc:creator>Khashayar Ghamati</dc:creator>
-      <description>Building a 45M-parameter text-to-music model by hand in PyTorch - EnCodec tokens, cross-attention, home-made pipeline parallelism on two GPUs, and the silent PCIe bug that nearly stopped it. With real training curves and generated audio.</description>
+      <description>Part 1 of the Music-LLM series. Building a 45M-parameter text-to-music model by hand in PyTorch - EnCodec tokens, cross-attention, home-made pipeline parallelism on two GPUs, and the silent PCIe bug that nearly stopped it. With real training curves and generated audio.</description>
     </item>
 
   </channel>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="I scaled a text-to-music transformer from 45M to 1B parameters, trained it on two GPUs, and measured what the extra 23× parameters actually bought.">
+  <meta name="keywords" content="music generation, text-to-music, 1 billion parameters, model scaling, transformer, pipeline parallelism, EnCodec, T5 conditioning, MusicGen, FMA dataset, PyTorch, two GPU training">
+  <meta name="author" content="Khashayar Ghamati">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="A Billion-Parameter Music Model: What 23× More Parameters Bought">
+  <meta property="og:description" content="Scaling a text-to-music transformer 23x: the architecture, the training run, and what the extra parameters bought.">
+  <meta property="og:image" content="https://ghamati.com/blog/music-llm-1b/images/training-curves-1b.png">
+  <meta property="og:image:width" content="1560">
+  <meta property="og:image:height" content="962">
+  <meta property="og:image:alt" content="Training curves of the 1B-parameter music model: loss, per-step loss, learning rate and gradient norm">
+  <meta property="article:published_time" content="2026-10-10">
+  <meta property="article:author" content="Khashayar Ghamati">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ghamati.com/blog/music-llm-1b/">
+  <meta property="og:site_name" content="Khashayar Ghamati - AI Research">
+  <meta property="og:locale" content="en_GB">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="A Billion-Parameter Music Model: What 23× More Parameters Bought">
+  <meta name="twitter:description" content="23x more parameters bought 0.035 nats. Here is what I measured, and why.">
+  <meta name="twitter:image" content="https://ghamati.com/blog/music-llm-1b/images/training-curves-1b.png">
+
+  <link rel="canonical" href="https://ghamati.com/blog/music-llm-1b/">
+  <link rel="alternate" type="application/rss+xml" title="Khashayar Ghamati — Blog" href="/blog/feed.xml">
+
+  <title>A Billion-Parameter Music Model: What 23× More Parameters Bought</title>
+
+  <!-- Shared MD3 Design System -->
+  <link rel="stylesheet" href="/css/material-design.css?v=6">
+
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/fonts.css?v=1">
+
+  <link rel="preload" href="/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/SpaceGrotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=1" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=1"></noscript>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://ghamati.com/blog/music-llm-1b/#article",
+          "headline": "A Billion-Parameter Music Model: What 23× More Parameters Bought",
+          "alternativeHeadline": "Music-LLM 1B",
+          "mainEntityOfPage": "https://ghamati.com/blog/music-llm-1b/",
+          "url": "https://ghamati.com/blog/music-llm-1b/",
+          "datePublished": "2026-10-10",
+          "dateModified": "2026-10-10",
+          "author": {"@type": "Person", "name": "Khashayar Ghamati", "url": "https://ghamati.com"},
+          "publisher": {"@type": "Person", "name": "Khashayar Ghamati", "url": "https://ghamati.com"},
+          "isPartOf": [{"@id": "https://ghamati.com/blog/#blog"}, {"@type": "CreativeWorkSeries", "@id": "https://ghamati.com/blog/#series-music-llm", "name": "Music-LLM", "url": "https://ghamati.com/blog/"}],
+          "position": 2,
+          "image": "https://ghamati.com/blog/music-llm-1b/images/training-curves-1b.png",
+          "about": ["text-to-music generation", "model scaling", "pipeline parallelism", "distributed training", "transformer", "EnCodec"],
+          "description": "I scaled a text-to-music transformer from 45M to 1B parameters, trained it on two GPUs, and measured what the extra 23× parameters actually bought.",
+          "inLanguage": "en",
+          "wordCount": 1195,
+          "timeRequired": "PT5M",
+          "isAccessibleForFree": true
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ghamati.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://ghamati.com/blog/"},
+            {"@type": "ListItem", "position": 3, "name": "A Billion-Parameter Music Model: What 23× More Parameters Bought", "item": "https://ghamati.com/blog/music-llm-1b/"}
+          ]
+        }
+      ]
+    }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HV1K905FF2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HV1K905FF2');
+  </script>
+
+  <style>
+    .mll-article { max-width: 760px; margin: 0 auto; }
+    .mll-series { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0 0 28px; padding: 12px 18px;
+      border: 1px solid rgba(127,127,127,0.3); border-left: 4px solid var(--md-tertiary); border-radius: 12px; font-size: 0.95rem; }
+    .mll-series strong { color: var(--md-tertiary); letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.82rem; }
+    .mll-article p, .mll-article li { line-height: 1.75; }
+    .mll-article h2 { margin-top: 64px; }
+    .mll-article h3 { margin-top: 36px; }
+    .mll-article code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.88em;
+      background: rgba(127,127,127,0.16); padding: 0.1em 0.35em; border-radius: 5px; }
+    .mll-lede { font-size: 1.22rem; line-height: 1.7; opacity: 0.92;
+      border-left: 3px solid var(--md-primary); padding-left: 20px; margin: 8px 0 40px; }
+    .mll-small { font-size: 0.88rem; opacity: 0.75; }
+    .mll-figure { margin: 36px 0; }
+    .mll-figure img, .mll-figure svg { width: 100%; height: auto; border-radius: 14px; display: block; }
+    .mll-figure img { border: 1px solid rgba(127,127,127,0.25); background: #fff; }
+    .mll-figure svg { background: #fff; border: 1px solid rgba(127,127,127,0.25); }
+    .mll-figure svg text { fill: #1f2937; font-family: Inter, system-ui, sans-serif; }
+    .mll-figure svg text.m { fill: #6b7280; }
+    .mll-figure figcaption { margin-top: 12px; font-size: 0.92rem; opacity: 0.75; line-height: 1.55; text-align: center; }
+    .mll-audio-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 28px 0; }
+    .mll-audio-card { padding: 18px 18px 14px; border-radius: 14px; border: 1px solid rgba(127,127,127,0.3); }
+    .mll-audio-card .t { font-weight: 600; margin-bottom: 10px; }
+    .mll-audio-card audio { width: 100%; }
+    .mll-stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin: 32px 0; }
+    .mll-stat { text-align: center; padding: 18px 10px; border-radius: 14px; border: 1px solid rgba(127,127,127,0.3); }
+    .mll-stat .n { font-family: var(--md-font-display), sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--md-primary); }
+    .mll-stat .l { font-size: 0.85rem; opacity: 0.75; margin-top: 4px; }
+    .mll-toc { margin: 32px 0; }
+    .mll-toc ol { margin: 8px 0 0; padding-left: 1.2em; }
+    .mll-callout { margin: 28px 0; padding: 14px 20px; border-radius: 12px; border: 1px solid rgba(127,127,127,0.3);
+      border-left: 4px solid var(--md-primary); }
+    .mll-callout--warn { border-left-color: var(--md-tertiary); }
+    .mll-callout p { margin: 6px 0; }
+    .mll-pre { margin: 20px 0; padding: 16px 18px; border-radius: 14px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6;
+      border: 1px solid rgba(127,127,127,0.3); background: rgba(127,127,127,0.08); }
+    .mll-pre code { background: none; padding: 0; font-size: inherit; }
+    .md-data-table td.n, .md-data-table th.n { text-align: right; font-variant-numeric: tabular-nums; }
+    .mll-cta { display: flex; flex-wrap: wrap; gap: 16px; margin: 32px 0 8px; }
+    .mll-cta a { margin: 0; }
+    @media (max-width: 600px) {
+      .mll-figure { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .mll-figure svg { min-width: 720px; }
+      .mll-figure--wide svg, .mll-figure--wide img { min-width: 900px; }
+      .mll-lede { font-size: 1.08rem; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#story" class="md-skip-link">Skip to content</a>
+
+<!-- Top App Bar -->
+<nav class="md-top-app-bar" id="top-bar">
+  <span class="md-top-app-bar__title">Music-LLM 1B</span>
+  <div class="md-top-app-bar__nav">
+    <a href="/"><i class="fas fa-home"></i> Home</a>
+    <a href="/blog/"><i class="fas fa-book-open"></i> Blog</a>
+    <a href="#grow"><i class="fas fa-up-right-and-down-left-from-center"></i> Scaling</a>
+    <a href="#bug"><i class="fas fa-bug"></i> The bug</a>
+    <a href="#run"><i class="fas fa-chart-line"></i> Training</a>
+    <a href="#listen"><i class="fas fa-music"></i> Listen</a>
+    <a href="#bought"><i class="fas fa-scale-balanced"></i> What it bought</a>
+    <a href="#meaning"><i class="fas fa-flag-checkered"></i> What next</a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="md-hero">
+  <h1 class="md-display-medium">A Billion-Parameter Music Model: What 23× More Parameters Bought</h1>
+  <p class="md-hero__subtitle">Music-LLM &middot; Part 2 &middot; scaling note &mdash; 10 October 2026 &middot; 5 min read</p>
+</header>
+
+<main class="md-container md-sp-32">
+<article class="mll-article" id="story">
+
+<p class="mll-series"><strong>Part 2 of 2</strong> <span>The Music-LLM series</span>
+  <a href="/blog/music-llm/">&larr; Part 1: Building a Small Transformer That Makes Music</a></p>
+
+<p class="mll-lede">I took a small text-to-music transformer, made it 23 times bigger, trained it on two
+GPUs, and then measured, as carefully as I could, what actually changed. The honest answer is
+&ldquo;less than I hoped, and for a clear reason.&rdquo;</p>
+
+<div class="mll-stat-row">
+  <div class="mll-stat"><div class="n">1.03 B</div><div class="l">parameters (45 M before)</div></div>
+  <div class="mll-stat"><div class="n">10.3 h</div><div class="l">to train, 2× RTX A6000</div></div>
+  <div class="mll-stat"><div class="n">5.362</div><div class="l">best validation loss</div></div>
+  <div class="mll-stat"><div class="n">0.035</div><div class="l">nats better than the 45 M model, same clips</div></div>
+</div>
+
+<nav class="md-card-outlined md-sp-24 mll-toc" aria-label="In this post"><strong>In this post</strong>
+<ol>
+  <li><a href="#what">The model, in one picture</a></li>
+  <li><a href="#grow">Making it 23&times; bigger</a></li>
+  <li><a href="#bug">Six experiments that all died, and the one wrong number</a></li>
+  <li><a href="#run">The training run</a></li>
+  <li><a href="#listen">Listen</a></li>
+  <li><a href="#bought">What the extra parameters bought</a></li>
+  <li><a href="#meaning">What it means, and what comes next</a></li>
+</ol></nav>
+
+<h2 class="md-headline-large" id="what">1. The model, in one picture</h2>
+<p>The system has three stages. A frozen <strong>T5</strong> encoder turns a prompt such as
+<code>"jazz music"</code> into vectors. A frozen <strong>EnCodec</strong> codec turns audio into a grid of
+integer tokens: 4 codebooks, 2,048 possible values each, 50 frames per second. The part I train is the
+middle: a transformer decoder that predicts the next audio tokens, looking at the music so far
+(self-attention) and at the prompt (cross-attention in every block). EnCodec then turns the predicted
+tokens back into a waveform.</p>
+<figure class="mll-figure mll-figure--wide">
+  <img src="images/architecture-1b.png" alt="Architecture: text prompt through frozen T5 into a 16-block transformer decoder with cross-attention, four 2048-way heads, decoded to audio by frozen EnCodec; EnCodec tokens feed the decoder's embedding" width="1612" height="674">
+  <figcaption>The 1B configuration: 16 blocks, width 2,048, 16 attention heads. T5 and EnCodec are frozen and are not part of the parameter count.</figcaption>
+</figure>
+<p>This is the same recipe as my earlier 45-million-parameter model. Only three numbers change.</p>
+
+<h2 class="md-headline-large" id="grow">2. Making it 23× bigger</h2>
+<p>The size comes from three settings: the width <em>d</em>, the number of blocks <em>L</em>, and the number of heads.
+Everything else, the data format, the loss and the code, is identical.</p>
+<div class="md-table-wrapper"><table class="md-data-table">
+<tr><th></th><th class="n">45M</th><th class="n">1B</th></tr>
+<tr><td>width d</td><td class="n">512</td><td class="n">2,048</td></tr>
+<tr><td>blocks L</td><td class="n">8</td><td class="n">16</td></tr>
+<tr><td>attention heads</td><td class="n">8</td><td class="n">16</td></tr>
+<tr><td>parameters</td><td class="n">44,876,800</td><td class="n">1,027,018,752</td></tr>
+</table></div>
+<p>The parameter count is not an estimate. With K = 4 codebooks, V = 2,048 tokens each, a 1,500-frame context
+T and a 768-wide T5 output D<sub>t</sub>, it is exactly</p>
+<pre class="mll-pre"><code>N = K(V+1)·d  +  T·d  +  L·(14d² + 2·D_t·d + 16d)  +  2d  +  d·K·V
+  = 16,785,408 + 3,072,000 + 16 × 61,898,752 + 4,096 + 16,777,216
+  = 1,027,018,752</code></pre>
+<p>Almost all of it (990 M) is inside the 16 blocks, so doubling the width roughly quadruples the cost.</p>
+
+<h3 class="md-title-large">Why a billion parameters does not fit on one training GPU</h3>
+<p>Training needs far more memory than the weights. With the AdamW optimizer every parameter carries four
+float32 numbers: the weight, its gradient and two optimizer statistics, 16 bytes in total. For a
+billion parameters that is about <strong>16 GB</strong> before a single activation is stored.</p>
+<figure class="mll-figure"><svg viewBox="0 0 720 230" role="img" aria-label="Training state memory for 45M and 1B models">
+  <text x="20" y="28" font-size="14" font-weight="600">Training state per model (16 bytes per parameter)</text>
+  <text x="20" y="72" font-size="13">45M</text>
+  <rect x="80" y="56" width="22" height="24" rx="3" fill="#ea580c"/>
+  <text x="112" y="73" font-size="12" class="m">0.72 GB</text>
+  <text x="20" y="132" font-size="13">1B</text>
+  <rect x="80" y="112" width="123" height="24" rx="3" fill="#2563eb"/>
+  <rect x="203" y="112" width="123" height="24" rx="3" fill="#3b82f6" opacity=".75"/>
+  <rect x="326" y="112" width="246" height="24" rx="3" fill="#60a5fa" opacity=".55"/>
+  <text x="80" y="156" font-size="11" class="m">weights 4.1 GB</text>
+  <text x="203" y="156" font-size="11" class="m">gradients 4.1 GB</text>
+  <text x="326" y="156" font-size="11" class="m">Adam statistics 8.2 GB</text>
+  <text x="582" y="129" font-size="12" class="m">16.4 GB total</text>
+  <text x="20" y="200" font-size="12" class="m">Split over two 48 GB GPUs, the state fits easily; the activations are what you have to manage.</text>
+</svg></figure>
+<p>Four things made the run fit and keep both GPUs busy:</p>
+<ul>
+  <li><strong>Pipeline parallelism.</strong> The 16 blocks are split across the two GPUs. A batch is cut into
+  micro-batches that flow through the stages, the scheme from the GPipe paper, written by hand.</li>
+  <li><strong>Gradient accumulation.</strong> A micro-batch is a piece of the batch whose gradient is added to the
+  others, so the update is identical to a single big batch. The code starts with one micro-batch for the whole
+  step and doubles the count only until the worst GPU's peak memory is under 85%. If an out-of-memory error
+  still happens mid-run, it backs off the same way instead of crashing.</li>
+  <li><strong>Mixed precision.</strong> bfloat16 for the matrix multiplications, float32 for the weights, the
+  optimizer and the loss.</li>
+  <li><strong>Fused attention.</strong> PyTorch's built-in scaled-dot-product attention with the causal mask applied
+  inside the kernel, instead of materialising a 1,500 × 1,500 mask in every layer.</li>
+</ul>
+
+<h2 class="md-headline-large" id="bug">3. Six experiments that all died, and the one wrong number</h2>
+<p>The first launch tuned six learning rates, and all six died within their first four steps. The cause was the same
+hardware quirk I wrote about in <a href="/blog/music-llm/">Part 1</a>: direct GPU-to-GPU copies over PCIe silently corrupt
+data, and one small cross-GPU operation I had not rerouted through the CPU was still using that path. The loss was a
+perfectly normal 7.9; a single number was wrong. Every result below was measured after the fix.</p>
+<h2 class="md-headline-large" id="run">4. The training run</h2>
+<p>The 1B model starts from random weights, so its loss begins at 8.03, just above pure guessing among 2,048 tokens
+(ln 2048 = 7.62). It trained for 12,000 steps in 10.3 hours. A short learning-rate sweep found that the rate barely
+matters across a tenfold range, and that the best one is about 5&times; lower than for the 45 M model: bigger models want
+smaller steps.</p>
+<figure class="mll-figure">
+  <img src="images/training-curves-1b.png" alt="Training curves of the 1B model: loss, per-step loss, learning rate and gradient norm" loading="lazy" width="1560" height="962">
+  <figcaption>Validation loss fell at every one of the 30 evaluations, to 5.362.</figcaption>
+</figure>
+<p>By the end it had started to memorise: the training audio is only about 206 hours, small for a billion parameters, so
+the model ran out of new things to learn before it ran out of capacity.</p>
+
+<h2 class="md-headline-large" id="listen">5. Listen</h2>
+<p>One draw per prompt, 30 seconds each, no re-rolls and no cherry-picking. A lower loss does not by itself
+mean better-sounding music, so I make no quality claim: judge by ear. Expect genre-flavoured texture, not songs.</p>
+<div class="mll-audio-row">
+  <div class="mll-audio-card"><div class="t">blues music</div><audio controls preload="none" src="audio/blues.mp3"></audio></div>
+  <div class="mll-audio-card"><div class="t">classical music</div><audio controls preload="none" src="audio/classical.mp3"></audio></div>
+  <div class="mll-audio-card"><div class="t">country music</div><audio controls preload="none" src="audio/country.mp3"></audio></div>
+  <div class="mll-audio-card"><div class="t">easy listening music</div><audio controls preload="none" src="audio/easy-listening.mp3"></audio></div>
+  <div class="mll-audio-card"><div class="t">electronic music</div><audio controls preload="none" src="audio/electronic.mp3"></audio></div>
+  <div class="mll-audio-card"><div class="t">experimental music</div><audio controls preload="none" src="audio/experimental.mp3"></audio></div>
+  <div class="mll-audio-card"><div class="t">folk music</div><audio controls preload="none" src="audio/folk.mp3"></audio></div>
+  <div class="mll-audio-card"><div class="t">hip-hop music</div><audio controls preload="none" src="audio/hip-hop.mp3"></audio></div>
+  <div class="mll-audio-card"><div class="t">instrumental music</div><audio controls preload="none" src="audio/instrumental.mp3"></audio></div>
+  <div class="mll-audio-card"><div class="t">international music</div><audio controls preload="none" src="audio/international.mp3"></audio></div>
+  <div class="mll-audio-card"><div class="t">jazz music</div><audio controls preload="none" src="audio/jazz.mp3"></audio></div>
+  <div class="mll-audio-card"><div class="t">old-time / historic music</div><audio controls preload="none" src="audio/old-time-historic.mp3"></audio></div>
+  <div class="mll-audio-card"><div class="t">pop music</div><audio controls preload="none" src="audio/pop.mp3"></audio></div>
+  <div class="mll-audio-card"><div class="t">rock music</div><audio controls preload="none" src="audio/rock.mp3"></audio></div>
+  <div class="mll-audio-card"><div class="t">soul-rnb music</div><audio controls preload="none" src="audio/soul-rnb.mp3"></audio></div>
+</div>
+<p class="mll-small">Compressed to mp3 for this page; the original 32 kHz wav files are in the model repository.</p>
+
+<h2 class="md-headline-large" id="bought">6. What the extra parameters bought</h2>
+<p>The logged validation losses of the two models (5.362 for the 1B and 5.410 for the 45M) were measured on different
+held-out clips, so they cannot be compared directly. To compare fairly I scored both checkpoints on the same 120 clips
+that neither model trained on. There the 1B reaches a cross-entropy of 5.320 against 5.355 for the 45M: 23&times; the
+parameters bought <strong>0.035 nats</strong>. A real gain, but a small one.</p>
+<div class="mll-callout mll-callout--warn"><p><strong>Caveat.</strong> This scores real music, not how generated audio sounds.
+A lower loss does not by itself mean better-sounding music, so judge the samples above by ear.</p></div>
+
+<h2 class="md-headline-large" id="meaning">7. What it means, and what comes next</h2>
+<ul>
+  <li><strong>Parameters alone are not enough.</strong> With so little distinct data per parameter, the model has
+  run out of things to learn well before it runs out of capacity.</li>
+  <li><strong>More steps would mostly memorise.</strong> The curve is flat and the gap between training and held-out
+  loss is growing.</li>
+  <li><strong>The next lever is data</strong>: a larger music corpus, or more varied captions than 15 two-word genre
+  prompts, before another jump in size.</li>
+</ul>
+<h2 class="md-headline-large">Reproduce and links</h2>
+<ul>
+  <li>Model, weights (4.3 GB), samples and a single-file inference script:
+  <a href="https://huggingface.co/khashayargh/music-llm-1b-fma">huggingface.co/khashayargh/music-llm-1b-fma</a></li>
+  <li>The 45 M predecessor:
+  <a href="https://huggingface.co/khashayargh/music-llm-45m-fma">huggingface.co/khashayargh/music-llm-45m-fma</a></li>
+  <li>The first post in this series, covering the architecture, the pipeline and the PCIe bug hunt:
+  <a href="/blog/music-llm/">Building a Small Transformer That Makes Music</a></li>
+</ul>
+<pre class="mll-pre"><code>pip install torch numpy transformers sentencepiece soundfile huggingface_hub
+hf download khashayargh/music-llm-1b-fma --local-dir music-llm-1b-fma
+cd music-llm-1b-fma &amp;&amp; python example.py "jazz music" --seconds 15</code></pre>
+
+
+<div class="mll-cta">
+  <a href="https://huggingface.co/khashayargh/music-llm-1b-fma" class="md-btn-filled" target="_blank" rel="noopener">
+    <i class="fas fa-cube" aria-hidden="true"></i> Get the 1B model on Hugging Face
+  </a>
+  <a href="/blog/music-llm/" class="md-btn-outlined">
+    <i class="fas fa-arrow-left" aria-hidden="true"></i> Part 1: the 45M model
+  </a>
+  <a href="/blog/" class="md-btn-outlined">More posts</a>
+</div>
+
+<p class="mll-small" style="margin-top:48px;"><strong>References.</strong> FMA: Defferrard et al., ISMIR 2017 (arXiv:1612.01840). MusicGen: Copet et al., NeurIPS 2023
+(arXiv:2306.05284). EnCodec: Défossez et al., 2022 (arXiv:2210.13438). T5: Raffel et al., JMLR 2020 (arXiv:1910.10683).
+GPipe: Huang et al., NeurIPS 2019 (arXiv:1811.06965). The model is for research and education; FMA tracks carry
+Creative Commons licences, many of them non-commercial.</p>
+
+</article>
+</main>
+
+<footer style="background-color:#080d22;color:#9aa6d8;text-align:center;padding:48px 24px;">
+  <div class="md-container">
+    <p class="md-body-medium" style="margin-bottom:16px;">
+      <a href="/blog/" style="color:inherit;">All posts</a> &nbsp;&middot;&nbsp;
+      <a href="/" style="color:inherit;">Home</a> &nbsp;&middot;&nbsp;
+      <a href="/blog/feed.xml" style="color:inherit;"><i class="fas fa-rss" aria-hidden="true"></i> RSS</a>
+    </p>
+    <p class="md-body-large">&copy; 2026 Khashayar Ghamati. All rights reserved.</p>
+    <p class="md-body-medium" style="opacity:0.8;margin-top:8px;">Building AI systems that keep learning</p>
+  </div>
+</footer>
+
+</body>
+</html>
